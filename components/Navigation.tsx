@@ -42,7 +42,7 @@ export default function Navigation() {
             <Link href={'/developers/pvm/'} _hover={{ color: '#EAAA00' }}>NEST PVM</Link>
           </PopoverContent>
         </Popover>
-        <Link href={'/docs/Overview/What-is-NEST-Protocol/'} _hover={{ color: '#EAAA00' }}>Doc</Link>
+        <Link href={'/docs/'} _hover={{ color: '#EAAA00' }}>Doc</Link>
         <Link href={'/blogs/'} color={router.pathname === '/blogs' ? '#EAAA00' : '#003232'} _hover={{ color: '#EAAA00' }}>Blog</Link>
         <Popover trigger={'hover'}>
           <PopoverTrigger>

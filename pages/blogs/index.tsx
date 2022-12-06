@@ -4,22 +4,22 @@ import Footer from "../../components/Footer";
 
 const Page = () => {
   return (
-    <Stack px={'45px'}>
+    <Stack>
       <Navigation/>
-      <Stack spacing={'44px'}>
-        <Wrap justify={'space-between'}>
-          <WrapItem>
-            <Stack w={'400px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
+      <Stack spacing={'44px'} px={'45px'}>
+        <Wrap justify={'space-between'} spacing={'40px'}>
+          <WrapItem w={'30%'} bg={"red"} borderRadius={'20px'}>
+            <Stack h={'352px'} >
 
             </Stack>
           </WrapItem>
-          <WrapItem>
-            <Stack w={'400px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
+          <WrapItem w={'30%'} bg={"red"} borderRadius={'20px'}>
+            <Stack h={'352px'}>
 
             </Stack>
           </WrapItem>
-          <WrapItem>
-            <Stack w={'400px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
+          <WrapItem w={'30%'} bg={"red"} borderRadius={'20px'}>
+            <Stack h={'352px'}>
 
             </Stack>
           </WrapItem>
