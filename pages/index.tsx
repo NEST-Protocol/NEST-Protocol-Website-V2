@@ -6,7 +6,7 @@ import {
   Button,
   chakra,
   Box,
-  Link, Divider
+  Link, Divider, useMediaQuery
 } from "@chakra-ui/react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
@@ -16,11 +16,14 @@ import {ChevronDownIcon, ChevronRightIcon} from "@chakra-ui/icons";
 import {AiOutlineGithub, AiOutlineTwitter} from "react-icons/ai";
 import {FaTelegramPlane} from "react-icons/fa";
 import Head from "next/head";
+import NavigationMobile from "../components/NavigationMobile";
+import FooterMobile from "../components/FooterMobile";
 
 export default function Home() {
   const [start, setStart] = useState(0)
   const [selectedWork, setSelectedWork] = useState(0)
   const [scroll, setScroll] = useState(0)
+  const [isDesktop] = useMediaQuery("(min-width: 768px)");
 
   const work = [
     {
@@ -61,7 +64,7 @@ export default function Home() {
     install('G-ELV55124T4');
   }, [])
 
-  return (
+  const pcPage = (
     <Stack bgSize={'cover'} bgImage={"image/Home/Home_bg.jpg"} bgPosition={"center"}>
       <Head>
         <title>NEST Protocol | The most important infrastructure after ETH</title>
@@ -445,4 +448,289 @@ export default function Home() {
       <Footer/>
     </Stack>
   )
+
+  const mobilePage = (
+    <Stack h={'100%'} bgImage={'/image/Home/01-Phone-bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+      <NavigationMobile/>
+      <Stack textAlign={"center"} pt={'150px'} pb={'80px'}>
+        <Text fontSize={'25px'} fontWeight={'bold'}>Cyber Ink</Text>
+        <Text fontSize={'12.5px'} fontWeight={'600'}>is a collection of 10,000 NFTs on the blockchain.<br/>
+          What's more, each Cyber Ink can unlock the <br/>NEST Fi membership and additional benefits.</Text>
+        <chakra.img src={'/image/Home/nft04@2x.png'} objectFit={"cover"} overflow={"hidden"} h={'310px'} onClick={() => {
+          window.open('https://finance.nestprotocol.org/#/NFTAuction', '_blank')
+        }} />
+      </Stack>
+      <Stack textAlign={"center"} pt={'150px'} pb={'150px'}>
+        <Text fontSize={'25px'} fontWeight={'bold'}>NEST PROTOCOL<br/>THE MOST<br/>IMPORTANT<br/>INFRASTRUCTURE<br/>AFTER
+          ETH</Text>
+        <Text fontSize={'12.5px'} fontWeight={'600'}>NEST Protocol is the stochastic<br/>computer based on PVM,<br/>enables
+          the generation and<br/>programming of stochastic assets.</Text>
+      </Stack>
+      <Stack px={'24px'} pb={'62px'}>
+        <Stack align={"center"} textAlign={"center"} bg={'rgba(255,255,255, 0.7)'} py={'58px'} h={'560px'}
+               overflow={"scroll"}
+               borderRadius={'20px'}>
+          <Text fontSize={'25px'} fontWeight={'bold'}>What is<br/>stochastic asset?</Text>
+          <chakra.img src={'/image/Home/01-icon-01@2x.png'} alt={''} w={'150px'} py={'50px'}/>
+          <Stack align={"center"} pb={'100px'}>
+            <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>Stochastic Asset is an on-chain asset that can
+              be issued and destroyed in response to random information flows</Text>
+          </Stack>
+          <Stack align={"center"} pb={'100px'}>
+            <chakra.img src={'/image/Home/01-icon-04@2x.png'} alt={''} w={'55px'} pb={'50px'}/>
+            <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>Token is information asset</Text>
+            <Text w={'70%'} fontSize={'12.5px'} fontWeight={'600'}>
+              The blockchain mechanism prevents consensus information (such as wallet balance) from being spent
+              twice. The source of token value and the basis for token becoming an asset is the scarcity of
+              consensus information. As a result, we refer to a token as an information asset that can generate
+              scarce information and is a unit that measures the value of information.
+            </Text>
+          </Stack>
+          <Stack align={"center"} pb={'100px'}>
+            <chakra.img src={'/image/Home/01-icon-05@2x.png'} alt={''} w={'80px'} pb={'50px'}/>
+            <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>What is the difference between BTC, ETH and
+              NEST?</Text>
+            <Text w={'70%'} fontSize={'12.5px'} fontWeight={'600'}>
+              The mechanisms of BTC's UTXO and ETH's EVM both ensure that the quantity of tokens will not increase
+              during the transaction. NEST's PVM extends this scenario by controlling the expected value rather than
+              by controlling the quantity, which will lead to a new paradigm revolution.
+            </Text>
+          </Stack>
+          <Stack align={"center"}>
+            <chakra.img src={'/image/Home/01-icon-06@2x.png'} alt={''} w={'30px'} pb={'50px'}/>
+            <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>Why do blockchain need stochastic assets?</Text>
+            <Text w={'70%'} fontSize={'12.5px'} fontWeight={'600'}>
+              Almost all financial applications can be thought of as the acquisition of stochastic assets with
+              varying risk-return structures. Stochastic assets are a more natural way for building on-chain
+              finance, such as decentralized derivatives.
+            </Text>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Stack textAlign={"center"} align={"center"} bg={'rgba(255,255,255,0.7)'} py={'55px'}>
+        <Text fontSize={'25px'} fontWeight={'bold'}>How does<br/>NEST Protocol work?</Text>
+        <Stack align={"center"} spacing={0} fontSize={'15px'} fontWeight={600}
+               onClick={() => setSelectedWork(0)} pt={'50px'}
+               cursor={'pointer'}>
+          <Text>Program stochastic asset</Text>
+          <Text color={'#00A0E9'}>PVM</Text>
+          <ChevronDownIcon color={'#00A0E9'}/>
+        </Stack>
+        <HStack align={"end"} spacing={'-60px'} pb={'40px'}>
+          <Stack w={'150px'} align={"end"} zIndex={'10'}>
+            <Stack align={"center"} spacing={0} fontSize={'15px'} fontWeight={600}
+                   onClick={() => setSelectedWork(1)} cursor={'pointer'}>
+              <Text textAlign={'center'}>Provide random<br/>information flow</Text>
+              <Text color={'#00A0E9'}>NEST Oracle</Text>
+              <ChevronDownIcon color={'#00A0E9'}/>
+            </Stack>
+          </Stack>
+          <chakra.img pb={'80px'} src={'/image/Home/01-icon-02@2x.png'} w={'160px'} alt={''}/>
+          <Stack align={"start"} w={'150px'}>
+            <Stack align={"center"} spacing={0} fontSize={'15px'} fontWeight={600}
+                   onClick={() => setSelectedWork(2)} cursor={'pointer'}>
+              <Text textAlign={'center'}>Generate<br/>stochastic assets</Text>
+              <Text color={'#00A0E9'}>OMM</Text>
+              <ChevronDownIcon color={'#00A0E9'}/>
+            </Stack>
+          </Stack>
+        </HStack>
+        <Text fontSize={'16.5px'} fontWeight={'bold'}>{work[selectedWork].type}</Text>
+        <Text w={'80%'} fontSize={'12.5px'} fontWeight={'600'}>{work[selectedWork].title}</Text>
+        <Text w={'70%'} fontSize={'12.5px'} fontWeight={'600'} color={'#7D7D7D'}>{work[selectedWork].desc} <Link
+          href={work[selectedWork].link} isExternal color={'#00A0E9'}>Learn more <ChevronRightIcon/></Link></Text>
+      </Stack>
+      <Stack textAlign={"center"} align={"center"} py={'62px'}>
+        <Text fontSize={'25px'} fontWeight={'bold'}>Development<br/>path</Text>
+        <Text fontSize={'12.5px'} fontWeight={'bold'}>The NEST community always insists<br/>on decentralization and
+          innovation</Text>
+        <HStack w={'full'} justify={"center"} py={'50px'} spacing={'-16px'}>
+          <chakra.div w={'1px'} h={'880px'} bg={'#C9C9C9'}/>
+          <Stack spacing={'32px'}>
+            {developmentPath.map((item) => (
+                <HStack key={item.title} textAlign={"start"} align={item.desc !== '' ? "start" : 'center'}
+                        spacing={'16px'}>
+                  <chakra.img src={'/image/Home/01-icon-03.png'} h={'20px'} w={'30px'} alt={''}/>
+                  <Text fontSize={'12.5px'} fontWeight={'bold'}
+                        w={item.desc !== '' ? '80px' : ''}> {item.title}</Text>
+                  <Text fontSize={'10.5px'} fontWeight={'600'} w={item.desc !== '' ? '160px' : ''}>{item.desc}</Text>
+                </HStack>
+              )
+            )}
+          </Stack>
+        </HStack>
+      </Stack>
+      <Stack textAlign={"center"} align={"center"} pt={'66px'} bg={'rgba(255,255,255,0.7)'} py={'65px'}>
+        <Text fontSize={'25px'} fontWeight={'bold'}>More</Text>
+        <Text fontSize={'16.5px'} fontWeight={'bold'}>Over 1 MILLION community<br/>members, Join us</Text>
+        <Stack pt={'30px'} align={"center"}>
+          <AiOutlineTwitter fontSize={'24px'} color={'#003232'}/>
+          <Link color={'#00A0E9'} fontWeight={'600'} fontSize={'12.5px'} isExternal onClick={() => {
+            gtag('event', 'clickTwitter', {
+              'from': 'desktop header'
+            })
+          }}
+                href={'https://twitter.com/NEST_Protocol'}>@NEST_Protocol <ChevronRightIcon/></Link>
+        </Stack>
+        <Stack pt={'30px'} align={"center"}>
+          <FaTelegramPlane fontSize={'24px'} color={'#003232'}/>
+          <Link href={'https://t.me/NEST_Community'} isExternal onClick={() => {
+            gtag('event', 'clickTelegram', {
+              'from': 'desktop header',
+              'value': '@NEST_Community'
+            })
+          }}>
+            <HStack align={"center"}>
+              <chakra.img src={'/image/Home/icon_8.svg'} w={'14px'} h={'14px'}/>
+              <Text fontSize={'12.5px'} fontWeight={'600'} color={'#00A0E9'}>@NEST_Community</Text>
+              <ChevronRightIcon color={'#00A0E9'}/>
+            </HStack>
+          </Link>
+          <Link href={'https://t.me/nest_chat'} isExternal onClick={() => {
+            gtag('event', 'clickTelegram', {
+              'from': 'desktop header',
+              'value': '@nest_chat'
+            })
+          }}>
+            <HStack align={"center"}>
+              <chakra.img src={'/image/Home/icon_7.svg'} w={'14px'} h={'14px'}/>
+              <Text fontSize={'12.5px'} fontWeight={'600'} color={'#00A0E9'}>@nest_chat</Text>
+              <ChevronRightIcon color={'#00A0E9'}/>
+            </HStack>
+          </Link>
+        </Stack>
+        <Stack pt={'30px'} align={"center"}>
+          <AiOutlineGithub fontSize={'24px'} color={'#003232'}/>
+          <Link color={'#00A0E9'} fontWeight={'600'} fontSize={'12.5px'} href={'https://github.com/nest-protocol'} onClick={() => {
+            gtag('event', 'clickGithub', {
+              'from': 'desktop header'
+            })
+          }}>For
+            developers <ChevronRightIcon/></Link>
+        </Stack>
+        <HStack pt={'60px'} pb={'30px'}>
+          <Stack w={'100px'} align={"center"}>
+            <Link href={'https://www.coinbase.com/price/nest-protocol'} isExternal>
+              <chakra.img src={'/image/Home/01-icon-coinbase.png'} h={'17px'} alt={''}/>
+            </Link>
+          </Stack>
+          <Stack w={'100px'} align={"center"}>
+            <Link href={'https://www.huobi.com/'} isExternal>
+              <chakra.img src={'/image/Home/01-icon-huobiresearch.png'} h={'17px'} alt={''}/>
+            </Link>
+          </Stack>
+          <Stack w={'100px'} align={"center"}>
+            <Link href={'https://www.mexc.com/exchange/NEST_USDT'} isExternal>
+              <chakra.img src={'/image/Home/01-icon-mexc.png'} h={'22.5px'} alt={''}/>
+            </Link>
+          </Stack>
+        </HStack>
+        <HStack pb={'50px'}>
+          <Stack w={'100px'} align={"center"}>
+            <Link href={'https://www.lbank.info/exchange/nest/usdt'} isExternal>
+              <chakra.img src={'/image/Home/01-icon-LBANK.svg'} h={'22.5px'} alt={''}/>
+            </Link>
+          </Stack>
+          <Stack w={'100px'} align={"center"}>
+            <Link href={'https://www.bibox.com/en/exchange/basic/NEST_USDT'} isExternal>
+              <chakra.img src={'/image/Home/01-icon-Bibox.svg'} h={'22.5px'} alt={''}/>
+            </Link>
+          </Stack>
+          <Stack w={'100px'} align={"center"}>
+            <Link href={'https://www.gate.io/trade/NEST_USDT'} isExternal>
+              <chakra.img src={'/image/Home/01-icon-Gate.svg'} w={'100px'} h={'22.5px'} alt={''}/>
+            </Link>
+          </Stack>
+        </HStack>
+        <Text fontSize={'12.5px'} fontWeight={'bold'}>Listed on more than 15 exchanges</Text>
+      </Stack>
+      <Stack align={"center"} py={'62px'}>
+        <Text fontSize={'25px'} fontWeight={'bold'}>Blog</Text>
+        <Stack px={'24px'} w={'full'} py={'38px'}>
+          <Stack bg={"white"} spacing={0} borderRadius={'20px'}>
+            <chakra.img src={'/image/Home/01-card-01@2x.png'} alt={''}/>
+            <Stack px={'35px'} py={'25px'} cursor={"pointer"} onClick={() => {
+              window.open('/blog/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST', '_blank')
+            }}>
+              <Text fontSize={'12.5px'} fontWeight={'bold'}>Coinbase Announces Planned Listing<br/>of Tokens, Adds
+                $NEST to ‘<br/>Experimental Asset’
+                Label</Text>
+              <Text fontSize={'10.5px'} fontWeight={'600'} color={'#878787'}>Leading United States-based <br/>cryptocurrency
+              </Text>
+              <Text fontSize={'10.5px'} fontWeight={'500'} color={'#878787'}>July 25, 2022</Text>
+            </Stack>
+          </Stack>
+        </Stack>
+        <Stack>
+          <Button variant={'outline'} onClick={() => {
+            window.open('/blogs/')
+          }}>More</Button>
+        </Stack>
+      </Stack>
+      <Stack align={"center"} spacing={'38px'}>
+        <Text fontSize={'25px'} fontWeight={'bold'} textAlign={"center"}>Integrations &<br/>Partners</Text>
+        <Stack bg={'rgba(255,255,255, 0.7)'} w={'full'} align={"center"} spacing={'35px'} py={'100px'}>
+          <HStack spacing={'40px'}>
+            <Link href={'https://www.huobi.com/en-us/exchange/nest_usdt'} isExternal>
+              <chakra.img src={"/svg/huobi.svg"} h={'25px'} alt={'huobi'}/>
+            </Link>
+            <Link href={'https://www.binance.com/'} isExternal>
+              <chakra.img src={"/svg/binance.svg"} h={'25px'} alt={'binance'}/>
+            </Link>
+            <Link href={'https://www.coinbase.com/price/nest-protocol'} isExternal>
+              <chakra.img src={"/svg/Coinbase.svg"} h={'25px'} alt={'Coinbase'}/>
+            </Link>
+          </HStack>
+          <HStack spacing={'40px'}>
+            <Link href={'https://polygon.technology/'} isExternal>
+              <chakra.img src={"/svg/polygon.svg"} h={'25px'} alt={'polygon'}/>
+            </Link>
+            <Link href={'https://kcc.io/'} isExternal>
+              <chakra.img src={"/svg/kcc.svg"} h={'25px'} alt={'kcc'}/>
+            </Link>
+            <Link href={'https://cointelegraph.com/'} isExternal>
+              <chakra.img src={"/svg/cointelegraph.svg"} h={'25px'} alt={'cointelegraph'}/>
+            </Link>
+          </HStack>
+          <HStack spacing={'40px'}>
+            <Link href={'https://cube.network/'} isExternal>
+              <chakra.img src={"/svg/cube.svg"} h={'25px'} alt={'cube'}/>
+            </Link>
+            <Link href={'https://peckshield.com/'} isExternal>
+              <chakra.img src={"/svg/peckshield.svg"} h={'25px'} alt={'peckshield'}/>
+            </Link>
+            <Link href={'https://for.tube/'} isExternal>
+              <chakra.img src={"/svg/fortube.svg"} h={'25px'} alt={'fortube'}/>
+            </Link>
+          </HStack>
+          <HStack spacing={'40px'}>
+            <Link href={'https://polygon.technology/'} isExternal>
+              <chakra.img src={"/svg/polynetwork.svg"} h={'25px'} alt={'polynetwork'}/>
+            </Link>
+            <Link href={'https://cofix.tech/'} isExternal>
+              <chakra.img src={"/svg/CoFiX.svg"} h={'25px'} alt={'CoFiX'}/>
+            </Link>
+            <Link href={'https://www.parasset.top/'} isExternal>
+              <chakra.img src={"/svg/Parasset.svg"} h={'25px'} alt={'Parasset'}/>
+            </Link>
+          </HStack>
+          <HStack>
+            <Link href={'https://www.certik.com/'} isExternal>
+              <chakra.img src={"/svg/certik.svg"} h={'25px'} alt={'certik'}/>
+            </Link>
+          </HStack>
+        </Stack>
+      </Stack>
+      <Stack h={'62px'}/>
+      <FooterMobile/>
+    </Stack>
+  )
+
+  if (!isDesktop) {
+    return mobilePage
+  } else {
+    return (
+      pcPage
+    )
+  }
 }

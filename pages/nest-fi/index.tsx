@@ -1,8 +1,11 @@
-import {Box, Heading, HStack, Spacer, Stack, Text, chakra, Button, Link} from "@chakra-ui/react";
+import {Box, Heading, HStack, Stack, Text, chakra, Button, useMediaQuery} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
+import NavigationMobile from "../../components/NavigationMobile";
+import FooterMobile from "../../components/FooterMobile";
 
 const Page = () => {
+  const [isDesktop] = useMediaQuery("(min-width: 768px)");
 
   const pcPage = (
     <Stack bgPosition={"center"} bgSize={'cover'} bgImage={'/image/NEST_Fi/NESTFi_bg.jpg'}>
@@ -109,9 +112,107 @@ const Page = () => {
     </Stack>
   )
 
-  return (
-    pcPage
+  const mobilePage = (
+    <Stack h={'100%'} bgImage={'/image/NEST_Fi/02-Phone-bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+      <NavigationMobile/>
+      <Stack align={"center"} pt={'180px'} pb={'220px'}>
+        <Text fontWeight={'bold'} textAlign={"center"} fontSize={'25px'}>NESTFi<br/>the decentralized<br/>financial
+          market<br/>based on OMM</Text>
+        <Text fontSize={'12px'} textAlign={"center"} fontWeight={'600'}>NESTFi (NESTFinancial Market)<br/>provides
+          futures and options<br/>with infinite liquidity now.</Text>
+      </Stack>
+      <Stack align={"center"} py={'40px'} bg={'rgba(255,255,255,0.7)'}>
+        <Text fontWeight={'bold'} fontSize={'25px'}>What is OMM?</Text>
+        <chakra.img src={'/image/NEST_Fi/02-icon-01@2x.png'} w={'50px'} py={'40px'} alt={''}/>
+        <Text fontSize={'16px'} fontWeight={'bold'} textAlign={"center"}>From P2P to OMM, <br/>a new settlement
+          paradigm</Text>
+        <Text fontSize={'12.5px'} fontWeight={600} textAlign={"center"}>OMM(Omnipotent Market Maker) is<br/>a new
+          trading and settlement paradigm:<br/>everyone trades and settles<br/>stochastic assets with NEST
+          system<br/>rather than individuals.</Text>
+        <Text fontWeight={'600'} fontSize={'12.5px'}>First constraint:</Text>
+        <Text fontWeight={'600'} fontSize={'12.5px'} textAlign={"center"} color={'#7D7D7D'}>c(X) ≥ E(X)<br/>The
+          production cost of stochastic asset<br/>is not less than the expected<br/>value of this stochastic
+          asset</Text>
+        <Text fontWeight={'600'} fontSize={'12.5px'}>Second constraint:</Text>
+        <Text fontWeight={'600'} fontSize={'12.5px'} textAlign={"center"} color={'#7D7D7D'}>E(X) ≥ E(F(X))<br/>
+          The expected value of the<br/>
+          programmed stochastic asset<br/>
+          will be not higher than its cost.</Text>
+      </Stack>
+      <Stack align={"center"} pt={'62px'}>
+        <Text fontSize={'25px'} fontWeight={'bold'}>What does OMM solve?</Text>
+        <Stack px={'24px'} pt={'38px'} w={'full'}>
+          <Stack px={'33px'} bg={'white'} borderRadius={'20px'} align={"center"} pt={'50px'}>
+            <chakra.img src={'/image/NEST_Fi/02-icon-02@2x.png'} w={'150px'} alt={''}/>
+            <Stack py={'50px'} w={'full'}>
+              <Text fontWeight={'bold'} fontSize={'16px'}>Valid Settlement</Text>
+              <Text fontWeight={'600'} fontSize={'12.5px'}>ETH cannot make valid settlement for<br/>all
+                transactions; however, OMM can<br/>settle all transactions.</Text>
+            </Stack>
+          </Stack>
+        </Stack>
+        <Stack px={'24px'} py={'24px'} w={'full'}>
+          <Stack px={'33px'} pt={'50px'} bg={'white'} borderRadius={'20px'} align={"center"}>
+            <Stack>
+              <chakra.img src={'/image/NEST_Fi/02-icon-03@2x.png'} w={'68px'} alt={''}/>
+            </Stack>
+            <Stack py={'50px'} w={'full'}>
+              <Text fontWeight={'bold'} fontSize={'16px'}>Market Clearing</Text>
+              <Text fontWeight={'600'} fontSize={'12.5px'}>OMM can structure atomic<br/>liquidation, which means
+                that all<br/>excess return can be cleared.</Text>
+            </Stack>
+          </Stack>
+        </Stack>
+        <Stack px={'24px'} w={'full'}>
+          <Stack px={'33px'} pt={'50px'} bg={'white'} borderRadius={'20px'} align={"center"}>
+            <Stack>
+              <chakra.img src={'/image/NEST_Fi/02-icon-04@2x.png'} w={'68px'} alt={''}/>
+            </Stack>
+            <Stack py={'50px'} w={'full'}>
+              <Text fontWeight={'bold'} fontSize={'16px'}>Infinite Liquidity</Text>
+              <Text fontWeight={'600'} fontSize={'12.5px'}>The liquidity will not be limited<br/>by the LP’s pool
+                size, theoretically<br/>OMM can provide infinite liquidity</Text>
+            </Stack>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Stack align={"center"} pt={'62px'}>
+        <chakra.img src={'/image/NEST_Fi/iPhone_1.webp'} w={'180px'} alt={''}/>
+      </Stack>
+      <Stack align={"center"} bg={'rgba(255,255,255, 0.8)'} py={'30px'}>
+        <Text fontWeight={'600'} fontSize={'16px'}>NESTFi - Futures</Text>
+        <Text textAlign={"center"} fontWeight={'600'} fontSize={'12.5px'}>Trade BTC/USDT and ETH/USDT futures
+          directly<br/>from your wallet without trading fee</Text>
+        <Stack pt={'30px'}>
+          <Button onClick={() => {
+            window.open('https://finance.nestprotocol.org/#/futures', '_blank')
+          }}>Open Futures</Button>
+        </Stack>
+      </Stack>
+      <Stack align={"center"} py={'40px'}>
+        <chakra.img src={'/image/NEST_Fi/iPhone_2.webp'} w={'180px'} alt={''}/>
+      </Stack>
+      <Stack align={"center"} bg={'rgba(255,255,255, 0.8)'} py={'30px'}>
+        <Text fontWeight={'600'} fontSize={'16px'}>NESTFi - Options</Text>
+        <Text textAlign={"center"} fontWeight={'600'} fontSize={'12.5px'}>Open Options with flexible choices on
+          exercise date,<br/>direction and strike price, and no commission</Text>
+        <Stack pt={'30px'}>
+          <Button onClick={() => {
+            window.open('https://finance.nestprotocol.org/#/options', '_blank')
+          }}>Open Options</Button>
+        </Stack>
+      </Stack>
+      <Stack h={'62px'}/>
+      <FooterMobile/>
+    </Stack>
   )
+
+  if (!isDesktop) {
+    return mobilePage
+  } else {
+    return pcPage
+  }
+
 }
 
 export default Page

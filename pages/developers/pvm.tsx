@@ -1,9 +1,13 @@
-import {Button, Heading, HStack, Stack, Text, Wrap, WrapItem} from "@chakra-ui/react";
+import {Button, Heading, HStack, Stack, Text, useMediaQuery, Wrap, WrapItem} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
+import NavigationMobile from "../../components/NavigationMobile";
+import FooterMobile from "../../components/FooterMobile";
 
 const Page = () => {
-  return (
+  const [isDesktop] = useMediaQuery("(min-width: 768px)");
+
+  const pcPage = (
     <Stack px={'45px'}>
       <Navigation/>
       <Stack textAlign={"center"} align={"center"} spacing={'30px'}>
@@ -74,6 +78,80 @@ const Page = () => {
       <Footer/>
     </Stack>
   )
+
+  const mobilePage = (
+    <Stack>
+      <NavigationMobile/>
+      <Stack textAlign={"center"} align={"center"} pt={'100px'} pb={'150px'}>
+        <Heading fontSize={'25px'}>
+          PVM,<br/>
+          Another Revolution<br/>
+          in Blockchain
+        </Heading>
+        <Text fontSize={'12.5px'} fontWeight={'600'}>
+          NEST ecosystem is a paradigm revolution<br/>
+          to the traditional market mechanism,<br/>
+          providing the blockchain world with a<br/>
+          whole new range of development<br/>
+          tools and creative new assets.
+        </Text>
+        <Stack spacing={'30px'} pt={'20px'}>
+          <Button w={'170px'} minH={'44px'}>
+            Developer Doc
+          </Button>
+          <Button w={'170px'} minH={'44px'}>
+            Github
+          </Button>
+        </Stack>
+      </Stack>
+      <Stack w={'full'} h={'400px'} bg={"red"}>
+
+      </Stack>
+      <Stack textAlign={"center"} py={'62px'} spacing={'40px'}>
+        <Heading fontSize={'25px'}>
+          Building your tokenomic<br/>
+          based on NEST
+        </Heading>
+        <Text fontSize={'16.5px'} fontWeight={"bold"}>
+          Developers can build their<br/>
+          own tokenomic
+        </Text>
+        <Text fontSize={'12.5px'} fontWeight={'600'}>
+          Developers can simplify the building<br/>
+          of tokenomic systems into the<br/>
+          construction of stochastic assets,<br/>
+          developers only need to call the<br/>
+          fundamental functions provided by PVM,<br/>
+          create stochastic assets by programming<br/>
+          these functions, and trade and settle the<br/>
+          assets through the OMM mechanism.<br/>
+          NEST Oracle provides the random<br/>
+          information flow.
+        </Text>
+      </Stack>
+      <Stack px={'24px'} spacing={'24px'}>
+        <Stack w={'full'} h={'170px'} bg={"red"} borderRadius={'14px'}>
+
+        </Stack>
+        <Stack w={'full'} h={'170px'} bg={"red"} borderRadius={'14px'}>
+
+        </Stack>
+        <Stack w={'full'} h={'170px'} bg={"red"} borderRadius={'14px'}>
+
+        </Stack>
+      </Stack>
+      <Stack h={'62px'}></Stack>
+      <FooterMobile/>
+    </Stack>
+  )
+
+  if (!isDesktop) {
+    return mobilePage
+  } else {
+    return (
+      pcPage
+    )
+  }
 }
 
 export default Page
