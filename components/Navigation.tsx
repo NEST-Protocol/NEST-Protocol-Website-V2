@@ -21,7 +21,7 @@ export default function Navigation() {
   }, [])
 
   return (
-    <Stack h={'88px'} direction={"row"} justifyContent={"space-between"} align={"center"}>
+    <Stack px={'45px'} h={'88px'} direction={"row"} justifyContent={"space-between"} align={"center"}>
       <Link href={'/'}>
         <chakra.img
           src={"/logo.svg"}
