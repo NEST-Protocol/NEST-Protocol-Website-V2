@@ -20,7 +20,7 @@ export default function Navigation() {
     install('G-ELV55124T4');
   }, [])
 
-  return (
+  const pcPage = (
     <Stack px={'45px'} h={'88px'} direction={"row"} justifyContent={"space-between"} align={"center"}>
       <Link href={'/'}>
         <chakra.img
@@ -55,15 +55,19 @@ export default function Navigation() {
           </PopoverContent>
         </Popover>
         <Button fontSize={'bold'} minW={'120px'} bg={'#EAAA00'} h={'34px'} borderRadius={'17px'} color={'#003232'} fontWeight={"bold"}
-          onClick={() => {
-            gtag('event', 'clickApp', {
-              'from': 'desktop header'
-            })
-            window.open('https://finance.nestprotocol.org/', '_blank')
-          }}>
+                onClick={() => {
+                  gtag('event', 'clickApp', {
+                    'from': 'desktop header'
+                  })
+                  window.open('https://finance.nestprotocol.org/', '_blank')
+                }}>
           App
         </Button>
       </Stack>
     </Stack>
+  )
+
+  return (
+    pcPage
   )
 }

@@ -3,7 +3,8 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 
 const Page = () => {
-  return (
+
+  const pcPage = (
     <Stack bgPosition={"center"} bgSize={'cover'} bgImage={'/image/NEST_Fi/NESTFi_bg.jpg'}>
       <Navigation/>
       <Stack h={'100%'} align={"center"}>
@@ -106,6 +107,10 @@ const Page = () => {
       </Stack>
       <Footer/>
     </Stack>
+  )
+
+  return (
+    pcPage
   )
 }
 
