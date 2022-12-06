@@ -7,7 +7,7 @@ const Page = () => {
     <Stack bgPosition={"center"} bgSize={'cover'} bgImage={'/image/NEST_Fi/NESTFi_bg.jpg'}>
       <Navigation/>
       <Stack h={'100%'} align={"center"}>
-        <Stack w={'100%'} maxW={'1920px'} h={'100%'} spacing={0}>
+        <Stack w={'100%'} h={'100%'} spacing={0}>
           <Stack pt={'157px'} pb={'134px'}>
             <Stack spacing={'40px'} align={"center"}>
               <Heading fontSize={'50px'} textAlign={"center"}>NESTFi<br/>the decentralized<br/>financial market<br/>based
