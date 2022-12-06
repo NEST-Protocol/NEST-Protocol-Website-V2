@@ -20,7 +20,7 @@ const Page = () => {
   const [isDesktop] = useMediaQuery("(min-width: 768px)");
 
   const pcPage = (
-    <Stack spacing={0} bgImage={'/image/Oracle/bg.jpg'}>
+    <Stack spacing={0} bgImage={'/image/Oracle/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       <Navigation/>
       <Stack textAlign={"center"} align={"center"} spacing={'30px'} py={'120px'}>
         <Heading fontSize={'50px'}>NEST Oracle<br/>The Truly Decentralized Oracle</Heading>

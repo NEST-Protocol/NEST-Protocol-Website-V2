@@ -1,4 +1,4 @@
-import {Button, Heading, HStack, Stack, Text, useMediaQuery, Wrap, WrapItem} from "@chakra-ui/react";
+import {Button, Heading, HStack, Link, Stack, Text, useMediaQuery, Wrap, WrapItem} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
@@ -8,9 +8,9 @@ const Page = () => {
   const [isDesktop] = useMediaQuery("(min-width: 768px)");
 
   const pcPage = (
-    <Stack px={'45px'}>
+    <Stack bgImage={'/image/PVM/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       <Navigation/>
-      <Stack textAlign={"center"} align={"center"} spacing={'30px'}>
+      <Stack textAlign={"center"} align={"center"} spacing={'30px'} py={'160px'}>
         <Heading fontSize={'50px'}>
           PVM, Another Revolution <br/> in Blockchain
         </Heading>
@@ -25,16 +25,16 @@ const Page = () => {
         </HStack>
       </Stack>
 
-      <HStack py={'162px'} px={'104px'}>
-        <Stack>
+      <HStack py={'162px'} px={'104px'} bg={'rgba(255,255,255, 0.8)'} spacing={'160px'}>
+        <Stack w={'50%'}>
 
         </Stack>
         <Stack>
-          <Text>NEST PVM</Text>
-          <Text>NEST Probabilistic Virtual Machine (PVM) is a virtual<br/>machine-like structure based on the basic function<br/>library. </Text>
-          <HStack>
-            <Text>PVM Mechanism</Text>
-            <Text>Whitepaper</Text>
+          <Text fontSize={'25px'} fontWeight={'600'}>NEST PVM</Text>
+          <Text fontSize={'15px'} fontWeight={'600'}>NEST Probabilistic Virtual Machine (PVM) is a virtual<br/>machine-like structure based on the basic function<br/>library. </Text>
+          <HStack fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'24px'}>
+            <Link w={'200px'}>PVM Mechanism</Link>
+            <Link w={'200px'}>Whitepaper</Link>
           </HStack>
         </Stack>
       </HStack>
