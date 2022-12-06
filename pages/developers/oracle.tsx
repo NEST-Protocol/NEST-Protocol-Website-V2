@@ -1,4 +1,16 @@
-import {Button, Heading, HStack, Link, Stack, Text, useMediaQuery, Wrap, WrapItem} from "@chakra-ui/react";
+import {
+  Button,
+  Heading,
+  HStack,
+  Link,
+  Stack,
+  Text,
+  useMediaQuery,
+  Wrap,
+  WrapItem,
+  chakra,
+  Spacer
+} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
@@ -8,7 +20,7 @@ const Page = () => {
   const [isDesktop] = useMediaQuery("(min-width: 768px)");
 
   const pcPage = (
-    <Stack px={'45px'} spacing={0}>
+    <Stack spacing={0} bgImage={'/image/Oracle/bg.jpg'}>
       <Navigation/>
       <Stack textAlign={"center"} align={"center"} spacing={'30px'} py={'120px'}>
         <Heading fontSize={'50px'}>NEST Oracle<br/>The Truly Decentralized Oracle</Heading>
@@ -19,11 +31,12 @@ const Page = () => {
           on decentralized price flows on the chain. <br/>
         </Text>
         <HStack spacing={'48px'}>
-          <Button bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer Doc</Button>
-          <Button bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Github</Button>
+          <Button bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer
+            Doc</Button>
+          <Button bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'}
+                  color={'#003232'}>Github</Button>
         </HStack>
       </Stack>
-
       <Stack bg={"white"} align={"center"} textAlign={"center"} pt={'90px'} pb={'60px'} spacing={'44px'}>
         <Heading fontSize={'50px'}>What is NEST Oracle?</Heading>
         <Stack w={'680px'} h={'350px'} bg={'red'}>
@@ -36,95 +49,139 @@ const Page = () => {
           Impeccable Technical<br/>Architecture
         </Heading>
         <Wrap spacing={'44px'} w={'1100px'} justify={"center"}>
-          <WrapItem>
-            <Stack w={'308px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
-              <Text>Nodeless</Text>
-            </Stack>
-          </WrapItem>
-          <WrapItem>
-            <Stack w={'308px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
-              <Text>Nodeless</Text>
-            </Stack>
-          </WrapItem>
-          <WrapItem>
-            <Stack w={'308px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
-              <Text>Nodeless</Text>
-            </Stack>
-          </WrapItem>
-          <WrapItem>
-            <Stack w={'308px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
-              <Text>Nodeless</Text>
-            </Stack>
-          </WrapItem>
-          <WrapItem>
-            <Stack w={'308px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
-              <Text>Nodeless</Text>
-            </Stack>
-          </WrapItem>
-          <WrapItem>
-            <Stack w={'308px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
-              <Text>Nodeless</Text>
-            </Stack>
-          </WrapItem>
+          {
+            [
+              {
+                title: 'Nodeless',
+                desc: 'Nodeless and permissionless quotation',
+                img: '/image/Oracle/01_NODELESS.png'
+              },
+              {
+                title: 'Accuracy',
+                desc: 'Reflect the real market price',
+                img: '/image/Oracle/02_ACCURACY.png'
+              },
+              {
+                title: 'Validation',
+                desc: 'Any third party with no threshold',
+                img: '/image/Oracle/03_VALIDATION.png'
+              },
+              {
+                title: 'Stable',
+                desc: 'Stablelized price informations reduce risks',
+                img: '/image/Oracle/04_STABLE.png'
+              },
+              {
+                title: 'Flexibility',
+                desc: 'Free to entry or exit',
+                img: '/image/Oracle/05_FLEXIBILITY.png'
+              },
+              {
+                title: 'Anti - Attack',
+                desc: 'High cost to tamper the price',
+                img: '/image/Oracle/06_ANTI-ATTACK.png'
+              },
+
+            ].map((item, index) => (
+              <WrapItem key={index}>
+                <Stack w={'308px'} bg={'white'} borderRadius={'20px'} py={'72px'} spacing={'40px'}>
+                  <Stack h={'80px'}>
+                    <chakra.img src={item.img} h={'full'} objectFit={'contain'}/>
+                  </Stack>
+                  <Stack px={'50px'} h={'60px'}>
+                    <Text fontSize={'18px'} fontWeight={'bold'}>{item.title}</Text>
+                    <Text fontSize={'13px'} fontWeight={'600'}>{item.desc}</Text>
+                  </Stack>
+                </Stack>
+              </WrapItem>
+            ))
+          }
         </Wrap>
       </Stack>
 
-      <Stack textAlign={"center"} align={"center"} py={'90px'} bg={'white'}>
+      <Stack textAlign={"center"} align={"center"} py={'90px'} bg={'white'} spacing={'55px'}>
         <Heading fontSize={'50px'}>
           How does NEST Oracle work?
         </Heading>
         <Stack h={'300px'}>
-
+          <chakra.img src={'/image/Oracle/Flowchart.svg'} h={'full'} objectFit={'contain'}/>
         </Stack>
       </Stack>
 
       <Stack align={"center"} pt={'44px'} pb={'138px'}>
         <Wrap justify={'center'} spacing={'44px'} w={'800px'}>
-          <WrapItem>
-            <Stack w={'308px'} h={'280px'} bg={'red'} borderRadius={'20px'}>
-              <Text>Create Channel</Text>
-            </Stack>
-          </WrapItem>
-          <WrapItem>
-            <Stack w={'308px'} h={'280px'} bg={'red'} borderRadius={'20px'}>
-              <Text>Create Channel</Text>
-            </Stack>
-          </WrapItem>
-          <WrapItem>
-            <Stack w={'308px'} h={'280px'} bg={'red'} borderRadius={'20px'}>
-              <Text>Create Channel</Text>
-            </Stack>
-          </WrapItem>
-          <WrapItem>
-            <Stack w={'308px'} h={'280px'} bg={'red'} borderRadius={'20px'}>
-              <Text>Create Channel</Text>
-            </Stack>
-          </WrapItem>
+          {
+            [
+              {
+                title: 'Create Channel',
+                desc: 'Anyone can create a channel. Open a decentralized oracle with one click.',
+                linkText: 'Create your channel',
+                link: ''
+              },
+              {
+                title: 'Price Quote',
+                desc: 'Anyone can make a price quote on the chain after pledging some tokens. Quotes will be rewarded and deviations from the quote will be arbitrated.',
+                linkText: 'How to quote',
+                link: ''
+              },
+              {
+                title: 'Verification',
+                desc: 'During the validation period (T0), anyone can validate the price. If there is a deviation from the correct price, the verifier can question the price and choose to trade either valuation or quotation asset, and then the verifier has to quote a new price. ',
+                linkText: 'How to verify',
+                link: ''
+              },
+              {
+                title: 'Effective Price',
+                desc: 'If a price is not arbitrated during the verification period(T0), this price is the effective price and anyone can use this price for free.',
+                linkText: 'How to call',
+                link: ''
+              },
+            ].map((item, index) => (
+              <WrapItem key={index}>
+                <Stack w={'308px'} h={'300px'} bg={'white'} borderRadius={'20px'} px={'30px'} justify={"center"}>
+                  <Stack minH={'200px'}>
+                    <Text fontSize={'18px'} fontWeight={'bold'}>{item.title}</Text>
+                    <Text fontSize={'13px'} fontWeight={'600'}>{item.desc}</Text>
+                  </Stack>
+                  <Link color={'#00A0E9'} fontWeight={'600'} fontSize={'15px'} href={item.link}>
+                    {item.linkText}
+                  </Link>
+                </Stack>
+              </WrapItem>
+            ))
+          }
         </Wrap>
         <Stack pt={'68px'}>
-          <Button variant={'outline'} borderRadius={'17px'} h={'34px'} border={'2px solid'} borderColor={'#EAAA00'} color={'#EAAA00'}>
+          <Button variant={'outline'} borderRadius={'17px'} h={'34px'} border={'2px solid'} borderColor={'#EAAA00'}
+                  color={'#EAAA00'}>
             More
           </Button>
         </Stack>
 
         <Wrap justify={"center"} pt={'69px'} spacing={'44px'}>
-          <WrapItem>
-            <Stack w={'308px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
-            </Stack>
-          </WrapItem>
-          <WrapItem>
-            <Stack w={'308px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
-            </Stack>
-          </WrapItem>
-          <WrapItem>
-            <Stack w={'308px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
-            </Stack>
-          </WrapItem>
+          {
+            [
+              {image: '/image/Oracle/card_01.png', title: `Three different types of Oracle:Chainlink, NEST, and MakerDAO`, desc: 'Blockchain is known as the machine of trust. The biggest innovation of', time: 'Otc 12, 2022'},
+              {image: '/image/Oracle/card_02.png', title: 'What make tokens an asset? Game theory and Equilibrium', desc: `Some people talk about Bitcoin with a tone of contempt: " What\'s  the use of this thing? It's hype,`, time: 'Sep 19, 2022'},
+              {image: '/image/Oracle/card_03.png', title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle', desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting', time: 'Jun 9, 2022'},
+            ].map((item, index) => (
+              <WrapItem key={index}>
+                <Stack w={'308px'} bg={'white'} borderRadius={'20px'}>
+                  <Stack h={'140px'}>
+                    <chakra.img src={item.image} w={'full'} objectFit={'contain'}/>
+                  </Stack>
+                  <Stack px={'30px'} py={'24px'} h={'240px'}>
+                    <Text fontSize={'18px'} fontWeight={'bold'}>{item.title}</Text>
+                    <Text fontSize={'13px'} fontWeight={'600'} color={'#878787'}>{item.desc}</Text>
+                    <Spacer/>
+                    <Text fontSize={'13px'} fontWeight={'500'} color={'#878787'}>{item.time}</Text>
+                  </Stack>
+                </Stack>
+              </WrapItem>
+            ))
+          }
         </Wrap>
       </Stack>
-
-
-
       <Footer/>
     </Stack>
   )
@@ -156,9 +213,10 @@ const Page = () => {
           </Button>
         </Stack>
       </Stack>
-      <Stack textAlign={"center"} align={"center"} py={'120px'} bg={'rgba(255, 255,255, 0.7)'} spacing={'80px'} px={'24px'}>
+      <Stack textAlign={"center"} align={"center"} py={'120px'} bg={'rgba(255, 255,255, 0.7)'} spacing={'80px'}
+             px={'24px'}>
         <Heading fontSize={'25px'}>What is <br/>
-        NEST Oracle?</Heading>
+          NEST Oracle?</Heading>
         <Stack w={'full'} h={'190px'} bg={'red'}>
 
         </Stack>
@@ -170,22 +228,22 @@ const Page = () => {
         </Heading>
         <Wrap w={'full'} spacing={'20px'} justify={'center'}>
           <WrapItem h={'190px'} w={'44%'} bg={"red"} borderRadius={'17px'}>
-            <Stack >
+            <Stack>
               <Text>Hello</Text>
             </Stack>
           </WrapItem>
           <WrapItem h={'190px'} w={'44%'} bg={"red"} borderRadius={'17px'}>
-            <Stack >
+            <Stack>
               <Text>Hello</Text>
             </Stack>
           </WrapItem>
           <WrapItem h={'190px'} w={'44%'} bg={"red"} borderRadius={'17px'}>
-            <Stack >
+            <Stack>
               <Text>Hello</Text>
             </Stack>
           </WrapItem>
           <WrapItem h={'190px'} w={'44%'} bg={"red"} borderRadius={'17px'}>
-            <Stack >
+            <Stack>
               <Text>Hello</Text>
             </Stack>
           </WrapItem>
