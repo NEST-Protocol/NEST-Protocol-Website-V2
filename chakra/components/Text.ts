@@ -1,6 +1,5 @@
-export const Heading = {
+export const Text = {
   baseStyle: {
     fontFamily: "Montserrat",
-    color: "#003232",
   },
 }

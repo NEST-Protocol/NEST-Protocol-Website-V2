@@ -86,7 +86,7 @@ export default function Home() {
             window.open('https://finance.nestprotocol.org/#/NFTAuction', '_blank')
           }}/>
         </Stack>
-        <Stack pt={'220px'} pb={'220px'}>
+        <Stack py={'220px'}>
           <Stack spacing={'28px'}>
             <Heading fontSize={'50px'} textAlign={"center"}>NEST PROTOCOL<br/>THE MOST
               IMPORTANT<br/>INFRASTRUCTURE<br/>AFTER ETH</Heading>

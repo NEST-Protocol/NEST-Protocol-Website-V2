@@ -36,7 +36,8 @@ export default function Navigation() {
           <PopoverTrigger>
             <Text cursor={"pointer"} _hover={{ color: '#EAAA00' }}>Developers</Text>
           </PopoverTrigger>
-          <PopoverContent px={'44px'} bg={"white"} py={'22px'} w={'240px'} borderRadius={'20px'}>
+          <PopoverContent px={'44px'} bg={"white"} py={'26px'} w={'240px'} borderRadius={'20px'} border={""} opacity={0.8}>
+            <PopoverArrow />
             <Link href={'/developers/oracle/'} _hover={{ color: '#EAAA00' }}>NEST Oracle</Link>
             <Link href={'/developers/pvm/'} _hover={{ color: '#EAAA00' }}>NEST PVM</Link>
           </PopoverContent>
@@ -47,7 +48,8 @@ export default function Navigation() {
           <PopoverTrigger>
             <Text cursor={'pointer'} _hover={{ color: '#EAAA00' }}>About</Text>
           </PopoverTrigger>
-          <PopoverContent px={'44px'} bg={"white"} py={'22px'} w={'240px'} borderRadius={'20px'}>
+          <PopoverContent px={'44px'} bg={"white"} py={'26px'} w={'240px'} borderRadius={'20px'} border={""} opacity={0.8}>
+            <PopoverArrow/>
             <Link href={'/about/team/'} _hover={{ color: '#EAAA00' }}>Team</Link>
             <Link href={'/about/partnership/'} _hover={{ color: '#EAAA00' }}>Partnership</Link>
           </PopoverContent>
