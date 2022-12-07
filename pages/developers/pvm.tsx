@@ -81,7 +81,7 @@ const Page = () => {
   )
 
   const mobilePage = (
-    <Stack>
+    <Stack bgImage={'/image/PVM/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       <NavigationMobile/>
       <Stack textAlign={"center"} align={"center"} pt={'100px'} pb={'150px'}>
         <Heading fontSize={'25px'}>
@@ -105,8 +105,20 @@ const Page = () => {
           </Button>
         </Stack>
       </Stack>
-      <Stack w={'full'} h={'400px'} bg={"red"}>
-
+      <Stack py={'50px'} px={'50px'} bg={'rgba(255,255,255, 0.8)'} spacing={'160px'}>
+        <Stack w={'full'} minW={'50%'}>
+          {/*TODO*/}
+          <chakra.img src={'/image/PVM/flow_chart.svg'} />
+        </Stack>
+        <Stack align={"center"} textAlign={"center"}>
+          <Text fontSize={'16.5px'} fontWeight={'600'}>NEST PVM</Text>
+          <Text fontSize={'12.5px'} fontWeight={'600'}>NEST Probabilistic Virtual Machine (PVM) is a virtual machine-like
+            structure based on the basic function library. </Text>
+          <Stack fontSize={'12.5px'} fontWeight={'600'} color={'#00A0E9'} pt={'24px'}>
+            <Link w={'200px'}>PVM Mechanism</Link>
+            <Link w={'200px'}>Whitepaper</Link>
+          </Stack>
+        </Stack>
       </Stack>
       <Stack textAlign={"center"} py={'62px'} spacing={'40px'}>
         <Heading fontSize={'25px'}>
@@ -131,15 +143,19 @@ const Page = () => {
         </Text>
       </Stack>
       <Stack px={'24px'} spacing={'24px'}>
-        <Stack w={'full'} h={'170px'} bg={"red"} borderRadius={'14px'}>
-
-        </Stack>
-        <Stack w={'full'} h={'170px'} bg={"red"} borderRadius={'14px'}>
-
-        </Stack>
-        <Stack w={'full'} h={'170px'} bg={"red"} borderRadius={'14px'}>
-
-        </Stack>
+        {
+          [
+            {image: '/image/PVM/01_icon.png', title: 'Generate on-chain assets with any risk-return structure'},
+            {image: '/image/PVM/02_icon.png', title: 'Provide theoretical infinite liquidity for assets'},
+            {image: '/image/PVM/03_icon.png', title: 'No agent, NEST becomes the seller of all assets'},
+          ].map((item, index) => (
+            <Stack key={index} w={'full'} py={'50px'} borderRadius={'20px'} bg={'rgba(255,255,255,0.8)'}
+                      border={'1px solid #EEEEEE'} boxShadow={'0px 0px 45px 5px #E5E5E5'} spacing={'24px'}>
+              <chakra.img src={item.image} h={'74px'}  objectFit={'contain'}/>
+              <Text fontSize={'12.5px'} textAlign={"center"} fontWeight={'600'} px={'80px'}>{item.title}</Text>
+            </Stack>
+          ))
+        }
       </Stack>
       <Stack h={'62px'}></Stack>
       <FooterMobile/>
