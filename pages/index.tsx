@@ -23,7 +23,7 @@ export default function Home() {
   const [start, setStart] = useState(0)
   const [selectedWork, setSelectedWork] = useState(0)
   const [scroll, setScroll] = useState(0)
-  const [isDesktop] = useMediaQuery("(min-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
 
   const work = [
     {
@@ -725,7 +725,7 @@ export default function Home() {
     </Stack>
   )
 
-  if (!isDesktop) {
+  if (isMobile) {
     return mobilePage
   } else {
     return (

@@ -1,11 +1,11 @@
-import {Button, Divider, Heading, HStack, Stack, Text, useMediaQuery, Wrap, WrapItem} from "@chakra-ui/react";
+import {Button, Divider, HStack, Stack, Text, useMediaQuery, Wrap, WrapItem} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
 
 const Page = () => {
-  const [isDesktop] = useMediaQuery("(min-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
 
   const pcPage = (
     <Stack>
@@ -169,7 +169,7 @@ const Page = () => {
     </Stack>
   )
 
-  if (!isDesktop) {
+  if (isMobile) {
     return mobilePage
   } else {
     return (

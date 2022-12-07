@@ -17,7 +17,7 @@ import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
 
 const Page = () => {
-  const [isDesktop] = useMediaQuery("(min-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
 
   const pcPage = (
     <Stack spacing={0} bgImage={'/image/Oracle/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
@@ -309,7 +309,7 @@ const Page = () => {
     </Stack>
   )
 
-  if (!isDesktop) {
+  if (isMobile) {
     return mobilePage
   } else {
     return (

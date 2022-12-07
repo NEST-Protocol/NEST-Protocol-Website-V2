@@ -5,7 +5,7 @@ import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
 
 const Page = () => {
-  const [isDesktop] = useMediaQuery("(min-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
 
   const pcPage = (
     <Stack bgPosition={"center"} bgSize={'cover'} bgImage={'/image/NEST_Fi/NESTFi_bg.jpg'}>
@@ -207,7 +207,7 @@ const Page = () => {
     </Stack>
   )
 
-  if (!isDesktop) {
+  if (isMobile) {
     return mobilePage
   } else {
     return pcPage
