@@ -161,10 +161,10 @@ const Page = () => {
           </Text>
           <Text fontSize={'12.5px'} fontWeight={'600'}>
             The NEST Community is primarily responsible
-            for the community's growth, the promotion of
+            for the community&apos;s growth, the promotion of
             consensus, and the promotion and
             management of the coin-holding population,
-            with the goal of becoming the industry's
+            with the goal of becoming the industry&apos;s
             largest distributed community.
           </Text>
           <HStack spacing={'30px'}>

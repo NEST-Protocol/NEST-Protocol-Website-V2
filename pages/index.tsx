@@ -75,7 +75,7 @@ export default function Home() {
           <Heading fontSize={'50px'} textAlign={"center"}>Cyber Ink</Heading>
           <Text textAlign={"center"} fontWeight={'600'} fontSize={'21px'}>is a collection of 10,000 NFTs on the
             blockchain.<br/>
-            What's more, each Cyber Ink can unlock the <br/>NEST Fi membership and additional benefits.</Text>
+            What&apos;s more, each Cyber Ink can unlock the <br/>NEST Fi membership and additional benefits.</Text>
           <HStack justify={"center"}>
             <Button w={'280px'} minH={'44px'} fontSize={'25px'}
                     rightIcon={<chakra.img src={'/svg/white_bsc.svg'} h={'20px'} w={'20px'}/>}
@@ -109,7 +109,6 @@ export default function Home() {
         </Stack>
         <Stack px={['20px', '40px', '80px', '160px']}>
           <Stack direction={"row"} bg={'rgba(255, 255, 255, 0.7)'} px={'20px'} py={'92px'} borderRadius={'20px'}>
-            // listen to scroll event
             <Stack align={"center"} h={'600px'} overflow={"scroll"} w={'full'}
                    onScroll={(e) => {
                      // @ts-ignore
@@ -139,8 +138,8 @@ export default function Home() {
                 <Text fontSize={'25px'} fontWeight={"bold"} w={'620px'}
                       textAlign={"center"}>What is the difference between BTC, ETH and NEST?</Text>
                 <Text fontSize={'15px'} fontWeight={'600'} textAlign={"center"} w={'600px'}>
-                  The mechanisms of BTC's UTXO and ETH's EVM both ensure that the quantity of tokens will not increase
-                  during the transaction. NEST's PVM extends this scenario by controlling the expected value rather
+                  The mechanisms of BTC&apos;s UTXO and ETH&apos;s EVM both ensure that the quantity of tokens will not increase
+                  during the transaction. NEST&apos;s PVM extends this scenario by controlling the expected value rather
                   than by controlling the quantity, which will lead to a new paradigm revolution.
                 </Text>
               </Stack>
@@ -455,7 +454,7 @@ export default function Home() {
       <Stack textAlign={"center"} pt={'150px'} pb={'80px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>Cyber Ink</Text>
         <Text fontSize={'12.5px'} fontWeight={'600'}>is a collection of 10,000 NFTs on the blockchain.<br/>
-          What's more, each Cyber Ink can unlock the <br/>NEST Fi membership and additional benefits.</Text>
+          What&apos;s more, each Cyber Ink can unlock the <br/>NEST Fi membership and additional benefits.</Text>
         <chakra.img src={'/image/Home/nft04@2x.png'} objectFit={"cover"} overflow={"hidden"} h={'310px'} onClick={() => {
           window.open('https://finance.nestprotocol.org/#/NFTAuction', '_blank')
         }} />
@@ -491,8 +490,8 @@ export default function Home() {
             <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>What is the difference between BTC, ETH and
               NEST?</Text>
             <Text w={'70%'} fontSize={'12.5px'} fontWeight={'600'}>
-              The mechanisms of BTC's UTXO and ETH's EVM both ensure that the quantity of tokens will not increase
-              during the transaction. NEST's PVM extends this scenario by controlling the expected value rather than
+              The mechanisms of BTC&apos;s UTXO and ETH&apos;s EVM both ensure that the quantity of tokens will not increase
+              during the transaction. NEST&apos;s PVM extends this scenario by controlling the expected value rather than
               by controlling the quantity, which will lead to a new paradigm revolution.
             </Text>
           </Stack>

@@ -2,7 +2,7 @@ import {Heading, HStack, Stack, Text} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import {getAllBlogs, getBlog} from "../../lib/blogs";
 
-export default function Page({data}) {
+export default function Page({data}: any) {
   return (
     <Stack h={'100vh'}>
       <Navigation/>
@@ -31,7 +31,7 @@ export const getStaticPaths = async () => {
   }
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({params}: any) {
   const data = await getBlog(params.id)
   return {
     props: {

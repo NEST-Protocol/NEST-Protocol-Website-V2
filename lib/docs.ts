@@ -1,15 +1,15 @@
 export const getAllDocs = async () => {
   // @todo get all docs from the CMS
   return [
-    '/docs/a/b',
-    '/docs/a/c',
+    "/docs/a/b",
+    "/docs/a/c",
   ];
 }
 
-export const getDoc = async (id) => {
+export const getDoc = async (id: any) => {
   // @todo get doc from the CMS
   return {
     id,
-    content: 'This is the content of the doc',
+    content: "This is the content of the doc",
   };
 }
