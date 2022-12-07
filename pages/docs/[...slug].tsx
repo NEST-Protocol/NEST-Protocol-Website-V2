@@ -27,7 +27,7 @@ export default function Page({content, publishedAt}: any) {
 export const getStaticPaths = async () => {
   const docsRes = await getAllDocs()
   return {
-    paths: docsRes.data.map((doc: any) => `/docs/${doc.attributes.category}/${doc.attributes.slug}`) || [],
+    paths: docsRes.data.map((doc: any) => `/docs/${doc.attributes.category.data.attributes.name}/${doc.attributes.slug}`) || [],
     fallback: false
   }
 }
