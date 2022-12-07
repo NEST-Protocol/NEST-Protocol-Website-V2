@@ -92,39 +92,53 @@ const Page = () => {
           </Stack>
         </Stack>
       </Stack>
+      <Stack h={'62px'}></Stack>
       <Footer/>
     </Stack>
   )
 
   const mobilePage = (
-    <Stack>
+    <Stack bgSize={'cover'} bgImage={"image/Blog/bg.jpg"} bgPosition={"center"}>
       <NavigationMobile/>
       <Stack px={'24px'} spacing={'24px'} pb={'24px'}>
-        <Stack w={'full'} h={'400px'} bg={"red"} borderRadius={'14px'}>
+        {
+          [
+            {image: '', title: '', desc: '', date: ''},
+            {image: '', title: '', desc: '', date: ''},
+            {image: '', title: '', desc: '', date: ''},
+          ].map((item, index) => (
+            <Stack key={index} w={'full'} h={'400px'} bg={"white"} borderRadius={'14px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}>
+              <Stack>
+                <Stack h={'144px'}>
 
-        </Stack>
-        <Stack w={'full'} h={'400px'} bg={"red"} borderRadius={'14px'}>
-
-        </Stack>
-        <Stack w={'full'} h={'400px'} bg={"red"} borderRadius={'14px'}>
-
-        </Stack>
+                </Stack>
+                <Stack px={'44px'} py={'34px'}>
+                  <Text fontWeight={'bold'} fontSize={'18px'}>Coinbase Announces Planned Listing of Tokens, Adds
+                    $NEST</Text>
+                  <Text fontSize={'13px'} fontWeight={'600'}>On Monday, Coinbase, a leading American cryptocurrency
+                    exchange, announced that it would list six tokens </Text>
+                  <Text fontSize={'13px'} fontWeight={'500'}>July 25, 2022</Text>
+                </Stack>
+              </Stack>
+            </Stack>
+          ))
+        }
       </Stack>
       <Stack px={'24px'}>
-        <Stack py={'35px'} spacing={'27px'} bg={'blue'} borderRadius={'14px'}>
+        <Stack py={'35px'} spacing={'27px'} bg={'white'} borderRadius={'14px'}>
           <HStack spacing={-1} overflow={"scroll"}>
-            <Button fontSize={'15px'} w={'full'} h={'33px'} borderRadius={0} bg={'#EAAA00'} borderLeftRadius={'21px'}>
+            <Button fontSize={'15px'} h={'33px'} borderRadius={0} bg={'#EAAA00'} borderLeftRadius={'21px'}>
               News
             </Button>
-            <Button fontSize={'15px'} w={'full'} h={'33px'} borderRadius={0} bg={'white'} border={'1px solid'}
+            <Button fontSize={'15px'} h={'33px'} borderRadius={0} bg={'white'} border={'1px solid'}
                     borderColor={'#EEEEEE'}>
               Blogs
             </Button>
-            <Button fontSize={'15px'} w={'full'} h={'33px'} borderRadius={0} bg={'white'} border={'1px solid'}
+            <Button fontSize={'15px'} h={'33px'} borderRadius={0} bg={'white'} border={'1px solid'}
                     borderColor={'#EEEEEE'}>
               Roundtable
             </Button>
-            <Button fontSize={'15px'} w={'full'} h={'33px'} borderRadius={0} bg={'white'} borderRightRadius={'21px'}
+            <Button fontSize={'15px'} h={'33px'} borderRadius={0} bg={'white'} borderRightRadius={'21px'}
                     border={'1px solid'} borderColor={'#EEEEEE'}>
               Transfer
             </Button>
