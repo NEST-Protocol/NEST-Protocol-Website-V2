@@ -58,7 +58,7 @@ const Page = () => {
         <Text fontSize={'12.5px'} fontWeight={'600'}>Expanding influence in the Crypto world</Text>
       </Stack>
       <Stack px={'24px'}>
-        <Stack w={'full'} h={'400px'} borderRadius={'20px'} py={'15px'} px={'10px'} spacing={'10px'} bg={'red'}>
+        <Stack w={'full'} h={'400px'} borderRadius={'20px'} py={'15px'} px={'10px'} spacing={'10px'} bg={'rgba(255,255,255,0.7)'}>
           <HStack spacing={0} w={'full'}>
             <Stack textAlign={"center"} justify={"center"} fontSize={'9px'} w={'full'} h={'28px'} borderRadius={0} borderLeftRadius={'28px'} border={'1px solid'} borderColor={'#EEEEEE'}>
               <Text fontWeight={'600'}>ALL</Text>

@@ -126,22 +126,19 @@ const Page = () => {
       </Stack>
       <Stack px={'24px'}>
         <Stack py={'35px'} spacing={'27px'} bg={'white'} borderRadius={'14px'}>
-          <HStack spacing={-1} overflow={"scroll"}>
-            <Button fontSize={'15px'} h={'33px'} borderRadius={0} bg={'#EAAA00'} borderLeftRadius={'21px'}>
-              News
-            </Button>
-            <Button fontSize={'15px'} h={'33px'} borderRadius={0} bg={'white'} border={'1px solid'}
-                    borderColor={'#EEEEEE'}>
-              Blogs
-            </Button>
-            <Button fontSize={'15px'} h={'33px'} borderRadius={0} bg={'white'} border={'1px solid'}
-                    borderColor={'#EEEEEE'}>
-              Roundtable
-            </Button>
-            <Button fontSize={'15px'} h={'33px'} borderRadius={0} bg={'white'} borderRightRadius={'21px'}
-                    border={'1px solid'} borderColor={'#EEEEEE'}>
-              Transfer
-            </Button>
+          <HStack spacing={0} px={'8px'}>
+            <Stack textAlign={"center"} justify={"center"} fontSize={'15px'} w={'full'} h={'33px'} borderRadius={0} borderLeftRadius={'28px'} border={'1px solid'} borderColor={'#EEEEEE'}>
+              <Text fontWeight={'600'}>News</Text>
+            </Stack>
+            <Stack textAlign={"center"} justify={"center"} fontSize={'15px'} w={'full'} h={'33px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
+              <Text fontWeight={'600'}>Blogs</Text>
+            </Stack>
+            <Stack textAlign={"center"} justify={"center"} fontSize={'15px'} w={'full'} h={'33px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
+              <Text fontWeight={'600'}>Roundtable</Text>
+            </Stack>
+            <Stack textAlign={"center"} justify={"center"} fontSize={'15px'} w={'full'} h={'33px'} borderRadius={0} borderRightRadius={'28px'} border={'1px solid'} borderColor={'#EEEEEE'}>
+              <Text fontWeight={'600'}>Transfer</Text>
+            </Stack>
           </HStack>
           <Divider/>
           <Stack>
