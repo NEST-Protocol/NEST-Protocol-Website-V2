@@ -20,7 +20,7 @@ const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
 
   const pcPage = (
-    <Stack spacing={0} bgImage={'/image/Oracle/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+    <Stack bgImage={'/image/Oracle/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       <Navigation/>
       <Stack textAlign={"center"} align={"center"} spacing={'30px'} py={'120px'}>
         <Heading fontSize={'50px'}>NEST Oracle<br/>The Truly Decentralized Oracle</Heading>
@@ -81,7 +81,6 @@ const Page = () => {
                 desc: 'High cost to tamper the price',
                 img: '/image/Oracle/06_ANTI-ATTACK.png'
               },
-
             ].map((item, index) => (
               <WrapItem key={index}>
                 <Stack w={'308px'} bg={'white'} borderRadius={'20px'} py={'72px'} spacing={'40px'}>
@@ -161,9 +160,24 @@ const Page = () => {
         <Wrap justify={"center"} pt={'69px'} spacing={'44px'}>
           {
             [
-              {image: '/image/Oracle/card_01.png', title: `Three different types of Oracle:Chainlink, NEST, and MakerDAO`, desc: 'Blockchain is known as the machine of trust. The biggest innovation of', time: 'Otc 12, 2022'},
-              {image: '/image/Oracle/card_02.png', title: 'What make tokens an asset? Game theory and Equilibrium', desc: `Some people talk about Bitcoin with a tone of contempt: " What\'s  the use of this thing? It's hype,`, time: 'Sep 19, 2022'},
-              {image: '/image/Oracle/card_03.png', title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle', desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting', time: 'Jun 9, 2022'},
+              {
+                image: '/image/Oracle/card_01.png',
+                title: `Three different types of Oracle:Chainlink, NEST, and MakerDAO`,
+                desc: 'Blockchain is known as the machine of trust. The biggest innovation of',
+                time: 'Otc 12, 2022'
+              },
+              {
+                image: '/image/Oracle/card_02.png',
+                title: 'What make tokens an asset? Game theory and Equilibrium',
+                desc: `Some people talk about Bitcoin with a tone of contempt: " What\'s  the use of this thing? It's hype,`,
+                time: 'Sep 19, 2022'
+              },
+              {
+                image: '/image/Oracle/card_03.png',
+                title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle',
+                desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting',
+                time: 'Jun 9, 2022'
+              },
             ].map((item, index) => (
               <WrapItem key={index}>
                 <Stack w={'308px'} bg={'white'} borderRadius={'20px'}>
@@ -187,7 +201,7 @@ const Page = () => {
   )
 
   const mobilePage = (
-    <Stack>
+    <Stack bgImage={'/image/Oracle/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       <NavigationMobile/>
       <Stack textAlign={"center"} align={"center"} py={'90px'}>
         <Heading fontSize={'25px'} fontWeight={'bold'}>NEST Oracle,<br/>
@@ -221,32 +235,58 @@ const Page = () => {
 
         </Stack>
       </Stack>
-      <Stack align={"center"} textAlign={"center"} px={'24px'} pb={'62px'}>
+      <Stack align={"center"} textAlign={"center"} px={'24px'} pb={'62px'} spacing={'40px'}>
         <Heading fontSize={'25px'}>
           Impeccable Technical<br/>
           Architecture
         </Heading>
         <Wrap w={'full'} spacing={'20px'} justify={'center'}>
-          <WrapItem h={'190px'} w={'44%'} bg={"red"} borderRadius={'17px'}>
-            <Stack>
-              <Text>Hello</Text>
-            </Stack>
-          </WrapItem>
-          <WrapItem h={'190px'} w={'44%'} bg={"red"} borderRadius={'17px'}>
-            <Stack>
-              <Text>Hello</Text>
-            </Stack>
-          </WrapItem>
-          <WrapItem h={'190px'} w={'44%'} bg={"red"} borderRadius={'17px'}>
-            <Stack>
-              <Text>Hello</Text>
-            </Stack>
-          </WrapItem>
-          <WrapItem h={'190px'} w={'44%'} bg={"red"} borderRadius={'17px'}>
-            <Stack>
-              <Text>Hello</Text>
-            </Stack>
-          </WrapItem>
+          {
+            [
+              {
+                title: 'Nodeless',
+                desc: 'Nodeless and permissionless quotation',
+                img: '/image/Oracle/01_NODELESS.png'
+              },
+              {
+                title: 'Accuracy',
+                desc: 'Reflect the real market price',
+                img: '/image/Oracle/02_ACCURACY.png'
+              },
+              {
+                title: 'Validation',
+                desc: 'Any third party with no threshold',
+                img: '/image/Oracle/03_VALIDATION.png'
+              },
+              {
+                title: 'Stable',
+                desc: 'Stablelized price informations reduce risks',
+                img: '/image/Oracle/04_STABLE.png'
+              },
+              {
+                title: 'Flexibility',
+                desc: 'Free to entry or exit',
+                img: '/image/Oracle/05_FLEXIBILITY.png'
+              },
+              {
+                title: 'Anti - Attack',
+                desc: 'High cost to tamper the price',
+                img: '/image/Oracle/06_ANTI-ATTACK.png'
+              },
+            ].map((item, index) => (
+              <WrapItem key={index} w={'44%'} borderRadius={'17px'}>
+                <Stack bg={'white'} w={'full'} borderRadius={'20px'} spacing={'20px'} h={'240px'} justify={"center"}>
+                  <Stack h={'40px'}>
+                    <chakra.img src={item.img} h={'full'} objectFit={'contain'}/>
+                  </Stack>
+                  <Stack px={'30px'} h={'80px'}>
+                    <Text fontSize={'18px'} fontWeight={'bold'}>{item.title}</Text>
+                    <Text fontSize={'13px'} fontWeight={'600'}>{item.desc}</Text>
+                  </Stack>
+                </Stack>
+              </WrapItem>
+            ))
+          }
         </Wrap>
       </Stack>
       <Stack align={"center"} textAlign={"center"} spacing={'44px'}>
@@ -258,7 +298,8 @@ const Page = () => {
         </Stack>
       </Stack>
       <Stack py={'62px'} px={'24px'} spacing={'24px'}>
-        <Stack px={'38px'} py={'100px'} borderRadius={'17px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}>
+        <Stack px={'38px'} py={'100px'} borderRadius={'17px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}
+               bg={'rgba(255,255,255,0.8)'}>
           <Text fontSize={'17px'} fontWeight={'bold'}>Create Channel</Text>
           <Text fontSize={'12.5px'} fontWeight={'600'}>Anyone can create a channel. Open
             a decentralized oracle with one click.
@@ -268,7 +309,8 @@ const Page = () => {
           <Link href={''} color={'#00A0E9'} fontSize={'12.5px'} fontWeight={600}>Create your channel</Link>
         </Stack>
 
-        <Stack px={'38px'} py={'100px'} borderRadius={'17px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}>
+        <Stack px={'38px'} py={'100px'} borderRadius={'17px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}
+               bg={'rgba(255,255,255,0.8)'}>
           <Text fontSize={'17px'} fontWeight={'bold'}>Create Channel</Text>
           <Text fontSize={'12.5px'} fontWeight={'600'}>Anyone can create a channel. Open
             a decentralized oracle with one click.
@@ -278,7 +320,8 @@ const Page = () => {
           <Link href={''} color={'#00A0E9'} fontSize={'12.5px'} fontWeight={600}>Create your channel</Link>
         </Stack>
 
-        <Stack px={'38px'} py={'100px'} borderRadius={'17px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}>
+        <Stack px={'38px'} py={'100px'} borderRadius={'17px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}
+               bg={'rgba(255,255,255,0.8)'}>
           <Text fontSize={'17px'} fontWeight={'bold'}>Create Channel</Text>
           <Text fontSize={'12.5px'} fontWeight={'600'}>Anyone can create a channel. Open
             a decentralized oracle with one click.
@@ -295,15 +338,39 @@ const Page = () => {
         </Stack>
       </Stack>
       <Stack px={'24px'} spacing={'24px'} pb={'64px'}>
-        <Stack w={'full'} h={'300px'} bg={'red'} borderRadius={'14px'}>
-
-        </Stack>
-        <Stack w={'full'} h={'300px'} bg={'red'} borderRadius={'14px'}>
-
-        </Stack>
-        <Stack w={'full'} h={'300px'} bg={'red'} borderRadius={'14px'}>
-
-        </Stack>
+        {
+          [
+            {
+              image: '/image/Oracle/card_01.png',
+              title: `Three different types of Oracle:Chainlink, NEST, and MakerDAO`,
+              desc: 'Blockchain is known as the machine of trust. The biggest innovation of',
+              time: 'Otc 12, 2022'
+            },
+            {
+              image: '/image/Oracle/card_02.png',
+              title: 'What make tokens an asset? Game theory and Equilibrium',
+              desc: `Some people talk about Bitcoin with a tone of contempt: " What\'s  the use of this thing? It's hype,`,
+              time: 'Sep 19, 2022'
+            },
+            {
+              image: '/image/Oracle/card_03.png',
+              title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle',
+              desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting',
+              time: 'Jun 9, 2022'
+            },
+          ].map((item, index) => (
+            <Stack w={'full'} bg={'white'} borderRadius={'20px'} key={index} boxShadow={'0px 0px 45px 5px #E5E5E5'}>
+              <Stack>
+                <chakra.img src={item.image} w={'full'} objectFit={'contain'}/>
+              </Stack>
+              <Stack px={'30px'} py={'24px'}>
+                <Text fontSize={'12.5px'} fontWeight={'bold'}>{item.title}</Text>
+                <Text fontSize={'10px'} fontWeight={'600'} color={'#878787'}>{item.desc}</Text>
+                <Text fontSize={'10px'} fontWeight={'500'} color={'#878787'}>{item.time}</Text>
+              </Stack>
+            </Stack>
+          ))
+        }
       </Stack>
       <FooterMobile/>
     </Stack>
