@@ -1,8 +1,11 @@
 import {Heading, HStack, Stack, Text} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import {getAllBlogs, getBlog} from "../../lib/blogs";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import Moment from "react-moment";
 
-export default function Page({id}: any) {
+export default function Page({content, publishedAt}: any) {
   return (
     <Stack h={'100vh'}>
       <Navigation/>
@@ -10,13 +13,11 @@ export default function Page({id}: any) {
         <Stack minW={'400px'} w={'400px'} h={'full'} py={'40px'}>
           <Heading size={'md'}>Recent posts</Heading>
           <Text>Menu1</Text>
-          <Text>Menu2</Text>
-          <Text>Menu3</Text>
-          <Text>Menu4</Text>
-          <Text>Menu5</Text>
         </Stack>
-        <Stack w={'full'} h={'full'} p={'40px'}>
-          <Text>{id}</Text>
+        <Stack w={'container.xl'} h={'full'} p={'40px'}>
+          {/* eslint-disable-next-line react/no-children-prop */}
+          <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} className={'markdown-body'}/>
+          <Moment format="YYYY/MM/DD">{publishedAt}</Moment>
         </Stack>
       </HStack>
     </Stack>

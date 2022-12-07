@@ -13,7 +13,7 @@ export default function Page({content, publishedAt}: any) {
         <Stack minW={'300px'} w={'300px'} h={'full'} borderRight={'0.5px solid #c8c9cc'} py={'40px'}>
           <Text>Menu1</Text>
         </Stack>
-        <Stack w={'full'} h={'full'} p={'40px'}>
+        <Stack w={'container.xl'} h={'full'} p={'40px'}>
           {/* eslint-disable-next-line react/no-children-prop */}
           <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} className={'markdown-body'}/>
           <Moment format="YYYY/MM/DD">{publishedAt}</Moment>
