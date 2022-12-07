@@ -1,15 +1,22 @@
+import axios from "axios";
+
 export const getAllBlogs = async () => {
-  // @todo get all docs from the CMS
-  return [
-    "/blogs/a",
-    "/blogs/b",
-  ];
+  const req = await axios({
+    method: 'get',
+    url: 'http://localhost:1337/api/blogs/?pagination[page]=1&pagination[pageSize]=100&fields[0]=slug',
+  })
+  return req.data;
 }
 
-export const getBlog = async (id: any) => {
-  // @todo get doc from the CMS
-  return {
-    id,
-    content: "This is the content of the doc",
-  };
+export const getBlog = async (slug: any) => {
+  const req = await axios({
+    method: 'get',
+    url: `http://localhost:1337/api/blogs/?filter[slug][eq]=${slug}&fields[0]=id`,
+  })
+  const data = req.data.data;
+  if (data.length === 0) {
+    return null;
+  }
+
+  return data[0];
 }

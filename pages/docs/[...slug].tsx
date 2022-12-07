@@ -1,14 +1,13 @@
-import {Heading, HStack, Stack, Text} from "@chakra-ui/react";
+import {HStack, Stack, Text} from "@chakra-ui/react";
+import {getAllDocs, getDoc} from "../../lib/docs";
 import Navigation from "../../components/Navigation";
-import {getAllBlogs, getBlog} from "../../lib/blogs";
 
-export default function Page({data}: any) {
+export default function Page({id}: any) {
   return (
     <Stack h={'100vh'}>
       <Navigation/>
       <HStack px={'45px'} h={'full'} borderTop={'0.5px solid #c8c9cc'}>
-        <Stack minW={'400px'} w={'400px'} h={'full'} py={'40px'}>
-          <Heading size={'md'}>Recent posts</Heading>
+        <Stack minW={'300px'} w={'300px'} h={'full'} borderRight={'0.5px solid #c8c9cc'} py={'40px'}>
           <Text>Menu1</Text>
           <Text>Menu2</Text>
           <Text>Menu3</Text>
@@ -16,27 +15,29 @@ export default function Page({data}: any) {
           <Text>Menu5</Text>
         </Stack>
         <Stack w={'full'} h={'full'} p={'40px'}>
-          <Text>Content</Text>
+          <Text>{id}</Text>
         </Stack>
       </HStack>
     </Stack>
   )
 }
 
+// get the path of the page
 export const getStaticPaths = async () => {
-  const paths = await getAllBlogs()
+  const docsRes = await getAllDocs()
   return {
-    paths,
+    paths: docsRes.data.map((doc: any) => `/docs/${doc.attributes.category}/${doc.attributes.slug}`) || [],
     fallback: false
   }
 }
 
 export async function getStaticProps({params}: any) {
-  const data = await getBlog(params.id)
+  const category = params.slug[0]
+  const slug = params.slug[1]
+  const docRes = await getDoc(category, slug)
   return {
     props: {
-      data: "Hello"
+      id: docRes.id
     }
   }
 }
-
