@@ -1,4 +1,4 @@
-import {Button, Heading, HStack, Link, Stack, Text, useMediaQuery, Wrap, WrapItem} from "@chakra-ui/react";
+import {Button, Heading, HStack, Link, Stack, Text, useMediaQuery, Wrap, WrapItem, chakra} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
@@ -20,18 +20,21 @@ const Page = () => {
           whole new range of development tools and creative new assets.
         </Text>
         <HStack spacing={'48px'}>
-          <Button bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer Doc</Button>
-          <Button bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Github</Button>
+          <Button bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer
+            Doc</Button>
+          <Button bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'}
+                  color={'#003232'}>Github</Button>
         </HStack>
       </Stack>
 
       <HStack py={'162px'} px={'104px'} bg={'rgba(255,255,255, 0.8)'} spacing={'160px'}>
-        <Stack w={'50%'}>
-
+        <Stack w={'50%'} minW={'50%'}>
+          <chakra.img src={'/image/PVM/flow_chart.svg'} />
         </Stack>
         <Stack>
           <Text fontSize={'25px'} fontWeight={'600'}>NEST PVM</Text>
-          <Text fontSize={'15px'} fontWeight={'600'}>NEST Probabilistic Virtual Machine (PVM) is a virtual<br/>machine-like structure based on the basic function<br/>library. </Text>
+          <Text fontSize={'15px'} fontWeight={'600'}>NEST Probabilistic Virtual Machine (PVM) is a virtual<br/>machine-like
+            structure based on the basic function<br/>library. </Text>
           <HStack fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'24px'}>
             <Link w={'200px'}>PVM Mechanism</Link>
             <Link w={'200px'}>Whitepaper</Link>
@@ -44,7 +47,8 @@ const Page = () => {
         <Heading fontSize={'50px'}>
           Build your tokenomic<br/>based on NEST
         </Heading>
-        <Text fontSize={'25px'} fontWeight={'600'}>Developers can build their own tokenomic<br/>systems faster through NEST’s infrastructure.</Text>
+        <Text fontSize={'25px'} fontWeight={'600'}>Developers can build their own tokenomic<br/>systems faster through
+          NEST’s infrastructure.</Text>
         <Text>Developers can simplify the building of tokenomic systems<br/>
           into the construction of stochastic assets, developers only need to<br/>
           call the fundamental functions provided by PVM, create stochastic assets<br/>
@@ -54,26 +58,23 @@ const Page = () => {
         </Text>
 
         <Wrap spacing={'44px'}>
-          <WrapItem>
-            <Stack w={'308px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
-              <Text>Stochastic Assets</Text>
-            </Stack>
-          </WrapItem>
-          <WrapItem>
-            <Stack w={'308px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
-              <Text>Stochastic Assets</Text>
-            </Stack>
-          </WrapItem>
-          <WrapItem>
-            <Stack w={'308px'} h={'352px'} bg={'red'} borderRadius={'20px'}>
-              <Text>Stochastic Assets</Text>
-            </Stack>
-          </WrapItem>
+          {
+            [
+              {image: '/image/PVM/01_icon.png', title: 'Generate on-chain assets with any risk-return structure'},
+              {image: '/image/PVM/02_icon.png', title: 'Provide theoretical infinite liquidity for assets'},
+              {image: '/image/PVM/03_icon.png', title: 'No agent, NEST becomes the seller of all assets'},
+            ].map((item, index) => (
+              <WrapItem key={index} w={'308px'} py={'100px'} borderRadius={'20px'} bg={'rgba(255,255,255,0.8)'}
+                        border={'1px solid #EEEEEE'}>
+                <Stack spacing={'40px'}>
+                  <chakra.img src={item.image} h={'74px'}  objectFit={'contain'}/>
+                  <Text fontSize={'13px'} fontWeight={'600'} px={'40px'}>{item.title}</Text>
+                </Stack>
+              </WrapItem>
+            ))
+          }
         </Wrap>
       </Stack>
-
-
-
 
       <Footer/>
     </Stack>
