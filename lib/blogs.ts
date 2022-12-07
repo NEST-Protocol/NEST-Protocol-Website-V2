@@ -11,7 +11,7 @@ export const getAllBlogs = async () => {
 export const getBlog = async (slug: any) => {
   const req = await axios({
     method: 'get',
-    url: `http://localhost:1337/api/blogs/?filter[slug][eq]=${slug}&fields[0]=id`,
+    url: `http://localhost:1337/api/blogs/?filter[slug][eq]=${slug}`,
   })
   const data = req.data.data;
   if (data.length === 0) {

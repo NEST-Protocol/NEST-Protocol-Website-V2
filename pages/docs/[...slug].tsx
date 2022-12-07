@@ -2,20 +2,16 @@ import {HStack, Stack, Text} from "@chakra-ui/react";
 import {getAllDocs, getDoc} from "../../lib/docs";
 import Navigation from "../../components/Navigation";
 
-export default function Page({id}: any) {
+export default function Page({content}: any) {
   return (
     <Stack h={'100vh'}>
       <Navigation/>
       <HStack px={'45px'} h={'full'} borderTop={'0.5px solid #c8c9cc'}>
         <Stack minW={'300px'} w={'300px'} h={'full'} borderRight={'0.5px solid #c8c9cc'} py={'40px'}>
           <Text>Menu1</Text>
-          <Text>Menu2</Text>
-          <Text>Menu3</Text>
-          <Text>Menu4</Text>
-          <Text>Menu5</Text>
         </Stack>
         <Stack w={'full'} h={'full'} p={'40px'}>
-          <Text>{id}</Text>
+          <Text>{content}</Text>
         </Stack>
       </HStack>
     </Stack>
@@ -37,7 +33,10 @@ export async function getStaticProps({params}: any) {
   const docRes = await getDoc(category, slug)
   return {
     props: {
-      id: docRes.id
+      id: docRes.id,
+      slug: docRes.attributes.slug,
+      title: docRes.attributes.title,
+      content: docRes.attributes.content,
     }
   }
 }

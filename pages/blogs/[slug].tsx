@@ -36,6 +36,10 @@ export async function getStaticProps({params}: any) {
   return {
     props: {
       id: blogRes.id,
+      slug: blogRes.attributes.slug,
+      title: blogRes.attributes.title,
+      content: blogRes.attributes.content,
+      date: blogRes.attributes.date
     }
   }
 }

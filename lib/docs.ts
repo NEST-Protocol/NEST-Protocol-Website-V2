@@ -11,7 +11,7 @@ export const getAllDocs = async () => {
 export const getDoc = async (category: string, slug: string) => {
   const req = await axios({
     method: 'get',
-    url: `http://localhost:1337/api/docs/?filter[category][eq]=${category}&filter[slug][eq]=${slug}&fields[0]=id`,
+    url: `http://localhost:1337/api/docs/?filter[category][eq]=${category}&filter[slug][eq]=${slug}`,
   })
   const data = req.data.data;
   if (data.length === 0) {
