@@ -1,4 +1,4 @@
-import {Button, Heading, HStack, Stack, Text, useMediaQuery} from "@chakra-ui/react";
+import {Button, Heading, HStack, Spacer, Stack, Text, useMediaQuery} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
@@ -8,7 +8,7 @@ const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
 
   const pcPage = (
-    <Stack bgImage={'/image/partnership/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+    <Stack bgImage={'/image/partnership/bg.jpg'} bgPosition={"center"} bgSize={'cover'} minH={'100vh'}>
       <Navigation/>
       <Stack textAlign={"center"} align={"center"} py={'160px'}>
         <Heading fontSize={'50px'}>Integration & Partners</Heading>
@@ -44,6 +44,8 @@ const Page = () => {
           </HStack>
         </Stack>
       </Stack>
+      <Stack h={'62px'}></Stack>
+      <Spacer/>
       <Footer/>
     </Stack>
   )
