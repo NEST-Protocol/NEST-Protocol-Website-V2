@@ -1,8 +1,11 @@
 import {HStack, Stack, Text} from "@chakra-ui/react";
 import {getAllDocs, getDoc} from "../../lib/docs";
+import Moment from "react-moment";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import Navigation from "../../components/Navigation";
 
-export default function Page({content}: any) {
+export default function Page({content, publishedAt}: any) {
   return (
     <Stack h={'100vh'}>
       <Navigation/>
@@ -11,7 +14,9 @@ export default function Page({content}: any) {
           <Text>Menu1</Text>
         </Stack>
         <Stack w={'full'} h={'full'} p={'40px'}>
-          <Text>{content}</Text>
+          {/* eslint-disable-next-line react/no-children-prop */}
+          <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} className={'markdown-body'}/>
+          <Moment format="YYYY/MM/DD">{publishedAt}</Moment>
         </Stack>
       </HStack>
     </Stack>
@@ -37,6 +42,7 @@ export async function getStaticProps({params}: any) {
       slug: docRes.attributes.slug,
       title: docRes.attributes.title,
       content: docRes.attributes.content,
+      publishedAt: docRes.attributes.publishedAt,
     }
   }
 }
