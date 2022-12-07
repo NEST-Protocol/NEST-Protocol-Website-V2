@@ -26,20 +26,20 @@ const Page = () => {
 
         <HStack justifyContent={"space-between"} fontWeight={'bold'} fontSize={'18px'}>
           <Stack w={'250px'}>
-            <Text>NEST Research Academy</Text>
-            <Text>(NRA)</Text>
+            <chakra.img src={'/image/Team/NRA.svg'} h={'37px'}/>
+            <Text>NEST Research Academy<br/>(NRA)</Text>
           </Stack>
           <Stack w={'250px'}>
-            <Text>NEST Influence Block</Text>
-            <Text>(NIB)</Text>
+            <chakra.img src={'/image/Team/NIB.svg'} h={'37px'}/>
+            <Text>NEST Influence Block<br/>(NIB)</Text>
           </Stack>
           <Stack w={'250px'}>
-            <Text>NEST Developer Alliance</Text>
-            <Text>(NDA)</Text>
+            <chakra.img src={'/image/Team/NDA.svg'} h={'37px'}/>
+            <Text>NEST Developer Alliance<br/>(NDA)</Text>
           </Stack>
           <Stack w={'250px'}>
-            <Text>NEST Community</Text>
-            <Text>(NC)</Text>
+            <chakra.img src={'/image/Team/NC.svg'} h={'37px'}/>
+            <Text>NEST Community<br/>(NC)</Text>
           </Stack>
         </HStack>
 
@@ -137,7 +137,7 @@ const Page = () => {
   )
 
   const mobilePage = (
-    <Stack>
+    <Stack bgImage={'/image/Team/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       <NavigationMobile/>
       <Stack textAlign={"center"} align={"center"} pt={'120px'} pb={'160px'} spacing={'60px'}>
         <Heading fontSize={'25px'}>
@@ -145,17 +145,21 @@ const Page = () => {
         </Heading>
         <HStack spacing={'60px'}>
           <Stack w={'180px'}>
+            <chakra.img src={'/image/Team/NRA.svg'} h={'30px'}/>
             <Text fontSize={'15px'} fontWeight={'bold'}>NEST<br/>Research Academy<br/>(NRA)</Text>
           </Stack>
           <Stack w={'180px'}>
+            <chakra.img src={'/image/Team/NIB.svg'} h={'30px'}/>
             <Text fontSize={'15px'} fontWeight={'bold'}>NEST<br/>Influence Block<br/>(NIB)</Text>
           </Stack>
         </HStack>
         <HStack spacing={'60px'}>
           <Stack w={'180px'}>
+            <chakra.img src={'/image/Team/NDA.svg'} h={'30px'}/>
             <Text fontSize={'15px'} fontWeight={'bold'}>NEST<br/>Developer Alliance<br/>(NDA)</Text>
           </Stack>
           <Stack w={'180px'}>
+            <chakra.img src={'/image/Team/NC.svg'} h={'30px'}/>
             <Text fontSize={'15px'} fontWeight={'bold'}>NEST<br/>Community<br/>(NC)</Text>
           </Stack>
         </HStack>
@@ -166,8 +170,11 @@ const Page = () => {
           NEST DAO and has the following organisation:</Text>
       </Stack>
       <Stack px={'20px'} pt={'40px'} spacing={'20px'}>
-        <Stack bg={'red'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'} px={'20px'}
+        <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'} px={'20px'}
                textAlign={"center"}>
+          <Stack pb={'50px'}>
+            <chakra.img src={'/image/Team/NRA_pic.png'} h={'70px'}/>
+          </Stack>
           <Text fontSize={'18px'} fontWeight={'600'}>
             NEST Research Academy (NRA)
           </Text>
@@ -185,8 +192,11 @@ const Page = () => {
             NRA
           </Link>
         </Stack>
-        <Stack bg={'red'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'} px={'20px'}
+        <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'} px={'20px'}
                textAlign={"center"}>
+          <Stack pb={'50px'}>
+            <chakra.img src={'/image/Team/NIB_pic.png'} h={'70px'}/>
+          </Stack>
           <Text fontSize={'18px'} fontWeight={'600'}>
             NEST Influence Block (NIB)
           </Text>
@@ -205,8 +215,11 @@ const Page = () => {
             </Link>
           </HStack>
         </Stack>
-        <Stack bg={'red'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'} px={'20px'}
+        <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'} px={'20px'}
                textAlign={"center"}>
+          <Stack pb={'50px'}>
+            <chakra.img src={'/image/Team/NDA_pic.png'} h={'70px'}/>
+          </Stack>
           <Text fontSize={'18px'} fontWeight={'600'}>
             NEST Developer Alliance (NDA)
           </Text>
@@ -220,8 +233,11 @@ const Page = () => {
             Developer Docs
           </Link>
         </Stack>
-        <Stack bg={'red'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'} px={'20px'}
+        <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'} px={'20px'}
                textAlign={"center"}>
+          <Stack pb={'50px'}>
+            <chakra.img src={'/image/Team/NC_pic.png'} h={'70px'}/>
+          </Stack>
           <Text fontSize={'18px'} fontWeight={'600'}>
             NEST Community
           </Text>

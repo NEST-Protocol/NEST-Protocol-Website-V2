@@ -49,7 +49,7 @@ const Page = () => {
   )
 
   const mobilePage = (
-    <Stack>
+    <Stack bgImage={'/image/partnership/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       <NavigationMobile/>
       <Stack textAlign={"center"} py={'260px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>Intergrations<br/>
