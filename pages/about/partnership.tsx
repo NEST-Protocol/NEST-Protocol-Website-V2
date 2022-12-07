@@ -8,37 +8,37 @@ const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
 
   const pcPage = (
-    <Stack>
+    <Stack bgImage={'/image/partnership/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       <Navigation/>
       <Stack textAlign={"center"} align={"center"} py={'160px'}>
         <Heading fontSize={'50px'}>Integration & Partners</Heading>
         <Text fontWeight={'bold'} fontSize={'18px'}>Expanding influence in the Crypto world</Text>
       </Stack>
       <Stack px={'45px'}>
-        <Stack h={'500px'} bg={"red"} borderRadius={'20px'}>
-          <HStack p={'48px'} overflow={"scroll"} justifyContent={"center"} spacing={-1}>
+        <Stack h={'500px'} bg={"rgba(255,255,255,0.8)"} borderRadius={'20px'}>
+          <HStack p={'48px'} overflow={"scroll"} justifyContent={"center"} spacing={0}>
             <Button h={'42px'} w={'150px'} borderRadius={0} borderLeftRadius={'21px'} border={'1px solid'} borderColor={'#EEEEEE'}>
               ALL
             </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
+            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
               NFT
             </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
+            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
               DAO
             </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
+            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
               DeFi
             </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
+            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
               Wallet
             </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
+            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
               GameFi
             </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
+            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
               Exchange
             </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} borderRightRadius={'21px'} border={'1px solid'} borderColor={'#EEEEEE'}>
+            <Button h={'42px'} w={'150px'} borderRadius={0} borderRightRadius={'21px'} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
               Infrastructure
             </Button>
           </HStack>
