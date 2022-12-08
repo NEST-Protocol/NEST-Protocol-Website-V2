@@ -1,12 +1,15 @@
-import {Heading, HStack, Link, Stack} from "@chakra-ui/react";
+import {Divider, Heading, HStack, Link, Stack, useMediaQuery} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import {getAllBlogs, getBlog, getRecentBlogs} from "../../lib/blogs";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Moment from "react-moment";
+import NavigationMobile from "../../components/NavigationMobile";
 
 export default function Page({content, publishedAt, recentBlogs}: any) {
-  return (
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
+  const pcPage = (
     <Stack h={'100vh'}>
       <Navigation/>
       <HStack px={'45px'} h={'full'} borderTop={'0.5px solid #c8c9cc'}>
@@ -21,11 +24,42 @@ export default function Page({content, publishedAt, recentBlogs}: any) {
         <Stack w={'container.xl'} h={'full'} p={'40px'}>
           {/* eslint-disable-next-line react/no-children-prop */}
           <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} className={'markdown-body'}/>
+          <br/>
           <Moment format="YYYY/MM/DD">{publishedAt}</Moment>
         </Stack>
       </HStack>
     </Stack>
   )
+
+  const mobilePage = (
+    <Stack>
+      <NavigationMobile/>
+      <Divider/>
+      <Stack w={'full'} h={'full'} p={'24px'}>
+        {/* eslint-disable-next-line react/no-children-prop */}
+        <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} className={'markdown-body'}/>
+        <br/>
+        <Moment format="YYYY/MM/DD">{publishedAt}</Moment>
+      </Stack>
+      <Divider/>
+      <Stack w={'full'} h={'full'} p={'24px'}>
+        <Heading size={'md'}>Recent posts</Heading>
+        {
+          recentBlogs.map((item: any) => (
+            <Link key={item.id} href={`/blogs/${item.attributes.slug}`}>{item.attributes.title}</Link>
+          ))
+        }
+      </Stack>
+    </Stack>
+  )
+
+  if (isMobile) {
+    return mobilePage
+  } else {
+    return (
+      pcPage
+    )
+  }
 }
 
 export const getStaticPaths = async () => {

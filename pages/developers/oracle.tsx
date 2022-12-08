@@ -32,9 +32,9 @@ const Page = () => {
           on decentralized price flows on the chain. <br/>
         </Text>
         <HStack spacing={'48px'}>
-          <Button bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer
+          <Button as={Link} href={'/docs/'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer
             Doc</Button>
-          <Button bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'}
+          <Button as={Link} href={'https://github.com/NEST-Protocol'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'}
                   color={'#003232'}>Github</Button>
         </HStack>
       </Stack>
@@ -225,10 +225,10 @@ const Page = () => {
           price flows on the chain.<br/>
         </Text>
         <Stack spacing={'30px'} pt={'20px'}>
-          <Button w={'170px'} minH={'44px'}>
+          <Button w={'170px'} minH={'44px'} as={Link} href={'/docs/'}>
             Developer Doc
           </Button>
-          <Button w={'170px'} minH={'44px'}>
+          <Button w={'170px'} minH={'44px'} as={Link} href={'https://github.com/NEST-Protocol'}>
             Github
           </Button>
         </Stack>
