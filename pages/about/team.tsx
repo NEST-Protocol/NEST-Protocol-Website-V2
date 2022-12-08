@@ -80,7 +80,7 @@ const Page = () => {
               maintaining long-term relationships with Vitalik, the Ether Foundation,<br/>
               Coindesk, Consensus, and others.
             </Text>
-            <Link fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'10px'}>NRA <ChevronRightIcon/></Link>
+            <Link href={'/about/nra/'} fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'10px'}>NRA <ChevronRightIcon/></Link>
           </Stack>
 
           <Stack py={'74px'} bg={'rgba(255,255,255,0.84)'} borderRadius={'20px'}>
@@ -96,8 +96,8 @@ const Page = () => {
               as well as grant and ecological fund management.
             </Text>
             <HStack pt={'10px'} justify={"center"} spacing={'68px'}>
-              <Link fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'}>News <ChevronRightIcon/></Link>
-              <Link fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'}>NEST Roundtable <ChevronRightIcon/></Link>
+              <Link href={'/blogs/'} fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'}>News <ChevronRightIcon/></Link>
+              <Link href={'/about/roundtable/'} fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'}>NEST Roundtable <ChevronRightIcon/></Link>
             </HStack>
 
           </Stack>
@@ -113,7 +113,7 @@ const Page = () => {
               technical and theoretical support for new categories while also<br/>
               such as future hackathons.
             </Text>
-            <Link fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'10px'}>Developer Docs <ChevronRightIcon/></Link>
+            <Link href={'/docs/'} fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'10px'}>Developer Docs <ChevronRightIcon/></Link>
           </Stack>
 
           <Stack py={'74px'} bg={'rgba(255,255,255,0.84)'} borderRadius={'20px'}>
@@ -132,24 +132,21 @@ const Page = () => {
               Join NEST Community
             </Text>
             <HStack justify={"center"} pt={'25px'} spacing={'28px'}>
-              <Button as={Link} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
+              <Button as={Link} href={'https://twitter.com/nest_protocol/'} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
                 Twitter
               </Button>
-              <Button as={Link} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
+              <Button as={Link} href={'https://t.me/nest_chat/'} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
                 Telegram
               </Button>
-              <Button as={Link} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
+              <Button as={Link} href={'https://discord.gg/nestprotocol'} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
                 Discord
               </Button>
-              <Button as={Link} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
+              <Button as={Link} href={'https://github.com/NEST-Protocol'} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
                 Github
               </Button>
             </HStack>
           </Stack>
-
         </Stack>
-
-
       </Stack>
       <Footer/>
     </Stack>
@@ -208,7 +205,7 @@ const Page = () => {
             with Vitalik, the Ether Foundation,
             Coindesk, Consensus, and others.
           </Text>
-          <Link color={'#00A0E9'}>
+          <Link color={'#00A0E9'} fontSize={'12.5px'} fontWeight={'600'} href={'/about/nra/'} >
             NRA <ChevronRightIcon/>
           </Link>
         </Stack>
@@ -228,11 +225,11 @@ const Page = () => {
             Telegram, Discord, and so on, as well as grant and ecological fund management.
           </Text>
           <HStack justifyContent={"space-around"} w={'full'}>
-            <Link color={'#00A0E9'}>
-              NIB
+            <Link color={'#00A0E9'} fontSize={'12.5px'} fontWeight={'600'}>
+              News <ChevronRightIcon/>
             </Link>
-            <Link color={'#00A0E9'}>
-              NEST Roundtable
+            <Link color={'#00A0E9'} fontSize={'12.5px'} fontWeight={'600'} href={'/about/roundtable/'}>
+              NEST Roundtable <ChevronRightIcon/>
             </Link>
           </HStack>
         </Stack>
@@ -251,8 +248,8 @@ const Page = () => {
             as the creation of developer communities,
             such as future hackathons.
           </Text>
-          <Link color={'#00A0E9'}>
-            Developer Docs
+          <Link color={'#00A0E9'} fontSize={'12.5px'} fontWeight={'600'} href={'/docs/'}>
+            Developer Docs <ChevronRightIcon/>
           </Link>
         </Stack>
         <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'}
@@ -273,18 +270,18 @@ const Page = () => {
             largest distributed community.
           </Text>
           <HStack spacing={'30px'}>
-            <Button w={'90px'} variant={'outline'} color={'#00A0E9'} borderColor={'#00A0E9'}>
+            <Button w={'90px'} as={Link} variant={'outline'} color={'#00A0E9'} borderColor={'#00A0E9'} href={'https://twitter.com/nest_protocol/'}>
               Twitter
             </Button>
-            <Button w={'90px'} variant={'outline'} color={'#00A0E9'} borderColor={'#00A0E9'}>
+            <Button w={'90px'} as={Link} variant={'outline'} color={'#00A0E9'} borderColor={'#00A0E9'} href={'https://t.me/nest_chat/'}>
               Telegram
             </Button>
           </HStack>
           <HStack spacing={'30px'}>
-            <Button w={'90px'} variant={'outline'} color={'#00A0E9'} borderColor={'#00A0E9'}>
+            <Button w={'90px'} as={Link} variant={'outline'} color={'#00A0E9'} borderColor={'#00A0E9'} href={'https://discord.gg/nestprotocol'}>
               Discord
             </Button>
-            <Button w={'90px'} variant={'outline'} color={'#00A0E9'} borderColor={'#00A0E9'}>
+            <Button w={'90px'} as={Link} variant={'outline'} color={'#00A0E9'} borderColor={'#00A0E9'} href={'https://github.com/NEST-Protocol'}>
               Github
             </Button>
           </HStack>

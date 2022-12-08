@@ -13,7 +13,7 @@ const Page = () => {
       <Navigation/>
       <Stack align={"center"} spacing={'48px'} pb={'210px'}>
         <HStack color={'#00A0E9'} fontSize={'15px'} fontWeight={'600'} w={'full'} px={'45px'}>
-          <Link href={'/about/'}>About</Link>
+          <Link href={'/about/team/'}>About</Link>
           <ChevronRightIcon/>
           <Link href={'/about/nra/'}>NRA</Link>
         </HStack>
