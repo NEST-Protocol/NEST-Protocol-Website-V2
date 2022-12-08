@@ -11,7 +11,7 @@ export const getAllBlogs = async () => {
 export const getBlog = async (slug: any) => {
   const req = await axios({
     method: 'get',
-    url: `https://cms.nestfi.net/api/blogs/?filter[slug][eq]=${slug}`,
+    url: `https://cms.nestfi.net/api/blogs/?filters[slug][$eq]=${slug}`,
   })
   const data = req.data.data;
   if (data.length === 0) {
@@ -25,6 +25,14 @@ export const getBlogCategory = async () => {
   const req = await axios({
     method: 'get',
     url: 'https://cms.nestfi.net/api/blog-categories?populate=blogs',
+  })
+  return req.data;
+}
+
+export const getRecentBlogs = async () => {
+  const req = await axios({
+    method: 'get',
+    url: 'https://cms.nestfi.net/api/blogs/?pagination[page]=1&pagination[pageSize]=5&fields[0]=slug&fields[1]=title&sort=date%3Adesc',
   })
   return req.data;
 }
