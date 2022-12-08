@@ -108,7 +108,7 @@ const Page = () => {
         <Heading fontSize={'50px'}>
           How does NEST Oracle work?
         </Heading>
-        <Stack h={'300px'}>
+        <Stack h={'500px'}>
           <chakra.img src={'/image/Oracle/Flowchart.svg'} h={'full'} objectFit={'contain'}/>
         </Stack>
       </Stack>
@@ -304,8 +304,8 @@ const Page = () => {
         <Heading>
           How does NEST<br/> Oracle work?
         </Heading>
-        <Stack w={'full'} h={'400px'}>
-
+        <Stack w={'full'} h={'400px'} bg={'white'}>
+          <chakra.img src={'/image/Oracle/Flowchart.svg'} h={'full'} objectFit={'contain'}/>
         </Stack>
       </Stack>
       <Stack py={'62px'} px={'24px'} spacing={'24px'}>
