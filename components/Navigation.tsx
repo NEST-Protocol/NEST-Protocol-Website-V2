@@ -20,7 +20,7 @@ export default function Navigation() {
   }, [])
 
   const pcPage = (
-    <Stack px={'45px'} h={'88px'} direction={"row"} justifyContent={"space-between"} align={"center"}>
+    <Stack px={'45px'} minH={'88px'} h={'88px'} direction={"row"} justifyContent={"space-between"} align={"center"}>
       <Link href={'/'}>
         <chakra.img
           cursor={"pointer"}

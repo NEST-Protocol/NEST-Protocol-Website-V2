@@ -1,10 +1,9 @@
-import {HStack, Stack, Text} from "@chakra-ui/react";
+import {HStack, Stack, Text, Link} from "@chakra-ui/react";
 import {getAllDocs, getAllDocsCategory, getDoc} from "../../lib/docs";
 import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Navigation from "../../components/Navigation";
-import Link from "next/link";
 
 export default function Page({content, publishedAt, menu}: any) {
   return (
@@ -29,7 +28,7 @@ export default function Page({content, publishedAt, menu}: any) {
             ))
           }
         </Stack>
-        <Stack w={'container.xl'} h={'full'} p={'40px'}>
+        <Stack w={'container.xl'} h={'full'} p={'40px'} overflow={"scroll"}>
           {/* eslint-disable-next-line react/no-children-prop */}
           <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} className={'markdown-body'}/>
           <Moment format="YYYY/MM/DD">{publishedAt}</Moment>
