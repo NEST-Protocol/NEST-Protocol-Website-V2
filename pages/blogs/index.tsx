@@ -44,7 +44,7 @@ const Page = ({blogs}: any) => {
               blogs.map((item: any, index: number) => (
                 <Button key={index} fontSize={'15px'} w={'150px'} h={'42px'} borderRadius={0} bg={index === categoryIndex ? '#EAAA00' : ''}
                         border={'1px solid'} borderColor={'#EEEEEE'} variant={'unstyled'} borderLeftRadius={index === 0 ? '21px' : ''}
-                        borderRightRadius={index === blogs.length - 1 ? '21px' : ''}
+                        borderRightRadius={index === blogs.length - 1 ? '21px' : ''} fontWeight={'600'}
                         onClick={() => {
                           setCategoryIndex(index)
                         }
@@ -125,7 +125,7 @@ const Page = ({blogs}: any) => {
               blogs.map((item: any, index: number) => (
                 <Button key={index} fontSize={'15px'} w={'150px'} h={'33px'} borderRadius={0} bg={index === categoryIndex ? '#EAAA00' : ''}
                         border={'1px solid'} borderColor={'#EEEEEE'} variant={'unstyled'} borderLeftRadius={index === 0 ? '28px' : ''}
-                        borderRightRadius={index === blogs.length - 1 ? '21px' : ''}
+                        borderRightRadius={index === blogs.length - 1 ? '21px' : ''} fontWeight={'600'}
                         onClick={() => {
                           setCategoryIndex(index)
                         }
