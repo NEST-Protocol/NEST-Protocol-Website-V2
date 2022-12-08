@@ -1,9 +1,10 @@
-import {HStack, Stack, Text, Link} from "@chakra-ui/react";
+import {HStack, Stack, Text} from "@chakra-ui/react";
 import {getAllDocs, getAllDocsCategory, getDoc} from "../../lib/docs";
 import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Navigation from "../../components/Navigation";
+import Link from "next/link";
 
 export default function Page({content, publishedAt, menu}: any) {
   return (
@@ -14,7 +15,9 @@ export default function Page({content, publishedAt, menu}: any) {
           {
             menu.map((item: any) => (
               <Stack key={item.id}>
-                <Text fontWeight={'600'}>{item.attributes.name}</Text>
+                { item.attributes.docs.data.length > 0 && (
+                  <Text fontWeight={'600'}>{item.attributes.name}</Text>
+                ) }
                 {
                   item.attributes.docs.data.map((doc: any) => (
                     <Link key={doc.id} href={`/docs/${item.attributes.name}/${doc.attributes.slug}`}>
@@ -46,9 +49,8 @@ export const getStaticPaths = async () => {
 }
 
 export async function getStaticProps({params}: any) {
-  const category = params.slug[0]
   const slug = params.slug[1]
-  const docRes = await getDoc(category, slug)
+  const docRes = await getDoc(slug)
   const menu = await getAllDocsCategory()
 
   return {

@@ -8,10 +8,10 @@ export const getAllDocs = async () => {
   return req.data;
 }
 
-export const getDoc = async (category: string, slug: string) => {
+export const getDoc = async (slug: string) => {
   const req = await axios({
     method: 'get',
-    url: `https://cms.nestfi.net/api/docs/?filter[category][eq]=${category}&filter[slug][eq]=${slug}`,
+    url: `https://cms.nestfi.net/api/docs/?filters[slug][$eq]=${slug}`,
   })
   const data = req.data.data;
   if (data.length === 0) {
