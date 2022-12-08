@@ -123,27 +123,37 @@ const Page = ({blogs}: any) => {
       <Stack px={'24px'}>
         <Stack py={'35px'} spacing={'27px'} bg={'white'} borderRadius={'14px'}>
           <HStack spacing={0} px={'8px'}>
-            <Stack textAlign={"center"} justify={"center"} fontSize={'15px'} w={'full'} h={'33px'} borderRadius={0} borderLeftRadius={'28px'} border={'1px solid'} borderColor={'#EEEEEE'}>
-              <Text fontWeight={'600'}>News</Text>
-            </Stack>
-            <Stack textAlign={"center"} justify={"center"} fontSize={'15px'} w={'full'} h={'33px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
-              <Text fontWeight={'600'}>Blogs</Text>
-            </Stack>
-            <Stack textAlign={"center"} justify={"center"} fontSize={'15px'} w={'full'} h={'33px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
-              <Text fontWeight={'600'}>Roundtable</Text>
-            </Stack>
-            <Stack textAlign={"center"} justify={"center"} fontSize={'15px'} w={'full'} h={'33px'} borderRadius={0} borderRightRadius={'28px'} border={'1px solid'} borderColor={'#EEEEEE'}>
-              <Text fontWeight={'600'}>Transfer</Text>
-            </Stack>
+            {
+              blogs.map((item: any, index: number) => (
+                <Button key={index} fontSize={'15px'} w={'150px'} h={'33px'} borderRadius={0} bg={index === categoryIndex ? '#EAAA00' : ''}
+                        border={'1px solid'} borderColor={'#EEEEEE'} variant={'unstyled'} borderLeftRadius={index === 0 ? '28px' : ''}
+                        borderRightRadius={index === blogs.length - 1 ? '21px' : ''}
+                        onClick={() => {
+                          setCategoryIndex(index)
+                        }
+                        } >
+                  {item.attributes.name}
+                </Button>
+              ))
+            }
           </HStack>
           <Divider/>
           <Stack>
-            <Stack px={'24px'} pb={'27px'} spacing={'22px'}>
-              <Text fontWeight={"bold"} fontSize={'12.5px'}>What are the new NFT use cases beyond music and art?</Text>
-              <Text color={'#878787'} fontSize={'10px'} fontWeight={'500'}>Nov 25, 2022</Text>
-              <Text fontSize={'10px'} fontWeight={'600'}>I think NFTs are bringing additional value</Text>
-              <Divider/>
-            </Stack>
+            {
+              blogs[categoryIndex].attributes.blogs.data.filter((item: any ,index: number) => {
+                if (showMore) {
+                  return true
+                }
+                return index < 3
+              }).map((item: any, index: number) => (
+                <Stack px={'24px'} pb={'27px'} spacing={'22px'} key={index}>
+                  <Text fontWeight={"bold"} fontSize={'12.5px'}>{item.attributes.title}</Text>
+                  <Text color={'#878787'} fontSize={'10px'} fontWeight={'500'}>{item.attributes.date}</Text>
+                  <Text fontSize={'10px'} fontWeight={'600'} noOfLines={3}>{item.attributes.content}</Text>
+                  <Divider/>
+                </Stack>
+              ))
+            }
             <Stack px={'24px'} pb={'27px'} spacing={'22px'}>
               <Text fontWeight={"bold"} fontSize={'12.5px'}>What are the new NFT use cases beyond music and art?</Text>
               <Text color={'#878787'} fontSize={'10px'} fontWeight={'500'}>Nov 25, 2022</Text>
@@ -158,8 +168,10 @@ const Page = ({blogs}: any) => {
             </Stack>
           </Stack>
           <Stack align={"center"}>
-            <Button minH={'44px'} w={'140px'} borderRadius={'22px'} variant={'outline'}>
-              More
+            <Button minH={'44px'} w={'140px'} borderRadius={'22px'} variant={'outline'} onClick={() => {
+              setShowMore(!showMore)}
+            }>
+              {!showMore ? 'More' : 'Less'}
             </Button>
           </Stack>
         </Stack>
