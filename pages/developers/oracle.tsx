@@ -9,7 +9,7 @@ import {
   Wrap,
   WrapItem,
   chakra,
-  Spacer
+  Spacer, AspectRatio
 } from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
@@ -39,8 +39,13 @@ const Page = () => {
       </Stack>
       <Stack bg={"white"} align={"center"} textAlign={"center"} pt={'90px'} pb={'60px'} spacing={'44px'}>
         <Heading fontSize={'50px'}>What is NEST Oracle?</Heading>
-        <Stack w={'680px'} h={'350px'} bg={'red'}>
-
+        <Stack w={'680px'} h={'350px'}>
+          <AspectRatio ratio={16/9}>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/mOF8o0OZoxE"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen></iframe>
+          </AspectRatio>
         </Stack>
       </Stack>
 
@@ -231,11 +236,16 @@ const Page = () => {
              px={'24px'}>
         <Heading fontSize={'25px'}>What is <br/>
           NEST Oracle?</Heading>
-        <Stack w={'full'} h={'190px'} bg={'red'}>
-
+        <Stack w={'full'} h={'190px'}>
+          <AspectRatio ratio={16/9}>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/mOF8o0OZoxE"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen></iframe>
+          </AspectRatio>
         </Stack>
       </Stack>
-      <Stack align={"center"} textAlign={"center"} px={'24px'} pb={'62px'} spacing={'40px'}>
+      <Stack align={"center"} textAlign={"center"} px={'24px'} py={'62px'} spacing={'40px'}>
         <Heading fontSize={'25px'}>
           Impeccable Technical<br/>
           Architecture
