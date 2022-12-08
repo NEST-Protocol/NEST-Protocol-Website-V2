@@ -2,19 +2,22 @@ import {
   Button,
   chakra,
   HStack,
-  Link,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
   Spacer, useDisclosure,
-  VStack
+  VStack, Text, Stack
 } from "@chakra-ui/react";
 import {HamburgerIcon} from "@chakra-ui/icons";
 import gtag from "ga-gtag";
+import Link from "next/link";
+import {useState} from "react";
 
 export default function NavigationMobile() {
   const {isOpen, onOpen, onClose} = useDisclosure()
+  const [showDevelopers, setShowDevelopers] = useState(false)
+  const [showAbout, setShowAbout] = useState(false)
 
   return (
     <HStack w={'full'} px={'24px'} py={'20px'}>
@@ -45,6 +48,47 @@ export default function NavigationMobile() {
           />
           <ModalBody p={'22px'}>
             <VStack alignItems={'center'} pt={'100px'} spacing={'120px'}>
+              <Stack spacing={'25px'} textAlign={"center"}>
+                <Link href={'https://nft.nestprotocol.org/'}>
+                  <Text fontSize={'16px'} fontWeight={'600'} opacity={showDevelopers || showAbout ? 0.6 : 1}>Cyber Ink</Text>
+                </Link>
+                <Link href={'/nest-fi/'}>
+                  <Text fontSize={'16px'} fontWeight={'600'} opacity={showDevelopers || showAbout ? 0.6 : 1}>NESTFi</Text>
+                </Link>
+                <Text fontSize={'16px'} fontWeight={'600'} opacity={showDevelopers || showAbout ? 0.6 : 1} onClick={() => setShowDevelopers(!showDevelopers)} >Developers</Text>
+                {
+                  showDevelopers && (
+                    <>
+                      <Link href={'/developers/oracle/'}>
+                        <Text fontSize={'16px'} fontWeight={'600'}>Oracle</Text>
+                      </Link>
+                      <Link href={'/developers/pvm/'}>
+                        <Text fontSize={'16px'} fontWeight={'600'}>PVM</Text>
+                      </Link>
+                    </>
+                  )
+                }
+                <Link href={'/docs/'}>
+                  <Text fontSize={'16px'} opacity={showDevelopers || showAbout ? 0.6 : 1} fontWeight={'600'}>Doc</Text>
+                </Link>
+                <Link href={'/blogs/'}>
+                  <Text fontSize={'16px'} opacity={showDevelopers || showAbout ? 0.6 : 1} fontWeight={'600'}>Blog</Text>
+                </Link>
+                <Text fontSize={'16px'} opacity={showDevelopers || showAbout ? 0.6 : 1} fontWeight={'600'} onClick={() => setShowAbout(!showAbout)}>About</Text>
+                {
+                  showAbout && (
+                    <>
+                      <Link href={'/about/team'}>
+                        <Text fontSize={'16px'} fontWeight={'600'}>Team</Text>
+                      </Link>
+                      <Link href={'/about/partnership'}>
+                        <Text fontSize={'16px'} fontWeight={'600'}>Partnership</Text>
+                      </Link>
+                    </>
+                  )
+                }
+              </Stack>
+
               <Button
                 variant={'solid'}
                 aria-label={'App'}
