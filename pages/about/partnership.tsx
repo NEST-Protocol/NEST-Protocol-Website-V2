@@ -3,9 +3,12 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
+import {getAllPartnerCategory} from "../../lib/partners";
+import {useState} from "react";
 
-const Page = () => {
+const Page = ({partners}: any) => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [selectId, setSelectId] = useState(-1);
 
   const pcPage = (
     <Stack bgImage={'/image/partnership/bg.jpg'} bgPosition={"center"} bgSize={'cover'} minH={'100vh'}>
@@ -17,30 +20,25 @@ const Page = () => {
       <Stack px={'45px'}>
         <Stack h={'500px'} bg={"rgba(255,255,255,0.8)"} borderRadius={'20px'}>
           <HStack p={'48px'} overflow={"scroll"} justifyContent={"center"} spacing={0}>
-            <Button h={'42px'} w={'150px'} borderRadius={0} borderLeftRadius={'21px'} border={'1px solid'} borderColor={'#EEEEEE'}>
-              ALL
+            <Button h={'42px'} w={'150px'} borderRadius={0} variant={'unstyled'}
+                    borderLeftRadius={'21px'} border={'1px solid'}
+                    borderColor={'#E5E5E5'} bg={selectId === -1 ? '#EAAA00' : 'white'}
+                    onClick={() => setSelectId(-1)}
+            >
+              All
             </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
-              NFT
-            </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
-              DAO
-            </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
-              DeFi
-            </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
-              Wallet
-            </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
-              GameFi
-            </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
-              Exchange
-            </Button>
-            <Button h={'42px'} w={'150px'} borderRadius={0} borderRightRadius={'21px'} border={'1px solid'} borderColor={'#EEEEEE'} variant={'outline'}>
-              Infrastructure
-            </Button>
+            {
+              partners.map((item: any, index: number) => (
+                <Button key={item.id} h={'42px'} w={'150px'} borderRadius={0} variant={'unstyled'}
+                        border={'1px solid'}
+                        borderColor={'#E5E5E5'} bg={selectId === item.id ? '#EAAA00' : 'white'}
+                        borderRightRadius={index === partners.length - 1 ? '21px' : 0}
+                        onClick={() => setSelectId(item.id)}
+                        >
+                  {item.attributes.name}
+                </Button>
+              ))
+            }
           </HStack>
         </Stack>
       </Stack>
@@ -62,32 +60,40 @@ const Page = () => {
       <Stack px={'24px'}>
         <Stack w={'full'} h={'400px'} borderRadius={'20px'} py={'15px'} px={'10px'} spacing={'10px'} bg={'rgba(255,255,255,0.7)'}>
           <HStack spacing={0} w={'full'}>
-            <Stack textAlign={"center"} justify={"center"} fontSize={'9px'} w={'full'} h={'28px'} borderRadius={0} borderLeftRadius={'28px'} border={'1px solid'} borderColor={'#EEEEEE'}>
-              <Text fontWeight={'600'}>ALL</Text>
-            </Stack>
-            <Stack textAlign={"center"} justify={"center"} fontSize={'9px'} w={'full'} h={'28px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
-              <Text fontWeight={'600'}>NFT</Text>
-            </Stack>
-            <Stack textAlign={"center"} justify={"center"} fontSize={'9px'} w={'full'} h={'28px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
-              <Text fontWeight={'600'}>DAO</Text>
-            </Stack>
-            <Stack textAlign={"center"} justify={"center"} fontSize={'9px'} w={'full'} h={'28px'} borderRightRadius={'28px'} border={'1px solid'} borderColor={'#EEEEEE'}>
-              <Text fontWeight={'600'}>DeFi</Text>
-            </Stack>
+            <Button h={'42px'} w={'full'} borderRadius={0} variant={'unstyled'} maxH={'28px'}
+                    border={'1px solid'} fontSize={'9px'}
+                    borderColor={'#E5E5E5'} bg={selectId === -1 ? '#EAAA00' : 'white'}
+                    onClick={() => setSelectId(-1)} borderLeftRadius={'21px'}
+            >
+              All
+            </Button>
+            {
+              // add a item to array first position
+              partners.filter((item: any, index: number) => index < 3).map((item: any, index: number) => (
+                <Button key={item.id} h={'42px'} w={'full'} borderRadius={0} variant={'unstyled'} maxH={'28px'}
+                        border={'1px solid'} fontSize={'9px'}
+                        borderColor={'#E5E5E5'} bg={selectId === index ? '#EAAA00' : 'white'}
+                        borderRightRadius={index === 2 ? '21px' : 0}
+                        onClick={() => setSelectId(index)}
+                >
+                  {item.attributes.name}
+                </Button>
+              ))
+            }
           </HStack>
           <HStack spacing={0}>
-            <Stack textAlign={"center"} justify={"center"} fontSize={'9px'} w={'full'} h={'28px'} borderRadius={0} borderLeftRadius={'21px'} border={'1px solid'} borderColor={'#EEEEEE'}>
-              <Text fontWeight={'600'}>Wallet</Text>
-            </Stack>
-            <Stack textAlign={"center"} justify={"center"} fontSize={'9px'} w={'full'} h={'28px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
-              <Text fontWeight={'600'}>GameFi</Text>
-            </Stack>
-            <Stack textAlign={"center"} justify={"center"} fontSize={'9px'} w={'full'} h={'28px'} borderRadius={0} border={'1px solid'} borderColor={'#EEEEEE'}>
-              <Text fontWeight={'600'}>Exchange</Text>
-            </Stack>
-            <Stack textAlign={"center"} justify={"center"} fontSize={'9px'} w={'full'} h={'28px'} borderRightRadius={'28px'} border={'1px solid'} borderColor={'#EEEEEE'}>
-              <Text fontWeight={'600'}>Infrastructure</Text>
-            </Stack>
+            {
+              partners.filter((item: any, index: number) => index > 3).map((item: any, index: number) => (
+                <Button key={item.id} h={'42px'} w={'full'} borderRadius={0} variant={'unstyled'} maxH={'28px'}
+                        borderLeftRadius={index === 0 ? '21px' : 0} border={'1px solid'} fontSize={'9px'}
+                        borderColor={'#E5E5E5'} bg={selectId === item.id ? '#EAAA00' : 'white'}
+                        borderRightRadius={index === partners.length - 5 ? '21px' : 0}
+                        onClick={() => setSelectId(item.id)}
+                >
+                  {item.attributes.name}
+                </Button>
+              ))
+            }
           </HStack>
         </Stack>
       </Stack>
@@ -106,3 +112,12 @@ const Page = () => {
 }
 
 export default Page
+
+export async function getStaticProps() {
+  const res = await getAllPartnerCategory()
+  return {
+    props: {
+      partners: res.data
+    }
+  }
+}
