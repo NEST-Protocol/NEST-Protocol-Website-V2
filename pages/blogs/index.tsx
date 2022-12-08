@@ -18,9 +18,9 @@ const Page = ({blogs}: any) => {
         <Wrap justify={'space-between'} spacing={'40px'}>
           {
             [
-              {image: '', title: '', desc: '', date: ''},
-              {image: '', title: '', desc: '', date: ''},
-              {image: '', title: '', desc: '', date: ''},
+              {image: '', title: 'Coinbase Announces Planned Listing of Tokens, Adds $NEST', desc: 'On Monday, Coinbase, a leading American cryptocurrency exchange, announced that it would list six tokens', date: 'July 25, 2022'},
+              {image: '', title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle', desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting centralized systems, ', date: 'Jun 9, 2022'},
+              {image: '', title: 'NEST’s RSS FEED INTEGRATED WITH CRYPTO.COM PRICE PAGE', desc: 'Through Crypto.com’s NEST Price Page, you can now directly access NEST’s RSS news feed.', date: 'May 6, 2022'},
             ].map((item, index) => (
               <WrapItem key={index} w={'30%'} bg={"rgba(255, 255, 255, 0.7)"} borderRadius={'20px'}
                         border={'1px solid #EEEEEE'}>
@@ -29,11 +29,9 @@ const Page = ({blogs}: any) => {
 
                   </Stack>
                   <Stack px={'44px'} py={'34px'}>
-                    <Text fontWeight={'bold'} fontSize={'18px'}>Coinbase Announces Planned Listing of Tokens, Adds
-                      $NEST</Text>
-                    <Text fontSize={'13px'} fontWeight={'600'}>On Monday, Coinbase, a leading American cryptocurrency
-                      exchange, announced that it would list six tokens </Text>
-                    <Text fontSize={'13px'} fontWeight={'500'}>July 25, 2022</Text>
+                    <Text fontWeight={'bold'} fontSize={'18px'}>{item.title}</Text>
+                    <Text fontSize={'13px'} fontWeight={'600'} h={'60px'}>{item.desc}</Text>
+                    <Text fontSize={'13px'} fontWeight={'500'}>{item.date}</Text>
                   </Stack>
                 </Stack>
               </WrapItem>
@@ -99,9 +97,9 @@ const Page = ({blogs}: any) => {
       <Stack px={'24px'} spacing={'24px'} pb={'24px'}>
         {
           [
-            {image: '', title: '', desc: '', date: ''},
-            {image: '', title: '', desc: '', date: ''},
-            {image: '', title: '', desc: '', date: ''},
+            {image: '', title: 'Coinbase Announces Planned Listing of Tokens, Adds $NEST', desc: 'On Monday, Coinbase, a leading American cryptocurrency exchange, announced that it would list six tokens', date: 'July 25, 2022'},
+            {image: '', title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle', desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting centralized systems, ', date: 'Jun 9, 2022'},
+            {image: '', title: 'NEST’s RSS FEED INTEGRATED WITH CRYPTO.COM PRICE PAGE', desc: 'Through Crypto.com’s NEST Price Page, you can now directly access NEST’s RSS news feed.', date: 'May 6, 2022'},
           ].map((item, index) => (
             <Stack key={index} w={'full'} h={'400px'} bg={"white"} borderRadius={'14px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}>
               <Stack>
@@ -109,11 +107,9 @@ const Page = ({blogs}: any) => {
 
                 </Stack>
                 <Stack px={'44px'} py={'34px'}>
-                  <Text fontWeight={'bold'} fontSize={'18px'}>Coinbase Announces Planned Listing of Tokens, Adds
-                    $NEST</Text>
-                  <Text fontSize={'13px'} fontWeight={'600'}>On Monday, Coinbase, a leading American cryptocurrency
-                    exchange, announced that it would list six tokens </Text>
-                  <Text fontSize={'13px'} fontWeight={'500'}>July 25, 2022</Text>
+                  <Text fontWeight={'bold'} fontSize={'18px'}>{item.title}</Text>
+                  <Text fontSize={'13px'} fontWeight={'600'}>{item.desc}</Text>
+                  <Text fontSize={'13px'} fontWeight={'500'}>{item.date}</Text>
                 </Stack>
               </Stack>
             </Stack>
