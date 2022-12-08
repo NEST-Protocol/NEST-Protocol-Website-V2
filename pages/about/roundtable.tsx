@@ -8,15 +8,18 @@ import {
   Text,
   useMediaQuery,
   Wrap,
-  WrapItem, chakra
+  WrapItem, chakra, Link
 } from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
+import {getAllRoundtable} from "../../lib/roundtable";
+import {useState} from "react";
 
-const Page = () => {
+const Page = ({roundtables}: any) => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [showMore, setShowMore] = useState(false);
 
   const pcPage = (
     <Stack bgImage={'/image/Roundtable/bg.jpg'} bgPosition={"center"} bgSize={'cover'} minH={'100vh'}>
@@ -27,28 +30,47 @@ const Page = () => {
           the world of blockchain</Text>
       </Stack>
       <Wrap justify={"center"} spacing={'40px'}>
-        <WrapItem>
-          <Stack w={'618px'} bg={"rgba(255,255,255,0.8)"} p={'40px'} borderRadius={'20px'} spacing={'20px'}>
-            <HStack>
-              <chakra.img src={'/image/Roundtable/Audio.svg'} h={'34px'}/>
-              <Spacer/>
-              <Text>oct 24, 2022</Text>
-            </HStack>
-            <Divider/>
-            <Stack>
-              <Text fontSize={'21px'} fontWeight={'bold'}>
-                Digital Assets in GameFi
-              </Text>
-            </Stack>
-            <HStack>
-
-            </HStack>
-          </Stack>
-        </WrapItem>
+        {
+          roundtables.filter((item: any, index: number) => {
+            if (showMore) {
+              return true
+            }
+            return index < 8
+          }).map((item: any) => (
+            <WrapItem key={item.id}>
+              <Stack w={'618px'} bg={"rgba(255,255,255,0.8)"} p={'40px'} borderRadius={'20px'} spacing={'20px'}>
+                <HStack>
+                  <Link href={item.attributes.link} isExternal>
+                    <chakra.img src={'/image/Roundtable/Audio.svg'} h={'34px'}/>
+                  </Link>
+                  <Spacer/>
+                  <Text>{item.attributes.scheduled_start}</Text>
+                </HStack>
+                <Divider/>
+                <Stack>
+                  <Link href={item.attributes.blog_link} isExternal fontSize={'21px'} fontWeight={'bold'} h={'60px'} noOfLines={2}>
+                    {item.attributes.title}
+                  </Link>
+                </Stack>
+                <HStack spacing={'10px'} overflow={'hidden'}>
+                  {
+                    item.attributes.invited_user_icons.data?.map((icon: any) => (
+                      <chakra.img key={icon.id} src={'https://cms.nestfi.net/' + icon.attributes.url}
+                                  h={'20px'} objectFit={'contain'}/>
+                    ))
+                  }
+                </HStack>
+              </Stack>
+            </WrapItem>
+          ))
+        }
       </Wrap>
       <Stack align={"center"} pt={'48px'} pb={'138px'}>
-        <Button w={'170px'} variant={'outline'}>
-          Less Roundtable
+        <Button w={'170px'} variant={'outline'} onClick={() => {
+          setShowMore(!showMore)
+        }
+        }>
+          {showMore ? 'Show Less' : 'Show More'}
         </Button>
       </Stack>
       <Spacer/>
@@ -67,15 +89,43 @@ const Page = () => {
           topic to understand the world of blockchain</Text>
       </Stack>
       <Stack px={'20px'} spacing={'20px'}>
-        <Stack bg={'rgba(255,255,255,0.8)'} borderRadius={'20px'} p={'20px'} spacing={'10px'} h={'130px'}>
-          <HStack>
-            <chakra.img  src={'/image/Roundtable/Audio.svg'} h={'17px'}/>
-            <Spacer/>
-            <Text fontSize={'7.5px'} fontWeight={'500'} color={'#7D7D7D'}>oct 24, 2022</Text>
-          </HStack>
-          <Divider/>
-          <Text fontSize={'10px'} fontWeight={'bold'}>Digital Assets in GameFi</Text>
-        </Stack>
+        {
+          roundtables.filter((item: any, index: number) => {
+            if (showMore) {
+              return true
+            }
+            return index < 8
+          }).map((item: any) => (
+            <Stack key={item.id} bg={'rgba(255,255,255,0.8)'} borderRadius={'20px'} p={'20px'} spacing={'10px'}
+                   h={'130px'}>
+              <HStack>
+                <Link href={item.attributes.link} isExternal>
+                  <chakra.img src={'/image/Roundtable/Audio.svg'} h={'17px'}/>
+                </Link>
+                <Spacer/>
+                <Text fontSize={'7.5px'} fontWeight={'500'} color={'#7D7D7D'}>{item.attributes.scheduled_start}</Text>
+              </HStack>
+              <Divider/>
+              <Link href={item.attributes.blog_link} isExternal fontSize={'10px'} fontWeight={'bold'}> {item.attributes.title}</Link>
+              <HStack spacing={'10px'} overflow={'hidden'}>
+                {
+                  item.attributes.invited_user_icons.data?.map((icon: any) => (
+                    <chakra.img key={icon.id} src={'https://cms.nestfi.net/' + icon.attributes.url}
+                                h={'20px'} objectFit={'contain'}/>
+                  ))
+                }
+              </HStack>
+            </Stack>
+          ))
+        }
+      </Stack>
+      <Stack align={"center"} pt={'48px'}>
+        <Button w={'170px'} variant={'outline'} onClick={() => {
+          setShowMore(!showMore)
+        }
+        }>
+          {showMore ? 'Less' : 'More'}
+        </Button>
       </Stack>
       <Stack h={'62px'}></Stack>
       <FooterMobile/>
@@ -92,3 +142,12 @@ const Page = () => {
 }
 
 export default Page
+
+export async function getStaticProps() {
+  const res = await getAllRoundtable()
+  return {
+    props: {
+      roundtables: res.data
+    }
+  }
+}
