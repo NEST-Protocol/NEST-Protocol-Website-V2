@@ -1,11 +1,14 @@
-import {Button, Divider, HStack, Stack, Text, useMediaQuery, Wrap, WrapItem} from "@chakra-ui/react";
+import {Button, Divider, HStack, Link, Stack, Text, useMediaQuery, Wrap, WrapItem} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
+import {getBlogCategory} from "../../lib/blogs";
+import {useState} from "react";
 
-const Page = () => {
+const Page = ({blogs}: any) => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [categoryIndex, setCategoryIndex] = useState(0);
 
   const pcPage = (
     <Stack bgSize={'cover'} bgImage={"image/Blog/bg.jpg"} bgPosition={"center"}>
@@ -37,49 +40,34 @@ const Page = () => {
           }
         </Wrap>
         <Stack py={'48px'} px={'44px'} borderRadius={'20px'} bg={"rgba(255,255,255,0.8)"}>
-          <HStack spacing={-1} justify={"center"} pb={'30px'}>
-            <Button fontSize={'15px'} w={'150px'} h={'42px'} borderRadius={0} bg={'#EAAA00'} borderLeftRadius={'21px'}
-                    border={'1px solid'} borderColor={'#EEEEEE'}>
-              News
-            </Button>
-            <Button fontSize={'15px'} w={'150px'} h={'42px'} borderRadius={0} bg={'white'} border={'1px solid'}
-                    borderColor={'#EEEEEE'}>
-              Blogs
-            </Button>
-            <Button fontSize={'15px'} w={'150px'} h={'42px'} borderRadius={0} bg={'white'} border={'1px solid'}
-                    borderColor={'#EEEEEE'}>
-              Roundtable
-            </Button>
-            <Button fontSize={'15px'} w={'150px'} h={'42px'} borderRadius={0} bg={'white'} borderRightRadius={'21px'}
-                    border={'1px solid'} borderColor={'#EEEEEE'}>
-              Transfer
-            </Button>
+          <HStack spacing={0} justify={"center"} pb={'30px'}>
+            {
+              blogs.map((item: any, index: number) => (
+                <Button key={index} fontSize={'15px'} w={'150px'} h={'42px'} borderRadius={0} bg={index === categoryIndex ? '#EAAA00' : ''}
+                        border={'1px solid'} borderColor={'#EEEEEE'} variant={'unstyled'} borderLeftRadius={index === 0 ? '21px' : ''}
+                        borderRightRadius={index === blogs.length - 1 ? '21px' : ''}
+                        onClick={() => {
+                          setCategoryIndex(index)
+                        }
+                } >
+                  {item.attributes.name}
+                </Button>
+              ))
+            }
           </HStack>
           <Divider/>
           <Stack h={'44px'}></Stack>
           {
-            [
-              {
-                title: 'What are the new NFT use cases, beyond music and art?', desc: `I think NFTs are bringing additional
-                  value to some of the old web 2 issues that we had. Some of the recent
-                  ones for example have been with events and ticketing to go to a concert or to go to a sports event in the
-                  form of NFT, and then as an NFT holder, you could use that ticket as a collectible. For example, the
-                  people that of NFT, and then as an NFT holder, you could use that ticket as a collectible. For example, the
-                  people that effectively, now with NFT, this is something that could be replicated except you wouldn’t have to
-                  worry about`, date: 'Nov 25, 2022'
-              },
-              {title: '', desc: '', date: ''},
-              {title: '', desc: '', date: ''},
-            ].map((item, index) => (
+            blogs[categoryIndex].attributes.blogs.data.map((item: any, index: number) => (
               <Stack pb={'44px'} key={index}>
-                <Text fontWeight={'600'} fontSize={'25px'}>
-                  {item.title}
-                </Text>
+                <Link fontWeight={'600'} fontSize={'25px'} href={`/blogs/${item.attributes.slug}`}>
+                  {item.attributes.title}
+                </Link>
                 <Text fontWeight={'500'} fontSize={'15px'} color={'#7D7D7D'}>
-                  {item.date}
+                  {item.attributes.date}
                 </Text>
-                <Text fontWeight={'600'} fontSize={'15px'}>
-                  {item.desc}
+                <Text fontWeight={'600'} fontSize={'15px'} noOfLines={3}>
+                  {item.attributes.content}
                 </Text>
                 <Stack h={'44px'}></Stack>
                 <Divider/>
@@ -184,3 +172,12 @@ const Page = () => {
 }
 
 export default Page
+
+export async function getStaticProps() {
+  const blogRes = await getBlogCategory()
+  return {
+    props: {
+      blogs: blogRes.data
+    }
+  }
+}

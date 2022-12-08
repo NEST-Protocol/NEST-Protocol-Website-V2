@@ -20,3 +20,11 @@ export const getBlog = async (slug: any) => {
 
   return data[0];
 }
+
+export const getBlogCategory = async () => {
+  const req = await axios({
+    method: 'get',
+    url: 'https://cms.nestfi.net/api/blog-categories?populate=blogs',
+  })
+  return req.data;
+}
