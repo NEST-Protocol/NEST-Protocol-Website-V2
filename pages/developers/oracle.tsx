@@ -305,7 +305,7 @@ const Page = () => {
           How does NEST<br/> Oracle work?
         </Heading>
         <Stack w={'full'} h={'400px'} bg={'white'}>
-          <chakra.img src={'/image/Oracle/Flowchart.svg'} h={'full'} objectFit={'contain'}/>
+          <chakra.img src={'/image/Oracle/Flowchart2.svg'} h={'full'} objectFit={'contain'}/>
         </Stack>
       </Stack>
       <Stack py={'62px'} px={'24px'} spacing={'24px'}>
