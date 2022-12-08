@@ -11,6 +11,7 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
+import {ChevronRightIcon} from "@chakra-ui/icons";
 
 const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
@@ -79,7 +80,7 @@ const Page = () => {
               maintaining long-term relationships with Vitalik, the Ether Foundation,<br/>
               Coindesk, Consensus, and others.
             </Text>
-            <Link fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'10px'}>NRA</Link>
+            <Link fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'10px'}>NRA <ChevronRightIcon/></Link>
           </Stack>
 
           <Stack py={'74px'} bg={'rgba(255,255,255,0.84)'} borderRadius={'20px'}>
@@ -95,8 +96,8 @@ const Page = () => {
               as well as grant and ecological fund management.
             </Text>
             <HStack pt={'10px'} justify={"center"} spacing={'68px'}>
-              <Link fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'}>News</Link>
-              <Link fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'}>NEST Roundtable</Link>
+              <Link fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'}>News <ChevronRightIcon/></Link>
+              <Link fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'}>NEST Roundtable <ChevronRightIcon/></Link>
             </HStack>
 
           </Stack>
@@ -112,7 +113,7 @@ const Page = () => {
               technical and theoretical support for new categories while also<br/>
               such as future hackathons.
             </Text>
-            <Link fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'10px'}>Developer Docs</Link>
+            <Link fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'10px'}>Developer Docs <ChevronRightIcon/></Link>
           </Stack>
 
           <Stack py={'74px'} bg={'rgba(255,255,255,0.84)'} borderRadius={'20px'}>
@@ -131,16 +132,16 @@ const Page = () => {
               Join NEST Community
             </Text>
             <HStack justify={"center"} pt={'25px'} spacing={'28px'}>
-              <Button variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
+              <Button as={Link} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
                 Twitter
               </Button>
-              <Button variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
+              <Button as={Link} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
                 Telegram
               </Button>
-              <Button variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
+              <Button as={Link} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
                 Discord
               </Button>
-              <Button variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
+              <Button as={Link} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
                 Github
               </Button>
             </HStack>
@@ -208,7 +209,7 @@ const Page = () => {
             Coindesk, Consensus, and others.
           </Text>
           <Link color={'#00A0E9'}>
-            NRA
+            NRA <ChevronRightIcon/>
           </Link>
         </Stack>
         <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'}

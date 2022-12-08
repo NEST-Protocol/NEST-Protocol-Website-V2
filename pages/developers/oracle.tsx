@@ -15,6 +15,7 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
+import {ChevronRightIcon} from "@chakra-ui/icons";
 
 const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
@@ -148,7 +149,7 @@ const Page = () => {
                     <Text fontSize={'13px'} fontWeight={'600'}>{item.desc}</Text>
                   </Stack>
                   <Link color={'#00A0E9'} fontWeight={'600'} fontSize={'15px'} href={item.link}>
-                    {item.linkText}
+                    {item.linkText} <ChevronRightIcon/>
                   </Link>
                 </Stack>
               </WrapItem>
@@ -308,38 +309,43 @@ const Page = () => {
         </Stack>
       </Stack>
       <Stack py={'62px'} px={'24px'} spacing={'24px'}>
-        <Stack px={'38px'} py={'100px'} borderRadius={'17px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}
-               bg={'rgba(255,255,255,0.8)'}>
-          <Text fontSize={'17px'} fontWeight={'bold'}>Create Channel</Text>
-          <Text fontSize={'12.5px'} fontWeight={'600'}>Anyone can create a channel. Open
-            a decentralized oracle with one click.
-          </Text>
-          <Stack h={'30px'}>
-          </Stack>
-          <Link href={''} color={'#00A0E9'} fontSize={'12.5px'} fontWeight={600}>Create your channel</Link>
-        </Stack>
-
-        <Stack px={'38px'} py={'100px'} borderRadius={'17px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}
-               bg={'rgba(255,255,255,0.8)'}>
-          <Text fontSize={'17px'} fontWeight={'bold'}>Create Channel</Text>
-          <Text fontSize={'12.5px'} fontWeight={'600'}>Anyone can create a channel. Open
-            a decentralized oracle with one click.
-          </Text>
-          <Stack h={'30px'}>
-          </Stack>
-          <Link href={''} color={'#00A0E9'} fontSize={'12.5px'} fontWeight={600}>Create your channel</Link>
-        </Stack>
-
-        <Stack px={'38px'} py={'100px'} borderRadius={'17px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}
-               bg={'rgba(255,255,255,0.8)'}>
-          <Text fontSize={'17px'} fontWeight={'bold'}>Create Channel</Text>
-          <Text fontSize={'12.5px'} fontWeight={'600'}>Anyone can create a channel. Open
-            a decentralized oracle with one click.
-          </Text>
-          <Stack h={'30px'}>
-          </Stack>
-          <Link href={''} color={'#00A0E9'} fontSize={'12.5px'} fontWeight={600}>Create your channel</Link>
-        </Stack>
+        {
+          [
+            {
+              title: 'Create Channel',
+              desc: 'Anyone can create a channel. Open a decentralized oracle with one click.',
+              linkText: 'Create your channel',
+              link: ''
+            },
+            {
+              title: 'Price Quote',
+              desc: 'Anyone can make a price quote on the chain after pledging some tokens. Quotes will be rewarded and deviations from the quote will be arbitrated.',
+              linkText: 'How to quote',
+              link: ''
+            },
+            {
+              title: 'Verification',
+              desc: 'During the validation period (T0), anyone can validate the price. If there is a deviation from the correct price, the verifier can question the price and choose to trade either valuation or quotation asset, and then the verifier has to quote a new price. ',
+              linkText: 'How to verify',
+              link: ''
+            },
+            {
+              title: 'Effective Price',
+              desc: 'If a price is not arbitrated during the verification period(T0), this price is the effective price and anyone can use this price for free.',
+              linkText: 'How to call',
+              link: ''
+            },
+          ].map((item, index) => (
+            <Stack key={index} px={'38px'} py={'100px'} borderRadius={'17px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}
+                   bg={'rgba(255,255,255,0.8)'}>
+              <Text fontSize={'17px'} fontWeight={'bold'}>{item.title}</Text>
+              <Text fontSize={'12.5px'} fontWeight={'600'}>{item.desc}</Text>
+              <Stack h={'30px'}>
+              </Stack>
+              <Link href={item.link} color={'#00A0E9'} fontSize={'12.5px'} fontWeight={600}>{item.linkText} <ChevronRightIcon/></Link>
+            </Stack>
+          ))
+        }
 
         <Stack align={"center"} pt={'44px'}>
           <Button w={'190px'} variant={"outline"} minH={'44px'}>
