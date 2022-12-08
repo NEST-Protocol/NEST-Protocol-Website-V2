@@ -144,7 +144,7 @@ const Page = () => {
         <Stack px={'24px'} pt={'38px'} w={'full'}>
           <Stack px={'33px'} bg={'white'} borderRadius={'20px'} align={"center"} pt={'50px'}>
             <chakra.img src={'/image/NEST_Fi/02-icon-02@2x.png'} w={'150px'} alt={''}/>
-            <Stack py={'50px'} w={'full'}>
+            <Stack py={'50px'} w={'full'} textAlign={"center"}>
               <Text fontWeight={'bold'} fontSize={'16px'}>Valid Settlement</Text>
               <Text fontWeight={'600'} fontSize={'12.5px'}>ETH cannot make valid settlement for<br/>all
                 transactions; however, OMM can<br/>settle all transactions.</Text>
@@ -156,7 +156,7 @@ const Page = () => {
             <Stack>
               <chakra.img src={'/image/NEST_Fi/02-icon-03@2x.png'} w={'68px'} alt={''}/>
             </Stack>
-            <Stack py={'50px'} w={'full'}>
+            <Stack py={'50px'} w={'full'} textAlign={"center"}>
               <Text fontWeight={'bold'} fontSize={'16px'}>Market Clearing</Text>
               <Text fontWeight={'600'} fontSize={'12.5px'}>OMM can structure atomic<br/>liquidation, which means
                 that all<br/>excess return can be cleared.</Text>
@@ -168,7 +168,7 @@ const Page = () => {
             <Stack>
               <chakra.img src={'/image/NEST_Fi/02-icon-04@2x.png'} w={'68px'} alt={''}/>
             </Stack>
-            <Stack py={'50px'} w={'full'}>
+            <Stack py={'50px'} w={'full'} textAlign={"center"}>
               <Text fontWeight={'bold'} fontSize={'16px'}>Infinite Liquidity</Text>
               <Text fontWeight={'600'} fontSize={'12.5px'}>The liquidity will not be limited<br/>by the LP’s pool
                 size, theoretically<br/>OMM can provide infinite liquidity</Text>
