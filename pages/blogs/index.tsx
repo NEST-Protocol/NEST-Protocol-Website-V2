@@ -9,6 +9,7 @@ import {useState} from "react";
 const Page = ({blogs}: any) => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
   const [categoryIndex, setCategoryIndex] = useState(0);
+  const [showMore, setShowMore] = useState(false);
 
   const pcPage = (
     <Stack bgSize={'cover'} bgImage={"image/Blog/bg.jpg"} bgPosition={"center"}>
@@ -58,7 +59,12 @@ const Page = ({blogs}: any) => {
           <Divider/>
           <Stack h={'44px'}></Stack>
           {
-            blogs[categoryIndex].attributes.blogs.data.map((item: any, index: number) => (
+            blogs[categoryIndex].attributes.blogs.data.filter((item: any ,index: number) => {
+              if (showMore) {
+                return true
+              }
+              return index < 3
+            }).map((item: any, index: number) => (
               <Stack pb={'44px'} key={index}>
                 <Link fontWeight={'600'} fontSize={'25px'} href={`/blogs/${item.attributes.slug}`}>
                   {item.attributes.title}
@@ -76,7 +82,9 @@ const Page = ({blogs}: any) => {
           }
           <Stack align={"center"} pt={'48px'}>
             <Button w={'140px'} variant={'outline'} h={'34px'} borderRadius={'17px'} border={'2px solid'}
-                    color={'#EAAA00'} borderColor={'#EAAA00'}>More</Button>
+                    color={'#EAAA00'} borderColor={'#EAAA00'} onClick={() => {
+                    setShowMore(!showMore)}
+            }>{ !showMore ? 'More' : 'Less' }</Button>
           </Stack>
         </Stack>
       </Stack>
