@@ -20,8 +20,25 @@ const Page = () => {
       <Navigation/>
       <Stack textAlign={"center"} py={'167px'} px={'45px'}>
         <Text fontSize={'50px'} fontWeight={'bold'}>NEST DAO</Text>
-        <Stack h='100px'>
-
+        <Stack align={"center"} spacing={0} py={'14px'}>
+          <Stack h={'63px'} w={'1px'} bg={'black'}></Stack>
+          <Stack px={'125px'} w={'full'} >
+            <Stack h={'1px'} bg={'black'}></Stack>
+          </Stack>
+          <HStack w={'full'} justify={"space-between"}>
+            <Stack w={'250px'} align={"center"}>
+              <Stack h={'40px'} w={'1px'} bg={'black'}></Stack>
+            </Stack>
+            <Stack w={'250px'} align={"center"}>
+              <Stack h={'40px'} w={'1px'} bg={'black'}></Stack>
+            </Stack>
+            <Stack w={'250px'} align={"center"}>
+              <Stack h={'40px'} w={'1px'} bg={'black'}></Stack>
+            </Stack>
+            <Stack w={'250px'} align={"center"}>
+              <Stack h={'40px'} w={'1px'} bg={'black'}></Stack>
+            </Stack>
+          </HStack>
         </Stack>
 
         <HStack justifyContent={"space-between"} fontWeight={'bold'} fontSize={'18px'}>
@@ -49,7 +66,7 @@ const Page = () => {
             following organisation:</Text>
         </Stack>
 
-        <Stack px={'160px'} spacing={'138px'}>
+        <Stack px={'125px'} spacing={'138px'}>
           <Stack py={'74px'} bg={'rgba(255,255,255,0.84)'} borderRadius={'20px'}>
             <Stack pb={'20px'}>
               <chakra.img src={'/image/Team/NRA_pic.png'} h={'100px'} objectFit={'contain'}/>
@@ -103,7 +120,8 @@ const Page = () => {
               <chakra.img src={'/image/Team/NC_pic.png'} h={'100px'} objectFit={'contain'}/>
             </Stack>
             <Text fontSize={'25px'} fontWeight={'600'}>NEST Community</Text>
-            <Text fontSize={'15px'} fontWeight={'600'}>The NEST Community is primarily responsible for the community&apos;s
+            <Text fontSize={'15px'} fontWeight={'600'}>The NEST Community is primarily responsible for the
+              community&apos;s
               growth,<br/>
               the promotion of consensus, and the promotion and management<br/>
               of the coin-holding population, with the goal of becoming the industry&apos;s<br/>
@@ -170,7 +188,8 @@ const Page = () => {
           NEST DAO and has the following organisation:</Text>
       </Stack>
       <Stack px={'20px'} pt={'40px'} spacing={'20px'}>
-        <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'} px={'20px'}
+        <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'}
+               px={'20px'}
                textAlign={"center"}>
           <Stack pb={'50px'}>
             <chakra.img src={'/image/Team/NRA_pic.png'} h={'70px'}/>
@@ -192,7 +211,8 @@ const Page = () => {
             NRA
           </Link>
         </Stack>
-        <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'} px={'20px'}
+        <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'}
+               px={'20px'}
                textAlign={"center"}>
           <Stack pb={'50px'}>
             <chakra.img src={'/image/Team/NIB_pic.png'} h={'70px'}/>
@@ -215,7 +235,8 @@ const Page = () => {
             </Link>
           </HStack>
         </Stack>
-        <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'} px={'20px'}
+        <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'}
+               px={'20px'}
                textAlign={"center"}>
           <Stack pb={'50px'}>
             <chakra.img src={'/image/Team/NDA_pic.png'} h={'70px'}/>
@@ -233,7 +254,8 @@ const Page = () => {
             Developer Docs
           </Link>
         </Stack>
-        <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'} px={'20px'}
+        <Stack bg={'rgba(255,255,255,0.7)'} borderRadius={'20px'} align={"center"} spacing={'20px'} py={'60px'}
+               px={'20px'}
                textAlign={"center"}>
           <Stack pb={'50px'}>
             <chakra.img src={'/image/Team/NC_pic.png'} h={'70px'}/>
