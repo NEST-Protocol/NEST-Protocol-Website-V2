@@ -32,7 +32,7 @@ const Page = () => {
           on decentralized price flows on the chain. <br/>
         </Text>
         <HStack spacing={'48px'}>
-          <Button as={Link} href={'/docs/'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer
+          <Button as={Link} href={'/docs/Concept/NEST-Oracle'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer
             Doc</Button>
           <Button as={Link} href={'https://github.com/NEST-Protocol'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'}
                   color={'#003232'}>Github</Button>
@@ -121,25 +121,25 @@ const Page = () => {
                 title: 'Create Channel',
                 desc: 'Anyone can create a channel. Open a decentralized oracle with one click.',
                 linkText: 'Create your channel',
-                link: ''
+                link: 'https://oracle.nestprotocol.org/'
               },
               {
                 title: 'Price Quote',
                 desc: 'Anyone can make a price quote on the chain after pledging some tokens. Quotes will be rewarded and deviations from the quote will be arbitrated.',
                 linkText: 'How to quote',
-                link: ''
+                link: '/docs/root/Technical-Reference-NEST-Oracle'
               },
               {
                 title: 'Verification',
                 desc: 'During the validation period (T0), anyone can validate the price. If there is a deviation from the correct price, the verifier can question the price and choose to trade either valuation or quotation asset, and then the verifier has to quote a new price. ',
                 linkText: 'How to verify',
-                link: ''
+                link: '/docs/root/Technical-Reference-NEST-Oracle'
               },
               {
                 title: 'Effective Price',
                 desc: 'If a price is not arbitrated during the verification period(T0), this price is the effective price and anyone can use this price for free.',
                 linkText: 'How to call',
-                link: ''
+                link: '/docs/root/Technical-Reference-NEST-Oracle'
               },
             ].map((item, index) => (
               <WrapItem key={index}>
@@ -225,7 +225,7 @@ const Page = () => {
           price flows on the chain.<br/>
         </Text>
         <Stack spacing={'30px'} pt={'20px'}>
-          <Button w={'170px'} minH={'44px'} as={Link} href={'/docs/'}>
+          <Button w={'170px'} minH={'44px'} as={Link} href={'/docs/Concept/NEST-Oracle'}>
             Developer Doc
           </Button>
           <Button w={'170px'} minH={'44px'} as={Link} href={'https://github.com/NEST-Protocol'}>
@@ -315,25 +315,25 @@ const Page = () => {
               title: 'Create Channel',
               desc: 'Anyone can create a channel. Open a decentralized oracle with one click.',
               linkText: 'Create your channel',
-              link: ''
+              link: 'https://oracle.nestprotocol.org/'
             },
             {
               title: 'Price Quote',
               desc: 'Anyone can make a price quote on the chain after pledging some tokens. Quotes will be rewarded and deviations from the quote will be arbitrated.',
               linkText: 'How to quote',
-              link: ''
+              link: '/docs/root/Technical-Reference-NEST-Oracle'
             },
             {
               title: 'Verification',
               desc: 'During the validation period (T0), anyone can validate the price. If there is a deviation from the correct price, the verifier can question the price and choose to trade either valuation or quotation asset, and then the verifier has to quote a new price. ',
               linkText: 'How to verify',
-              link: ''
+              link: '/docs/root/Technical-Reference-NEST-Oracle'
             },
             {
               title: 'Effective Price',
               desc: 'If a price is not arbitrated during the verification period(T0), this price is the effective price and anyone can use this price for free.',
               linkText: 'How to call',
-              link: ''
+              link: '/docs/root/Technical-Reference-NEST-Oracle'
             },
           ].map((item, index) => (
             <Stack key={index} px={'38px'} py={'100px'} borderRadius={'17px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}

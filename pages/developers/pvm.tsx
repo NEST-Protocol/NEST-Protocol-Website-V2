@@ -21,9 +21,9 @@ const Page = () => {
           whole new range of development tools and creative new assets.
         </Text>
         <HStack spacing={'48px'}>
-          <Button bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer
+          <Button as={Link} href={'/docs/Concept/PVM'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer
             Doc</Button>
-          <Button bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'}
+          <Button as={Link} href={'https://github.com/NEST-Protocol'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'}
                   color={'#003232'}>Github</Button>
         </HStack>
       </Stack>
@@ -37,7 +37,7 @@ const Page = () => {
           <Text fontSize={'15px'} fontWeight={'600'}>NEST Probabilistic Virtual Machine (PVM) is a virtual<br/>machine-like
             structure based on the basic function<br/>library. </Text>
           <HStack fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'24px'}>
-            <Link w={'200px'} color={'00A0E9'} href={''}>PVM Mechanism <ChevronRightIcon/></Link>
+            <Link w={'200px'} color={'00A0E9'} href={'/docs/Concept/PVM'}>PVM Mechanism <ChevronRightIcon/></Link>
             <Link w={'200px'} color={'00A0E9'} href={'/doc/ennestwhitepaper.pdf'}>Whitepaper <ChevronRightIcon/></Link>
           </HStack>
         </Stack>
@@ -98,10 +98,10 @@ const Page = () => {
           tools and creative new assets.
         </Text>
         <Stack spacing={'30px'} pt={'20px'}>
-          <Button w={'170px'} minH={'44px'}>
+          <Button w={'170px'} as={Link} href={'/docs/Concept/PVM'} minH={'44px'}>
             Developer Doc
           </Button>
-          <Button w={'170px'} minH={'44px'}>
+          <Button as={Link} href={'https://github.com/NEST-Protocol'} w={'170px'} minH={'44px'}>
             Github
           </Button>
         </Stack>
@@ -116,7 +116,7 @@ const Page = () => {
           <Text fontSize={'12.5px'} fontWeight={'600'}>NEST Probabilistic Virtual Machine (PVM) is a virtual machine-like
             structure based on the basic function library. </Text>
           <Stack fontSize={'12.5px'} fontWeight={'600'} color={'#00A0E9'} pt={'24px'}>
-            <Link w={'200px'} color={'#00A0E9'} href={''}>PVM Mechanism <ChevronRightIcon/></Link>
+            <Link w={'200px'} color={'#00A0E9'} href={'/docs/Concept/PVM'}>PVM Mechanism <ChevronRightIcon/></Link>
             <Link w={'200px'} color={'#00A0E9'} href={'/doc/ennestwhitepaper.pdf'}>Whitepaper <ChevronRightIcon/></Link>
           </Stack>
         </Stack>

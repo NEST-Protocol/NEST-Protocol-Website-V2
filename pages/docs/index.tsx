@@ -10,7 +10,7 @@ export default function Page() {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
   const router = useRouter();
   useEffect(() => {
-    router.push("/docs/Overview/What-is-NEST-Protocol")
+    router.push("/docs/Overview/what-is-NEST-Protocol")
   }, [router])
 
   const pcPage = (
