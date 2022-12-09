@@ -65,9 +65,9 @@ export default function Navigation() {
             <Link href={'/about/team/'}>
               <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/about/team' ? '#EAAA00' : '#003232'}>Team</chakra.a>
             </Link>
-            {/*<Link href={'/about/partnership/'}>*/}
-            {/*  <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/about/partnership' ? '#EAAA00' : '#003232'}>Partnership</chakra.a>*/}
-            {/*</Link>*/}
+            <Link href={'/about/partnership/'}>
+              <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/about/partnership' ? '#EAAA00' : '#003232'}>Partnership</chakra.a>
+            </Link>
           </PopoverContent>
         </Popover>
         <Button fontSize={'bold'} minW={'120px'} bg={'#EAAA00'} h={'34px'} borderRadius={'17px'} color={'#003232'} fontWeight={"bold"}

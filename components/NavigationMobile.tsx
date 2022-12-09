@@ -87,9 +87,9 @@ export default function NavigationMobile() {
                       <Link href={'/about/team/'}>
                         <Text fontSize={'16px'} color={router.pathname === '/about/team' ? '#EAAA00' : '#003232'} fontWeight={'600'}>Team</Text>
                       </Link>
-                      {/*<Link href={'/about/partnership/'}>*/}
-                      {/*  <Text fontSize={'16px'}  color={router.pathname === '/about/partnership' ? '#EAAA00' : '#003232'}  fontWeight={'600'}>Partnership</Text>*/}
-                      {/*</Link>*/}
+                      <Link href={'/about/partnership/'}>
+                        <Text fontSize={'16px'}  color={router.pathname === '/about/partnership' ? '#EAAA00' : '#003232'}  fontWeight={'600'}>Partnership</Text>
+                      </Link>
                     </>
                   )
                 }
