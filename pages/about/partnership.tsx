@@ -79,7 +79,6 @@ const Page = ({category, partners}: any) => {
               All
             </Button>
             {
-              // add a item to array first position
               category.filter((item: any, index: number) => index < 3).map((item: any, index: number) => (
                 <Button key={item.id} h={'42px'} w={'full'} borderRadius={0} variant={'unstyled'} maxH={'28px'}
                         border={'1px solid'} fontSize={'9px'}
