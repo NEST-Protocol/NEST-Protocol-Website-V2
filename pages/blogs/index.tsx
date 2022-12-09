@@ -63,13 +63,15 @@ const Page = ({blogs}: any) => {
               }
               return index < 3
             }).map((item: any, index: number) => (
-              <Stack pb={'44px'} key={index}>
+              <Stack pb={'44px'} key={index} px={'128px'}>
                 <Link fontWeight={'600'} fontSize={'25px'} href={`/blogs/${item.attributes.slug}`}>
                   {item.attributes.title}
                 </Link>
-                <Text fontWeight={'500'} fontSize={'15px'} color={'#7D7D7D'}>
+                <Stack h={'8px'}></Stack>
+                <Text fontWeight={'500'} fontSize={'15px'} color={'#003232'}>
                   {item.attributes.date}
                 </Text>
+                {/*TODO: hidden markdown symbol*/}
                 <Text fontWeight={'600'} fontSize={'15px'} noOfLines={3}>
                   {item.attributes.content}
                 </Text>
@@ -78,7 +80,7 @@ const Page = ({blogs}: any) => {
               </Stack>
             ))
           }
-          <Stack align={"center"} pt={'48px'}>
+          <Stack align={"center"} pt={'8px'}>
             <Button w={'140px'} variant={'outline'} h={'34px'} borderRadius={'17px'} border={'2px solid'}
                     color={'#EAAA00'} borderColor={'#EAAA00'} onClick={() => {
                     setShowMore(!showMore)}
@@ -86,7 +88,7 @@ const Page = ({blogs}: any) => {
           </Stack>
         </Stack>
       </Stack>
-      <Stack h={'62px'}></Stack>
+      <Stack h={'37px'}></Stack>
       <Footer/>
     </Stack>
   )
