@@ -18,9 +18,15 @@ const Page = ({blogs}: any) => {
         <Wrap justify={'space-between'} spacing={'40px'}>
           {
             [
-              {image: '/image/Blog/blog_card_01.png', title: 'Coinbase Announces Planned Listing of Tokens, Adds $NEST', desc: 'On Monday, Coinbase, a leading American cryptocurrency exchange, announced that it would list six tokens', date: 'July 25, 2022'},
-              {image: '/image/Blog/blog_card_02.png', title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle', desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting centralized systems, ', date: 'Jun 9, 2022'},
-              {image: '/image/Blog/blog_card_03.png', title: 'NEST’s RSS FEED INTEGRATED WITH CRYPTO.COM PRICE PAGE', desc: 'Through Crypto.com’s NEST Price Page, you can now directly access NEST’s RSS news feed.', date: 'May 6, 2022'},
+              {image: '/image/Blog/blog_card_01.png', title: 'Coinbase Announces Planned Listing of Tokens, Adds $NEST',
+                desc: 'On Monday, Coinbase, a leading American cryptocurrency exchange, announced that it would list six tokens',
+                date: 'July 25, 2022', link: '/blogs/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST'},
+              {image: '/image/Blog/blog_card_02.png', title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle',
+                desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting centralized systems, ',
+                date: 'Jun 9, 2022', link: '/blogs/NEST-Protocol-A-New-Paradigm-of-Game-Theoretic-Oracle'},
+              {image: '/image/Blog/blog_card_03.png', title: 'NEST’s RSS FEED INTEGRATED WITH CRYPTO.COM PRICE PAGE',
+                desc: 'Through Crypto.com’s NEST Price Page, you can now directly access NEST’s RSS news feed.',
+                date: 'May 6, 2022', link: '/blogs/NEST-RSS-FEED-INTEGRATED-WITH-CRYPTO.COM-PRICE-PAGE'},
             ].map((item, index) => (
               <WrapItem key={index} w={'30%'} bg={"rgba(255, 255, 255, 0.7)"} borderRadius={'20px'}
                         border={'1px solid #EEEEEE'}>
@@ -29,7 +35,7 @@ const Page = ({blogs}: any) => {
                     <chakra.img src={item.image} objectFit={'contain'} />
                   </Stack>
                   <Stack px={'44px'} py={'34px'}>
-                    <Text fontWeight={'bold'} fontSize={'18px'}>{item.title}</Text>
+                    <Link href={item.link} fontWeight={'bold'} fontSize={'18px'}>{item.title}</Link>
                     <Text fontSize={'13px'} fontWeight={'600'} h={'60px'}>{item.desc}</Text>
                     <Text fontSize={'13px'} fontWeight={'500'}>{item.date}</Text>
                   </Stack>
@@ -101,9 +107,15 @@ const Page = ({blogs}: any) => {
       <Stack px={'24px'} spacing={'24px'} pb={'24px'}>
         {
           [
-            {image: '/image/Blog/blog_card_01.png', title: 'Coinbase Announces Planned Listing of Tokens, Adds $NEST', desc: 'On Monday, Coinbase, a leading American cryptocurrency exchange, announced that it would list six tokens', date: 'July 25, 2022'},
-            {image: '/image/Blog/blog_card_02.png', title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle', desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting centralized systems, ', date: 'Jun 9, 2022'},
-            {image: '/image/Blog/blog_card_03.png', title: 'NEST’s RSS FEED INTEGRATED WITH CRYPTO.COM PRICE PAGE', desc: 'Through Crypto.com’s NEST Price Page, you can now directly access NEST’s RSS news feed.', date: 'May 6, 2022'},
+            {image: '/image/Blog/blog_card_01.png', title: 'Coinbase Announces Planned Listing of Tokens, Adds $NEST',
+              desc: 'On Monday, Coinbase, a leading American cryptocurrency exchange, announced that it would list six tokens',
+              date: 'July 25, 2022', link: '/blogs/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST'},
+            {image: '/image/Blog/blog_card_02.png', title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle',
+              desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting centralized systems, ',
+              date: 'Jun 9, 2022', link: '/blogs/NEST-Protocol-A-New-Paradigm-of-Game-Theoretic-Oracle'},
+            {image: '/image/Blog/blog_card_03.png', title: 'NEST’s RSS FEED INTEGRATED WITH CRYPTO.COM PRICE PAGE',
+              desc: 'Through Crypto.com’s NEST Price Page, you can now directly access NEST’s RSS news feed.',
+              date: 'May 6, 2022', link: '/blogs/NEST-RSS-FEED-INTEGRATED-WITH-CRYPTO.COM-PRICE-PAGE'},
           ].map((item, index) => (
             <Stack key={index} w={'full'} h={'400px'} bg={"white"} borderRadius={'14px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}>
               <Stack>
@@ -113,7 +125,7 @@ const Page = ({blogs}: any) => {
                   </Stack>
                 </Stack>
                 <Stack px={'44px'} py={'34px'}>
-                  <Text fontWeight={'bold'} fontSize={'18px'}>{item.title}</Text>
+                  <Link href={item.link} fontWeight={'bold'} fontSize={'18px'}>{item.title}</Link>
                   <Text fontSize={'13px'} fontWeight={'600'}>{item.desc}</Text>
                   <Text fontSize={'13px'} fontWeight={'500'}>{item.date}</Text>
                 </Stack>
