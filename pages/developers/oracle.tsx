@@ -40,7 +40,7 @@ const Page = () => {
       </Stack>
       <Stack bg={"white"} align={"center"} textAlign={"center"} pt={'90px'} pb={'60px'} spacing={'44px'}>
         <Heading fontSize={'50px'}>What is NEST Oracle?</Heading>
-        <Stack w={'680px'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"}>
+        <Stack w={'1200px'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"}>
           <AspectRatio ratio={16/9}>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/mOF8o0OZoxE"
                     title="YouTube video player"
@@ -108,7 +108,7 @@ const Page = () => {
         <Heading fontSize={'50px'}>
           How does NEST Oracle work?
         </Heading>
-        <Stack h={'500px'}>
+        <Stack h={'600px'}>
           <chakra.img src={'/image/Oracle/Flowchart.svg'} h={'full'} objectFit={'contain'}/>
         </Stack>
       </Stack>
