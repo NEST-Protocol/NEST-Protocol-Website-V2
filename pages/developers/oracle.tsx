@@ -82,21 +82,21 @@ const Page = () => {
 
   const array3 = [
     {
-      image: '/image/Oracle/card_01.png',
+      image: '/image/Oracle/card_01@2x.png',
       title: `Three different types of Oracle:Chainlink, NEST, and MakerDAO`,
       desc: 'Blockchain is known as the machine of trust. The biggest innovation of',
       time: 'Otc 12, 2022',
       link: '/blogs/Three-different-types-of-Oracle-Chainlink-NEST-and-MakerDAO',
     },
     {
-      image: '/image/Oracle/card_02.png',
+      image: '/image/Oracle/card_02@2x.png',
       title: 'What make tokens an asset? Game theory and Equilibrium',
       desc: `Some people talk about Bitcoin with a tone of contempt: " What\'s  the use of this thing? It's hype,`,
       time: 'Sep 19, 2022',
       link: '/blogs/What-make-tokens-an-asset-Game-theory-and-Equilibrium',
     },
     {
-      image: '/image/Oracle/card_03.png',
+      image: '/image/Oracle/card_03@2x.png',
       title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle',
       desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting',
       time: 'Jun 9, 2022',

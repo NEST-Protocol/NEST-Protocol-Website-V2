@@ -11,23 +11,25 @@ const Page = ({blogs}: any) => {
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [showMore, setShowMore] = useState(false);
 
+  const array1 = [
+    {image: '/image/Blog/blog_card_01@2x.png', title: 'Coinbase Announces Planned Listing of Tokens, Adds $NEST',
+      desc: 'On Monday, Coinbase, a leading American cryptocurrency exchange, announced that it would list six tokens',
+      date: 'July 25, 2022', link: '/blogs/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST'},
+    {image: '/image/Blog/blog_card_02@2x.png', title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle',
+      desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting centralized systems, ',
+      date: 'Jun 9, 2022', link: '/blogs/NEST-Protocol-A-New-Paradigm-of-Game-Theoretic-Oracle'},
+    {image: '/image/Blog/blog_card_03@2x.png', title: 'NEST’s RSS FEED INTEGRATED WITH CRYPTO.COM PRICE PAGE',
+      desc: 'Through Crypto.com’s NEST Price Page, you can now directly access NEST’s RSS news feed.',
+      date: 'May 6, 2022', link: '/blogs/NEST-RSS-FEED-INTEGRATED-WITH-CRYPTO.COM-PRICE-PAGE'},
+  ]
+
   const pcPage = (
     <Stack bgSize={'cover'} bgImage={"image/Blog/bg.jpg"} bgPosition={"center"}>
       <Navigation/>
       <Stack spacing={'44px'} px={'45px'}>
         <Wrap justify={'space-between'} spacing={'40px'}>
           {
-            [
-              {image: '/image/Blog/blog_card_01.png', title: 'Coinbase Announces Planned Listing of Tokens, Adds $NEST',
-                desc: 'On Monday, Coinbase, a leading American cryptocurrency exchange, announced that it would list six tokens',
-                date: 'July 25, 2022', link: '/blogs/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST'},
-              {image: '/image/Blog/blog_card_02.png', title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle',
-                desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting centralized systems, ',
-                date: 'Jun 9, 2022', link: '/blogs/NEST-Protocol-A-New-Paradigm-of-Game-Theoretic-Oracle'},
-              {image: '/image/Blog/blog_card_03.png', title: 'NEST’s RSS FEED INTEGRATED WITH CRYPTO.COM PRICE PAGE',
-                desc: 'Through Crypto.com’s NEST Price Page, you can now directly access NEST’s RSS news feed.',
-                date: 'May 6, 2022', link: '/blogs/NEST-RSS-FEED-INTEGRATED-WITH-CRYPTO.COM-PRICE-PAGE'},
-            ].map((item, index) => (
+            array1.map((item, index) => (
               <WrapItem key={index} w={'30%'} bg={"rgba(255, 255, 255, 0.7)"} borderRadius={'20px'}
                         border={'1px solid #EEEEEE'}>
                 <Stack>
@@ -106,17 +108,7 @@ const Page = ({blogs}: any) => {
       <NavigationMobile/>
       <Stack px={'24px'} spacing={'24px'} pb={'24px'}>
         {
-          [
-            {image: '/image/Blog/blog_card_01.png', title: 'Coinbase Announces Planned Listing of Tokens, Adds $NEST',
-              desc: 'On Monday, Coinbase, a leading American cryptocurrency exchange, announced that it would list six tokens',
-              date: 'July 25, 2022', link: '/blogs/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST'},
-            {image: '/image/Blog/blog_card_02.png', title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle',
-              desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting centralized systems, ',
-              date: 'Jun 9, 2022', link: '/blogs/NEST-Protocol-A-New-Paradigm-of-Game-Theoretic-Oracle'},
-            {image: '/image/Blog/blog_card_03.png', title: 'NEST’s RSS FEED INTEGRATED WITH CRYPTO.COM PRICE PAGE',
-              desc: 'Through Crypto.com’s NEST Price Page, you can now directly access NEST’s RSS news feed.',
-              date: 'May 6, 2022', link: '/blogs/NEST-RSS-FEED-INTEGRATED-WITH-CRYPTO.COM-PRICE-PAGE'},
-          ].map((item, index) => (
+          array1.map((item, index) => (
             <Stack key={index} w={'full'} h={'400px'} bg={"white"} borderRadius={'14px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}>
               <Stack>
                 <Stack>
