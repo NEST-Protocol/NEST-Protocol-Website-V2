@@ -8,6 +8,12 @@ import {ChevronRightIcon} from "@chakra-ui/icons";
 const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
 
+  const array1 = [
+    {image: '/image/PVM/01_icon@2x.png', title: 'Generate on-chain assets with any risk-return structure'},
+    {image: '/image/PVM/02_icon@2x.png', title: 'Provide theoretical infinite liquidity for assets'},
+    {image: '/image/PVM/03_icon@2x.png', title: 'No agent, NEST becomes the seller of all assets'},
+  ]
+
   const pcPage = (
     <Stack bgImage={'/image/PVM/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       <Navigation/>
@@ -60,11 +66,7 @@ const Page = () => {
 
         <Wrap spacing={'44px'}>
           {
-            [
-              {image: '/image/PVM/01_icon.png', title: 'Generate on-chain assets with any risk-return structure'},
-              {image: '/image/PVM/02_icon.png', title: 'Provide theoretical infinite liquidity for assets'},
-              {image: '/image/PVM/03_icon.png', title: 'No agent, NEST becomes the seller of all assets'},
-            ].map((item, index) => (
+            array1.map((item, index) => (
               <WrapItem key={index} w={'308px'} py={'100px'} borderRadius={'20px'} bg={'rgba(255,255,255,0.8)'}
                         border={'1px solid #EEEEEE'}>
                 <Stack spacing={'40px'}>
@@ -145,11 +147,7 @@ const Page = () => {
       </Stack>
       <Stack px={'24px'} spacing={'24px'}>
         {
-          [
-            {image: '/image/PVM/01_icon.png', title: 'Generate on-chain assets with any risk-return structure'},
-            {image: '/image/PVM/02_icon.png', title: 'Provide theoretical infinite liquidity for assets'},
-            {image: '/image/PVM/03_icon.png', title: 'No agent, NEST becomes the seller of all assets'},
-          ].map((item, index) => (
+          array1.map((item, index) => (
             <Stack key={index} w={'full'} py={'50px'} borderRadius={'20px'} bg={'rgba(255,255,255,0.8)'}
                       border={'1px solid #EEEEEE'} boxShadow={'0px 0px 45px 5px #E5E5E5'} spacing={'24px'}>
               <chakra.img src={item.image} h={'74px'}  objectFit={'contain'}/>

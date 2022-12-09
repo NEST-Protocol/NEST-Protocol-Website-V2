@@ -70,7 +70,7 @@ const Page = () => {
         <Stack px={'125px'} spacing={'138px'}>
           <Stack py={'74px'} bg={'rgba(255,255,255,0.84)'} borderRadius={'20px'}>
             <Stack pb={'20px'}>
-              <chakra.img src={'/image/Team/NRA_pic.png'} h={'100px'} objectFit={'contain'}/>
+              <chakra.img src={'/image/Team/NRA_pic@2x.png'} h={'100px'} objectFit={'contain'}/>
             </Stack>
             <Text fontSize={'25px'} fontWeight={'600'}>NEST Research Academy (NRA)</Text>
             <Text fontSize={'15px'} fontWeight={'600'}>The NRA core is made up of practitioners from academic and
@@ -85,7 +85,7 @@ const Page = () => {
 
           <Stack py={'74px'} bg={'rgba(255,255,255,0.84)'} borderRadius={'20px'}>
             <Stack pb={'20px'}>
-              <chakra.img src={'/image/Team/NIB_pic.png'} h={'100px'} objectFit={'contain'}/>
+              <chakra.img src={'/image/Team/NIB_pic@2x.png'} h={'100px'} objectFit={'contain'}/>
             </Stack>
             <Text fontSize={'25px'} fontWeight={'600'}>NEST Influence Block (NIB)</Text>
             <Text fontSize={'15px'} fontWeight={'600'}>The main goal of NIB is to spread the new concept, category,and
@@ -104,7 +104,7 @@ const Page = () => {
 
           <Stack py={'74px'} bg={'rgba(255,255,255,0.84)'} borderRadius={'20px'}>
             <Stack pb={'20px'}>
-              <chakra.img src={'/image/Team/NDA_pic.png'} h={'100px'} objectFit={'contain'}/>
+              <chakra.img src={'/image/Team/NDA_pic@2x.png'} h={'100px'} objectFit={'contain'}/>
             </Stack>
             <Text fontSize={'25px'} fontWeight={'600'}>NEST Developer Alliance (NDA)</Text>
             <Text fontSize={'15px'} fontWeight={'600'}>NDA is in charge of the development of core protocols and
@@ -190,7 +190,7 @@ const Page = () => {
                px={'20px'}
                textAlign={"center"}>
           <Stack pb={'50px'}>
-            <chakra.img src={'/image/Team/NRA_pic.png'} h={'70px'}/>
+            <chakra.img src={'/image/Team/NRA_pic@2x.png'} h={'70px'}/>
           </Stack>
           <Text fontSize={'18px'} fontWeight={'600'}>
             NEST Research Academy (NRA)
@@ -213,7 +213,7 @@ const Page = () => {
                px={'20px'}
                textAlign={"center"}>
           <Stack pb={'50px'}>
-            <chakra.img src={'/image/Team/NIB_pic.png'} h={'70px'}/>
+            <chakra.img src={'/image/Team/NIB_pic@2x.png'} h={'70px'}/>
           </Stack>
           <Text fontSize={'18px'} fontWeight={'600'}>
             NEST Influence Block (NIB)
@@ -237,7 +237,7 @@ const Page = () => {
                px={'20px'}
                textAlign={"center"}>
           <Stack pb={'50px'}>
-            <chakra.img src={'/image/Team/NDA_pic.png'} h={'70px'}/>
+            <chakra.img src={'/image/Team/NDA_pic@2x.png'} h={'70px'}/>
           </Stack>
           <Text fontSize={'18px'} fontWeight={'600'}>
             NEST Developer Alliance (NDA)
