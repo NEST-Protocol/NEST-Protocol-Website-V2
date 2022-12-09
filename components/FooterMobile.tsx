@@ -19,7 +19,7 @@ export default function FooterMobile() {
           <Text fontSize={'15px'} fontWeight={'600'} color={'#7D7D7D'}>Learn more about NEST</Text>
         </Stack>
         <Stack spacing={'22px'}>
-          <Link fontSize={'15px'} fontWeight={'bold'} href={'/docs/PVM-Technical-Reference/'}>Developer
+          <Link fontSize={'15px'} fontWeight={'bold'} href={'/docs/'}>Developer
             Docs</Link>
           <Text fontSize={'15px'} fontWeight={'600'} color={'#7D7D7D'}>Know how to develop on NEST</Text>
         </Stack>
