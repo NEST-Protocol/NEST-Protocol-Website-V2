@@ -17,9 +17,9 @@ const Page = ({category, partners}: any) => {
         <Heading fontSize={'50px'}>Integration & Partners</Heading>
         <Text fontWeight={'bold'} fontSize={'18px'}>Expanding influence in the Crypto world</Text>
       </Stack>
-      <Stack px={'45px'}>
-        <Stack h={'500px'} bg={"rgba(255,255,255,0.8)"} borderRadius={'20px'}>
-          <HStack p={'48px'} overflow={"scroll"} justifyContent={"center"} spacing={0}>
+      <Stack p={'45px'}>
+        <Stack bg={"rgba(255,255,255,0.8)"} borderRadius={'20px'}>
+          <HStack pt={'45px'} overflow={"scroll"} justifyContent={"center"} spacing={0}>
             <Button h={'42px'} w={'150px'} borderRadius={0} variant={'unstyled'}
                     borderLeftRadius={'21px'} border={'1px solid'}
                     borderColor={'#E5E5E5'} bg={selectId === -1 ? '#EAAA00' : 'white'}
@@ -40,7 +40,7 @@ const Page = ({category, partners}: any) => {
               ))
             }
           </HStack>
-          <Wrap justify={"center"}>
+          <Wrap justify={"center"} p={'45px'}>
             { partners.filter((item: any) => {
               if (selectId === -1) return true;
               return item.attributes.category.data?.id === selectId;
@@ -68,7 +68,7 @@ const Page = ({category, partners}: any) => {
         <Text fontSize={'12.5px'} fontWeight={'600'}>Expanding influence in the Crypto world</Text>
       </Stack>
       <Stack px={'24px'}>
-        <Stack w={'full'} h={'400px'} borderRadius={'20px'} py={'15px'} px={'10px'} spacing={'10px'}
+        <Stack w={'full'} borderRadius={'20px'} py={'15px'} px={'10px'} spacing={'10px'}
                bg={'rgba(255,255,255,0.7)'}>
           <HStack spacing={0} w={'full'}>
             <Button h={'42px'} w={'full'} borderRadius={0} variant={'unstyled'} maxH={'28px'}
@@ -106,7 +106,7 @@ const Page = ({category, partners}: any) => {
               ))
             }
           </HStack>
-          <Wrap justify={"center"} pt={'30px'}>
+          <Wrap justify={"center"} py={'30px'}>
             { partners.filter((item: any) => {
               if (selectId === -1) return true;
               return item.attributes.category.data?.id === selectId;
