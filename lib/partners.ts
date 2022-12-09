@@ -11,7 +11,7 @@ export const getAllPartnerCategory = async () => {
 export const getAllPartners = async () => {
   const req = await axios({
     method: 'get',
-    url: 'https://cms.nestfi.net/api/partners?populate[0]=category&populate[1]=logo',
+    url: 'https://cms.nestfi.net/api/partners?populate[0]=category&populate[1]=logo&pagination[page]=1&pagination[pageSize]=100',
   })
   return req.data;
 }
