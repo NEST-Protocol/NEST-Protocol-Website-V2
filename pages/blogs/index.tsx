@@ -56,35 +56,37 @@ const Page = ({blogs}: any) => {
           </HStack>
           <Divider/>
           <Stack h={'44px'}></Stack>
-          {
-            blogs[categoryIndex].attributes.blogs.data.filter((item: any ,index: number) => {
-              if (showMore) {
-                return true
-              }
-              return index < 3
-            }).map((item: any, index: number) => (
-              <Stack pb={'44px'} key={index} px={'128px'}>
-                <Link fontWeight={'600'} fontSize={'25px'} href={`/blogs/${item.attributes.slug}`}>
-                  {item.attributes.title}
-                </Link>
-                <Stack h={'8px'}></Stack>
-                <Text fontWeight={'500'} fontSize={'15px'} color={'#003232'}>
-                  {item.attributes.date}
-                </Text>
-                {/*TODO: hidden markdown symbol*/}
-                <Text fontWeight={'600'} fontSize={'15px'} noOfLines={3}>
-                  {item.attributes.content}
-                </Text>
-                <Stack h={'44px'}></Stack>
-                <Divider/>
-              </Stack>
-            ))
-          }
-          <Stack align={"center"} pt={'8px'}>
-            <Button w={'140px'} variant={'outline'} h={'34px'} borderRadius={'17px'} border={'2px solid'}
-                    color={'#EAAA00'} borderColor={'#EAAA00'} onClick={() => {
-                    setShowMore(!showMore)}
-            }>{ !showMore ? 'More' : 'Less' }</Button>
+          <Stack h={'900px'} overflow={"scroll"}>
+            {
+              blogs[categoryIndex].attributes.blogs.data.filter((item: any ,index: number) => {
+                if (showMore) {
+                  return true
+                }
+                return index < 3
+              }).map((item: any, index: number) => (
+                <Stack pb={'44px'} key={index} px={'128px'}>
+                  <Link fontWeight={'600'} fontSize={'25px'} href={`/blogs/${item.attributes.slug}`}>
+                    {item.attributes.title}
+                  </Link>
+                  <Stack h={'8px'}></Stack>
+                  <Text fontWeight={'500'} fontSize={'15px'} color={'#003232'}>
+                    {item.attributes.date}
+                  </Text>
+                  {/*TODO: hidden markdown symbol*/}
+                  <Text fontWeight={'600'} fontSize={'15px'} noOfLines={3}>
+                    {item.attributes.content}
+                  </Text>
+                  <Stack h={'44px'}></Stack>
+                  <Divider/>
+                </Stack>
+              ))
+            }
+            <Stack align={"center"} pt={'8px'}>
+              <Button w={'140px'} variant={'outline'} h={'34px'} borderRadius={'17px'} border={'2px solid'}
+                      color={'#EAAA00'} borderColor={'#EAAA00'} onClick={() => {
+                setShowMore(!showMore)}
+              }>{ !showMore ? 'More' : 'Less' }</Button>
+            </Stack>
           </Stack>
         </Stack>
       </Stack>
@@ -138,7 +140,7 @@ const Page = ({blogs}: any) => {
             }
           </HStack>
           <Divider/>
-          <Stack>
+          <Stack h={'700px'} overflow={'scroll'}>
             {
               blogs[categoryIndex].attributes.blogs.data.filter((item: any ,index: number) => {
                 if (showMore) {
@@ -147,32 +149,20 @@ const Page = ({blogs}: any) => {
                 return index < 3
               }).map((item: any, index: number) => (
                 <Stack px={'24px'} pb={'27px'} spacing={'22px'} key={index}>
-                  <Text fontWeight={"bold"} fontSize={'12.5px'}>{item.attributes.title}</Text>
-                  <Text color={'#878787'} fontSize={'10px'} fontWeight={'500'}>{item.attributes.date}</Text>
+                  <Text fontWeight={"bold"} fontSize={'15px'}>{item.attributes.title}</Text>
+                  <Text fontSize={'10px'} fontWeight={'500'}>{item.attributes.date}</Text>
                   <Text fontSize={'10px'} fontWeight={'600'} noOfLines={3}>{item.attributes.content}</Text>
                   <Divider/>
                 </Stack>
               ))
             }
-            <Stack px={'24px'} pb={'27px'} spacing={'22px'}>
-              <Text fontWeight={"bold"} fontSize={'12.5px'}>What are the new NFT use cases beyond music and art?</Text>
-              <Text color={'#878787'} fontSize={'10px'} fontWeight={'500'}>Nov 25, 2022</Text>
-              <Text fontSize={'10px'} fontWeight={'600'}>I think NFTs are bringing additional value</Text>
-              <Divider/>
+            <Stack align={"center"}>
+              <Button minH={'44px'} w={'140px'} borderRadius={'22px'} variant={'outline'} onClick={() => {
+                setShowMore(!showMore)}
+              }>
+                {!showMore ? 'More' : 'Less'}
+              </Button>
             </Stack>
-            <Stack px={'24px'} pb={'27px'} spacing={'22px'}>
-              <Text fontWeight={"bold"} fontSize={'12.5px'}>What are the new NFT use cases beyond music and art?</Text>
-              <Text color={'#878787'} fontSize={'10px'} fontWeight={'500'}>Nov 25, 2022</Text>
-              <Text fontSize={'10px'} fontWeight={'600'}>I think NFTs are bringing additional value</Text>
-              <Divider/>
-            </Stack>
-          </Stack>
-          <Stack align={"center"}>
-            <Button minH={'44px'} w={'140px'} borderRadius={'22px'} variant={'outline'} onClick={() => {
-              setShowMore(!showMore)}
-            }>
-              {!showMore ? 'More' : 'Less'}
-            </Button>
           </Stack>
         </Stack>
       </Stack>
