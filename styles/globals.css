@@ -14,8 +14,9 @@ body {
   display: none;
 }
 
-a {
+a, p {
   font-family: Montserrat, sans-serif;
+  color: #003232;
 }
 
 /* cyrillic-ext */
