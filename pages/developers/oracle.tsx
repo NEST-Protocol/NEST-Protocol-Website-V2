@@ -40,7 +40,7 @@ const Page = () => {
       </Stack>
       <Stack bg={"white"} align={"center"} textAlign={"center"} pt={'90px'} pb={'60px'} spacing={'44px'}>
         <Heading fontSize={'50px'}>What is NEST Oracle?</Heading>
-        <Stack w={'680px'} h={'350px'}>
+        <Stack w={'680px'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"}>
           <AspectRatio ratio={16/9}>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/mOF8o0OZoxE"
                     title="YouTube video player"
@@ -89,7 +89,7 @@ const Page = () => {
               },
             ].map((item, index) => (
               <WrapItem key={index}>
-                <Stack w={'308px'} bg={'white'} borderRadius={'20px'} py={'72px'} spacing={'40px'}>
+                <Stack w={'308px'} bg={'rgba(255,255,255,0.8)'} borderRadius={'20px'} py={'72px'} boxShadow={'0px 0px 45px 5px #E5E5E5'} spacing={'40px'} border={'1px solid #EEEEEE'}>
                   <Stack h={'80px'}>
                     <chakra.img src={item.img} h={'full'} objectFit={'contain'}/>
                   </Stack>
@@ -237,7 +237,7 @@ const Page = () => {
              px={'24px'}>
         <Heading fontSize={'25px'}>What is <br/>
           NEST Oracle?</Heading>
-        <Stack w={'full'} h={'190px'}>
+        <Stack w={'full'} h={'full'} borderRadius={'12px'} overflow={"hidden"}>
           <AspectRatio ratio={16/9}>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/mOF8o0OZoxE"
                     title="YouTube video player"
@@ -286,7 +286,7 @@ const Page = () => {
               },
             ].map((item, index) => (
               <WrapItem key={index} w={'44%'} borderRadius={'17px'}>
-                <Stack bg={'white'} w={'full'} borderRadius={'20px'} spacing={'20px'} h={'240px'} justify={"center"}>
+                <Stack bg={'rgba(255,255,255,0.8)'} w={'full'} borderRadius={'20px'} border={'1px solid #EEEEEE'} spacing={'20px'} h={'240px'} justify={"center"}>
                   <Stack h={'40px'}>
                     <chakra.img src={item.img} h={'full'} objectFit={'contain'}/>
                   </Stack>
