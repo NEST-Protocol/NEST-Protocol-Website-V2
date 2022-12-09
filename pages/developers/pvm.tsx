@@ -3,6 +3,7 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
+import {ChevronRightIcon} from "@chakra-ui/icons";
 
 const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
@@ -36,8 +37,8 @@ const Page = () => {
           <Text fontSize={'15px'} fontWeight={'600'}>NEST Probabilistic Virtual Machine (PVM) is a virtual<br/>machine-like
             structure based on the basic function<br/>library. </Text>
           <HStack fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'24px'}>
-            <Link w={'200px'}>PVM Mechanism</Link>
-            <Link w={'200px'}>Whitepaper</Link>
+            <Link w={'200px'} color={'00A0E9'} href={''}>PVM Mechanism <ChevronRightIcon/></Link>
+            <Link w={'200px'} color={'00A0E9'} href={'/doc/ennestwhitepaper.pdf'}>Whitepaper <ChevronRightIcon/></Link>
           </HStack>
         </Stack>
       </HStack>
@@ -108,15 +109,15 @@ const Page = () => {
       <Stack py={'50px'} px={'50px'} bg={'rgba(255,255,255, 0.8)'} spacing={'160px'}>
         <Stack w={'full'} minW={'50%'}>
           {/*TODO*/}
-          <chakra.img src={'/image/PVM/flow_chart.svg'} />
+          <chakra.img src={'/image/PVM/flow_chart2.svg'} />
         </Stack>
         <Stack align={"center"} textAlign={"center"}>
           <Text fontSize={'16.5px'} fontWeight={'600'}>NEST PVM</Text>
           <Text fontSize={'12.5px'} fontWeight={'600'}>NEST Probabilistic Virtual Machine (PVM) is a virtual machine-like
             structure based on the basic function library. </Text>
           <Stack fontSize={'12.5px'} fontWeight={'600'} color={'#00A0E9'} pt={'24px'}>
-            <Link w={'200px'}>PVM Mechanism</Link>
-            <Link w={'200px'}>Whitepaper</Link>
+            <Link w={'200px'} color={'#00A0E9'} href={''}>PVM Mechanism <ChevronRightIcon/></Link>
+            <Link w={'200px'} color={'#00A0E9'} href={'/doc/ennestwhitepaper.pdf'}>Whitepaper <ChevronRightIcon/></Link>
           </Stack>
         </Stack>
       </Stack>

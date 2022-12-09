@@ -286,11 +286,11 @@ const Page = () => {
               },
             ].map((item, index) => (
               <WrapItem key={index} w={'44%'} borderRadius={'17px'}>
-                <Stack bg={'rgba(255,255,255,0.8)'} w={'full'} borderRadius={'20px'} border={'1px solid #EEEEEE'} spacing={'20px'} h={'240px'} justify={"center"}>
+                <Stack bg={'rgba(255,255,255,0.8)'} py={'35px'} w={'full'} borderRadius={'20px'} border={'1px solid #EEEEEE'} spacing={'20px'} justify={"center"}>
                   <Stack h={'40px'}>
                     <chakra.img src={item.img} h={'full'} objectFit={'contain'}/>
                   </Stack>
-                  <Stack px={'30px'} h={'80px'}>
+                  <Stack px={'30px'} h={'120px'}>
                     <Text fontSize={'18px'} fontWeight={'bold'}>{item.title}</Text>
                     <Text fontSize={'13px'} fontWeight={'600'}>{item.desc}</Text>
                   </Stack>
@@ -304,7 +304,7 @@ const Page = () => {
         <Heading>
           How does NEST<br/> Oracle work?
         </Heading>
-        <Stack w={'full'} h={'400px'} bg={'white'}>
+        <Stack w={'full'} px={'30px'} py={'110px'} bg={'white'}>
           <chakra.img src={'/image/Oracle/Flowchart2.svg'} h={'full'} objectFit={'contain'}/>
         </Stack>
       </Stack>
