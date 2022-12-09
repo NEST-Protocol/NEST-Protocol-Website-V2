@@ -1,12 +1,12 @@
-import {Button, Heading, HStack, Spacer, Stack, Text, useMediaQuery} from "@chakra-ui/react";
+import {Button, Heading, HStack, Spacer, Stack, Text, useMediaQuery, Wrap, WrapItem, chakra} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
-import {getAllPartnerCategory} from "../../lib/partners";
+import {getAllPartnerCategory, getAllPartners} from "../../lib/partners";
 import {useState} from "react";
 
-const Page = ({partners}: any) => {
+const Page = ({category, partners}: any) => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
   const [selectId, setSelectId] = useState(-1);
 
@@ -28,18 +28,28 @@ const Page = ({partners}: any) => {
               All
             </Button>
             {
-              partners.map((item: any, index: number) => (
+              category.map((item: any, index: number) => (
                 <Button key={item.id} h={'42px'} w={'150px'} borderRadius={0} variant={'unstyled'}
                         border={'1px solid'}
                         borderColor={'#E5E5E5'} bg={selectId === item.id ? '#EAAA00' : 'white'}
-                        borderRightRadius={index === partners.length - 1 ? '21px' : 0}
+                        borderRightRadius={index === category.length - 1 ? '21px' : 0}
                         onClick={() => setSelectId(item.id)}
-                        >
+                >
                   {item.attributes.name}
                 </Button>
               ))
             }
           </HStack>
+          <Wrap justify={"center"}>
+            { partners.filter((item: any) => {
+              if (selectId === -1) return true;
+              return item.attributes.category.data?.id === selectId;
+            }).map((item: any) => (
+              <WrapItem key={item.id} w={'200px'} justifyContent={"center"}>
+                <chakra.img src={'https://cms.nestfi.net/' + item.attributes.logo.data.attributes.url} h={'100px'}/>
+              </WrapItem>
+            )) }
+          </Wrap>
         </Stack>
       </Stack>
       <Stack h={'62px'}></Stack>
@@ -58,7 +68,8 @@ const Page = ({partners}: any) => {
         <Text fontSize={'12.5px'} fontWeight={'600'}>Expanding influence in the Crypto world</Text>
       </Stack>
       <Stack px={'24px'}>
-        <Stack w={'full'} h={'400px'} borderRadius={'20px'} py={'15px'} px={'10px'} spacing={'10px'} bg={'rgba(255,255,255,0.7)'}>
+        <Stack w={'full'} h={'400px'} borderRadius={'20px'} py={'15px'} px={'10px'} spacing={'10px'}
+               bg={'rgba(255,255,255,0.7)'}>
           <HStack spacing={0} w={'full'}>
             <Button h={'42px'} w={'full'} borderRadius={0} variant={'unstyled'} maxH={'28px'}
                     border={'1px solid'} fontSize={'9px'}
@@ -69,7 +80,7 @@ const Page = ({partners}: any) => {
             </Button>
             {
               // add a item to array first position
-              partners.filter((item: any, index: number) => index < 3).map((item: any, index: number) => (
+              category.filter((item: any, index: number) => index < 3).map((item: any, index: number) => (
                 <Button key={item.id} h={'42px'} w={'full'} borderRadius={0} variant={'unstyled'} maxH={'28px'}
                         border={'1px solid'} fontSize={'9px'}
                         borderColor={'#E5E5E5'} bg={selectId === index ? '#EAAA00' : 'white'}
@@ -83,11 +94,11 @@ const Page = ({partners}: any) => {
           </HStack>
           <HStack spacing={0}>
             {
-              partners.filter((item: any, index: number) => index > 3).map((item: any, index: number) => (
+              category.filter((item: any, index: number) => index > 3).map((item: any, index: number) => (
                 <Button key={item.id} h={'42px'} w={'full'} borderRadius={0} variant={'unstyled'} maxH={'28px'}
                         borderLeftRadius={index === 0 ? '21px' : 0} border={'1px solid'} fontSize={'9px'}
                         borderColor={'#E5E5E5'} bg={selectId === item.id ? '#EAAA00' : 'white'}
-                        borderRightRadius={index === partners.length - 5 ? '21px' : 0}
+                        borderRightRadius={index === category.length - 5 ? '21px' : 0}
                         onClick={() => setSelectId(item.id)}
                 >
                   {item.attributes.name}
@@ -95,6 +106,16 @@ const Page = ({partners}: any) => {
               ))
             }
           </HStack>
+          <Wrap justify={"center"} pt={'30px'}>
+            { partners.filter((item: any) => {
+              if (selectId === -1) return true;
+              return item.attributes.category.data?.id === selectId;
+            }).map((item: any) => (
+              <WrapItem key={item.id} w={'100px'} justifyContent={"center"}>
+                <chakra.img src={'https://cms.nestfi.net/' + item.attributes.logo.data.attributes.url} h={'50px'}/>
+              </WrapItem>
+            )) }
+          </Wrap>
         </Stack>
       </Stack>
       <Stack h={'62px'}></Stack>
@@ -114,10 +135,12 @@ const Page = ({partners}: any) => {
 export default Page
 
 export async function getStaticProps() {
-  const res = await getAllPartnerCategory()
+  const categoryRes = await getAllPartnerCategory()
+  const partnersRes = await getAllPartners()
   return {
     props: {
-      partners: res.data
+      category: categoryRes.data,
+      partners: partnersRes.data
     }
   }
 }
