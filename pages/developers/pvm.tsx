@@ -129,7 +129,7 @@ const Page = () => {
           Developers can build their<br/>
           own tokenomic
         </Text>
-        <Text fontSize={'12.5px'} fontWeight={'600'}>
+        <Text fontSize={'15px'} fontWeight={'600'}>
           Developers can simplify the building<br/>
           of tokenomic systems into the<br/>
           construction of stochastic assets,<br/>
