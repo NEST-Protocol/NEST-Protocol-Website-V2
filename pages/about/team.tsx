@@ -118,7 +118,7 @@ const Page = () => {
 
           <Stack py={'74px'} bg={'rgba(255,255,255,0.84)'} borderRadius={'20px'}>
             <Stack pb={'20px'}>
-              <chakra.img src={'/image/Team/NC_pic.png'} h={'100px'} objectFit={'contain'}/>
+              <chakra.img src={'/image/Team/NC_pic@2x.png'} h={'100px'} objectFit={'contain'}/>
             </Stack>
             <Text fontSize={'25px'} fontWeight={'600'}>NEST Community</Text>
             <Text fontSize={'15px'} fontWeight={'600'}>The NEST Community is primarily responsible for the
@@ -153,28 +153,28 @@ const Page = () => {
   )
 
   const mobilePage = (
-    <Stack bgImage={'/image/Team/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+    <Stack bgImage={'/image/Team/bg.jpg'} bgPosition={"center"}>
       <NavigationMobile/>
       <Stack textAlign={"center"} align={"center"} pt={'120px'} pb={'160px'} spacing={'60px'}>
         <Heading fontSize={'25px'}>
           NEST DAO
         </Heading>
         <HStack spacing={'60px'}>
-          <Stack w={'180px'}>
+          <Stack w={'140px'}>
             <chakra.img src={'/image/Team/NRA.svg'} h={'30px'}/>
             <Text fontSize={'15px'} fontWeight={'bold'}>NEST<br/>Research Academy<br/>(NRA)</Text>
           </Stack>
-          <Stack w={'180px'}>
+          <Stack w={'140px'}>
             <chakra.img src={'/image/Team/NIB.svg'} h={'30px'}/>
             <Text fontSize={'15px'} fontWeight={'bold'}>NEST<br/>Influence Block<br/>(NIB)</Text>
           </Stack>
         </HStack>
         <HStack spacing={'60px'}>
-          <Stack w={'180px'}>
+          <Stack w={'140px'}>
             <chakra.img src={'/image/Team/NDA.svg'} h={'30px'}/>
             <Text fontSize={'15px'} fontWeight={'bold'}>NEST<br/>Developer Alliance<br/>(NDA)</Text>
           </Stack>
-          <Stack w={'180px'}>
+          <Stack w={'140px'}>
             <chakra.img src={'/image/Team/NC.svg'} h={'30px'}/>
             <Text fontSize={'15px'} fontWeight={'bold'}>NEST<br/>Community<br/>(NC)</Text>
           </Stack>
@@ -256,7 +256,7 @@ const Page = () => {
                px={'20px'}
                textAlign={"center"}>
           <Stack pb={'50px'}>
-            <chakra.img src={'/image/Team/NC_pic.png'} h={'70px'}/>
+            <chakra.img src={'/image/Team/NC_pic@2x.png'} h={'70px'}/>
           </Stack>
           <Text fontSize={'18px'} fontWeight={'600'}>
             NEST Community
