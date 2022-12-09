@@ -157,7 +157,7 @@ const Page = () => {
           }
         </Wrap>
         <Stack pt={'68px'}>
-          <Button variant={'outline'} borderRadius={'17px'} h={'34px'} border={'2px solid'} borderColor={'#EAAA00'}
+          <Button as={Link} href={'/docs/root/Technical-Reference-NEST-Oracle'} variant={'outline'} borderRadius={'17px'} h={'34px'} border={'2px solid'} borderColor={'#EAAA00'}
                   color={'#EAAA00'}>
             More
           </Button>
@@ -170,19 +170,22 @@ const Page = () => {
                 image: '/image/Oracle/card_01.png',
                 title: `Three different types of Oracle:Chainlink, NEST, and MakerDAO`,
                 desc: 'Blockchain is known as the machine of trust. The biggest innovation of',
-                time: 'Otc 12, 2022'
+                time: 'Otc 12, 2022',
+                link: '/blogs/Three-different-types-of-Oracle-Chainlink-NEST-and-MakerDAO',
               },
               {
                 image: '/image/Oracle/card_02.png',
                 title: 'What make tokens an asset? Game theory and Equilibrium',
                 desc: `Some people talk about Bitcoin with a tone of contempt: " What\'s  the use of this thing? It's hype,`,
-                time: 'Sep 19, 2022'
+                time: 'Sep 19, 2022',
+                link: '/blogs/What-make-tokens-an-asset-Game-theory-and-Equilibrium',
               },
               {
                 image: '/image/Oracle/card_03.png',
                 title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle',
                 desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting',
-                time: 'Jun 9, 2022'
+                time: 'Jun 9, 2022',
+                link: '/blogs/NEST-Protocol-A-New-Paradigm-of-Game-Theoretic-Oracle',
               },
             ].map((item, index) => (
               <WrapItem key={index}>
@@ -191,7 +194,7 @@ const Page = () => {
                     <chakra.img src={item.image} w={'full'} objectFit={'contain'}/>
                   </Stack>
                   <Stack px={'30px'} py={'24px'} h={'240px'}>
-                    <Text fontSize={'18px'} fontWeight={'bold'}>{item.title}</Text>
+                    <Link href={item.link} fontSize={'18px'} fontWeight={'bold'}>{item.title}</Link>
                     <Text fontSize={'13px'} fontWeight={'600'} color={'#878787'}>{item.desc}</Text>
                     <Spacer/>
                     <Text fontSize={'13px'} fontWeight={'500'} color={'#878787'}>{item.time}</Text>
@@ -348,7 +351,7 @@ const Page = () => {
         }
 
         <Stack align={"center"} pt={'44px'}>
-          <Button w={'190px'} variant={"outline"} minH={'44px'}>
+          <Button as={Link} href={'/docs/root/Technical-Reference-NEST-Oracle'} w={'190px'} variant={"outline"} minH={'44px'}>
             More
           </Button>
         </Stack>
@@ -360,19 +363,22 @@ const Page = () => {
               image: '/image/Oracle/card_01.png',
               title: `Three different types of Oracle:Chainlink, NEST, and MakerDAO`,
               desc: 'Blockchain is known as the machine of trust. The biggest innovation of',
-              time: 'Otc 12, 2022'
+              time: 'Otc 12, 2022',
+              link: '/blogs/Three-different-types-of-Oracle-Chainlink-NEST-and-MakerDAO',
             },
             {
               image: '/image/Oracle/card_02.png',
               title: 'What make tokens an asset? Game theory and Equilibrium',
               desc: `Some people talk about Bitcoin with a tone of contempt: " What\'s  the use of this thing? It's hype,`,
-              time: 'Sep 19, 2022'
+              time: 'Sep 19, 2022',
+              link: '/blogs/What-make-tokens-an-asset-Game-theory-and-Equilibrium',
             },
             {
               image: '/image/Oracle/card_03.png',
               title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle',
               desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting',
-              time: 'Jun 9, 2022'
+              time: 'Jun 9, 2022',
+              link: '/blogs/NEST-Protocol-A-New-Paradigm-of-Game-Theoretic-Oracle',
             },
           ].map((item, index) => (
             <Stack w={'full'} bg={'white'} borderRadius={'20px'} key={index} boxShadow={'0px 0px 45px 5px #E5E5E5'}>
@@ -380,7 +386,7 @@ const Page = () => {
                 <chakra.img src={item.image} w={'full'} objectFit={'contain'}/>
               </Stack>
               <Stack px={'30px'} py={'24px'}>
-                <Text fontSize={'12.5px'} fontWeight={'bold'}>{item.title}</Text>
+                <Link href={item.link} fontSize={'12.5px'} fontWeight={'bold'}>{item.title}</Link>
                 <Text fontSize={'10px'} fontWeight={'600'} color={'#878787'}>{item.desc}</Text>
                 <Text fontSize={'10px'} fontWeight={'500'} color={'#878787'}>{item.time}</Text>
               </Stack>
