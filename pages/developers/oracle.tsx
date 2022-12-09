@@ -20,6 +20,90 @@ import {ChevronRightIcon} from "@chakra-ui/icons";
 const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
 
+  const array1 = [
+    {
+      title: 'Nodeless',
+      desc: 'Nodeless and permissionless quotation',
+      img: '/image/Oracle/NODELESS@2x.png'
+    },
+    {
+      title: 'Accuracy',
+      desc: 'Reflect the real market price',
+      img: '/image/Oracle/ACCURACY@2x.png'
+    },
+    {
+      title: 'Validation',
+      desc: 'Any third party with no threshold',
+      img: '/image/Oracle/VALIDATION@2x.png'
+    },
+    {
+      title: 'Stable',
+      desc: 'Stablelized price informations reduce risks',
+      img: '/image/Oracle/STABLE@2x.png'
+    },
+    {
+      title: 'Flexibility',
+      desc: 'Free to entry or exit',
+      img: '/image/Oracle/FLEXIBILITY@2x.png'
+    },
+    {
+      title: 'Anti - Attack',
+      desc: 'High cost to tamper the price',
+      img: '/image/Oracle/ANTI-ATTACK@2x.png'
+    },
+  ]
+
+  const array2 = [
+    {
+      title: 'Create Channel',
+      desc: 'Anyone can create a channel. Open a decentralized oracle with one click.',
+      linkText: 'Create your channel',
+      link: 'https://oracle.nestprotocol.org/'
+    },
+    {
+      title: 'Price Quote',
+      desc: 'Anyone can make a price quote on the chain after pledging some tokens. Quotes will be rewarded and deviations from the quote will be arbitrated.',
+      linkText: 'How to quote',
+      link: '/docs/root/Technical-Reference-NEST-Oracle'
+    },
+    {
+      title: 'Verification',
+      desc: 'During the validation period (T0), anyone can validate the price. If there is a deviation from the correct price, the verifier can question the price and choose to trade either valuation or quotation asset, and then the verifier has to quote a new price. ',
+      linkText: 'How to verify',
+      link: '/docs/root/Technical-Reference-NEST-Oracle'
+    },
+    {
+      title: 'Effective Price',
+      desc: 'If a price is not arbitrated during the verification period(T0), this price is the effective price and anyone can use this price for free.',
+      linkText: 'How to call',
+      link: '/docs/root/Technical-Reference-NEST-Oracle'
+    },
+  ]
+
+  const array3 = [
+    {
+      image: '/image/Oracle/card_01.png',
+      title: `Three different types of Oracle:Chainlink, NEST, and MakerDAO`,
+      desc: 'Blockchain is known as the machine of trust. The biggest innovation of',
+      time: 'Otc 12, 2022',
+      link: '/blogs/Three-different-types-of-Oracle-Chainlink-NEST-and-MakerDAO',
+    },
+    {
+      image: '/image/Oracle/card_02.png',
+      title: 'What make tokens an asset? Game theory and Equilibrium',
+      desc: `Some people talk about Bitcoin with a tone of contempt: " What\'s  the use of this thing? It's hype,`,
+      time: 'Sep 19, 2022',
+      link: '/blogs/What-make-tokens-an-asset-Game-theory-and-Equilibrium',
+    },
+    {
+      image: '/image/Oracle/card_03.png',
+      title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle',
+      desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting',
+      time: 'Jun 9, 2022',
+      link: '/blogs/NEST-Protocol-A-New-Paradigm-of-Game-Theoretic-Oracle',
+    },
+  ]
+
   const pcPage = (
     <Stack bgImage={'/image/Oracle/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       <Navigation/>
@@ -56,38 +140,7 @@ const Page = () => {
         </Heading>
         <Wrap spacing={'44px'} w={'1100px'} justify={"center"}>
           {
-            [
-              {
-                title: 'Nodeless',
-                desc: 'Nodeless and permissionless quotation',
-                img: '/image/Oracle/01_NODELESS.png'
-              },
-              {
-                title: 'Accuracy',
-                desc: 'Reflect the real market price',
-                img: '/image/Oracle/02_ACCURACY.png'
-              },
-              {
-                title: 'Validation',
-                desc: 'Any third party with no threshold',
-                img: '/image/Oracle/03_VALIDATION.png'
-              },
-              {
-                title: 'Stable',
-                desc: 'Stablelized price informations reduce risks',
-                img: '/image/Oracle/04_STABLE.png'
-              },
-              {
-                title: 'Flexibility',
-                desc: 'Free to entry or exit',
-                img: '/image/Oracle/05_FLEXIBILITY.png'
-              },
-              {
-                title: 'Anti - Attack',
-                desc: 'High cost to tamper the price',
-                img: '/image/Oracle/06_ANTI-ATTACK.png'
-              },
-            ].map((item, index) => (
+            array1.map((item, index) => (
               <WrapItem key={index}>
                 <Stack w={'308px'} bg={'rgba(255,255,255,0.8)'} borderRadius={'20px'} py={'72px'} boxShadow={'0px 0px 45px 5px #E5E5E5'} spacing={'40px'} border={'1px solid #EEEEEE'}>
                   <Stack h={'80px'}>
@@ -116,32 +169,7 @@ const Page = () => {
       <Stack align={"center"} pt={'44px'} pb={'138px'}>
         <Wrap justify={'center'} spacing={'44px'} w={'800px'}>
           {
-            [
-              {
-                title: 'Create Channel',
-                desc: 'Anyone can create a channel. Open a decentralized oracle with one click.',
-                linkText: 'Create your channel',
-                link: 'https://oracle.nestprotocol.org/'
-              },
-              {
-                title: 'Price Quote',
-                desc: 'Anyone can make a price quote on the chain after pledging some tokens. Quotes will be rewarded and deviations from the quote will be arbitrated.',
-                linkText: 'How to quote',
-                link: '/docs/root/Technical-Reference-NEST-Oracle'
-              },
-              {
-                title: 'Verification',
-                desc: 'During the validation period (T0), anyone can validate the price. If there is a deviation from the correct price, the verifier can question the price and choose to trade either valuation or quotation asset, and then the verifier has to quote a new price. ',
-                linkText: 'How to verify',
-                link: '/docs/root/Technical-Reference-NEST-Oracle'
-              },
-              {
-                title: 'Effective Price',
-                desc: 'If a price is not arbitrated during the verification period(T0), this price is the effective price and anyone can use this price for free.',
-                linkText: 'How to call',
-                link: '/docs/root/Technical-Reference-NEST-Oracle'
-              },
-            ].map((item, index) => (
+            array2.map((item, index) => (
               <WrapItem key={index}>
                 <Stack w={'308px'} h={'300px'} bg={'white'} borderRadius={'20px'} px={'30px'} justify={"center"}>
                   <Stack minH={'200px'}>
@@ -165,29 +193,7 @@ const Page = () => {
 
         <Wrap justify={"center"} pt={'69px'} spacing={'44px'}>
           {
-            [
-              {
-                image: '/image/Oracle/card_01.png',
-                title: `Three different types of Oracle:Chainlink, NEST, and MakerDAO`,
-                desc: 'Blockchain is known as the machine of trust. The biggest innovation of',
-                time: 'Otc 12, 2022',
-                link: '/blogs/Three-different-types-of-Oracle-Chainlink-NEST-and-MakerDAO',
-              },
-              {
-                image: '/image/Oracle/card_02.png',
-                title: 'What make tokens an asset? Game theory and Equilibrium',
-                desc: `Some people talk about Bitcoin with a tone of contempt: " What\'s  the use of this thing? It's hype,`,
-                time: 'Sep 19, 2022',
-                link: '/blogs/What-make-tokens-an-asset-Game-theory-and-Equilibrium',
-              },
-              {
-                image: '/image/Oracle/card_03.png',
-                title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle',
-                desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting',
-                time: 'Jun 9, 2022',
-                link: '/blogs/NEST-Protocol-A-New-Paradigm-of-Game-Theoretic-Oracle',
-              },
-            ].map((item, index) => (
+            array3.map((item, index) => (
               <WrapItem key={index}>
                 <Stack w={'308px'} bg={'white'} borderRadius={'20px'}>
                   <Stack h={'140px'}>
@@ -256,38 +262,7 @@ const Page = () => {
         </Heading>
         <Wrap w={'full'} spacing={'20px'} justify={'center'}>
           {
-            [
-              {
-                title: 'Nodeless',
-                desc: 'Nodeless and permissionless quotation',
-                img: '/image/Oracle/01_NODELESS.png'
-              },
-              {
-                title: 'Accuracy',
-                desc: 'Reflect the real market price',
-                img: '/image/Oracle/02_ACCURACY.png'
-              },
-              {
-                title: 'Validation',
-                desc: 'Any third party with no threshold',
-                img: '/image/Oracle/03_VALIDATION.png'
-              },
-              {
-                title: 'Stable',
-                desc: 'Stablelized price informations reduce risks',
-                img: '/image/Oracle/04_STABLE.png'
-              },
-              {
-                title: 'Flexibility',
-                desc: 'Free to entry or exit',
-                img: '/image/Oracle/05_FLEXIBILITY.png'
-              },
-              {
-                title: 'Anti - Attack',
-                desc: 'High cost to tamper the price',
-                img: '/image/Oracle/06_ANTI-ATTACK.png'
-              },
-            ].map((item, index) => (
+            array1.map((item, index) => (
               <WrapItem key={index} w={'44%'} borderRadius={'17px'}>
                 <Stack bg={'rgba(255,255,255,0.8)'} py={'35px'} w={'full'} borderRadius={'20px'} border={'1px solid #EEEEEE'} spacing={'20px'} justify={"center"}>
                   <Stack h={'40px'}>
@@ -313,32 +288,7 @@ const Page = () => {
       </Stack>
       <Stack py={'62px'} px={'24px'} spacing={'24px'}>
         {
-          [
-            {
-              title: 'Create Channel',
-              desc: 'Anyone can create a channel. Open a decentralized oracle with one click.',
-              linkText: 'Create your channel',
-              link: 'https://oracle.nestprotocol.org/'
-            },
-            {
-              title: 'Price Quote',
-              desc: 'Anyone can make a price quote on the chain after pledging some tokens. Quotes will be rewarded and deviations from the quote will be arbitrated.',
-              linkText: 'How to quote',
-              link: '/docs/root/Technical-Reference-NEST-Oracle'
-            },
-            {
-              title: 'Verification',
-              desc: 'During the validation period (T0), anyone can validate the price. If there is a deviation from the correct price, the verifier can question the price and choose to trade either valuation or quotation asset, and then the verifier has to quote a new price. ',
-              linkText: 'How to verify',
-              link: '/docs/root/Technical-Reference-NEST-Oracle'
-            },
-            {
-              title: 'Effective Price',
-              desc: 'If a price is not arbitrated during the verification period(T0), this price is the effective price and anyone can use this price for free.',
-              linkText: 'How to call',
-              link: '/docs/root/Technical-Reference-NEST-Oracle'
-            },
-          ].map((item, index) => (
+          array2.map((item, index) => (
             <Stack key={index} px={'38px'} py={'100px'} borderRadius={'17px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}
                    bg={'rgba(255,255,255,0.8)'}>
               <Text fontSize={'17px'} fontWeight={'bold'}>{item.title}</Text>
@@ -358,29 +308,7 @@ const Page = () => {
       </Stack>
       <Stack px={'24px'} spacing={'24px'} pb={'64px'}>
         {
-          [
-            {
-              image: '/image/Oracle/card_01.png',
-              title: `Three different types of Oracle:Chainlink, NEST, and MakerDAO`,
-              desc: 'Blockchain is known as the machine of trust. The biggest innovation of',
-              time: 'Otc 12, 2022',
-              link: '/blogs/Three-different-types-of-Oracle-Chainlink-NEST-and-MakerDAO',
-            },
-            {
-              image: '/image/Oracle/card_02.png',
-              title: 'What make tokens an asset? Game theory and Equilibrium',
-              desc: `Some people talk about Bitcoin with a tone of contempt: " What\'s  the use of this thing? It's hype,`,
-              time: 'Sep 19, 2022',
-              link: '/blogs/What-make-tokens-an-asset-Game-theory-and-Equilibrium',
-            },
-            {
-              image: '/image/Oracle/card_03.png',
-              title: 'NEST Protocol A New Paradigm of Game Theoretic Oracle',
-              desc: 'Blockchain innovation defined the major part of the last decade, with cryptocurrency disrupting',
-              time: 'Jun 9, 2022',
-              link: '/blogs/NEST-Protocol-A-New-Paradigm-of-Game-Theoretic-Oracle',
-            },
-          ].map((item, index) => (
+          array3.map((item, index) => (
             <Stack w={'full'} bg={'white'} borderRadius={'20px'} key={index} boxShadow={'0px 0px 45px 5px #E5E5E5'}>
               <Stack>
                 <chakra.img src={item.image} w={'full'} objectFit={'contain'}/>
