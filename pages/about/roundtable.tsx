@@ -52,7 +52,7 @@ const Page = ({roundtables}: any) => {
                     {item.attributes.title}
                   </Link>
                 </Stack>
-                <HStack spacing={'10px'} overflow={'hidden'}>
+                <HStack spacing={'10px'} overflow={'hidden'} h={'20px'}>
                   {
                     item.attributes.invited_user_icons.data?.map((icon: any) => (
                       <chakra.img key={icon.id} src={'https://cms.nestfi.net/' + icon.attributes.url}
@@ -107,7 +107,7 @@ const Page = ({roundtables}: any) => {
               </HStack>
               <Divider/>
               <Link href={item.attributes.blog_link} isExternal fontSize={'10px'} fontWeight={'bold'}> {item.attributes.title}</Link>
-              <HStack spacing={'10px'} overflow={'hidden'}>
+              <HStack spacing={'10px'} overflow={'hidden'} h={'20px'}>
                 {
                   item.attributes.invited_user_icons.data?.map((icon: any) => (
                     <chakra.img key={icon.id} src={'https://cms.nestfi.net/' + icon.attributes.url}
