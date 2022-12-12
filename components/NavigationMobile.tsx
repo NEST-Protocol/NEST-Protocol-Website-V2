@@ -7,7 +7,7 @@ import {
   ModalCloseButton,
   ModalContent,
   Spacer, useDisclosure,
-  VStack, Text, Stack
+  VStack, Text, Stack, Link as ChakraLink
 } from "@chakra-ui/react";
 import {HamburgerIcon} from "@chakra-ui/icons";
 import gtag from "ga-gtag";
@@ -51,9 +51,9 @@ export default function NavigationMobile() {
           <ModalBody p={'22px'}>
             <VStack alignItems={'center'} pt={'100px'} spacing={'120px'}>
               <Stack spacing={'25px'} textAlign={"center"}>
-                <Link href={'https://nft.nestprotocol.org/'}>
-                  <Text fontSize={'16px'} fontWeight={'600'} opacity={showDevelopers || showAbout ? 0.6 : 1}>Cyber Ink</Text>
-                </Link>
+                <ChakraLink href={'https://nft.nestprotocol.org/'} isExternal fontSize={'16px'} fontWeight={'600'} opacity={showDevelopers || showAbout ? 0.6 : 1}>
+                  Cyber Ink
+                </ChakraLink>
                 <Link href={'/nest-fi/'}>
                   <Text fontSize={'16px'} fontWeight={'600'} color={router.pathname === '/nest-fi' ? '#EAAA00' : '#003232'} opacity={showDevelopers || showAbout ? 0.6 : 1}>NESTFi</Text>
                 </Link>

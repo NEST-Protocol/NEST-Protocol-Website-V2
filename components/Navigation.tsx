@@ -5,7 +5,7 @@ import {
   PopoverContent,
   PopoverTrigger,
   Stack,
-  Text
+  Text, Link as ChakraLink,
 } from "@chakra-ui/react";
 import gtag, {install} from "ga-gtag";
 import {useEffect} from "react";
@@ -30,9 +30,9 @@ export default function Navigation() {
         />
       </Link>
       <Stack direction={"row"} align={"center"} spacing={'24px'} fontWeight={'500'} fontSize={'15px'} color={'#003232'}>
-        <Link href={'https://nft.nestprotocol.org/'}>
-          <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"}>Cyber Ink</chakra.a>
-        </Link>
+        <ChakraLink isExternal href={'https://nft.nestprotocol.org/'} _hover={{ color: '#EAAA00' }} cursor={"pointer"}>
+         Cyber Ink
+        </ChakraLink>
         <Link href={'/nest-fi/'}>
           <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/nest-fi' ? '#EAAA00' : '#003232'}>NESTFi</chakra.a>
         </Link>
