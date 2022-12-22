@@ -5,12 +5,41 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Moment from "react-moment";
 import NavigationMobile from "../../components/NavigationMobile";
+import Head from "next/head";
 
-export default function Page({content, publishedAt, recentBlogs}: any) {
+export default function Page({content, publishedAt, recentBlogs, title, description, banner}: any) {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
+
+  const SEO = (
+    <Head>
+      <title>{title}</title>
+      { title && (
+        <>
+          <meta name="og:title" content={title}/>
+          <meta name="twitter:title" content={title}/>
+        </>
+      ) }
+      { description && (
+        <>
+          <meta name="description" content={description}/>
+          <meta name="og:description" content={description}/>
+          <meta name="twitter:description" content={description}/>
+        </>
+      ) }
+      { banner && (
+        <>
+          <meta name="og:image" content={'https://cms.nestfi.net/' + banner}/>
+          <meta name="twitter:image" content={'https://cms.nestfi.net/' + banner}/>
+        </>
+      ) }
+      <meta property="og:type" content="article" />
+      <meta name="twitter:card" content="summary_large_image" />
+    </Head>
+  )
 
   const pcPage = (
     <Stack h={'100vh'}>
+      { SEO }
       <Navigation/>
       <HStack px={'45px'} h={'full'} borderTop={'0.5px solid #c8c9cc'}>
         <Stack minW={'400px'} w={'400px'} h={'full'} py={'40px'}>
@@ -33,6 +62,7 @@ export default function Page({content, publishedAt, recentBlogs}: any) {
 
   const mobilePage = (
     <Stack>
+      { SEO }
       <NavigationMobile/>
       <Divider/>
       <Stack w={'full'} h={'full'} p={'24px'}>
@@ -79,6 +109,8 @@ export async function getStaticProps({params}: any) {
       slug: blogRes.attributes.slug,
       title: blogRes.attributes.title,
       content: blogRes.attributes.content,
+      description: blogRes.attributes?.description || '',
+      banner: blogRes.attributes?.banner?.data?.attributes?.url || '',
       date: blogRes.attributes.date,
       recentBlogs: recentBlogs.data
     }
