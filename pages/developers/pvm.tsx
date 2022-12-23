@@ -4,6 +4,7 @@ import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
 import {ChevronRightIcon} from "@chakra-ui/icons";
+import Head from "next/head";
 
 const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
@@ -14,8 +15,23 @@ const Page = () => {
     {image: '/image/PVM/03_icon@2x.png', title: 'No agent, NEST becomes the seller of all assets'},
   ]
 
+  const title = "NEST PVM | NEST Protocol";
+  const description = "";
+
+  const SEO = (
+    <Head>
+      <title>{title}</title>
+      <meta name="og:title" content={title}/>
+      <meta name="twitter:title" content={title}/>
+      <meta name="description" content={description}/>
+      <meta name="og:description" content={description}/>
+      <meta name="twitter:description" content={description}/>
+    </Head>
+  )
+
   const pcPage = (
     <Stack bgImage={'/image/PVM/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+      {SEO}
       <Navigation/>
       <Stack textAlign={"center"} align={"center"} spacing={'30px'} py={'160px'}>
         <Heading fontSize={'50px'}>
@@ -85,6 +101,7 @@ const Page = () => {
 
   const mobilePage = (
     <Stack bgImage={'/image/PVM/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+      {SEO}
       <NavigationMobile/>
       <Stack textAlign={"center"} align={"center"} pt={'100px'} pb={'150px'}>
         <Heading fontSize={'25px'}>

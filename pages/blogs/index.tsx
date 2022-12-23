@@ -5,6 +5,7 @@ import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
 import {getBlogCategory} from "../../lib/blogs";
 import {useState} from "react";
+import Head from "next/head";
 
 const Page = ({blogs}: any) => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
@@ -23,8 +24,23 @@ const Page = ({blogs}: any) => {
       date: 'May 6, 2022', link: '/blogs/NEST-RSS-FEED-INTEGRATED-WITH-CRYPTO.COM-PRICE-PAGE'},
   ]
 
+  const title = "NEST Blogs | NEST Protocol";
+  const description = "NEST Blogs";
+
+  const SEO = (
+    <Head>
+      <title>{title}</title>
+      <meta name="og:title" content={title}/>
+      <meta name="twitter:title" content={title}/>
+      <meta name="description" content={description}/>
+      <meta name="og:description" content={description}/>
+      <meta name="twitter:description" content={description}/>
+    </Head>
+  )
+
   const pcPage = (
     <Stack bgSize={'cover'} bgImage={"image/Blog/bg.jpg"} bgPosition={"center"}>
+      { SEO }
       <Navigation/>
       <Stack spacing={'44px'} px={'45px'}>
         <Wrap justify={'space-between'} spacing={'40px'}>
@@ -105,6 +121,7 @@ const Page = ({blogs}: any) => {
 
   const mobilePage = (
     <Stack bgSize={'cover'} bgImage={"image/Blog/bg.jpg"} bgPosition={"center"}>
+      { SEO }
       <NavigationMobile/>
       <Stack px={'24px'} spacing={'24px'} pb={'24px'}>
         {

@@ -16,13 +16,29 @@ import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
 import {getAllRoundtable} from "../../lib/roundtable";
 import {useState} from "react";
+import Head from "next/head";
 
 const Page = ({roundtables}: any) => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
   const [showMore, setShowMore] = useState(false);
 
+  const title = "NEST Roundtable | NEST Protocol";
+  const description = "NEST Roundtable, A weekly current affairs topic to understand the world of blockchain";
+
+  const SEO = (
+    <Head>
+      <title>{title}</title>
+      <meta name="og:title" content={title}/>
+      <meta name="twitter:title" content={title}/>
+      <meta name="description" content={description}/>
+      <meta name="og:description" content={description}/>
+      <meta name="twitter:description" content={description}/>
+    </Head>
+  )
+
   const pcPage = (
     <Stack bgImage={'/image/Roundtable/bg.jpg'} bgPosition={"center"} bgSize={'cover'} minH={'100vh'}>
+      {SEO}
       <Navigation/>
       <Stack textAlign={"center"} align={"center"} py={'140px'}>
         <Heading fontSize={'50px'}>NEST Roundtable</Heading>
@@ -80,6 +96,7 @@ const Page = ({roundtables}: any) => {
 
   const mobilePage = (
     <Stack bgImage={'/image/Roundtable/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+      {SEO}
       <NavigationMobile/>
       <Stack textAlign={"center"} py={'230px'}>
         <Heading fontSize={'25px'}>

@@ -60,15 +60,27 @@ export default function Home() {
     {title: '2022.07 v5.0', desc: `Merge FORT protocol\nNEST protocol= NEST oracle\n+ OMM +PVM`},
   ]
 
+  const title = "NEST Protocol | The most important infrastructure after ETH"
+  const description = "NEST Protocol is the stochastic computer based on PVM, enables the generation and programming of stochastic assets."
+
+  const SEO = (
+    <Head>
+      <title>{title}</title>
+      <meta name="og:title" content={title}/>
+      <meta name="twitter:title" content={title}/>
+      <meta name="description" content={description}/>
+      <meta name="og:description" content={description}/>
+      <meta name="twitter:description" content={description}/>
+    </Head>
+  )
+
   useEffect(() => {
     install('G-ELV55124T4');
   }, [])
 
   const pcPage = (
     <Stack bgSize={'cover'} bgImage={"image/Home/Home_bg.jpg"} bgPosition={"center"}>
-      <Head>
-        <title>NEST Protocol | The most important infrastructure after ETH</title>
-      </Head>
+      { SEO }
       <Navigation/>
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'130px'}>
         <Stack pt={'100px'} spacing={'28px'}>
@@ -450,6 +462,7 @@ export default function Home() {
 
   const mobilePage = (
     <Stack h={'100%'} bgImage={'/image/Home/01-Phone-bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+      { SEO }
       <NavigationMobile/>
       <Stack textAlign={"center"} pt={'150px'} pb={'80px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>Cyber Ink</Text>

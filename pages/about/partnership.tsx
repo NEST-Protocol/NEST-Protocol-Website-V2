@@ -5,13 +5,29 @@ import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
 import {getAllPartnerCategory, getAllPartners} from "../../lib/partners";
 import {useState} from "react";
+import Head from "next/head";
 
 const Page = ({category, partners}: any) => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
   const [selectId, setSelectId] = useState(-1);
 
+  const title = "NEST Integration & Partners | NEST Protocol";
+  const description = "Expanding influence in the Crypto world";
+
+  const SEO = (
+    <Head>
+      <title>{title}</title>
+      <meta name="og:title" content={title}/>
+      <meta name="twitter:title" content={title}/>
+      <meta name="description" content={description}/>
+      <meta name="og:description" content={description}/>
+      <meta name="twitter:description" content={description}/>
+    </Head>
+  )
+
   const pcPage = (
     <Stack bgImage={'/image/partnership/bg.jpg'} bgPosition={"center"} bgSize={'cover'} minH={'100vh'}>
+      {SEO}
       <Navigation/>
       <Stack textAlign={"center"} align={"center"} py={'160px'}>
         <Heading fontSize={'50px'}>Integration & Partners</Heading>
@@ -60,6 +76,7 @@ const Page = ({category, partners}: any) => {
 
   const mobilePage = (
     <Stack bgImage={'/image/partnership/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+      {SEO}
       <NavigationMobile/>
       <Stack textAlign={"center"} py={'260px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>Intergrations<br/>

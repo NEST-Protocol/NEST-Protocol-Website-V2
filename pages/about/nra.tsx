@@ -4,12 +4,28 @@ import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
 import {ChevronRightIcon} from "@chakra-ui/icons";
+import Head from "next/head";
 
 const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
 
+  const title = "NEST Research Academy (NRA) | NEST Protocol";
+  const description = "NEST Research Academy (NRA), initialized by the NEST protocol, aims to boost theoretical and applied research in related fields such as blockchain, finance, economics, game theory, machine learning, computer science, and software engineering and helps to spread this knowledge to the public.";
+
+  const SEO = (
+    <Head>
+      <title>{title}</title>
+      <meta name="og:title" content={title}/>
+      <meta name="twitter:title" content={title}/>
+      <meta name="description" content={description}/>
+      <meta name="og:description" content={description}/>
+      <meta name="twitter:description" content={description}/>
+    </Head>
+  )
+
   const pcPage = (
     <Stack bgImage={'/image/nra/bg.jpg'} bgPosition={"center"} bgSize={'cover'} minH={'100vh'}>
+      {SEO}
       <Navigation/>
       <Stack align={"center"} spacing={'48px'} pb={'210px'}>
         <HStack color={'#00A0E9'} fontSize={'15px'} fontWeight={'600'} w={'full'} px={'45px'}>
@@ -80,6 +96,7 @@ const Page = () => {
 
   const mobilePage = (
     <Stack bgImage={'/image/nra/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+      {SEO}
       <NavigationMobile/>
       <Stack align={"center"} pt={'115px'} pb={'210px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>NEST Research<br/>Academy (NRA)</Text>

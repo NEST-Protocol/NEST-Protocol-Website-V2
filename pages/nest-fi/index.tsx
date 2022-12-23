@@ -3,12 +3,28 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
+import Head from "next/head";
 
 const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
 
+  const title = "NESTFi | NEST Protocol";
+  const description = "NESTFi the decentralized financial market based on OMM, NESTFi (NESTFinancial Market) provides futures and options with infinite liquidity now.";
+
+  const SEO = (
+    <Head>
+      <title>{title}</title>
+      <meta name="og:title" content={title}/>
+      <meta name="twitter:title" content={title}/>
+      <meta name="description" content={description}/>
+      <meta name="og:description" content={description}/>
+      <meta name="twitter:description" content={description}/>
+    </Head>
+  )
+
   const pcPage = (
     <Stack bgPosition={"center"} bgSize={'cover'} bgImage={'/image/NEST_Fi/NESTFi_bg.jpg'}>
+      { SEO }
       <Navigation/>
       <Stack h={'100%'} align={"center"}>
         <Stack w={'100%'} h={'100%'} spacing={0}>
@@ -114,6 +130,7 @@ const Page = () => {
 
   const mobilePage = (
     <Stack h={'100%'} bgImage={'/image/NEST_Fi/02-Phone-bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+      { SEO }
       <NavigationMobile/>
       <Stack align={"center"} pt={'180px'} pb={'220px'}>
         <Text fontWeight={'bold'} textAlign={"center"} fontSize={'25px'}>NESTFi<br/>the decentralized<br/>financial

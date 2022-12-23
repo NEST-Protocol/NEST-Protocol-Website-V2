@@ -12,12 +12,28 @@ import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
 import {ChevronRightIcon} from "@chakra-ui/icons";
+import Head from "next/head";
 
 const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
 
+  const title = "NEST Team | NEST Protocol";
+  const description = "Who is Behind NEST?";
+
+  const SEO = (
+    <Head>
+      <title>{title}</title>
+      <meta name="og:title" content={title}/>
+      <meta name="twitter:title" content={title}/>
+      <meta name="description" content={description}/>
+      <meta name="og:description" content={description}/>
+      <meta name="twitter:description" content={description}/>
+    </Head>
+  )
+
   const pcPage = (
     <Stack bgImage={'/image/Team/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+      {SEO}
       <Navigation/>
       <Stack textAlign={"center"} py={'167px'} px={'45px'}>
         <Text fontSize={'50px'} fontWeight={'bold'}>NEST DAO</Text>
@@ -154,6 +170,7 @@ const Page = () => {
 
   const mobilePage = (
     <Stack bgImage={'/image/Team/bg.jpg'} bgPosition={"center"}>
+      {SEO}
       <NavigationMobile/>
       <Stack textAlign={"center"} align={"center"} pt={'120px'} pb={'160px'} spacing={'60px'}>
         <Heading fontSize={'25px'}>
