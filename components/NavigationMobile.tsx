@@ -64,10 +64,13 @@ export default function NavigationMobile() {
                   showDevelopers && (
                     <>
                       <Link href={'/developers/oracle/'}>
-                        <Text fontSize={'16px'} color={router.pathname === '/developers/oracle' ? '#EAAA00' : '#003232'} fontWeight={'600'}>Oracle</Text>
+                        <Text fontSize={'16px'} color={router.pathname === '/developers/oracle' ? '#EAAA00' : '#003232'} fontWeight={'600'}>NEST Oracle</Text>
                       </Link>
                       <Link href={'/developers/pvm/'}>
-                        <Text fontSize={'16px'} color={router.pathname === '/developers/pvm' ? '#EAAA00' : '#003232'} fontWeight={'600'}>PVM</Text>
+                        <Text fontSize={'16px'} color={router.pathname === '/developers/pvm' ? '#EAAA00' : '#003232'} fontWeight={'600'}>NEST PVM</Text>
+                      </Link>
+                      <Link href={'/developers/bug/'}>
+                        <Text fontSize={'16px'} color={router.pathname === '/developers/bug' ? '#EAAA00' : '#003232'} fontWeight={'600'}>Bug Bounty Program</Text>
                       </Link>
                     </>
                   )

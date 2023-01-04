@@ -40,13 +40,16 @@ export default function Navigation() {
           <PopoverTrigger>
             <Text cursor={"pointer"} _hover={{ color: '#EAAA00' }}>Developers</Text>
           </PopoverTrigger>
-          <PopoverContent px={'44px'} bg={"white"} py={'26px'} w={'240px'} borderRadius={'20px'} border={""} opacity={0.8}>
+          <PopoverContent px={'44px'} bg={"white"} py={'26px'} w={'300px'} borderRadius={'20px'} border={""} opacity={0.8}>
             <PopoverArrow />
             <Link href={'/developers/oracle/'}>
               <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/developers/oracle' ? '#EAAA00' : '#003232'}>NEST Oracle</chakra.a>
             </Link>
             <Link href={'/developers/pvm/'}>
               <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/developers/pvm' ? '#EAAA00' : '#003232'}>NEST PVM</chakra.a>
+            </Link>
+            <Link href={'/developers/bug/'}>
+              <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/developers/bug' ? '#EAAA00' : '#003232'}>Bug Bounty Program</chakra.a>
             </Link>
           </PopoverContent>
         </Popover>
