@@ -375,10 +375,10 @@ const Bug = () => {
         <Text fontSize={'12.5px'} fontWeight={'bold'}>Earn up to $200,000 NEST for finding<br/>related bugs affecting
           the NEST Protocol.</Text>
         <Stack spacing={'20px'} pt={'40px'}>
-          <Button w={'200px'} as={Link} href={'https://forms.gle/1wtob3WWBJwYT9PE7'} isExternal>
+          <Button w={'200px'} minH={'44px'} as={Link} href={'https://forms.gle/1wtob3WWBJwYT9PE7'} isExternal>
             Submit a bug
           </Button>
-          <Button w={'200px'} as={Link} href={'#rules'}>
+          <Button w={'200px'} minH={'44px'} as={Link} href={'#rules'}>
             Read rules
           </Button>
         </Stack>
@@ -679,8 +679,8 @@ const Bug = () => {
           </HStack>
         </Stack>
       </Stack>
-      <Stack py={'60px'} align={"center"}>
-        <Stack textAlign={"center"} align={"center"} py={'60px'} bg={'rgba(255,255,255, 0.84)'} w={'full'}>
+      <Stack py={'60px'} align={"center"} px={'24px'}>
+        <Stack textAlign={"center"} align={"center"} py={'60px'} bg={'rgba(255,255,255, 0.84)'} w={'full'} borderRadius={'20px'}>
           <chakra.img src={'/image/Bug/icon_contact_us.png'} h={'80px'} mb={'50px'}/>
           <Text fontSize={'25px'} fontWeight={'bold'}>Contact us</Text>
           <Text fontSize={'12.5px'} fontWeight={'600'}>If you have any questions,<br/>
