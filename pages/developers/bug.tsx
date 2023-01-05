@@ -338,7 +338,7 @@ const Bug = () => {
         </Stack>
       </Stack>
       <Stack pb={'138px'} align={"center"}>
-        <Stack textAlign={"center"} align={"center"} py={'105px'} bg={'rgba(255,255,255, 0.84)'} w={'1000px'}>
+        <Stack textAlign={"center"} align={"center"} py={'105px'} bg={'rgba(255,255,255, 0.84)'} w={'1000px'} borderRadius={'20px'}>
           <chakra.img src={'/image/Bug/icon_contact_us.png'} h={'80px'} mb={'10px'}/>
           <Text fontSize={'25px'} fontWeight={'600'}>Contact us</Text>
           <Text fontSize={'15px'} fontWeight={'600'}>If you have any questions, or simply would want to chat with
