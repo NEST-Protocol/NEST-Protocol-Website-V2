@@ -83,24 +83,6 @@ export default function Home() {
       { SEO }
       <Navigation/>
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'130px'}>
-        <Stack pt={'100px'} spacing={'28px'}>
-          <Heading fontSize={'50px'} textAlign={"center"}>Cyber Ink</Heading>
-          <Text textAlign={"center"} fontWeight={'600'} fontSize={'21px'}>is a collection of 10,000 NFTs on the
-            blockchain.<br/>
-            What&apos;s more, each Cyber Ink can unlock the <br/>NEST Fi membership and additional benefits.</Text>
-          <HStack justify={"center"}>
-            <Button w={'280px'} minH={'44px'} fontSize={'25px'}
-                    rightIcon={<chakra.img src={'/svg/white_bsc.svg'} h={'20px'} w={'20px'}/>}
-                    onClick={() => {
-                      window.open('https://finance.nestprotocol.org/#/NFTAuction', '_blank')
-                    }}>
-              NFT
-            </Button>
-          </HStack>
-          <chakra.img src={'/image/Home/nft04@2x.png'} cursor={'pointer'} onClick={() => {
-            window.open('https://finance.nestprotocol.org/#/NFTAuction', '_blank')
-          }}/>
-        </Stack>
         <Stack py={'220px'}>
           <Stack spacing={'28px'}>
             <Heading fontSize={'50px'} textAlign={"center"}>NEST PROTOCOL<br/>THE MOST
