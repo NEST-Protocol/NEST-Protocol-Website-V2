@@ -63,7 +63,7 @@ export default function FooterMobile() {
           </HStack>
         </Stack>
         <Stack align={"center"} w={'full'}>
-          <Text fontSize={'14px'} textAlign={"center"} fontWeight={'bold'} color={'#7D7D7D'}>@2022 NEST</Text>
+          <Text fontSize={'14px'} textAlign={"center"} fontWeight={'bold'} color={'#7D7D7D'}>@{new Date().getFullYear()} NEST</Text>
         </Stack>
       </Stack>
     </Stack>

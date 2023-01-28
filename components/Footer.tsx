@@ -70,7 +70,7 @@ export default function Footer() {
         <Spacer/>
         <HStack spacing={'22px'}>
           <Spacer/>
-          <Text fontSize={'14px'} fontWeight={'bold'} color={'#434344'}>@2022 NEST</Text>
+          <Text fontSize={'14px'} fontWeight={'bold'} color={'#434344'}>@{new Date().getFullYear()} NEST</Text>
         </HStack>
       </Stack>
     </HStack>
