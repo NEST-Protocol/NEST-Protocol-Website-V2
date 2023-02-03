@@ -48,9 +48,9 @@ export default function Navigation() {
             <Link href={'/developers/pvm/'}>
               <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/developers/pvm' ? '#EAAA00' : '#003232'}>NEST PVM</chakra.a>
             </Link>
-            <Link href={'/developers/bug/'}>
-              <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/developers/bug' ? '#EAAA00' : '#003232'}>Bug Bounty Program</chakra.a>
-            </Link>
+            {/*<Link href={'/developers/bug/'}>*/}
+            {/*  <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/developers/bug' ? '#EAAA00' : '#003232'}>Bug Bounty Program</chakra.a>*/}
+            {/*</Link>*/}
           </PopoverContent>
         </Popover>
         <Link href={'/docs/'}>

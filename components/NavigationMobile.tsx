@@ -69,9 +69,9 @@ export default function NavigationMobile() {
                       <Link href={'/developers/pvm/'}>
                         <Text fontSize={'16px'} color={router.pathname === '/developers/pvm' ? '#EAAA00' : '#003232'} fontWeight={'600'}>NEST PVM</Text>
                       </Link>
-                      <Link href={'/developers/bug/'}>
-                        <Text fontSize={'16px'} color={router.pathname === '/developers/bug' ? '#EAAA00' : '#003232'} fontWeight={'600'}>Bug Bounty Program</Text>
-                      </Link>
+                      {/*<Link href={'/developers/bug/'}>*/}
+                      {/*  <Text fontSize={'16px'} color={router.pathname === '/developers/bug' ? '#EAAA00' : '#003232'} fontWeight={'600'}>Bug Bounty Program</Text>*/}
+                      {/*</Link>*/}
                     </>
                   )
                 }
