@@ -9,7 +9,7 @@ const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
 
   const title = "NESTFi | NEST Protocol";
-  const description = "NESTFi the decentralized financial market based on OMM, NESTFi (NESTFinancial Market) provides futures and options with infinite liquidity now.";
+  const description = "NESTFi is a decentralized perpetual exchange. NESTFi offers 100% trading fees as commission for referrers";
 
   const SEO = (
     <Head>
@@ -30,25 +30,22 @@ const Page = () => {
         <Stack w={'100%'} h={'100%'} spacing={0}>
           <Stack py={'134px'}>
             <Stack spacing={'40px'} align={"center"}>
-              <Heading fontSize={'50px'} textAlign={"center"}>NESTFi<br/>the decentralized<br/>financial market<br/>based
-                on OMM</Heading>
-              <Text textAlign={"center"} fontWeight={'600'} fontSize={'21px'}>NESTFi (NESTFinancial Market) provides
-                futures<br/>and options with infinite liquidity now.</Text>
+              <Heading fontSize={'50px'} textAlign={"center"}>NESTFi<br/> is a decentralized<br/> perpetual exchange.</Heading>
+              <Text textAlign={"center"} fontWeight={'600'} fontSize={'21px'}>NESTFi offers 100% trading fees<br/> as commission for referrers.</Text>
             </Stack>
           </Stack>
           <Stack bg={'rgba(255,255,255, 0.8)'} align={"center"} textAlign={"center"} py={'92px'}>
-            <Heading fontSize={'50px'} textAlign={"center"}>What is OMM?</Heading>
+            <Heading fontSize={'50px'} textAlign={"center"}>NESTFi's economic model is deflationary</Heading>
             <chakra.img src={'/image/NEST_Fi/02-icon-01@2x.png'} w={'100px'} alt={''} py={'20px'}/>
-            <Text fontSize={'25px'} fontWeight={'bold'}>From P2P to OMM, a new settlement paradigm</Text>
-            <Text fontWeight={600} fontSize={'15px'}>OMM(Omnipotent Market Maker) is a new trading and settlement
-              paradigm:<br/>everyone trades and settles stochastic assets with NEST system rather than
-              individuals.</Text>
-            <Text fontSize={'15px'} fontWeight={'600'}>First constraint</Text>
-            <Text fontSize={'15px'} fontWeight={'600'} color={'#7D7D7D'}>c(X) ≥ E(X)<br/>The production cost of
-              stochastic asset is not less than<br/>the expected value of this stochastic asset.</Text>
-            <Text fontSize={'15px'} fontWeight={'600'}>Second constraint</Text>
-            <Text fontSize={'15px'} fontWeight={'600'} color={'#7D7D7D'}>E(X) ≥ E(F(X))<br/>The expected value of the
-              programmed stochastic<br/>asset will be not higher than its cost.</Text>
+            <Text fontSize={'25px'} fontWeight={'bold'}>We believe people cannot beat the market, <br/>therefore, in the long run, the more users trade on NESTFi,<br/> the more $NEST will be burned by the system,<br/> which will make NEST deflationary</Text>
+            <Text fontWeight={600} fontSize={'15px'}>NESTFi's cost is low</Text>
+            <Text fontSize={'15px'} fontWeight={'600'} color={'#7D7D7D'}>NESTFi has almost no server costs, no asset custody costs,<br/> and no market makers costs when compared to centralized exchanges.</Text>
+            <Text fontSize={'15px'} fontWeight={'600'}>NESTFi's product features</Text>
+            <Stack textAlign={"start"}>
+              <Text fontSize={'15px'} fontWeight={'600'} color={'#7D7D7D'}>· Market order & Limit order</Text>
+              <Text fontSize={'15px'} fontWeight={'600'} color={'#7D7D7D'}>· Stop loss (SL) & Take profit (TP)</Text>
+              <Text fontSize={'15px'} fontWeight={'600'} color={'#7D7D7D'}>· Position adjustment</Text>
+            </Stack>
           </Stack>
           <Stack align={"center"} py={'136px'} spacing={'57px'}>
             <Heading fontSize={'50px'}>What does OMM solve?</Heading>
@@ -88,38 +85,37 @@ const Page = () => {
               </Stack>
               <Stack w={'50%'} bg={'white'} align={"center"}>
                 <Stack w={'400px'} py={'155px'} borderRadius={'20px'}>
-                  <Text fontSize={'25px'} fontWeight={600}>NESTFi - Futures</Text>
-                  <Text fontSize={'15px'} fontWeight={600}>Trade BTC/USDT and ETH/USDT futures directly<br/>from your
-                    wallet without trading fee.</Text>
+                  <Text fontSize={'25px'} fontWeight={600}>NESTFi</Text>
+                  <Text fontSize={'15px'} fontWeight={600}>Trade BTC/USDT and ETH/USDT perpetual futures directly from your wallet with 0 slippage and up to 50x leverage.</Text>
                   <Box pt={'25px'}>
                     <Button w={'160px'} onClick={() => {
                       window.open('https://finance.nestprotocol.org/#/futures', '_blank')
                     }}>
-                      Open Futures
+                      Trade on NESTFi
                     </Button>
                   </Box>
                 </Stack>
               </Stack>
             </HStack>
-            <HStack w={'full'} pt={'40px'}>
-              <Stack w={'50%'} bg={'white'} align={"center"}>
-                <Stack py={'155px'} borderRadius={'20px'}>
-                  <Text fontSize={'25px'} fontWeight={600}>NESTFi - Options</Text>
-                  <Text fontSize={'15px'} fontWeight={600}>Open Options with flexible choices on exercise date,<br/>direction
-                    and strike price, and no commission.</Text>
-                  <Box pt={'25px'}>
-                    <Button w={'160px'} onClick={() => {
-                      window.open('https://finance.nestprotocol.org/#/options', '_blank')
-                    }}>
-                      Open Options
-                    </Button>
-                  </Box>
-                </Stack>
-              </Stack>
-              <Stack w={'50%'} align={"center"} justify={"center"}>
-                <chakra.img src={'/image/NEST_Fi/iPhone_2.webp'} h={'400px'}/>
-              </Stack>
-            </HStack>
+            {/*<HStack w={'full'} pt={'40px'}>*/}
+            {/*  <Stack w={'50%'} bg={'white'} align={"center"}>*/}
+            {/*    <Stack py={'155px'} borderRadius={'20px'}>*/}
+            {/*      <Text fontSize={'25px'} fontWeight={600}>NESTFi - Options</Text>*/}
+            {/*      <Text fontSize={'15px'} fontWeight={600}>Open Options with flexible choices on exercise date,<br/>direction*/}
+            {/*        and strike price, and no commission.</Text>*/}
+            {/*      <Box pt={'25px'}>*/}
+            {/*        <Button w={'160px'} onClick={() => {*/}
+            {/*          window.open('https://finance.nestprotocol.org/#/options', '_blank')*/}
+            {/*        }}>*/}
+            {/*          Open Options*/}
+            {/*        </Button>*/}
+            {/*      </Box>*/}
+            {/*    </Stack>*/}
+            {/*  </Stack>*/}
+            {/*  <Stack w={'50%'} align={"center"} justify={"center"}>*/}
+            {/*    <chakra.img src={'/image/NEST_Fi/iPhone_2.webp'} h={'400px'}/>*/}
+            {/*  </Stack>*/}
+            {/*</HStack>*/}
           </Stack>
           <Stack h={'138px'}/>
         </Stack>
@@ -133,28 +129,25 @@ const Page = () => {
       { SEO }
       <NavigationMobile/>
       <Stack align={"center"} pt={'180px'} pb={'220px'}>
-        <Text fontWeight={'bold'} textAlign={"center"} fontSize={'25px'}>NESTFi<br/>the decentralized<br/>financial
-          market<br/>based on OMM</Text>
-        <Text fontSize={'12px'} textAlign={"center"} fontWeight={'600'}>NESTFi (NESTFinancial Market)<br/>provides
-          futures and options<br/>with infinite liquidity now.</Text>
+        <Text fontWeight={'bold'} textAlign={"center"} fontSize={'25px'}>NESTFi<br/> is a decentralized<br/> perpetual exchange.</Text>
+        <Text fontSize={'12px'} textAlign={"center"} fontWeight={'600'}>NESTFi offers 100% trading fees<br/> as commission for referrers.</Text>
       </Stack>
       <Stack align={"center"} py={'40px'} bg={'rgba(255,255,255,0.7)'}>
-        <Text fontWeight={'bold'} fontSize={'25px'}>What is OMM?</Text>
+        <Text fontWeight={'bold'} fontSize={'25px'}>NESTFi's economic model<br/> is deflationary</Text>
         <chakra.img src={'/image/NEST_Fi/02-icon-01@2x.png'} w={'50px'} py={'40px'} alt={''}/>
-        <Text fontSize={'16px'} fontWeight={'bold'} textAlign={"center"}>From P2P to OMM, <br/>a new settlement
-          paradigm</Text>
-        <Text fontSize={'12.5px'} fontWeight={600} textAlign={"center"}>OMM(Omnipotent Market Maker) is<br/>a new
-          trading and settlement paradigm:<br/>everyone trades and settles<br/>stochastic assets with NEST
-          system<br/>rather than individuals.</Text>
-        <Text fontWeight={'600'} fontSize={'12.5px'}>First constraint:</Text>
-        <Text fontWeight={'600'} fontSize={'12.5px'} textAlign={"center"} color={'#7D7D7D'}>c(X) ≥ E(X)<br/>The
-          production cost of stochastic asset<br/>is not less than the expected<br/>value of this stochastic
-          asset</Text>
-        <Text fontWeight={'600'} fontSize={'12.5px'}>Second constraint:</Text>
-        <Text fontWeight={'600'} fontSize={'12.5px'} textAlign={"center"} color={'#7D7D7D'}>E(X) ≥ E(F(X))<br/>
-          The expected value of the<br/>
-          programmed stochastic asset<br/>
-          will be not higher than its cost.</Text>
+        <Text fontSize={'16px'} fontWeight={'bold'} textAlign={"center"}>We believe people cannot beat the market,<br/>
+          therefore, in the long run,<br/> the more users trade on NESTFi,<br/>
+          the more $NEST will be burned by the system,<br/>
+          which will make NEST deflationary</Text>
+        <Text fontWeight={'600'} fontSize={'12.5px'}>NESTFi's cost is low</Text>
+        <Text fontWeight={'600'} fontSize={'12.5px'} textAlign={"center"} color={'#7D7D7D'}>NESTFi has almost no server costs,<br/> no asset custody costs,
+          and no market makers costs<br/> when compared to centralized exchanges.</Text>
+        <Text fontWeight={'600'} fontSize={'12.5px'}>NESTFi's product features</Text>
+        <Text fontWeight={'600'} fontSize={'12.5px'} textAlign={"center"} color={'#7D7D7D'}>
+          · Market order & Limit order<br/>
+          · Stop loss (SL) & Take profit (TP)<br/>
+          · Position adjustment
+        </Text>
       </Stack>
       <Stack align={"center"} pt={'62px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>What does OMM solve?</Text>
@@ -197,28 +190,27 @@ const Page = () => {
         <chakra.img src={'/image/NEST_Fi/iPhone_1.webp'} w={'180px'} alt={''}/>
       </Stack>
       <Stack align={"center"} bg={'rgba(255,255,255, 0.8)'} py={'30px'}>
-        <Text fontWeight={'600'} fontSize={'16px'}>NESTFi - Futures</Text>
-        <Text textAlign={"center"} fontWeight={'600'} fontSize={'12.5px'}>Trade BTC/USDT and ETH/USDT futures
-          directly<br/>from your wallet without trading fee</Text>
+        <Text fontWeight={'600'} fontSize={'16px'}>NESTFi</Text>
+        <Text textAlign={"center"} fontWeight={'600'} fontSize={'12.5px'}>Trade BTC/USDT and ETH/USDT<br/> perpetual futures directly from your wallet<br/> with 0 slippage<br/> and up to 50x leverage.</Text>
         <Stack pt={'30px'}>
           <Button onClick={() => {
             window.open('https://finance.nestprotocol.org/#/futures', '_blank')
-          }}>Open Futures</Button>
+          }}>Trade on NESTFi</Button>
         </Stack>
       </Stack>
-      <Stack align={"center"} py={'40px'}>
-        <chakra.img src={'/image/NEST_Fi/iPhone_2.webp'} w={'180px'} alt={''}/>
-      </Stack>
-      <Stack align={"center"} bg={'rgba(255,255,255, 0.8)'} py={'30px'}>
-        <Text fontWeight={'600'} fontSize={'16px'}>NESTFi - Options</Text>
-        <Text textAlign={"center"} fontWeight={'600'} fontSize={'12.5px'}>Open Options with flexible choices on
-          exercise date,<br/>direction and strike price, and no commission</Text>
-        <Stack pt={'30px'}>
-          <Button onClick={() => {
-            window.open('https://finance.nestprotocol.org/#/options', '_blank')
-          }}>Open Options</Button>
-        </Stack>
-      </Stack>
+      {/*<Stack align={"center"} py={'40px'}>*/}
+      {/*  <chakra.img src={'/image/NEST_Fi/iPhone_2.webp'} w={'180px'} alt={''}/>*/}
+      {/*</Stack>*/}
+      {/*<Stack align={"center"} bg={'rgba(255,255,255, 0.8)'} py={'30px'}>*/}
+      {/*  <Text fontWeight={'600'} fontSize={'16px'}>NESTFi - Options</Text>*/}
+      {/*  <Text textAlign={"center"} fontWeight={'600'} fontSize={'12.5px'}>Open Options with flexible choices on*/}
+      {/*    exercise date,<br/>direction and strike price, and no commission</Text>*/}
+      {/*  <Stack pt={'30px'}>*/}
+      {/*    <Button onClick={() => {*/}
+      {/*      window.open('https://finance.nestprotocol.org/#/options', '_blank')*/}
+      {/*    }}>Open Options</Button>*/}
+      {/*  </Stack>*/}
+      {/*</Stack>*/}
       <Stack h={'62px'}/>
       <FooterMobile/>
     </Stack>
