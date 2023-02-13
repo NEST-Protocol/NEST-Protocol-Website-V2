@@ -36,23 +36,12 @@ export default function Navigation() {
         <Link href={'/nest-fi/'}>
           <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/nest-fi' ? '#EAAA00' : '#003232'}>NESTFi</chakra.a>
         </Link>
-        <Popover trigger={'hover'}>
-          <PopoverTrigger>
-            <Text cursor={"pointer"} _hover={{ color: '#EAAA00' }}>Developers</Text>
-          </PopoverTrigger>
-          <PopoverContent px={'44px'} bg={"white"} py={'26px'} w={'300px'} borderRadius={'20px'} border={""} opacity={0.8}>
-            <PopoverArrow />
-            <Link href={'/developers/oracle/'}>
-              <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/developers/oracle' ? '#EAAA00' : '#003232'}>NEST Oracle</chakra.a>
-            </Link>
-            <Link href={'/developers/pvm/'}>
-              <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/developers/pvm' ? '#EAAA00' : '#003232'}>NEST PVM</chakra.a>
-            </Link>
-            {/*<Link href={'/developers/bug/'}>*/}
-            {/*  <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/developers/bug' ? '#EAAA00' : '#003232'}>Bug Bounty Program</chakra.a>*/}
-            {/*</Link>*/}
-          </PopoverContent>
-        </Popover>
+        <Link href={'/oracle/'}>
+          <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/oracle' ? '#EAAA00' : '#003232'}>NESTOracle</chakra.a>
+        </Link>
+        <Link href={'/craft/'}>
+          <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/craft' ? '#EAAA00' : '#003232'}>NESTCraft</chakra.a>
+        </Link>
         <Link href={'/docs/'}>
           <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"}>Doc</chakra.a>
         </Link>
