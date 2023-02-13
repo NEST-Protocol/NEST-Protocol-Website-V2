@@ -14,7 +14,7 @@ import {useEffect, useState} from "react";
 import gtag, {install} from 'ga-gtag'
 import {ChevronDownIcon, ChevronRightIcon} from "@chakra-ui/icons";
 import {AiOutlineGithub, AiOutlineTwitter} from "react-icons/ai";
-import {FaTelegramPlane} from "react-icons/fa";
+import {FaTelegramPlane, FaTiktok} from "react-icons/fa";
 import Head from "next/head";
 import NavigationMobile from "../components/NavigationMobile";
 import FooterMobile from "../components/FooterMobile";
@@ -27,22 +27,21 @@ export default function Home() {
 
   const work = [
     {
-      type: 'PVM',
-      title: `PVM (Probabilistic Virtual Machine) is a class of\nvirtual machine structures based on a library of basic\nfunctions that allow a developer to assemble as many\napplications as he wants - similar to EVM programming`,
-      desc: `PVM enables the generation and programming of\nstochastic assets, which is widely used in DeFi, GameFi,\nNFT, etc.`,
+      type: 'NEST Assets',
+      title: `NEST assets are created through formation capitalization,\n which provides rewards for bidders in the Oracle module\n and currency units for NEST martingale trading.\n Its internal cost mechanism ensures that the system's supply is constrained,\n and it has an internal price increase logic,\n and all holders share the benefits and risks of its value.`,
+      // desc: `PVM enables the generation and programming of\nstochastic assets, which is widely used in DeFi, GameFi,\nNFT, etc.`,
       link: '/docs/Concept/PVM/'
     },
     {
       type: 'NEST Oracle',
-      title: `The NEST oracle is currently the market's\nonly truly decentralized oracle. The random\ninformation of decentralized price flow is introduced\ninto the chain using the Game Theoretical\nmechanism of arbitrage.`,
-      desc: `The NEST token is generated using the NEST\noracle's stochastic information. The NEST token\n serves as the monetary unit for all stochastic assets\nin the NEST ecosystem.`,
+      title: `NEST oracle provides the on-chain world\n with prices obtained through completely decentralized games`,
+      // desc: `The NEST token is generated using the NEST\noracle's stochastic information. The NEST token\n serves as the monetary unit for all stochastic assets\nin the NEST ecosystem.`,
       link: '/docs/Concept/NEST-Oracle/'
     },
     {
-      type: 'OMM',
-      title: `OMM is a new trading and settlement paradigm:\nEveryone trades and settle stochastic assets with\ncontracts rather than individuals.`,
-      desc: `OMM addresses the issue of liquidity and settlement.\nNEST tokens can be used to circulate any stochastic\nasset. Any benefit, even if it is greater than the\nexpected value, can be settled.\nThere is no need to match makers and takers, and all\nNEST holders share the same risks and rewards.
-`,
+      type: 'NESTCraft',
+      title: `NESTCraft transforms various on-chain random\n sources into a rich martingale function library,\n solves the problem of insufficient liquidity\n for investors via the\n ILM (Infinite Liquidity Maker) mechanism,\n and offers a variety of customizable martingale\n trading options.`,
+      // desc: `OMM addresses the issue of liquidity and settlement.\nNEST tokens can be used to circulate any stochastic\nasset. Any benefit, even if it is greater than the\nexpected value, can be settled.\nThere is no need to match makers and takers, and all\nNEST holders share the same risks and rewards.`,
       link: '/docs/Concept/OMM/'
     },
   ]
@@ -58,6 +57,7 @@ export default function Home() {
     {title: '2021.11 v4.1', desc: `NEST oracle upgraded.\nAllows anyone\nto build their oracle\nfor their project.`},
     {title: '2021.12 v4.3', desc: `NEST oracle upgraded.\nAllows each channel for\nmultiple quotation pairs.`},
     {title: '2022.07 v5.0', desc: `Merge FORT protocol\nNEST protocol= NEST oracle\n+ OMM +PVM`},
+    {title: '2023.02.10', desc: `NEST protocol upgraded.\nNEST launched the decentralized martingale network`}
   ]
 
   const title = "NEST Protocol | The most important infrastructure after ETH"
@@ -85,10 +85,8 @@ export default function Home() {
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'130px'}>
         <Stack py={'220px'}>
           <Stack spacing={'28px'}>
-            <Heading fontSize={'50px'} textAlign={"center"}>NEST PROTOCOL<br/>THE MOST
-              IMPORTANT<br/>INFRASTRUCTURE<br/>AFTER ETH</Heading>
-            <Text textAlign={"center"} fontWeight={'600'} fontSize={'21px'}>NEST Protocol is the stochastic computer
-              based on PVM,<br/>enables the generation and programming of stochastic assets.</Text>
+            <Heading fontSize={'50px'} textAlign={"center"}>NEST PROTOCOL<br/>=<br/>Decentralized Martingale Network</Heading>
+            <Text textAlign={"center"} fontWeight={'600'} fontSize={'21px'}>A decentralized trading infrastructure that<br/> eliminates market makers and LPs.</Text>
             <HStack justify={"center"}>
               <Button w={'160px'} minH={'44px'} fontSize={'25px'} onClick={() => {
                 gtag('event', 'clickApp2', {
@@ -109,44 +107,31 @@ export default function Home() {
                      const scrollTop = e.target.scrollTop;
                      setScroll(scrollTop);
                    }}>
-              <Heading fontSize={'50px'} textAlign={"center"}>What is stochastic assets?</Heading>
+              <Heading fontSize={'50px'} textAlign={"center"}>What is NEST Protocol?</Heading>
               <chakra.img src={'/image/Home/01-icon-01@2x.png'} w={'210px'} alt={''} py={'50px'}/>
               <Stack pb={'100px'} align={"center"}>
-                <Text fontSize={'25px'} fontWeight={"bold"} w={'620px'}
-                      textAlign={"center"}>Stochastic Asset is an on-chain asset that can be issued and destroyed in
-                  response to random information flows</Text>
+                <Text fontSize={'25px'} fontWeight={"bold"} w={'660px'}
+                      textAlign={"center"}>The NEST Protocol is a decentralized trading infrastructure known as the martingale network.<br/>
+                  <br/>
+                  NEST uses smart contracts to eliminate market markers and LPs while providing traders with nearly infinite liquidity through risk sharing.
+                </Text>
               </Stack>
               <Stack pb={'100px'} align={"center"}>
                 <chakra.img src={'/image/Home/01-icon-04@2x.png'} w={'105px'} alt={''} pb={'50px'}/>
                 <Text fontSize={'25px'} fontWeight={"bold"} w={'620px'}
-                      textAlign={"center"}>Token is information asset</Text>
+                      textAlign={"center"}>NEST's mechanism</Text>
                 <Text fontSize={'15px'} fontWeight={'600'} textAlign={"center"} w={'600px'}>
-                  The blockchain mechanism prevents consensus information (such as wallet balance) from being spent
-                  twice. The source of token value and the basis for token becoming an asset is the scarcity of
-                  consensus information. As a result, we refer to a token as an information asset that can generate
-                  scarce information and is a unit that measures the value of information.
+                  All users trade with NEST smart contracts, burning specific amounts of $NEST to obtain the corresponding financial assets, such as futures, options, synthetic assets, and so on. The smart contract then settles and repurchases the financial assets by issuing more $NEST.
                 </Text>
               </Stack>
               <Stack pb={'100px'} align={"center"}>
                 <chakra.img src={'/image/Home/01-icon-05@2x.png'} w={'159px'} alt={''} pb={'50px'}/>
                 <Text fontSize={'25px'} fontWeight={"bold"} w={'620px'}
-                      textAlign={"center"}>What is the difference between BTC, ETH and NEST?</Text>
+                      textAlign={"center"}>NEST’s Profit Model</Text>
                 <Text fontSize={'15px'} fontWeight={'600'} textAlign={"center"} w={'600px'}>
-                  The mechanisms of BTC&apos;s UTXO and ETH&apos;s EVM both ensure that the quantity of tokens will not increase
-                  during the transaction. NEST&apos;s PVM extends this scenario by controlling the expected value rather
-                  than by controlling the quantity, which will lead to a new paradigm revolution.
+                  We believe that in the long run, people cannot outperform the market, so the NEST burned will exceed the NEST generated, allowing our economic model to deflate and the $NEST price to rise.
                 </Text>
               </Stack>
-              <Stack align={"center"}>
-                <chakra.img src={'/image/Home/01-icon-06@2x.png'} w={'59px'} alt={''} pb={'50px'}/>
-                <Text fontSize={'25px'} fontWeight={"bold"} w={'620px'}
-                      textAlign={"center"}>Why do blockchain need stochastic assets?</Text>
-                <Text fontSize={'15px'} fontWeight={'600'} textAlign={"center"} w={'600px'}>
-                  Almost all financial applications can be thought of as the acquisition of stochastic assets with
-                  varying risk-return structures. Stochastic assets are a more natural way for building on-chain
-                  finance, such as decentralized derivatives.
-                </Text>
-              </Stack>s
             </Stack>
             <Stack align={"center"} h={'600px'} w={'20px'} justifyContent={"center"} spacing={'12px'}>
               <Box w={'10px'} h={'10px'} bg={scroll >= 0 ? '#EAAA00' : ''}
@@ -155,8 +140,6 @@ export default function Home() {
                    border={scroll >= 240 ? '' : '1px solid #878787'} borderRadius={'full'}/>
               <Box w={'10px'} h={'10px'} bg={scroll >= 640 ? '#EAAA00' : ''}
                    border={scroll >= 640 ? '' : '1px solid #878787'} borderRadius={'full'}/>
-              <Box w={'10px'} h={'10px'} bg={scroll >= 1004 ? '#EAAA00' : ''}
-                   border={scroll >= 1004 ? '' : '1px solid #878787'} borderRadius={'full'}/>
             </Stack>
           </Stack>
         </Stack>
@@ -167,15 +150,15 @@ export default function Home() {
             <Stack align={"center"} spacing={0} fontSize={'15px'} fontWeight={600}
                    onClick={() => setSelectedWork(0)}
                    cursor={'pointer'}>
-              <Text>Program stochastic asset</Text>
-              <Text color={'#00A0E9'}>PVM</Text>
+              {/*<Text>Program stochastic asset</Text>*/}
+              <Text color={'#00A0E9'}>NEST Assets</Text>
               <ChevronDownIcon color={'#00A0E9'}/>
             </Stack>
             <HStack align={"end"} spacing={'24px'}>
               <Stack w={'300px'} align={"end"}>
                 <Stack align={"center"} spacing={0} fontSize={'15px'} fontWeight={600}
                        onClick={() => setSelectedWork(1)} cursor={'pointer'}>
-                  <Text>Provide random information flow</Text>
+                  {/*<Text>Provide random information flow</Text>*/}
                   <Text color={'#00A0E9'}>NEST Oracle</Text>
                   <ChevronDownIcon color={'#00A0E9'}/>
                 </Stack>
@@ -186,8 +169,8 @@ export default function Home() {
               <Stack align={"start"} w={'300px'}>
                 <Stack align={"center"} spacing={0} fontSize={'15px'} fontWeight={600}
                        onClick={() => setSelectedWork(2)} cursor={'pointer'}>
-                  <Text>Generate stochastic assets</Text>
-                  <Text color={'#00A0E9'}>OMM</Text>
+                  {/*<Text>Generate stochastic assets</Text>*/}
+                  <Text color={'#00A0E9'}>NESTCraft</Text>
                   <ChevronDownIcon color={'#00A0E9'}/>
                 </Stack>
               </Stack>
@@ -201,7 +184,7 @@ export default function Home() {
               </Text>
               <Text textAlign={"center"} color={'#7D7D7D'} fontWeight={'600'} fontSize={'15px'}
                     whiteSpace={'break-spaces'}>
-                {work[selectedWork].desc}
+                {/*{work[selectedWork]?.desc}*/}
                 <Link color={'#00A0E9'} href={work[selectedWork].link}> Learn more <ChevronRightIcon/></Link>
               </Text>
             </Stack>
@@ -255,12 +238,12 @@ export default function Home() {
               <Stack align={"center"}>
                 <AiOutlineTwitter fontSize={'48px'} color={'#003232'}/>
               </Stack>
-              <Link href={'https://twitter.com/NEST_Protocol'} isExternal onClick={() => {
+              <Link href={'https://twitter.com/NEST_Protocol'} color={'#00A0E9'} isExternal onClick={() => {
                 gtag('event', 'clickTwitter', {
                   'from': 'desktop header'
                 })
               }}>
-                @NEST_Protocol <ChevronRightIcon/>
+                @NEST_Protocol <ChevronRightIcon color={'#00A0E9'}/>
               </Link>
               {/*<Link href={'https://twitter.com/NESTDAOSupport'}*/}
               {/*      isExternal>NEST Roundtable <ChevronRightIcon/></Link>*/}
@@ -298,11 +281,21 @@ export default function Home() {
               <Stack align={"center"}>
                 <AiOutlineGithub fontSize={'48px'} color={'#003232'}/>
               </Stack>
-              <Link href={'https://github.com/nest-protocol'} onClick={() => {
+              <Link href={'https://github.com/nest-protocol'} color={'#00A0E9'} onClick={() => {
                 gtag('event', 'clickGithub', {
                   'from': 'desktop header'
                 })
-              }}>For developers <ChevronRightIcon/></Link>
+              }}>For developers <ChevronRightIcon color={'#00A0E9'}/></Link>
+            </Stack>
+            <Stack spacing={'20px'}>
+              <Stack align={"center"} p={'4px'}>
+                <FaTiktok fontSize={'40px'} color={'#003232'}/>
+              </Stack>
+              <Link href={'https://www.tiktok.com/@nest_protocol'} color={'#00A0E9'} onClick={() => {
+                gtag('event', 'clickGithub', {
+                  'from': 'desktop header'
+                })
+              }}>NEST Tiktok <ChevronRightIcon color={'#00A0E9'}/></Link>
             </Stack>
           </HStack>
           <Stack spacing={'60px'} align={"center"}>
@@ -447,48 +440,33 @@ export default function Home() {
       { SEO }
       <NavigationMobile/>
       <Stack textAlign={"center"} pt={'150px'} pb={'150px'}>
-        <Text fontSize={'25px'} fontWeight={'bold'}>NEST PROTOCOL<br/>THE MOST<br/>IMPORTANT<br/>INFRASTRUCTURE<br/>AFTER
-          ETH</Text>
-        <Text fontSize={'12.5px'} fontWeight={'600'}>NEST Protocol is the stochastic<br/>computer based on PVM,<br/>enables
-          the generation and<br/>programming of stochastic assets.</Text>
+        <Text fontSize={'25px'} fontWeight={'bold'}>NEST PROTOCOL<br/>
+          =<br/> Decentralized Martingale Network</Text>
+        <Text fontSize={'12.5px'} fontWeight={'600'}>A decentralized trading infrastructure that<br/> eliminates market makers and LPs.</Text>
       </Stack>
       <Stack px={'24px'} pb={'62px'}>
         <Stack align={"center"} textAlign={"center"} bg={'rgba(255,255,255, 0.7)'} py={'58px'} h={'560px'}
                overflow={"scroll"}
                borderRadius={'20px'}>
-          <Text fontSize={'25px'} fontWeight={'bold'}>What is<br/>stochastic asset?</Text>
+          <Text fontSize={'25px'} fontWeight={'bold'}>What is NEST Protocol?</Text>
           <chakra.img src={'/image/Home/01-icon-01@2x.png'} alt={''} w={'150px'} py={'50px'}/>
           <Stack align={"center"} pb={'100px'}>
-            <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>Stochastic Asset is an on-chain asset that can
-              be issued and destroyed in response to random information flows</Text>
+            <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>The NEST Protocol is a decentralized trading infrastructure known as the martingale network.<br/>
+              <br/>
+              NEST uses smart contracts to eliminate market markers and LPs while providing traders with nearly infinite liquidity through risk sharing.</Text>
           </Stack>
           <Stack align={"center"} pb={'100px'}>
             <chakra.img src={'/image/Home/01-icon-04@2x.png'} alt={''} w={'55px'} pb={'50px'}/>
-            <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>Token is information asset</Text>
+            <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>NEST's mechanism</Text>
             <Text w={'70%'} fontSize={'12.5px'} fontWeight={'600'}>
-              The blockchain mechanism prevents consensus information (such as wallet balance) from being spent
-              twice. The source of token value and the basis for token becoming an asset is the scarcity of
-              consensus information. As a result, we refer to a token as an information asset that can generate
-              scarce information and is a unit that measures the value of information.
+              All users trade with NEST smart contracts, burning specific amounts of $NEST to obtain the corresponding financial assets, such as futures, options, synthetic assets, and so on. The smart contract then settles and repurchases the financial assets by issuing more $NEST.
             </Text>
           </Stack>
           <Stack align={"center"} pb={'100px'}>
             <chakra.img src={'/image/Home/01-icon-05@2x.png'} alt={''} w={'80px'} pb={'50px'}/>
-            <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>What is the difference between BTC, ETH and
-              NEST?</Text>
+            <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>NEST’s Profit Model</Text>
             <Text w={'70%'} fontSize={'12.5px'} fontWeight={'600'}>
-              The mechanisms of BTC&apos;s UTXO and ETH&apos;s EVM both ensure that the quantity of tokens will not increase
-              during the transaction. NEST&apos;s PVM extends this scenario by controlling the expected value rather than
-              by controlling the quantity, which will lead to a new paradigm revolution.
-            </Text>
-          </Stack>
-          <Stack align={"center"}>
-            <chakra.img src={'/image/Home/01-icon-06@2x.png'} alt={''} w={'30px'} pb={'50px'}/>
-            <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>Why do blockchain need stochastic assets?</Text>
-            <Text w={'70%'} fontSize={'12.5px'} fontWeight={'600'}>
-              Almost all financial applications can be thought of as the acquisition of stochastic assets with
-              varying risk-return structures. Stochastic assets are a more natural way for building on-chain
-              finance, such as decentralized derivatives.
+              We believe that in the long run, people cannot outperform the market, so the NEST burned will exceed the NEST generated, allowing our economic model to deflate and the $NEST price to rise.
             </Text>
           </Stack>
         </Stack>
@@ -498,15 +476,15 @@ export default function Home() {
         <Stack align={"center"} spacing={0} fontSize={'15px'} fontWeight={600}
                onClick={() => setSelectedWork(0)} pt={'50px'}
                cursor={'pointer'}>
-          <Text>Program stochastic asset</Text>
-          <Text color={'#00A0E9'}>PVM</Text>
+          {/*<Text>Program stochastic asset</Text>*/}
+          <Text color={'#00A0E9'}>NEST Assets</Text>
           <ChevronDownIcon color={'#00A0E9'}/>
         </Stack>
         <HStack align={"end"} spacing={'-60px'} pb={'40px'}>
           <Stack w={'150px'} align={"end"} zIndex={'10'}>
             <Stack align={"center"} spacing={0} fontSize={'15px'} fontWeight={600}
                    onClick={() => setSelectedWork(1)} cursor={'pointer'}>
-              <Text textAlign={'center'}>Provide random<br/>information flow</Text>
+              {/*<Text textAlign={'center'}>Provide random<br/>information flow</Text>*/}
               <Text color={'#00A0E9'}>NEST Oracle</Text>
               <ChevronDownIcon color={'#00A0E9'}/>
             </Stack>
@@ -515,16 +493,17 @@ export default function Home() {
           <Stack align={"start"} w={'150px'}>
             <Stack align={"center"} spacing={0} fontSize={'15px'} fontWeight={600}
                    onClick={() => setSelectedWork(2)} cursor={'pointer'}>
-              <Text textAlign={'center'}>Generate<br/>stochastic assets</Text>
-              <Text color={'#00A0E9'}>OMM</Text>
+              {/*<Text textAlign={'center'}>Generate<br/>stochastic assets</Text>*/}
+              <Text color={'#00A0E9'}>NESTCraft</Text>
               <ChevronDownIcon color={'#00A0E9'}/>
             </Stack>
           </Stack>
         </HStack>
         <Text fontSize={'16.5px'} fontWeight={'bold'}>{work[selectedWork].type}</Text>
         <Text w={'80%'} fontSize={'12.5px'} fontWeight={'600'}>{work[selectedWork].title}</Text>
-        <Text w={'70%'} fontSize={'12.5px'} fontWeight={'600'} color={'#7D7D7D'}>{work[selectedWork].desc} <Link
-          href={work[selectedWork].link} isExternal color={'#00A0E9'}>Learn more <ChevronRightIcon/></Link></Text>
+        <Text w={'70%'} fontSize={'12.5px'} fontWeight={'600'} color={'#7D7D7D'}>
+          {/*{work[selectedWork].desc} */}
+          <Link href={work[selectedWork].link} isExternal color={'#00A0E9'}>Learn more <ChevronRightIcon/></Link></Text>
       </Stack>
       <Stack textAlign={"center"} align={"center"} py={'62px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>Development<br/>path</Text>
@@ -592,7 +571,15 @@ export default function Home() {
               'from': 'desktop header'
             })
           }}>For
-            developers <ChevronRightIcon/></Link>
+            developers <ChevronRightIcon color={'#00A0E9'}/></Link>
+        </Stack>
+        <Stack pt={'30px'} align={"center"}>
+          <FaTiktok fontSize={'20px'} color={'#003232'}/>
+          <Link color={'#00A0E9'} fontWeight={'600'} fontSize={'12.5px'} href={'https://www.tiktok.com/@nest_protocol'} onClick={() => {
+            gtag('event', 'clickGithub', {
+              'from': 'desktop header'
+            })
+          }}>NEST Tiktok<ChevronRightIcon color={'#00A0E9'}/></Link>
         </Stack>
         <HStack pt={'60px'} pb={'30px'}>
           <Stack w={'100px'} align={"center"}>
