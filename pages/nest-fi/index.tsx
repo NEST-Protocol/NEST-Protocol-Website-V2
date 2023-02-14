@@ -35,12 +35,12 @@ const Page = () => {
             </Stack>
           </Stack>
           <Stack bg={'rgba(255,255,255, 0.8)'} align={"center"} textAlign={"center"} py={'92px'}>
-            <Heading fontSize={'50px'} textAlign={"center"}>NESTFi's economic model is deflationary</Heading>
+            <Heading fontSize={'50px'} textAlign={"center"}>NESTFi&apos;s economic model is deflationary</Heading>
             <chakra.img src={'/image/NEST_Fi/02-icon-01@2x.png'} w={'100px'} alt={''} py={'20px'}/>
             <Text fontSize={'25px'} fontWeight={'bold'}>We believe people cannot beat the market, <br/>therefore, in the long run, the more users trade on NESTFi,<br/> the more $NEST will be burned by the system,<br/> which will make NEST deflationary</Text>
-            <Text fontWeight={600} fontSize={'15px'}>NESTFi's cost is low</Text>
+            <Text fontWeight={600} fontSize={'15px'}>NESTFi&apos;s cost is low</Text>
             <Text fontSize={'15px'} fontWeight={'600'} color={'#7D7D7D'}>NESTFi has almost no server costs, no asset custody costs,<br/> and no market makers costs when compared to centralized exchanges.</Text>
-            <Text fontSize={'15px'} fontWeight={'600'}>NESTFi's product features</Text>
+            <Text fontSize={'15px'} fontWeight={'600'}>NESTFi&apos;s product features</Text>
             <Stack textAlign={"start"}>
               <Text fontSize={'15px'} fontWeight={'600'} color={'#7D7D7D'}>· Market order & Limit order</Text>
               <Text fontSize={'15px'} fontWeight={'600'} color={'#7D7D7D'}>· Stop loss (SL) & Take profit (TP)</Text>
@@ -133,16 +133,16 @@ const Page = () => {
         <Text fontSize={'12px'} textAlign={"center"} fontWeight={'600'}>NESTFi offers 100% trading fees<br/> as commission for referrers.</Text>
       </Stack>
       <Stack align={"center"} py={'40px'} bg={'rgba(255,255,255,0.7)'}>
-        <Text fontWeight={'bold'} fontSize={'25px'}>NESTFi's economic model<br/> is deflationary</Text>
+        <Text fontWeight={'bold'} fontSize={'25px'}>NESTFi&apos;s economic model<br/> is deflationary</Text>
         <chakra.img src={'/image/NEST_Fi/02-icon-01@2x.png'} w={'50px'} py={'40px'} alt={''}/>
         <Text fontSize={'16px'} fontWeight={'bold'} textAlign={"center"}>We believe people cannot beat the market,<br/>
           therefore, in the long run,<br/> the more users trade on NESTFi,<br/>
           the more $NEST will be burned by the system,<br/>
           which will make NEST deflationary</Text>
-        <Text fontWeight={'600'} fontSize={'12.5px'}>NESTFi's cost is low</Text>
+        <Text fontWeight={'600'} fontSize={'12.5px'}>NESTFi&apos;s cost is low</Text>
         <Text fontWeight={'600'} fontSize={'12.5px'} textAlign={"center"} color={'#7D7D7D'}>NESTFi has almost no server costs,<br/> no asset custody costs,
           and no market makers costs<br/> when compared to centralized exchanges.</Text>
-        <Text fontWeight={'600'} fontSize={'12.5px'}>NESTFi's product features</Text>
+        <Text fontWeight={'600'} fontSize={'12.5px'}>NESTFi&apos;s product features</Text>
         <Text fontWeight={'600'} fontSize={'12.5px'} textAlign={"center"} color={'#7D7D7D'}>
           · Market order & Limit order<br/>
           · Stop loss (SL) & Take profit (TP)<br/>
