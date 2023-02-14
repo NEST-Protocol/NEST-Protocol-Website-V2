@@ -40,7 +40,7 @@ const Page = () => {
           NESTCraft,<br/> the martingale function library
         </Heading>
         <Text fontSize={'18px'} fontWeight={'bold'}>
-          NESTCraft, which is a combination of martingales functions<br/> similar to the Ethereum virtual machine,<br/> will greatly broaden the scope of NEST's application,<br/> transforming it into a chain infrastructure that will enable anyone<br/> to create more NEST-based applications.
+          NESTCraft, which is a combination of martingales functions<br/> similar to the Ethereum virtual machine,<br/> will greatly broaden the scope of NEST&apos;s application,<br/> transforming it into a chain infrastructure that will enable anyone<br/> to create more NEST-based applications.
         </Text>
         <HStack spacing={'48px'}>
           <Button as={Link} href={'/docs/Concept/PVM'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer
