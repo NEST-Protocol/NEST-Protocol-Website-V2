@@ -119,7 +119,7 @@ export default function Home() {
               <Stack pb={'100px'} align={"center"}>
                 <chakra.img src={'/image/Home/01-icon-04@2x.png'} w={'105px'} alt={''} pb={'50px'}/>
                 <Text fontSize={'25px'} fontWeight={"bold"} w={'620px'}
-                      textAlign={"center"}>NEST's mechanism</Text>
+                      textAlign={"center"}>{`NEST's mechanism`}</Text>
                 <Text fontSize={'15px'} fontWeight={'600'} textAlign={"center"} w={'600px'}>
                   All users trade with NEST smart contracts, burning specific amounts of $NEST to obtain the corresponding financial assets, such as futures, options, synthetic assets, and so on. The smart contract then settles and repurchases the financial assets by issuing more $NEST.
                 </Text>
@@ -127,7 +127,7 @@ export default function Home() {
               <Stack pb={'100px'} align={"center"}>
                 <chakra.img src={'/image/Home/01-icon-05@2x.png'} w={'159px'} alt={''} pb={'50px'}/>
                 <Text fontSize={'25px'} fontWeight={"bold"} w={'620px'}
-                      textAlign={"center"}>NEST’s Profit Model</Text>
+                      textAlign={"center"}>{`NEST's Profit Model`}</Text>
                 <Text fontSize={'15px'} fontWeight={'600'} textAlign={"center"} w={'600px'}>
                   We believe that in the long run, people cannot outperform the market, so the NEST burned will exceed the NEST generated, allowing our economic model to deflate and the $NEST price to rise.
                 </Text>
@@ -457,7 +457,7 @@ export default function Home() {
           </Stack>
           <Stack align={"center"} pb={'100px'}>
             <chakra.img src={'/image/Home/01-icon-04@2x.png'} alt={''} w={'55px'} pb={'50px'}/>
-            <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>NEST's mechanism</Text>
+            <Text w={'70%'} fontSize={'16.5px'} fontWeight={'bold'}>{`NEST's mechanism`}</Text>
             <Text w={'70%'} fontSize={'12.5px'} fontWeight={'600'}>
               All users trade with NEST smart contracts, burning specific amounts of $NEST to obtain the corresponding financial assets, such as futures, options, synthetic assets, and so on. The smart contract then settles and repurchases the financial assets by issuing more $NEST.
             </Text>
