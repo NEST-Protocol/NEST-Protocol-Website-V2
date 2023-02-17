@@ -18,6 +18,7 @@ import {useRouter} from "next/router";
 export default function NavigationMobile() {
   const {isOpen, onOpen, onClose} = useDisclosure()
   const [showAbout, setShowAbout] = useState(false)
+  const [showBlog, setShowBlog] = useState(false)
   const router = useRouter()
 
   return (
@@ -50,27 +51,37 @@ export default function NavigationMobile() {
           <ModalBody p={'22px'}>
             <VStack alignItems={'center'} pt={'100px'} spacing={'120px'}>
               <Stack spacing={'25px'} textAlign={"center"}>
-                <ChakraLink href={'https://nft.nestprotocol.org/'} isExternal fontSize={'16px'} fontWeight={'600'} opacity={showAbout ? 0.6 : 1}>
-                  Cyber Ink
-                </ChakraLink>
                 <Link href={'/nest-fi/'}>
-                  <Text fontSize={'16px'} fontWeight={'600'} color={router.pathname === '/nest-fi' ? '#EAAA00' : '#003232'} opacity={showAbout ? 0.6 : 1}>NESTFi</Text>
-                </Link>
-                <Link href={'/oracle/'}>
-                  <Text fontSize={'16px'} fontWeight={'600'} color={router.pathname === '/oracle' ? '#EAAA00' : '#003232'} opacity={showAbout ? 0.6 : 1}>NESTOracle</Text>
+                  <Text fontSize={'16px'} fontWeight={'600'} color={router.pathname === '/nest-fi' ? '#EAAA00' : '#003232'} opacity={showAbout || showBlog ? 0.6 : 1}>NESTFi</Text>
                 </Link>
                 <Link href={'/craft'}>
-                  <Text fontSize={'16px'} fontWeight={'600'} color={router.pathname === '/craft' ? '#EAAA00' : '#003232'} opacity={showAbout ? 0.6 : 1}>NESTCraft</Text>
+                  <Text fontSize={'16px'} fontWeight={'600'} color={router.pathname === '/craft' ? '#EAAA00' : '#003232'} opacity={showAbout || showBlog ? 0.6 : 1}>NESTCraft</Text>
                 </Link>
+                <Link href={'/oracle/'}>
+                  <Text fontSize={'16px'} fontWeight={'600'} color={router.pathname === '/oracle' ? '#EAAA00' : '#003232'} opacity={showAbout || showBlog ? 0.6 : 1}>NESTOracle</Text>
+                </Link>
+                <ChakraLink href={'https://nft.nestprotocol.org/'} isExternal fontSize={'16px'} fontWeight={'600'} opacity={showAbout || showBlog ? 0.6 : 1}>
+                  Cyber Ink
+                </ChakraLink>
                 <Link href={'/docs/'}>
                   <Text fontSize={'16px'} color={router.pathname === '/docs' ? '#EAAA00' : '#003232'}
-                        opacity={showAbout ? 0.6 : 1}
+                        opacity={showAbout || showBlog ? 0.6 : 1}
                         fontWeight={'600'}>Doc</Text>
                 </Link>
-                <Link href={'/blogs/'}>
-                  <Text fontSize={'16px'} color={router.pathname === '/blogs' ? '#EAAA00' : '#003232'} opacity={showAbout ? 0.6 : 1} fontWeight={'600'}>Blog</Text>
-                </Link>
-                <Text fontSize={'16px'} opacity={showAbout ? 0.6 : 1} fontWeight={'600'} onClick={() => setShowAbout(!showAbout)}>About</Text>
+                <Text fontSize={'16px'} opacity={showBlog || showAbout ? 0.6 : 1} fontWeight={'600'} onClick={() => setShowBlog(!showBlog)}>Blog</Text>
+                {
+                  showBlog && (
+                    <>
+                      <Link href={'/blogs/'}>
+                        <Text fontSize={'16px'} color={router.pathname === '/blogs' ? '#EAAA00' : '#003232'} fontWeight={'600'}>News</Text>
+                      </Link>
+                      <Link href={'/about/roundtable/'}>
+                        <Text fontSize={'16px'}  color={router.pathname === '/about/roundtable' ? '#EAAA00' : '#003232'}  fontWeight={'600'}>NEST Roundtable</Text>
+                      </Link>
+                    </>
+                  )
+                }
+                <Text fontSize={'16px'} opacity={showAbout || showBlog ? 0.6 : 1} fontWeight={'600'} onClick={() => setShowAbout(!showAbout)}>About</Text>
                 {
                   showAbout && (
                     <>
