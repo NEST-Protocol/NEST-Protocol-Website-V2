@@ -40,7 +40,7 @@ const Page = () => {
           NESTCraft, which is a combination of martingales functions<br/> similar to the Ethereum virtual machine,<br/> will greatly broaden the scope of NEST&apos;s application,<br/> transforming it into a chain infrastructure that will enable anyone<br/> to create more NEST-based applications.
         </Text>
         <HStack spacing={'48px'}>
-          <Button as={Link} href={'/docs/Concept/PVM'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer
+          <Button as={Link} href={'/docs/Concept/NESTcraft'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer
             Doc</Button>
           <Button as={Link} href={'https://github.com/NEST-Protocol'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'}
                   color={'#003232'}>Github</Button>
@@ -55,7 +55,7 @@ const Page = () => {
           <Text fontSize={'25px'} fontWeight={'600'}>Schematic of NESTCraft</Text>
           <Text fontSize={'15px'} fontWeight={'600'}>When NEST gains more liquidity, we can use the NEST/USD oracle to convert the underlying assets of the transaction from X NESTs to X USD of NESTs, which will meet the needs of many attempts to establish hedging positions based on the fiat currency standard.</Text>
           <HStack fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'24px'}>
-            <Link w={'200px'} color={'00A0E9'} href={'/docs/Concept/PVM'}>NESTCraft Mechanism <ChevronRightIcon/></Link>
+            <Link w={'200px'} color={'00A0E9'} href={'/docs/Concept/NESTcraft'}>NESTCraft Mechanism <ChevronRightIcon/></Link>
             <Link w={'200px'} color={'00A0E9'} href={'/doc/ennestwhitepaper.pdf'}>Whitepaper <ChevronRightIcon/></Link>
           </HStack>
         </Stack>
@@ -111,7 +111,7 @@ const Page = () => {
           tools and creative new assets.
         </Text>
         <Stack spacing={'30px'} pt={'20px'}>
-          <Button w={'170px'} as={Link} href={'/docs/Concept/PVM'} minH={'44px'}>
+          <Button w={'170px'} as={Link} href={'/docs/Concept/NESTcraft'} minH={'44px'}>
             Developer Doc
           </Button>
           <Button as={Link} href={'https://github.com/NEST-Protocol'} w={'170px'} minH={'44px'}>
@@ -128,7 +128,7 @@ const Page = () => {
           <Text fontSize={'16.5px'} fontWeight={'600'}>Schematic of NESTCraft</Text>
           <Text fontSize={'12.5px'} fontWeight={'600'}>When NEST gains more liquidity, we can use the NEST/USD oracle to convert the underlying assets of the transaction from X NESTs to X USD of NESTs, which will meet the needs of many attempts to establish hedging positions based on the fiat currency standard.</Text>
           <Stack fontSize={'12.5px'} fontWeight={'600'} color={'#00A0E9'} pt={'24px'}>
-            <Link w={'200px'} color={'#00A0E9'} href={'/docs/Concept/PVM'}>NESTCraft Mechanism <ChevronRightIcon/></Link>
+            <Link w={'200px'} color={'#00A0E9'} href={'/docs/Concept/NESTcraft'}>NESTCraft Mechanism <ChevronRightIcon/></Link>
             <Link w={'200px'} color={'#00A0E9'} href={'/doc/ennestwhitepaper.pdf'}>Whitepaper <ChevronRightIcon/></Link>
           </Stack>
         </Stack>
