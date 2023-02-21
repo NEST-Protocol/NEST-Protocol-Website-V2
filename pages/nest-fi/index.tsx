@@ -48,7 +48,7 @@ const Page = () => {
             </Stack>
           </Stack>
           <Stack align={"center"} py={'136px'} spacing={'57px'}>
-            <Heading fontSize={'50px'}>What does OMM solve?</Heading>
+            <Heading fontSize={'50px'}>What does NESTFi solve?</Heading>
             <HStack spacing={'44px'}>
               <Stack px={'30px'} py={'53px'} bg={"white"} w={'308px'} h={'352px'} borderRadius={'20px'}>
                 <Stack align={"center"} h={'120px'} justify={"center"}>
@@ -128,7 +128,7 @@ const Page = () => {
         </Text>
       </Stack>
       <Stack align={"center"} pt={'62px'}>
-        <Text fontSize={'25px'} fontWeight={'bold'}>What does OMM solve?</Text>
+        <Text fontSize={'25px'} fontWeight={'bold'}>What does NESTFi solve?</Text>
         <Stack px={'24px'} pt={'38px'} w={'full'}>
           <Stack px={'33px'} bg={'white'} borderRadius={'20px'} align={"center"} pt={'50px'}>
             <chakra.img src={'/image/NEST_Fi/02-icon-02@2x.png'} w={'150px'} alt={''}/>
