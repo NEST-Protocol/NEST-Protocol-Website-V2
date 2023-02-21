@@ -25,10 +25,6 @@ export default function Footer() {
             Docs</Link>
           <Text fontSize={'15px'} fontWeight={'600'} color={'#7D7D7D'}>Know how to develop on NEST</Text>
         </Stack>
-        <Stack spacing={'22px'}>
-          <Link fontSize={'15px'} fontWeight={'bold'} href={'/about/faqs/'}>FAQs</Link>
-          <Text fontSize={'15px'} fontWeight={'600'} color={'#7D7D7D'}>Frequently asked questions</Text>
-        </Stack>
         <HStack spacing={'24px'}>
           <Link href={'https://github.com/NEST-Protocol'} isExternal>
             <chakra.img src={'/image/Footer/github_icon.svg'} h={'44px'} w={'44px'}
