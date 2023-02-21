@@ -30,7 +30,7 @@ export default function Home() {
       type: 'NEST Assets',
       title: `NEST assets are created through formation capitalization,\n which provides rewards for bidders in the Oracle module\n and currency units for NEST martingale trading.\n Its internal cost mechanism ensures that the system's supply is constrained,\n and it has an internal price increase logic,\n and all holders share the benefits and risks of its value.`,
       // desc: `PVM enables the generation and programming of\nstochastic assets, which is widely used in DeFi, GameFi,\nNFT, etc.`,
-      link: '/docs/Concept/PVM/'
+      link: '/docs/Concept/NEST-Assets/'
     },
     {
       type: 'NEST Oracle',
@@ -42,7 +42,7 @@ export default function Home() {
       type: 'NESTCraft',
       title: `NESTCraft transforms various on-chain random\n sources into a rich martingale function library,\n solves the problem of insufficient liquidity\n for investors via the\n ILM (Infinite Liquidity Maker) mechanism,\n and offers a variety of customizable martingale\n trading options.`,
       // desc: `OMM addresses the issue of liquidity and settlement.\nNEST tokens can be used to circulate any stochastic\nasset. Any benefit, even if it is greater than the\nexpected value, can be settled.\nThere is no need to match makers and takers, and all\nNEST holders share the same risks and rewards.`,
-      link: '/docs/Concept/OMM/'
+      link: '/docs/Concept/NESTcraft/'
     },
   ]
 
