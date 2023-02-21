@@ -14,9 +14,6 @@ const Page = () => {
     {image: '/image/PVM/02_icon@2x.png', title: 'Metaverse and GameFi', body: `NEST provides a series of martingale functions, such fair games around deterministic mathematical relations, probability relations, and random processes can be developed by calling the NEST functions, so as to realize the unified value measurement of different games.`},
     {image: '/image/PVM/03_icon@2x.png', title: 'Lottery, prop synthesis, etc', body: `Some basic designs based on randomness can be realized with only some distribution functions.`},
   ]
-  //"NESTcraft, the martingale function library
-  //
-  // NESTcraft, which is a combination of martingales functions similar to the Ethereum virtual machine, will greatly broaden the scope of NEST's application, transforming it into a chain infrastructure that will enable anyone to create more NEST-based applications."
   const title = "NESTCraft | NEST Protocol";
   const description = "NESTCraft, the martingale function library";
 
