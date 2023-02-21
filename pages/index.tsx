@@ -335,7 +335,7 @@ export default function Home() {
           <Heading fontSize={'50px'} textAlign={"center"}>Blogs</Heading>
           <HStack spacing={'44px'}>
             <Stack w={'308px'} bg={"white"} borderRadius={'20px'} spacing={0} cursor={"pointer"} onClick={() => {
-              window.open('/blog/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST/', '_blank')
+              window.open('/blogs/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST', '_blank')
             }}>
               <chakra.img src={'/image/Home/01-card-01@2x.png'} alt={''}/>
               <Stack spacing={'10px'} p={'20px'} h={'230px'}>
@@ -347,7 +347,7 @@ export default function Home() {
               </Stack>
             </Stack>
             <Stack w={'308px'} bg={"white"} borderRadius={'20px'} spacing={0} cursor={'pointer'} onClick={() => {
-              window.open('/blog/NEST-Protocol-A-New-Paradigm-of-Game-Theoretic-Oracle/', '_blank')
+              window.open('/blogs/NEST-Protocol-A-New-Paradigm-of-Game-Theoretic-Oracle', '_blank')
             }}>
               <chakra.img src={'/image/Home/01-card-02@2x.png'} alt={''}/>
               <Stack spacing={'20px'} p={'20px'} h={'230px'}>
@@ -359,7 +359,7 @@ export default function Home() {
               </Stack>
             </Stack>
             <Stack w={'308px'} bg={"white"} borderRadius={'20px'} spacing={0} cursor={"pointer"} onClick={() => {
-              window.open('/blog/NEST\'s-RSS-FEED-INTEGRATED-WITH-CRYPTO.COM-PRICE-PAGE/', '_blank')
+              window.open('/blogs/NEST-RSS-FEED-INTEGRATED-WITH-CRYPTO.COM-PRICE-PAGE', '_blank')
             }}>
               <chakra.img src={'/image/Home/01-card-03@2x.png'} alt={''}/>
               <Stack spacing={'20px'} p={'20px'} h={'230px'}>
@@ -623,7 +623,7 @@ export default function Home() {
           <Stack bg={"white"} spacing={0} borderRadius={'20px'}>
             <chakra.img src={'/image/Home/01-card-01@2x.png'} alt={''}/>
             <Stack px={'35px'} py={'25px'} cursor={"pointer"} onClick={() => {
-              window.open('/blog/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST', '_blank')
+              window.open('/blogs/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST', '_blank')
             }}>
               <Text fontSize={'12.5px'} fontWeight={'bold'}>Coinbase Announces Planned Listing<br/>of Tokens, Adds
                 $NEST to ‘<br/>Experimental Asset’
