@@ -10,9 +10,9 @@ const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
 
   const array1 = [
-    {image: '/image/PVM/01_icon@2x.png', title: 'Generate on-chain assets with any risk-return structure'},
-    {image: '/image/PVM/02_icon@2x.png', title: 'Provide theoretical infinite liquidity for assets'},
-    {image: '/image/PVM/03_icon@2x.png', title: 'No agent, NEST becomes the seller of all assets'},
+    {image: '/image/PVM/01_icon@2x.png', title: 'Decentralized exchange', body: `derivatives exchanges need to solve technical support, asset custody , liquidity support and marketing. use the NEST protoco, you only need to focus on marketing.`},
+    {image: '/image/PVM/02_icon@2x.png', title: 'Metaverse and GameFi', body: `NEST provides a series of martingale functions, such fair games around deterministic mathematical relations, probability relations, and random processes can be developed by calling the NEST functions, so as to realize the unified value measurement of different games.`},
+    {image: '/image/PVM/03_icon@2x.png', title: 'Lottery, prop synthesis, etc', body: `Some basic designs based on randomness can be realized with only some distribution functions.`},
   ]
   //"NESTcraft, the martingale function library
   //
@@ -66,25 +66,25 @@ const Page = () => {
 
       <Stack align={"center"} textAlign={"center"} spacing={'36px'} py={'138px'}>
         <Heading fontSize={'50px'}>
-          Build your tokenomic<br/>based on NEST
+          NESTCraft<br/>Applications
         </Heading>
-        <Text fontSize={'25px'} fontWeight={'600'}>Developers can build their own tokenomic<br/>systems faster through
-          NEST’s infrastructure.</Text>
-        <Text>Developers can simplify the building of tokenomic systems<br/>
-          into the construction of stochastic assets, developers only need to<br/>
-          call the fundamental functions provided by PVM, create stochastic assets<br/>
-          by programming these functions, and trade and<br/>
-          settle the assets through the OMM mechanism.<br/>
-          NEST Oracle provides the random information flow.
-        </Text>
+        <Text fontSize={'25px'} fontWeight={'600'} maxW={'container.md'}>A given random information flow can be transformed by various functions to obtain a series of martingales, which can be used for the NEST martingale transactions. NESTcraft can continue to expand the basic function library accordingto the needs of the on chain world, thereby improving the application range of the NEST. This is a basic feature of the NEST’s greater scalability</Text>
         <Wrap spacing={'44px'}>
           {
             array1.map((item, index) => (
-              <WrapItem key={index} w={'308px'} py={'100px'} borderRadius={'20px'} bg={'rgba(255,255,255,0.8)'}
+              <WrapItem key={index} w={'308px'} py={'40px'} borderRadius={'20px'} bg={'rgba(255,255,255,0.8)'}
                         border={'1px solid #EEEEEE'}>
-                <Stack spacing={'40px'}>
-                  <chakra.img src={item.image} h={'74px'}  objectFit={'contain'}/>
-                  <Text fontSize={'13px'} fontWeight={'600'} px={'40px'}>{item.title}</Text>
+                {/*<Stack spacing={'20px'}>*/}
+                {/*  <chakra.img src={item.image} h={'74px'}  objectFit={'contain'}/>*/}
+                {/*  <Text fontSize={'13px'} fontWeight={'600'} px={'40px'}></Text>*/}
+                {/*  <Text fontSize={'13px'} fontWeight={'600'} px={'40px'}></Text>*/}
+                {/*</Stack>*/}
+                <Stack px={'30px'} py={'20px'} bg={"white"} w={'308px'} borderRadius={'20px'}>
+                  <Stack align={"center"} h={'74px'} justify={"center"} mb={'20px'}>
+                    <chakra.img src={item.image} alt={''} h={'98px'}/>
+                  </Stack>
+                  <Text fontSize={'18px'} fontWeight={'bold'}>{item.title}</Text>
+                  <Text fontWeight={'600'} fontSize={'13px'}>{item.body}</Text>
                 </Stack>
               </WrapItem>
             ))
@@ -161,10 +161,16 @@ const Page = () => {
       <Stack px={'24px'} spacing={'24px'}>
         {
           array1.map((item, index) => (
-            <Stack key={index} w={'full'} py={'50px'} borderRadius={'20px'} bg={'rgba(255,255,255,0.8)'}
-                   border={'1px solid #EEEEEE'} boxShadow={'0px 0px 45px 5px #E5E5E5'} spacing={'24px'}>
-              <chakra.img src={item.image} h={'74px'}  objectFit={'contain'}/>
-              <Text fontSize={'12.5px'} textAlign={"center"} fontWeight={'600'} px={'80px'}>{item.title}</Text>
+            <Stack key={index} px={'24px'} w={'full'}>
+              <Stack px={'33px'} pt={'50px'} bg={'white'} borderRadius={'20px'} align={"center"}>
+                <Stack>
+                  <chakra.img src={item.image} h={'74px'} alt={''}/>
+                </Stack>
+                <Stack pt={'20px'} pb={'50px'} w={'full'} textAlign={"center"}>
+                  <Text fontWeight={'bold'} fontSize={'16px'}>{item.title}</Text>
+                  <Text fontWeight={'600'} fontSize={'12.5px'}>{item.body}</Text>
+                </Stack>
+              </Stack>
             </Stack>
           ))
         }

@@ -69,7 +69,7 @@ const Page = () => {
                   <chakra.img src={'/image/NEST_Fi/02-icon-04@2x.png'} alt={''} h={'87px'} w={'94px'}/>
                 </Stack>
                 <Text fontSize={'18px'} fontWeight={'bold'}>Unlimited Supply</Text>
-                <Text fontWeight={'600'} fontSize={'13px'}>You won’t have to worry about a shortage of market liquidity making trading difficult.
+                <Text fontWeight={'600'} fontSize={'13px'}>You won’t have to worry about a shortage of market liquidity making trading difficult.<br/>
                   Any transaction based on martingale information flow that traders require can be fulfilled.</Text>
               </Stack>
             </HStack>
@@ -94,25 +94,6 @@ const Page = () => {
                 </Stack>
               </Stack>
             </HStack>
-            {/*<HStack w={'full'} pt={'40px'}>*/}
-            {/*  <Stack w={'50%'} bg={'white'} align={"center"}>*/}
-            {/*    <Stack py={'155px'} borderRadius={'20px'}>*/}
-            {/*      <Text fontSize={'25px'} fontWeight={600}>NESTFi - Options</Text>*/}
-            {/*      <Text fontSize={'15px'} fontWeight={600}>Open Options with flexible choices on exercise date,<br/>direction*/}
-            {/*        and strike price, and no commission.</Text>*/}
-            {/*      <Box pt={'25px'}>*/}
-            {/*        <Button w={'160px'} onClick={() => {*/}
-            {/*          window.open('https://finance.nestprotocol.org/#/options', '_blank')*/}
-            {/*        }}>*/}
-            {/*          Open Options*/}
-            {/*        </Button>*/}
-            {/*      </Box>*/}
-            {/*    </Stack>*/}
-            {/*  </Stack>*/}
-            {/*  <Stack w={'50%'} align={"center"} justify={"center"}>*/}
-            {/*    <chakra.img src={'/image/NEST_Fi/iPhone_2.webp'} h={'400px'}/>*/}
-            {/*  </Stack>*/}
-            {/*</HStack>*/}
           </Stack>
           <Stack h={'138px'}/>
         </Stack>
@@ -152,9 +133,8 @@ const Page = () => {
           <Stack px={'33px'} bg={'white'} borderRadius={'20px'} align={"center"} pt={'50px'}>
             <chakra.img src={'/image/NEST_Fi/02-icon-02@2x.png'} w={'150px'} alt={''}/>
             <Stack py={'50px'} w={'full'} textAlign={"center"}>
-              <Text fontWeight={'bold'} fontSize={'16px'}>Valid Settlement</Text>
-              <Text fontWeight={'600'} fontSize={'12.5px'}>ETH cannot make valid settlement for<br/>all
-                transactions; however, OMM can<br/>settle all transactions.</Text>
+              <Text fontWeight={'bold'} fontSize={'16px'}>Decentralized</Text>
+              <Text fontWeight={'600'} fontSize={'12.5px'}>Trading requires neither market makers nor LPs, smart contracts are the biggest seller in the system</Text>
             </Stack>
           </Stack>
         </Stack>
@@ -164,9 +144,8 @@ const Page = () => {
               <chakra.img src={'/image/NEST_Fi/02-icon-03@2x.png'} w={'68px'} alt={''}/>
             </Stack>
             <Stack py={'50px'} w={'full'} textAlign={"center"}>
-              <Text fontWeight={'bold'} fontSize={'16px'}>Market Clearing</Text>
-              <Text fontWeight={'600'} fontSize={'12.5px'}>OMM can structure atomic<br/>liquidation, which means
-                that all<br/>excess return can be cleared.</Text>
+              <Text fontWeight={'bold'} fontSize={'16px'}>Replace Market Makers</Text>
+              <Text fontWeight={'600'} fontSize={'12.5px'}>The martingale network can perfectly replace the role of market makers in derivatives trading through smart contracts</Text>
             </Stack>
           </Stack>
         </Stack>
@@ -176,9 +155,9 @@ const Page = () => {
               <chakra.img src={'/image/NEST_Fi/02-icon-04@2x.png'} w={'68px'} alt={''}/>
             </Stack>
             <Stack py={'50px'} w={'full'} textAlign={"center"}>
-              <Text fontWeight={'bold'} fontSize={'16px'}>Infinite Liquidity</Text>
-              <Text fontWeight={'600'} fontSize={'12.5px'}>The liquidity will not be limited<br/>by the LP’s pool
-                size, theoretically<br/>OMM can provide infinite liquidity</Text>
+              <Text fontWeight={'bold'} fontSize={'16px'}>Unlimited Supply</Text>
+              <Text fontWeight={'600'} fontSize={'12.5px'}>You won’t have to worry about a shortage of market liquidity making trading difficult.<br/>
+                Any transaction based on martingale information flow that traders require can be fulfilled.</Text>
             </Stack>
           </Stack>
         </Stack>
