@@ -78,7 +78,7 @@ const Page = () => {
             <Heading fontSize={'50px'}>Dapps in NESTFi</Heading>
             <HStack w={'full'}>
               <Stack w={'50%'} align={"center"} justify={"center"}>
-                <chakra.img src={'/image/NEST_Fi/iPhone_1.webp'} h={'400px'}/>
+                <chakra.img src={'/image/NEST_Fi/Mockup_white.png'} h={'400px'}/>
               </Stack>
               <Stack w={'50%'} bg={'white'} align={"center"}>
                 <Stack w={'400px'} py={'155px'} borderRadius={'20px'}>
@@ -163,7 +163,7 @@ const Page = () => {
         </Stack>
       </Stack>
       <Stack align={"center"} pt={'62px'}>
-        <chakra.img src={'/image/NEST_Fi/iPhone_1.webp'} w={'180px'} alt={''}/>
+        <chakra.img src={'/image/NEST_Fi/Mockup_white.png'} w={'180px'} alt={''}/>
       </Stack>
       <Stack align={"center"} bg={'rgba(255,255,255, 0.8)'} py={'30px'}>
         <Text fontWeight={'600'} fontSize={'16px'}>NESTFi</Text>
