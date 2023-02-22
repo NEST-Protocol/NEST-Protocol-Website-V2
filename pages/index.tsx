@@ -82,7 +82,7 @@ export default function Home() {
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'130px'}>
         <Stack py={'220px'}>
           <Stack spacing={'28px'}>
-            <Heading fontSize={'50px'} textAlign={"center"}>NEST PROTOCOL<br/>=<br/>Decentralized Martingale Network</Heading>
+            <Heading fontSize={'50px'} textAlign={"center"}>NEST PROTOCOL<br/>Decentralized Martingale Network</Heading>
             <Text textAlign={"center"} fontWeight={'600'} fontSize={'21px'}>A decentralized trading infrastructure that<br/> eliminates market makers and LPs.</Text>
             <HStack justify={"center"}>
               <Button w={'160px'} minH={'44px'} fontSize={'25px'} onClick={() => {
@@ -437,8 +437,7 @@ export default function Home() {
       { SEO }
       <NavigationMobile/>
       <Stack textAlign={"center"} pt={'150px'} pb={'150px'}>
-        <Text fontSize={'25px'} fontWeight={'bold'}>NEST PROTOCOL<br/>
-          =<br/> Decentralized Martingale Network</Text>
+        <Text fontSize={'25px'} fontWeight={'bold'}>NEST PROTOCOL<br/>Decentralized Martingale Network</Text>
         <Text fontSize={'12.5px'} fontWeight={'600'}>A decentralized trading infrastructure that<br/> eliminates market makers and LPs.</Text>
       </Stack>
       <Stack px={'24px'} pb={'62px'}>
