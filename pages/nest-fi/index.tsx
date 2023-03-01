@@ -110,8 +110,8 @@ const Page = () => {
         <Text fontWeight={'bold'} textAlign={"center"} fontSize={'25px'}>NESTFi<br/> is a decentralized<br/> perpetual exchange.</Text>
         <Text fontSize={'12px'} textAlign={"center"} fontWeight={'600'}>NESTFi offers 100% trading fees<br/> as commission for referrers.</Text>
       </Stack>
-      <Stack align={"center"} py={'40px'} bg={'rgba(255,255,255,0.7)'}>
-        <Text fontWeight={'bold'} fontSize={'25px'}>NESTFi&apos;s economic model<br/> is deflationary</Text>
+      <Stack align={"center"} py={'40px'} bg={'rgba(255,255,255,0.7)'} px={'24px'}>
+        <Text fontWeight={'bold'} fontSize={'25px'} align={"center"}>NESTFi&apos;s economic model<br/> is deflationary</Text>
         <chakra.img src={'/image/NEST_Fi/02-icon-01@2x.png'} w={'50px'} py={'40px'} alt={''}/>
         <Text fontSize={'16px'} fontWeight={'bold'} textAlign={"center"}>We believe people cannot beat the market,<br/>
           therefore, in the long run,<br/> the more users trade on NESTFi,<br/>
