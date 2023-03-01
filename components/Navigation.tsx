@@ -43,7 +43,7 @@ export default function Navigation() {
          Cyber Ink
         </ChakraLink>
         <Link href={'/docs/'}>
-          <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"}>Doc</chakra.a>
+          <chakra.a _hover={{ color: '#EAAA00' }} color={router.pathname.startsWith('/docs') ? '#EAAA00' : '#003232'} cursor={"pointer"}>Doc</chakra.a>
         </Link>
         <Popover trigger={'hover'}>
           <PopoverTrigger>
