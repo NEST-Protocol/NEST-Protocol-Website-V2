@@ -158,15 +158,13 @@ const Page = () => {
       <Stack px={'24px'} spacing={'24px'}>
         {
           array1.map((item, index) => (
-            <Stack key={index} px={'24px'} w={'full'}>
-              <Stack px={'33px'} pt={'50px'} bg={'white'} borderRadius={'20px'} align={"center"}>
-                <Stack>
-                  <chakra.img src={item.image} h={'74px'} alt={''}/>
-                </Stack>
-                <Stack pt={'20px'} pb={'50px'} w={'full'} textAlign={"center"}>
-                  <Text fontWeight={'bold'} fontSize={'16px'}>{item.title}</Text>
-                  <Text fontWeight={'600'} fontSize={'12.5px'}>{item.body}</Text>
-                </Stack>
+            <Stack key={index} w={'full'} px={'33px'} pt={'50px'} bg={'white'} borderRadius={'20px'} align={"center"} minH={'400px'}>
+              <Stack>
+                <chakra.img src={item.image} h={'74px'} alt={''}/>
+              </Stack>
+              <Stack pt={'20px'} pb={'50px'} w={'full'} textAlign={"center"}>
+                <Text fontWeight={'bold'} fontSize={'16px'}>{item.title}</Text>
+                <Text fontWeight={'600'} fontSize={'12.5px'}>{item.body}</Text>
               </Stack>
             </Stack>
           ))
