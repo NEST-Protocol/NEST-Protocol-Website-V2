@@ -126,7 +126,7 @@ const Page = ({blogs}: any) => {
       <Stack px={'24px'} spacing={'24px'} pb={'24px'}>
         {
           array1.map((item, index) => (
-            <Stack key={index} w={'full'} h={'400px'} bg={"white"} borderRadius={'14px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}>
+            <Stack key={index} w={'full'} h={'400px'} bg={"white"} borderRadius={'20px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}>
               <Stack>
                 <Stack>
                   <Stack>
@@ -144,7 +144,7 @@ const Page = ({blogs}: any) => {
         }
       </Stack>
       <Stack px={'24px'}>
-        <Stack py={'35px'} spacing={'27px'} bg={'white'} borderRadius={'14px'}>
+        <Stack py={'35px'} spacing={'27px'} bg={'white'} borderRadius={'20px'}>
           <HStack spacing={0} px={'8px'}>
             {
               blogs.map((item: any, index: number) => (

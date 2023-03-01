@@ -280,7 +280,7 @@ const Page = () => {
         <Wrap w={'full'} spacing={'20px'} justify={'center'}>
           {
             array1.map((item, index) => (
-              <WrapItem key={index} w={'44%'} borderRadius={'17px'}>
+              <WrapItem key={index} w={'44%'} borderRadius={'20px'}>
                 <Stack bg={'rgba(255,255,255,0.8)'} py={'35px'} w={'full'} borderRadius={'20px'} border={'1px solid #EEEEEE'} spacing={'20px'} justify={"center"}>
                   <Stack h={'40px'}>
                     <chakra.img src={item.img} h={'full'} objectFit={'contain'}/>
@@ -306,7 +306,7 @@ const Page = () => {
       <Stack py={'62px'} px={'24px'} spacing={'24px'}>
         {
           array2.map((item, index) => (
-            <Stack key={index} px={'38px'} py={'100px'} borderRadius={'17px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}
+            <Stack key={index} px={'38px'} py={'100px'} borderRadius={'20px'} boxShadow={'0px 0px 45px 5px #E5E5E5'}
                    bg={'rgba(255,255,255,0.8)'}>
               <Text fontSize={'17px'} fontWeight={'bold'}>{item.title}</Text>
               <Text fontSize={'12.5px'} fontWeight={'600'}>{item.desc}</Text>
