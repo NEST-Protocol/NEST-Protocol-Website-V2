@@ -82,7 +82,11 @@ const Page = ({blogs}: any) => {
           <Stack h={'44px'}></Stack>
           <Stack h={'900px'} overflow={"scroll"}>
             {
-              blogs[categoryIndex].attributes.blogs.data.filter((item: any ,index: number) => {
+              blogs[categoryIndex].attributes.blogs.data
+                .sort((a: any, b: any) => {
+                  return new Date(b.attributes.date).getTime() - new Date(a.attributes.date).getTime()
+                })
+                .filter((item: any ,index: number) => {
                 if (showMore) {
                   return true
                 }
