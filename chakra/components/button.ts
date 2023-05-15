@@ -2,8 +2,8 @@ export const Button = {
   baseStyle: {
     fontWeight: 'medium',
     fontSize: 'md',
-    height: '34px',
-    maxH: '34px',
+    height: '48px',
+    maxH: '48px',
     fontFamily: 'Montserrat',
   },
   variants: {
@@ -18,14 +18,14 @@ export const Button = {
       }
     },
     outline: {
-      border: '2px solid',
+      border: '1px solid',
       borderColor: '#EAAA00',
       color: "#EAAA00",
-      minW: '120px',
-      borderRadius: 'full',
-      fontSize: '15px',
-      fontWeight: '500',
-      px: '20px',
+      borderRadius: '12px',
+      fontSize: '16px',
+      lineHeight: '22px',
+      fontWeight: '700',
+      px: '24px',
       _hover: {
         bg: null
       },
@@ -36,11 +36,11 @@ export const Button = {
     solid: {
       bg: '#EAAA00',
       color: '#003232',
-      fontWeight: '600',
-      minW: '120px',
-      borderRadius: 'full',
-      fontSize: '15px',
-      px: '20px',
+      fontWeight: '700',
+      borderRadius: '12px',
+      fontSize: '16px',
+      lineHeight: '22px',
+      px: '24px',
       _hover: {
         bg: '#EAAA00'
       },

@@ -8,7 +8,7 @@ const Wheretobuy = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
 
   const pcPage = (
-    <Stack bgSize={'cover'} bgImage={"image/Home/Home_bg.jpg"} bgPosition={"center"}>
+    <Stack bgSize={'cover'} bgImage={"/image/NEST_Fi/NESTFi_bg.jpg"} bgPosition={"center"}>
       <Navigation/>
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'64px'} align={"center"} pt={'140px'}>
         <Stack spacing={'16px'} pb={'40px'} align={"center"}>
@@ -67,7 +67,7 @@ const Wheretobuy = () => {
   )
 
   const mobilePage = (
-    <Stack h={'100%'} bgImage={'/image/Home/01-Phone-bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+    <Stack h={'100%'} bgImage={'/image/NEST_Fi/02-Phone-bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       <NavigationMobile/>
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'80px'} align={"center"} pt={'90px'}>
         <Stack spacing={'16px'} pb={'40px'} align={"center"}>
