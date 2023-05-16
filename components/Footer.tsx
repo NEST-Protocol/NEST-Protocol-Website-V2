@@ -8,7 +8,7 @@ export default function Footer() {
           [
             {
               title: `NESTFi`,
-              link: `/nest-fi`,
+              link: `https://finance.nestprotocol.org/`,
             },
             {
               title: `NESTCraft`,

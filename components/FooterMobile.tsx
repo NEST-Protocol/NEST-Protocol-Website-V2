@@ -8,31 +8,31 @@ export default function FooterMobile() {
           [
             {
               title: 'NESTFi',
-              link: '',
+              link: 'https://finance.nestprotocol.org/',
             },
             {
               title: 'NESTCraft',
-              link: '',
+              link: '/craft',
             },
             {
               title: 'NESTOracle',
-              link: '',
+              link: '/oracle',
             },
             {
               title: 'Cyber Ink',
-              link: '',
+              link: 'https://nft.nestprotocol.org/',
             },
             {
               title: 'Doc',
-              link: '',
+              link: '/docs',
             },
             {
               title: 'Blog',
-              link: '',
+              link: '/blogs',
             },
             {
               title: 'About',
-              link: '',
+              link: '/about/team',
             },
           ].map((item, index) => (
             <Link key={index} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} textAlign={"start"}>

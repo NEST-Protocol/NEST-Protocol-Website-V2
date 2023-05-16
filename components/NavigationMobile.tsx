@@ -53,7 +53,7 @@ export default function NavigationMobile() {
           <ModalBody p={'32px'} bgImage={'/image/Home/01-Phone-bg1.png'} bgPosition={'center'} bgSize={'cover'}>
             <VStack alignItems={'start'} pt={'60px'} spacing={'120px'}>
               <Stack spacing={'25px'} textAlign={"start"}>
-                <Link href={'/nest-fi/'}>
+                <Link href={'https://finance.nestprotocol.org/'}>
                   <HStack fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
                           opacity={showAbout || showBlog ? 0.6 : 1}
                           color={router.pathname === '/nest-fi' ? '#EAAA00' : '#003232'}>
