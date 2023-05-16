@@ -3,7 +3,7 @@ import axios from "axios";
 export const getAllBlogs = async () => {
   const req = await axios({
     method: 'get',
-    url: 'https://cms.nestfi.net/api/blogs/?pagination[page]=1&pagination[pageSize]=100&fields[0]=slug',
+    url: 'https://cms.nestfi.net/cmsapi/blogs/?pagination[page]=1&pagination[pageSize]=100&fields[0]=slug',
   })
   return req.data;
 }
@@ -11,7 +11,7 @@ export const getAllBlogs = async () => {
 export const getBlog = async (slug: any) => {
   const req = await axios({
     method: 'get',
-    url: `https://cms.nestfi.net/api/blogs/?filters[slug][$eq]=${slug}`,
+    url: `https://cms.nestfi.net/cmsapi/blogs/?filters[slug][$eq]=${slug}`,
   })
   const data = req.data.data;
   if (data.length === 0) {
@@ -24,7 +24,7 @@ export const getBlog = async (slug: any) => {
 export const getBlogCategory = async () => {
   const req = await axios({
     method: 'get',
-    url: 'https://cms.nestfi.net/api/blog-categories?populate=blogs',
+    url: 'https://cms.nestfi.net/cmsapi/blog-categories?populate=blogs',
   })
   return req.data;
 }
@@ -32,7 +32,7 @@ export const getBlogCategory = async () => {
 export const getRecentBlogs = async () => {
   const req = await axios({
     method: 'get',
-    url: 'https://cms.nestfi.net/api/blogs/?pagination[page]=1&pagination[pageSize]=5&fields[0]=slug&fields[1]=title&sort=date%3Adesc',
+    url: 'https://cms.nestfi.net/cmsapi/blogs/?pagination[page]=1&pagination[pageSize]=5&fields[0]=slug&fields[1]=title&sort=date%3Adesc',
   })
   return req.data;
 }

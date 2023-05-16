@@ -3,7 +3,7 @@ import axios from 'axios';
 export const getAllDocs = async () => {
   const req = await axios({
     method: 'get',
-    url: 'https://cms.nestfi.net/api/docs/?pagination[page]=1&pagination[pageSize]=100&fields[0]=slug&populate[category][fields][0]=name&populate[category][fields][1]=sidebar_position',
+    url: 'https://cms.nestfi.net/cmsapi/docs/?pagination[page]=1&pagination[pageSize]=100&fields[0]=slug&populate[category][fields][0]=name&populate[category][fields][1]=sidebar_position',
   })
   return req.data;
 }
@@ -11,7 +11,7 @@ export const getAllDocs = async () => {
 export const getDoc = async (slug: string) => {
   const req = await axios({
     method: 'get',
-    url: `https://cms.nestfi.net/api/docs/?filters[slug][$eq]=${slug}`,
+    url: `https://cms.nestfi.net/cmsapi/docs/?filters[slug][$eq]=${slug}`,
   })
   const data = req.data.data;
   if (data.length === 0) {
@@ -24,7 +24,7 @@ export const getDoc = async (slug: string) => {
 export const getAllDocsCategory = async () => {
   const req = await axios({
     method: 'get',
-    url: 'https://cms.nestfi.net/api/doc-categories?populate[docs][fields][0]=slug&populate[docs][fields][1]=title',
+    url: 'https://cms.nestfi.net/cmsapi/doc-categories?populate[docs][fields][0]=slug&populate[docs][fields][1]=title',
   })
   return req.data;
 }
