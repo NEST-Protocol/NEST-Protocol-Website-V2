@@ -91,7 +91,6 @@ const Wheretobuy = () => {
                 achieve blockchain interoperability through different bridges, transferring assets from one chain to
                 another without intermediaries. You can manage your $NEST assets on ERC-20 and BEP-20 through the
                 cross-chain bridge Poly Network and MapProtocol.</Text>
-              {/*TODO*/}
               <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} href={''}
                     color={'rgba(234, 170, 0, 1)'}>Learn
                 more {">"}</Link>
