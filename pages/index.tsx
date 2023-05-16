@@ -143,7 +143,7 @@ export default function Home() {
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'120px'}>
         <Stack align={'center'} pt={'40px'} px={'20px'}>
           <Stack maxW={'1200px'} w={'full'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"}>
-            <AspectRatio ratio={16/9}>
+            <AspectRatio ratio={16 / 9}>
               <iframe width="560" height="480" src="https://www.youtube.com/embed/f6unr9kPb5s"
                       title="YouTube video player" frameBorder="1"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -155,7 +155,8 @@ export default function Home() {
           <Stack spacing={'16px'}>
             <Heading fontSize={'48px'} lineHeight={'60px'} textAlign={"center"}>NEST PROTOCOL<br/>A Decentralized
               Martingale Network</Heading>
-            <Text textAlign={"center"} fontWeight={'600'} fontSize={'16px'} lineHeight={'22px'} color={'rgba(3, 3, 8, 0.6)'}>Trading with smart contract. No market
+            <Text textAlign={"center"} fontWeight={'600'} fontSize={'16px'} lineHeight={'22px'}
+                  color={'rgba(3, 3, 8, 0.6)'}>Trading with smart contract. No market
               makers. No LPs</Text>
             <HStack pt={'8px'} justify={"center"}>
               <Button onClick={() => {
@@ -172,7 +173,8 @@ export default function Home() {
         <Stack pb={'120px'} spacing={'40px'}>
           <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'} textAlign={"center"}>The superiority of NEST
             Protocol</Text>
-          <Stack direction={'row'} justifyContent={'center'} spacing={'24px'} w={'full'} overflow={'scroll'} px={'20px'}>
+          <Stack direction={'row'} justifyContent={['start', 'start', 'start', 'start', 'start', 'center']}
+                 spacing={'24px'} w={'full'} overflow={'scroll'} px={'20px'}>
             {
               superiority.map((item, index) => (
                 <Stack minW={'520px'} width={'520px'} bg={'white'} borderRadius={'12px'} minH={'374px'} key={index}>
@@ -188,7 +190,8 @@ export default function Home() {
             }
           </Stack>
         </Stack>
-        <Stack py={'40px'} px={['20px', '60px', '100px', '150px']} bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'} borderTopRadius={'40px'}>
+        <Stack py={'40px'} px={['20px', '60px', '100px', '150px']}
+               bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'} borderTopRadius={'40px'}>
           <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>Get started</Text>
           <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>As the
             infrastructure of the decentralized field, a new trading paradigm, martingale trading, proposed by the NEST
@@ -254,38 +257,49 @@ export default function Home() {
                         }}/>
           </HStack>
         </Stack>
-        <Stack direction={"row"} py={'40px'} justify={'space-between'} px={['20px', '40px', '60px', '80px', '120px', '200px']}  bg={'rgba(255, 255, 255, 0.8)'}>
+        <Stack direction={"row"} py={'40px'} justify={'space-between'}
+               px={['20px', '40px', '60px', '80px', '120px', '200px']} bg={'rgba(255, 255, 255, 0.8)'}>
           <Text fontSize={'28px'} lineHeight={'40px'} fontWeight={'700'}>Over <span
             style={{color: 'rgba(234, 170, 0, 1)'}}>1 MILLION</span> community members, Join us</Text>
           <Stack direction={'row'} spacing={'40px'}>
-            <Link href={'https://twitter.com/nest_protocol/'} isExternal minW={'40px'} opacity={0.6} _hover={{ opacity: 1 }}>
+            <Link href={'https://twitter.com/nest_protocol/'} isExternal minW={'40px'} opacity={0.6}
+                  _hover={{opacity: 1}}>
               <chakra.img src={'/image/Footer/twitter.svg'} w={'40px'}/>
             </Link>
-            <Link href={'https://t.me/nest_chat/'} isExternal minW={'40px'} opacity={0.6} _hover={{ opacity: 1 }}>
-              <chakra.img src={'/image/Footer/telegram.svg'} />
+            <Link href={'https://t.me/nest_chat/'} isExternal minW={'40px'} opacity={0.6} _hover={{opacity: 1}}>
+              <chakra.img src={'/image/Footer/telegram.svg'}/>
             </Link>
-            <Link href={'https://github.com/NEST-Protocol'} isExternal minW={'40px'} opacity={0.6} _hover={{ opacity: 1 }}>
-              <chakra.img src={'/image/Footer/github.svg'} />
+            <Link href={'https://github.com/NEST-Protocol'} isExternal minW={'40px'} opacity={0.6}
+                  _hover={{opacity: 1}}>
+              <chakra.img src={'/image/Footer/github.svg'}/>
             </Link>
             {/*TODO*/}
-            <Link href={''} isExternal minW={'40px'} opacity={0.6} _hover={{ opacity: 1 }}>
-              <chakra.img src={'/image/Footer/Tiktok.svg'} />
+            <Link href={''} isExternal minW={'40px'} opacity={0.6} _hover={{opacity: 1}}>
+              <chakra.img src={'/image/Footer/Tiktok.svg'}/>
             </Link>
           </Stack>
         </Stack>
         <Stack py={'120px'} align={"center"} spacing={'48px'}>
           <Heading fontSize={'50px'} textAlign={"center"}>Blogs</Heading>
-          <HStack spacing={'44px'} overflow={'scroll'} w={'full'} justify={"center"} px={'40px'}>
+          <HStack spacing={'0'} overflow={'scroll'} w={'full'}
+                  justifyContent={['start', 'start', 'start', 'start', 'start', 'center']} px={'40px'}>
             {
               blogs.map((item, index) => (
-                <Stack minW={'400px'} w={'500px'} bg={"white"} borderRadius={'12px'} spacing={0} cursor={"pointer"} key={index} onClick={() => {
+                <Stack minW={'400px'} w={'450px'} cursor={"pointer"} key={index} onClick={() => {
                   window.open('/blogs/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST', '_blank')
-                }}>
-                  <chakra.img src={item.image} w={'full'} alt={''}/>
-                  <Stack spacing={'12px'} p={'20px'} h={'210px'}>
-                    <Text fontSize={'18px'} fontWeight={'bold'}>{item.title}</Text>
-                    <Text fontSize={'13px'} fontWeight={'600'} color={'#878787'}>{item.desc}</Text>
-                    <Text fontSize={'13px'} fontWeight={500} color={'#878787'}>{item.date}</Text>
+                }} p={'12px'}
+                >
+                  <Stack _hover={{
+                    transform: 'scale(1.02)',
+                    boxShadow: '0px 2px 12px rgba(16, 18, 19, 0.15)',
+                    '& .title': {color: 'rgba(234, 170, 0, 1)'}
+                  }} bg={"white"} borderRadius={'12px'} spacing={0}>
+                    <chakra.img src={item.image} w={'full'} alt={''}/>
+                    <Stack spacing={'12px'} p={'20px'} h={'210px'}>
+                      <Text fontSize={'18px'} fontWeight={'bold'} className={'title'}>{item.title}</Text>
+                      <Text fontSize={'13px'} fontWeight={'600'} color={'#878787'}>{item.desc}</Text>
+                      <Text fontSize={'13px'} fontWeight={500} color={'#878787'}>{item.date}</Text>
+                    </Stack>
                   </Stack>
                 </Stack>
               ))
@@ -366,7 +380,8 @@ export default function Home() {
                 <HStack spacing={'40px'} key={index}>
                   {
                     item.map((item, index) => (
-                      <Stack h={'72px'} borderRadius={'full'} py={'12px'} px={'20px'} bg={'white'} _hover={{ bg: 'rgba(234, 170, 0, 1)' }}
+                      <Stack h={'72px'} borderRadius={'full'} py={'12px'} px={'20px'} bg={'white'}
+                             _hover={{bg: 'rgba(234, 170, 0, 1)'}}
                              justifyContent={"center"} key={index} alignItems={"center"}>
                         <Link href={item.link} isExternal>
                           <chakra.img src={item.image} h={'45px'} alt={item.link}/>
@@ -390,7 +405,7 @@ export default function Home() {
       {SEO}
       <NavigationMobile/>
       <Stack w={'full'}>
-        <AspectRatio ratio={16/9}>
+        <AspectRatio ratio={16 / 9}>
           <iframe width="560" height="480" src="https://www.youtube.com/embed/f6unr9kPb5s"
                   title="YouTube video player" frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -422,7 +437,8 @@ export default function Home() {
           }
         </HStack>
       </Stack>
-      <Stack pt={'20px'} spacing={'12px'} bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'} borderRadius={'40px'}>
+      <Stack pt={'20px'} spacing={'12px'} bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'}
+             borderRadius={'40px'}>
         <Text fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={"center"}>Get started</Text>
         <Text fontSize={'14px'} fontWeight={'700'} lineHeight={'20px'} px={'20px'} textAlign={'center'}
               color={'rgba(3, 3, 8, 0.6)'}>As the infrastructure of the decentralized field, a new trading paradigm,
@@ -476,17 +492,17 @@ export default function Home() {
           style={{color: 'rgba(234, 170, 0, 1)'}}>1 MILLION</span> community<br/> members, Join us</Text>
         <HStack spacing={'28px'}>
           <Link href={'https://twitter.com/nest_protocol/'} isExternal>
-            <chakra.img src={'/image/Footer/twitter.svg'} />
+            <chakra.img src={'/image/Footer/twitter.svg'}/>
           </Link>
           <Link href={'https://t.me/nest_chat/'} isExternal>
-            <chakra.img src={'/image/Footer/telegram.svg'} />
+            <chakra.img src={'/image/Footer/telegram.svg'}/>
           </Link>
           <Link href={'https://github.com/NEST-Protocol'} isExternal>
-            <chakra.img src={'/image/Footer/github.svg'} />
+            <chakra.img src={'/image/Footer/github.svg'}/>
           </Link>
           {/*TODO*/}
           <Link href={''} isExternal>
-            <chakra.img src={'/image/Footer/Tiktok.svg'} />
+            <chakra.img src={'/image/Footer/Tiktok.svg'}/>
           </Link>
         </HStack>
       </Stack>
