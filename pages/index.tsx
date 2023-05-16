@@ -258,18 +258,18 @@ export default function Home() {
           <Text fontSize={'28px'} lineHeight={'40px'} fontWeight={'700'}>Over <span
             style={{color: 'rgba(234, 170, 0, 1)'}}>1 MILLION</span> community members, Join us</Text>
           <Stack direction={'row'} spacing={'40px'}>
-            <Link href={'https://twitter.com/nest_protocol/'} isExternal minW={'40px'}>
-              <chakra.img src={'/image/Home/twitter.svg'} w={'40px'}/>
+            <Link href={'https://twitter.com/nest_protocol/'} isExternal minW={'40px'} opacity={0.6} _hover={{ opacity: 1 }}>
+              <chakra.img src={'/image/Footer/twitter.svg'} w={'40px'}/>
             </Link>
-            <Link href={'https://t.me/nest_chat/'} isExternal minW={'40px'}>
-              <chakra.img src={'/image/Home/telegram.svg'} />
+            <Link href={'https://t.me/nest_chat/'} isExternal minW={'40px'} opacity={0.6} _hover={{ opacity: 1 }}>
+              <chakra.img src={'/image/Footer/telegram.svg'} />
             </Link>
-            <Link href={'https://github.com/NEST-Protocol'} isExternal minW={'40px'}>
-              <chakra.img src={'/image/Home/github.svg'} />
+            <Link href={'https://github.com/NEST-Protocol'} isExternal minW={'40px'} opacity={0.6} _hover={{ opacity: 1 }}>
+              <chakra.img src={'/image/Footer/github.svg'} />
             </Link>
             {/*TODO*/}
-            <Link href={''} isExternal minW={'40px'}>
-              <chakra.img src={'/image/Home/Tiktok.svg'} />
+            <Link href={''} isExternal minW={'40px'} opacity={0.6} _hover={{ opacity: 1 }}>
+              <chakra.img src={'/image/Footer/Tiktok.svg'} />
             </Link>
           </Stack>
         </Stack>
@@ -476,17 +476,17 @@ export default function Home() {
           style={{color: 'rgba(234, 170, 0, 1)'}}>1 MILLION</span> community<br/> members, Join us</Text>
         <HStack spacing={'28px'}>
           <Link href={'https://twitter.com/nest_protocol/'} isExternal>
-            <chakra.img src={'/image/Home/twitter.svg'} />
+            <chakra.img src={'/image/Footer/twitter.svg'} />
           </Link>
           <Link href={'https://t.me/nest_chat/'} isExternal>
-            <chakra.img src={'/image/Home/telegram.svg'} />
+            <chakra.img src={'/image/Footer/telegram.svg'} />
           </Link>
           <Link href={'https://github.com/NEST-Protocol'} isExternal>
-            <chakra.img src={'/image/Home/github.svg'} />
+            <chakra.img src={'/image/Footer/github.svg'} />
           </Link>
           {/*TODO*/}
           <Link href={''} isExternal>
-            <chakra.img src={'/image/Home/Tiktok.svg'} />
+            <chakra.img src={'/image/Footer/Tiktok.svg'} />
           </Link>
         </HStack>
       </Stack>
