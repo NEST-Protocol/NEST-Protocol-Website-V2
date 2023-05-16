@@ -52,27 +52,27 @@ const Wheretobuy = () => {
                   [
                     {
                       icon: '/image/Wheretobuy/coinbase.svg',
-                      link: '',
+                      link: 'https://www.coinbase.com/',
                     },
                     {
                       icon: '/image/Wheretobuy/huobi.svg',
-                      link: '',
+                      link: 'https://www.huobi.com/',
                     },
                     {
                       icon: '/image/Wheretobuy/mexc.svg',
-                      link: '',
+                      link: 'https://www.mexc.com/',
                     },
                     {
                       icon: '/image/Wheretobuy/lbank.svg',
-                      link: '',
+                      link: 'https://www.lbank.com/',
                     },
                     {
                       icon: '/image/Wheretobuy/bibox.svg',
-                      link: '',
+                      link: 'https://m.bibox.com/',
                     },
                     {
                       icon: '/image/Wheretobuy/gate.svg',
-                      link: '',
+                      link: 'https://www.gate.io/',
                     },
                   ].map((item, index) => (
                     <Link href={item.link} isExternal key={index}
@@ -100,11 +100,11 @@ const Wheretobuy = () => {
                   [
                     {
                       icon: '/image/Wheretobuy/polynetwork.svg',
-                      link: '',
+                      link: 'https://poly.network/',
                     },
                     {
                       icon: '/image/Wheretobuy/mapprotocol.svg',
-                      link: '',
+                      link: 'https://www.mapprotocol.io/',
                     },
                   ].map((item, index) => (
                     <Link href={item.link} isExternal key={index}
@@ -168,19 +168,19 @@ const Wheretobuy = () => {
                 [
                   {
                     icon: '/image/Wheretobuy/coinbase.svg',
-                    link: '',
+                    link: 'https://www.coinbase.com/',
                   },
                   {
                     icon: '/image/Wheretobuy/huobi.svg',
-                    link: '',
+                    link: 'https://www.huobi.com/',
                   },
                   {
                     icon: '/image/Wheretobuy/mexc.svg',
-                    link: '',
+                    link: 'https://www.mexc.com/',
                   },
                   {
                     icon: '/image/Wheretobuy/lbank.svg',
-                    link: '',
+                    link: 'https://www.lbank.com/',
                   },
                 ].map((item, index) => (
                   <Link href={item.link} isExternal key={index}
@@ -195,11 +195,11 @@ const Wheretobuy = () => {
                 [
                   {
                     icon: '/image/Wheretobuy/bibox.svg',
-                    link: '',
+                    link: 'https://m.bibox.com/',
                   },
                   {
                     icon: '/image/Wheretobuy/gate.svg',
-                    link: '',
+                    link: 'https://www.gate.io/',
                   }
                 ].map((item, index) => (
                   <Link href={item.link} isExternal key={index}
@@ -226,11 +226,11 @@ const Wheretobuy = () => {
                 [
                   {
                     icon: '/image/Wheretobuy/polynetwork.svg',
-                    link: '',
+                    link: 'https://poly.network/',
                   },
                   {
                     icon: '/image/Wheretobuy/mapprotocol.svg',
-                    link: '',
+                    link: 'https://www.mapprotocol.io/',
                   },
                 ].map((item, index) => (
                   <Link href={item.link} isExternal key={index}
