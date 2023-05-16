@@ -52,27 +52,23 @@ const Wheretobuy = () => {
                   [
                     {
                       icon: '/image/Wheretobuy/coinbase.svg',
-                      link: 'https://www.coinbase.com/',
+                      link: 'https://www.coinbase.com/price/nest-protocol',
                     },
                     {
                       icon: '/image/Wheretobuy/huobi.svg',
-                      link: 'https://www.huobi.com/',
+                      link: 'https://www.huobi.com/en-us/exchange/nest_usdt/',
                     },
                     {
                       icon: '/image/Wheretobuy/mexc.svg',
-                      link: 'https://www.mexc.com/',
-                    },
-                    {
-                      icon: '/image/Wheretobuy/lbank.svg',
-                      link: 'https://www.lbank.com/',
+                      link: 'https://www.mexc.com/exchange/NEST_USDT',
                     },
                     {
                       icon: '/image/Wheretobuy/bibox.svg',
-                      link: 'https://m.bibox.com/',
+                      link: 'https://www.bibox.com/en/exchange/basic/NEST_USDT',
                     },
                     {
                       icon: '/image/Wheretobuy/gate.svg',
-                      link: 'https://www.gate.io/',
+                      link: 'https://www.gate.io/trade/NEST_USDT',
                     },
                   ].map((item, index) => (
                     <Link href={item.link} isExternal key={index}
@@ -167,19 +163,15 @@ const Wheretobuy = () => {
                 [
                   {
                     icon: '/image/Wheretobuy/coinbase.svg',
-                    link: 'https://www.coinbase.com/',
+                    link: 'https://www.coinbase.com/price/nest-protocol',
                   },
                   {
                     icon: '/image/Wheretobuy/huobi.svg',
-                    link: 'https://www.huobi.com/',
+                    link: 'https://www.huobi.com/en-us/exchange/nest_usdt/',
                   },
                   {
                     icon: '/image/Wheretobuy/mexc.svg',
-                    link: 'https://www.mexc.com/',
-                  },
-                  {
-                    icon: '/image/Wheretobuy/lbank.svg',
-                    link: 'https://www.lbank.com/',
+                    link: 'https://www.mexc.com/exchange/NEST_USDT',
                   },
                 ].map((item, index) => (
                   <Link href={item.link} isExternal key={index}
@@ -194,11 +186,11 @@ const Wheretobuy = () => {
                 [
                   {
                     icon: '/image/Wheretobuy/bibox.svg',
-                    link: 'https://m.bibox.com/',
+                    link: 'https://www.bibox.com/en/exchange/basic/NEST_USDT',
                   },
                   {
                     icon: '/image/Wheretobuy/gate.svg',
-                    link: 'https://www.gate.io/',
+                    link: 'https://www.gate.io/trade/NEST_USDT',
                   }
                 ].map((item, index) => (
                   <Link href={item.link} isExternal key={index}
