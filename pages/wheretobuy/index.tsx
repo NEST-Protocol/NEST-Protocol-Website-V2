@@ -36,7 +36,7 @@ const Wheretobuy = () => {
         <Stack p={'40px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} borderRadius={'12px'} spacing={'16px'}>
           <Stack direction={'row'} align={"center"}>
             <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}>CURRENT NEST PRICE (USD)</Text>
-            <Popover matchWidth>
+            <Popover>
               <PopoverTrigger>
                 <chakra.img src={'/image/Wheretobuy/info.svg'}/>
               </PopoverTrigger>
@@ -166,11 +166,11 @@ const Wheretobuy = () => {
               <PopoverTrigger>
                 <chakra.img src={'/image/Wheretobuy/info.svg'}/>
               </PopoverTrigger>
-              <PopoverContent>
-                <PopoverArrow />
-                <PopoverCloseButton />
-                <PopoverHeader>Confirmation!</PopoverHeader>
-                <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
+              <PopoverContent bg={'rgba(3, 3, 8, 1)'} p={'12px'} w={'135px'} borderRadius={'6px'}>
+                <Stack align={"center"} spacing={'4px'}>
+                  <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'} color={'white'}>Data source:</Text>
+                  <Text fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'} color={'rgba(234, 170, 0, 1)'}>api.huobi.pro</Text>
+                </Stack>
               </PopoverContent>
             </Popover>
           </Stack>
