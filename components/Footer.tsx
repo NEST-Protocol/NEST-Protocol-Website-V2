@@ -35,7 +35,7 @@ export default function Footer() {
               link: `/about/team`,
             }
           ].map((item, index) => (
-            <Link key={index} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} href={item.link}
+            <Link key={index} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} href={item.link} target={'_blank'}
                   _hover={{ color: 'rgba(234, 170, 0, 1)' }}>{item.title}</Link>
           ))
         }

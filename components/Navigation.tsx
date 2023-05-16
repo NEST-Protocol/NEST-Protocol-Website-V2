@@ -45,7 +45,7 @@ export default function Navigation() {
           />
         </Link>
         <Stack direction={"row"} align={"center"} spacing={'32px'} fontWeight={'700'} fontSize={'16px'} lineHeight={'22px'} color={'#030308'}>
-          <Link href={'https://finance.nestprotocol.org/'}>
+          <Link href={'https://finance.nestprotocol.org/'} target={'_blank'}>
             <HStack _hover={{ color: '#EAAA00' }} color={router.pathname === '/nest-fi' ? '#EAAA00' : '#030308'} cursor={"pointer"}>
               <span>
                 NESTFi
@@ -62,7 +62,7 @@ export default function Navigation() {
           <Link href={'/oracle/'}>
             <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/oracle' ? '#EAAA00' : '#030308'}>NESTOracle</chakra.a>
           </Link>
-          <Link href={'https://nft.nestprotocol.org/'}>
+          <Link href={'https://nft.nestprotocol.org/'} target={'_blank'}>
             <HStack _hover={{ color: '#EAAA00' }} cursor={"pointer"}>
               <span>Cyber Ink</span>
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -7,7 +7,7 @@ import {
   ModalCloseButton,
   ModalContent,
   Spacer, useDisclosure,
-  VStack, Text, Stack, Link as ChakraLink
+  VStack, Text, Stack,
 } from "@chakra-ui/react";
 import {HamburgerIcon} from "@chakra-ui/icons";
 import Link from "next/link";
@@ -53,7 +53,7 @@ export default function NavigationMobile() {
           <ModalBody p={'32px'} bgImage={'/image/Home/01-Phone-bg1.png'} bgPosition={'center'} bgSize={'cover'}>
             <VStack alignItems={'start'} pt={'60px'} spacing={'120px'}>
               <Stack spacing={'25px'} textAlign={"start"}>
-                <Link href={'https://finance.nestprotocol.org/'}>
+                <Link href={'https://finance.nestprotocol.org/'} target={'_blank'}>
                   <HStack fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
                           opacity={showAbout || showBlog ? 0.6 : 1}
                           color={router.pathname === '/nest-fi' ? '#EAAA00' : '#030308'}>
@@ -78,9 +78,8 @@ export default function NavigationMobile() {
                         color={router.pathname === '/oracle' ? '#EAAA00' : '#030308'}
                         opacity={showAbout || showBlog ? 0.6 : 1}>NESTOracle</Text>
                 </Link>
-                <ChakraLink href={'https://nft.nestprotocol.org/'} isExternal fontSize={'16px'} lineHeight={'22px'}
-                            fontWeight={'700'} opacity={showAbout || showBlog ? 0.6 : 1}>
-                  <HStack>
+                <Link href={'https://nft.nestprotocol.org/'} target={'_blank'} >
+                  <HStack fontSize={'16px'} lineHeight={'22px'} opacity={showAbout || showBlog ? 0.6 : 1} fontWeight={'700'}>
                     <span>Cyber Ink</span>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -91,7 +90,7 @@ export default function NavigationMobile() {
                         fill="currentColor" fillOpacity="0.8"/>
                     </svg>
                   </HStack>
-                </ChakraLink>
+                </Link>
                 <Link href={'/docs/'}>
                   <Text fontSize={'16px'} color={router.pathname === '/docs' ? '#EAAA00' : '#030308'}
                         opacity={showAbout || showBlog ? 0.6 : 1}
