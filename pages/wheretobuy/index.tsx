@@ -1,4 +1,15 @@
-import {Heading, Stack, useMediaQuery, Text, chakra, Link, Wrap, WrapItem, HStack} from "@chakra-ui/react";
+import {
+  Heading,
+  Stack,
+  useMediaQuery,
+  Text,
+  chakra,
+  Link,
+  Wrap,
+  WrapItem,
+  HStack,
+  Popover, PopoverTrigger, PopoverContent, PopoverArrow, PopoverCloseButton, PopoverHeader, PopoverBody
+} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
@@ -25,7 +36,17 @@ const Wheretobuy = () => {
         <Stack p={'40px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} borderRadius={'12px'} spacing={'16px'}>
           <Stack direction={'row'} align={"center"}>
             <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}>CURRENT NEST PRICE (USD)</Text>
-            <chakra.img src={'/image/Wheretobuy/info.svg'}/>
+            <Popover matchWidth>
+              <PopoverTrigger>
+                <chakra.img src={'/image/Wheretobuy/info.svg'}/>
+              </PopoverTrigger>
+              <PopoverContent bg={'rgba(3, 3, 8, 1)'} p={'12px'} w={'135px'} borderRadius={'6px'}>
+                <Stack align={"center"} spacing={'4px'}>
+                  <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'} color={'white'}>Data source:</Text>
+                  <Text fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'} color={'rgba(234, 170, 0, 1)'}>api.huobi.pro</Text>
+                </Stack>
+              </PopoverContent>
+            </Popover>
           </Stack>
           <Text fontSize={'48px'} lineHeight={'60px'} fontWeight={'700'}>${data?.tick?.close || '-'}</Text>
           {/*<Stack direction={'row'} align={"center"}>*/}
@@ -48,7 +69,8 @@ const Wheretobuy = () => {
                   $NEST you buy until you send it to a wallet you control. If you want more control, buy $NEST
                   peer-to-peer.
                   With a DEX, you can trade without giving control of your funds to a centralized company.</Text>
-                <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} href={''} style={{ opacity: 0 }}
+                <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} href={''}
+                      style={{opacity: 0}}
                       color={'rgba(234, 170, 0, 1)'}>Learn
                   more {">"}</Link>
               </Stack>
@@ -89,7 +111,8 @@ const Wheretobuy = () => {
             <Stack bg={'white'} py={'40px'} h={'full'} px={'24px'} borderRadius={'12px'} spacing={0}>
               <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'}>Supporting Multiple Chains</Text>
               <Stack spacing={0} h={'120px'}>
-                <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>Users can
+                <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>Users
+                  can
                   achieve blockchain interoperability through different bridges, transferring assets from one chain to
                   another without intermediaries. You can manage your $NEST assets on ERC-20 and BEP-20 through the
                   cross-chain bridge Poly Network and MapProtocol.</Text>
@@ -139,9 +162,20 @@ const Wheretobuy = () => {
         <Stack p={'20px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} borderRadius={'12px'} spacing={'16px'}>
           <Stack direction={'row'} align={"center"}>
             <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'}>CURRENT NEST PRICE (USD)</Text>
-            <chakra.img src={'/image/Wheretobuy/info.svg'}/>
+            <Popover>
+              <PopoverTrigger>
+                <chakra.img src={'/image/Wheretobuy/info.svg'}/>
+              </PopoverTrigger>
+              <PopoverContent>
+                <PopoverArrow />
+                <PopoverCloseButton />
+                <PopoverHeader>Confirmation!</PopoverHeader>
+                <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
+              </PopoverContent>
+            </Popover>
           </Stack>
-          <Text fontSize={'28px'} lineHeight={'40px'} textAlign={"center"} fontWeight={'700'}>${data?.tick?.close || '-'}</Text>
+          <Text fontSize={'28px'} lineHeight={'40px'} textAlign={"center"}
+                fontWeight={'700'}>${data?.tick?.close || '-'}</Text>
           {/*<Stack direction={'row'} align={"center"} justify={"center"}>*/}
           {/*  <Text fontSize={'18px'} fontWeight={'700'} lineHeight={'24px'}>0.04%</Text>*/}
           {/*  <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
