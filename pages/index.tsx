@@ -140,7 +140,7 @@ export default function Home() {
       <Navigation/>
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'120px'}>
         <Stack align={'center'} pt={'40px'} px={'20px'}>
-          <Stack maxW={'1200px'} w={'full'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"}>
+          <Stack maxW={'960px'} w={'full'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"}>
             <AspectRatio ratio={16 / 9}>
               <iframe width="560" height="480" src="https://www.youtube.com/embed/f6unr9kPb5s"
                       title="YouTube video player"
