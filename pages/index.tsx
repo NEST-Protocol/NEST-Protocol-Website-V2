@@ -405,7 +405,7 @@ export default function Home() {
       <Stack w={'full'}>
         <AspectRatio ratio={16 / 9}>
           <iframe width="560" height="480" src="https://www.youtube.com/embed/f6unr9kPb5s"
-                  title="YouTube video player" frameBorder="0"
+                  title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen></iframe>
         </AspectRatio>
