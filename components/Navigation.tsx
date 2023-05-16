@@ -104,7 +104,7 @@ export default function Navigation() {
           </Popover>
         </Stack>
       </Stack>
-      <Button fontSize={'12px'} bg={'#EAAA00'} minH={'36px'} borderRadius={'8px'} lineHeight={'16px'} color={'#030308'} fontWeight={"bold"}
+      <Button fontSize={'12px'} bg={'#EAAA00'} minH={'36px'} minW={'120px'} borderRadius={'8px'} lineHeight={'16px'} color={'#030308'} fontWeight={"bold"}
               onClick={() => {
                 gtag('event', 'clickApp', {
                   'from': 'desktop header'
