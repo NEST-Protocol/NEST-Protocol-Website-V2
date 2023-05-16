@@ -141,11 +141,11 @@ export default function Home() {
       {SEO}
       <Navigation/>
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'120px'}>
-        <Stack align={'center'} pt={'40px'}>
-          <Stack w={'1200px'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"}>
+        <Stack align={'center'} pt={'40px'} px={'20px'}>
+          <Stack maxW={'1200px'} w={'full'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"}>
             <AspectRatio ratio={16/9}>
               <iframe width="560" height="480" src="https://www.youtube.com/embed/f6unr9kPb5s"
-                      title="YouTube video player" frameBorder="0"
+                      title="YouTube video player" frameBorder="1"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       allowFullScreen></iframe>
             </AspectRatio>
@@ -188,7 +188,7 @@ export default function Home() {
             }
           </Stack>
         </Stack>
-        <Stack py={'40px'} px={'150px'} bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'} borderTopRadius={'40px'}>
+        <Stack py={'40px'} px={['20px', '60px', '100px', '150px']} bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'} borderTopRadius={'40px'}>
           <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>Get started</Text>
           <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>As the
             infrastructure of the decentralized field, a new trading paradigm, martingale trading, proposed by the NEST
@@ -196,15 +196,15 @@ export default function Home() {
             unlimited liquidity through risk sharing. It can be used, including decentralized contract exchanges,
             financial derivatives supermarkets, on-chain and off-chain risk hedging etc.</Text>
         </Stack>
-        <Stack px={'150px'} pt={'40px'} spacing={'40px'}>
+        <Stack px={['20px', '40px', '60px', '80px', '120px', '150px']} pt={'40px'} spacing={'40px'}>
           {
             products.map((item, index) => (
-              <Stack direction={'row'} p={'40px'} bg={'white'} justify={'space-between'}
-                     flexDirection={index % 2 ? "row" : "row-reverse"} borderRadius={'12px'} key={index}>
-                <Stack height={'300px'}>
-                  <chakra.img src={item.image} height={'full'}/>
+              <Stack direction={'row'} p={'40px'} bg={'white'} justify={'space-around'} align={"center"}
+                     flexDirection={index % 2 ? "row-reverse" : "row"} borderRadius={'12px'} key={index}>
+                <Stack maxW={'45%'}>
+                  <chakra.img src={item.image} w={'full'}/>
                 </Stack>
-                <Stack spacing={'16px'} width={'40%'} justify={"center"}>
+                <Stack spacing={'16px'} maxW={'45%'} justify={"center"}>
                   <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>{item.title}</Text>
                   <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
                         color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
@@ -222,7 +222,7 @@ export default function Home() {
           <Heading fontSize={'50px'} textAlign={"center"}>Development path</Heading>
           <Text pt={'12px'} fontSize={'21px'} fontWeight={'bold'} textAlign={"center"}>The NEST community always insists<br/>on
             decentralization and innovation</Text>
-          <HStack px={'45px'} pt={'80px'} align={"start"}>
+          <HStack px={'40px'} pt={'80px'} align={"start"} overflow={'scroll'}>
             <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'} transform={'rotate(180deg)'}
                         opacity={start === 0 ? 0.5 : 1}
                         cursor={"pointer"}
@@ -254,34 +254,34 @@ export default function Home() {
                         }}/>
           </HStack>
         </Stack>
-        <Stack direction={"row"} py={'40px'} justify={'space-between'} px={'200px'} bg={'rgba(255, 255, 255, 0.8)'}>
+        <Stack direction={"row"} py={'40px'} justify={'space-between'} px={['20px', '40px', '60px', '80px', '120px', '200px']}  bg={'rgba(255, 255, 255, 0.8)'}>
           <Text fontSize={'28px'} lineHeight={'40px'} fontWeight={'700'}>Over <span
             style={{color: 'rgba(234, 170, 0, 1)'}}>1 MILLION</span> community members, Join us</Text>
           <Stack direction={'row'} spacing={'40px'}>
-            <Link href={'https://twitter.com/nest_protocol/'} isExternal>
-              <chakra.img src={'/image/Home/twitter.svg'} />
+            <Link href={'https://twitter.com/nest_protocol/'} isExternal minW={'40px'}>
+              <chakra.img src={'/image/Home/twitter.svg'} w={'40px'}/>
             </Link>
-            <Link href={'https://t.me/nest_chat/'} isExternal>
+            <Link href={'https://t.me/nest_chat/'} isExternal minW={'40px'}>
               <chakra.img src={'/image/Home/telegram.svg'} />
             </Link>
-            <Link href={'https://github.com/NEST-Protocol'} isExternal>
+            <Link href={'https://github.com/NEST-Protocol'} isExternal minW={'40px'}>
               <chakra.img src={'/image/Home/github.svg'} />
             </Link>
             {/*TODO*/}
-            <Link href={''} isExternal>
+            <Link href={''} isExternal minW={'40px'}>
               <chakra.img src={'/image/Home/Tiktok.svg'} />
             </Link>
           </Stack>
         </Stack>
         <Stack py={'120px'} align={"center"} spacing={'48px'}>
           <Heading fontSize={'50px'} textAlign={"center"}>Blogs</Heading>
-          <HStack spacing={'44px'}>
+          <HStack spacing={'44px'} overflow={'scroll'} w={'full'} justify={"center"} px={'40px'}>
             {
               blogs.map((item, index) => (
-                <Stack w={'500px'} bg={"white"} borderRadius={'12px'} spacing={0} cursor={"pointer"} key={index} onClick={() => {
+                <Stack minW={'400px'} w={'500px'} bg={"white"} borderRadius={'12px'} spacing={0} cursor={"pointer"} key={index} onClick={() => {
                   window.open('/blogs/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST', '_blank')
                 }}>
-                  <chakra.img src={item.image} height={'220px'} alt={''}/>
+                  <chakra.img src={item.image} w={'full'} alt={''}/>
                   <Stack spacing={'12px'} p={'20px'} h={'210px'}>
                     <Text fontSize={'18px'} fontWeight={'bold'}>{item.title}</Text>
                     <Text fontSize={'13px'} fontWeight={'600'} color={'#878787'}>{item.desc}</Text>
@@ -366,7 +366,8 @@ export default function Home() {
                 <HStack spacing={'40px'} key={index}>
                   {
                     item.map((item, index) => (
-                      <Stack h={'72px'} borderRadius={'full'} py={'12px'} px={'20px'} bg={'white'} justifyContent={"center"} key={index} alignItems={"center"}>
+                      <Stack h={'72px'} borderRadius={'full'} py={'12px'} px={'20px'} bg={'white'} _hover={{ bg: 'rgba(234, 170, 0, 1)' }}
+                             justifyContent={"center"} key={index} alignItems={"center"}>
                         <Link href={item.link} isExternal>
                           <chakra.img src={item.image} h={'45px'} alt={item.link}/>
                         </Link>
