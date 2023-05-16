@@ -33,7 +33,7 @@ export default function NavigationMobile() {
       <Button>
         Launch App
       </Button>
-      <Button onClick={onOpen} fontSize={'36px'} alignItems={'end'} p={0} variant={"ghost"} _active={{bg: "none"}}
+      <Button onClick={onOpen} fontSize={'36px'} alignItems={'end'} p={0} variant={"ghost"} color={'#030308'} _active={{bg: "none"}}
               _hover={{bg: "none"}} aria-label={'menu'}>
         <HamburgerIcon/>
       </Button>
