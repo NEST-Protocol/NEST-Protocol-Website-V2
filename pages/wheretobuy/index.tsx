@@ -37,16 +37,21 @@ const Wheretobuy = () => {
         </Stack>
         <Stack h={'80px'}></Stack>
         <Wrap direction={'row'} spacing={'24px'} align={"center"} justify={"center"}>
-          <WrapItem w={'788px'} h={'340px'}>
+          <WrapItem w={'788px'} h={'full'}>
             <Stack bg={'white'} py={'40px'} h={'full'} px={'24px'} spacing={0} borderRadius={'12px'}>
               <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'}>Centralized and Decentralized
                 Exchanges</Text>
-              <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>CEXs
-                are
-                businesses that let you buy crypto using traditional currencies. They have custody over any
-                $NEST you buy until you send it to a wallet you control. If you want more control, buy $NEST
-                peer-to-peer.
-                With a DEX, you can trade without giving control of your funds to a centralized company.</Text>
+              <Stack spacing={0} h={'120px'}>
+                <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>CEXs
+                  are
+                  businesses that let you buy crypto using traditional currencies. They have custody over any
+                  $NEST you buy until you send it to a wallet you control. If you want more control, buy $NEST
+                  peer-to-peer.
+                  With a DEX, you can trade without giving control of your funds to a centralized company.</Text>
+                <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} href={''} style={{ opacity: 0 }}
+                      color={'rgba(234, 170, 0, 1)'}>Learn
+                  more {">"}</Link>
+              </Stack>
               <Stack direction={'row'} gap={'12px'} pt={'40px'}>
                 {
                   [
@@ -80,16 +85,18 @@ const Wheretobuy = () => {
               </Stack>
             </Stack>
           </WrapItem>
-          <WrapItem w={'788px'} h={'340px'}>
+          <WrapItem w={'788px'} h={'full'}>
             <Stack bg={'white'} py={'40px'} h={'full'} px={'24px'} borderRadius={'12px'} spacing={0}>
               <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'}>Supporting Multiple Chains</Text>
-              <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>Users can
-                achieve blockchain interoperability through different bridges, transferring assets from one chain to
-                another without intermediaries. You can manage your $NEST assets on ERC-20 and BEP-20 through the
-                cross-chain bridge Poly Network and MapProtocol.</Text>
-              <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} href={''}
-                    color={'rgba(234, 170, 0, 1)'}>Learn
-                more {">"}</Link>
+              <Stack spacing={0} h={'120px'}>
+                <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>Users can
+                  achieve blockchain interoperability through different bridges, transferring assets from one chain to
+                  another without intermediaries. You can manage your $NEST assets on ERC-20 and BEP-20 through the
+                  cross-chain bridge Poly Network and MapProtocol.</Text>
+                <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} href={''}
+                      color={'rgba(234, 170, 0, 1)'}>Learn
+                  more {">"}</Link>
+              </Stack>
               <Stack direction={'row'} gap={'12px'} pt={'40px'}>
                 {
                   [
