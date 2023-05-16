@@ -157,14 +157,11 @@ export default function Home() {
                   color={'rgba(3, 3, 8, 0.6)'}>Trading with smart contract. No market
               makers. No LPs</Text>
             <HStack pt={'8px'} justify={"center"}>
-              <Button onClick={() => {
-                gtag('event', 'clickApp2', {
-                  'from': 'desktop page'
-                })
-                window.open('https://finance.nestprotocol.org/', '_blank')
-              }}>
-                Explore NEST
-              </Button>
+              <Link href={'https://finance.nestprotocol.org/'}>
+                <Button>
+                  Explore NEST
+                </Button>
+              </Link>
             </HStack>
           </Stack>
         </Stack>
@@ -210,12 +207,11 @@ export default function Home() {
                   <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
                         color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
                   <HStack pt={'8px'}>
-                    <Link href={item.link} isExternal bg={'rgba(234, 170, 0, 1)'} p={'13px 24px'} borderRadius={'12px'}
-                          fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
-                    >{item.button}</Link>
-                    {/*<Button onClick={() => {*/}
-                    {/*  router.push(item.link)*/}
-                    {/*}}>{item.button}</Button>*/}
+                    <Link href={item.link}>
+                      <Button
+                        fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
+                      >{item.button}</Button>
+                    </Link>
                   </HStack>
                 </Stack>
               </Stack>
@@ -224,17 +220,20 @@ export default function Home() {
         </Stack>
         <Stack py={'120px'} spacing={0}>
           <Heading fontSize={'50px'} textAlign={"center"}>Development path</Heading>
-          <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'bold'} textAlign={"center"} color={'rgba(3, 3, 8, 0.6)'}>The NEST community always insists on
+          <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'bold'} textAlign={"center"}
+                color={'rgba(3, 3, 8, 0.6)'}>The NEST community always insists on
             decentralization and innovation</Text>
           <HStack px={'40px'} pt={'80px'} align={"center"} overflow={'scroll'}>
-            <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'} transform={'rotate(180deg)'}
-                        opacity={start === 0 ? 0.5 : 1}
-                        cursor={"pointer"}
-                        onClick={() => {
-                          if (start > 0) {
-                            setStart(start - 4)
-                          }
-                        }}/>
+            <Button value={'ghost'} px={'0'} borderRadius={'full'} onClick={() => {
+              if (start > 0) {
+                setStart(start - 4)
+              }
+            }}>
+              <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'} transform={'rotate(180deg)'}
+                          opacity={start === 0 ? 0.5 : 1}
+              />
+            </Button>
+
             <Stack w={'full'} spacing={'-36px'} align={"center"}>
               <Stack h={'44px'} w={'full'} justify={"center"} px={'15px'}>
                 <Divider h={'1px'} color={'#C9C9C9'}/>
@@ -249,13 +248,15 @@ export default function Home() {
                 ))}
               </HStack>
             </Stack>
-            <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'} cursor={"pointer"}
-                        opacity={start + 4 > developmentPath.length ? 0.5 : 1}
-                        onClick={() => {
-                          if (start < developmentPath.length - 4) {
-                            setStart(start + 4)
-                          }
-                        }}/>
+            <Button value={'ghost'} px={'0'} borderRadius={'full'} onClick={() => {
+              if (start < developmentPath.length - 4) {
+                setStart(start + 4)
+              }
+            }}>
+              <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'}
+                          opacity={start + 4 > developmentPath.length ? 0.5 : 1}
+              />
+            </Button>
           </HStack>
         </Stack>
         <Stack direction={"row"} py={'40px'} justify={'space-between'}
@@ -274,7 +275,8 @@ export default function Home() {
                   _hover={{opacity: 1}}>
               <chakra.img src={'/image/Footer/github.svg'}/>
             </Link>
-            <Link href={'https://www.tiktok.com/@nest_protocol'} isExternal minW={'40px'} opacity={0.6} _hover={{opacity: 1}}>
+            <Link href={'https://www.tiktok.com/@nest_protocol'} isExternal minW={'40px'} opacity={0.6}
+                  _hover={{opacity: 1}}>
               <chakra.img src={'/image/Footer/Tiktok.svg'}/>
             </Link>
           </Stack>
@@ -306,9 +308,11 @@ export default function Home() {
             }
           </HStack>
           <Box pt={'20px'}>
-            <Button as={Link} href={'/blogs/'} variant={'outline'}>
-              More
-            </Button>
+            <Link href={'/blogs/'} isExternal>
+              <Button variant={'outline'}>
+                More
+              </Button>
+            </Link>
           </Box>
         </Stack>
         <Stack spacing={'80px'}>
@@ -415,9 +419,11 @@ export default function Home() {
         <Text fontSize={'12.5px'} fontWeight={'600'}>Trading with smart contract. No market makers. No LPs</Text>
       </Stack>
       <HStack align={"center"} justify={"center"} p={'4px'}>
-        <Button minH={'48px'}>
-          Explore NEST
-        </Button>
+        <Link href={'https://finance.nestprotocol.org/'} isExternal>
+          <Button minH={'48px'}>
+            Explore NEST
+          </Button>
+        </Link>
       </HStack>
       <Stack py={'80px'} spacing={'40px'}>
         <Text fontSize={'24px'} lineHeight={'32px'} fontWeight={'700'} textAlign={"center"}>The superiority of NEST
@@ -455,9 +461,11 @@ export default function Home() {
               <Text textAlign={'center'} fontSize={'14px'} fontWeight={'700'} lineHeight={'20px'}
                     color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
               <HStack align={"center"} justify={"center"}>
-                <Button borderRadius={'8px'}>
-                  {item.button}
-                </Button>
+                <Link href={item.link} isExternal>
+                  <Button borderRadius={'8px'}>
+                    {item.button}
+                  </Button>
+                </Link>
               </HStack>
             </Stack>
           ))
@@ -523,7 +531,9 @@ export default function Home() {
           }
         </HStack>
         <Stack>
-          <Button as={Link} href={'/blogs/'} variant={'outline'}>More</Button>
+          <Link href={'/blogs/'}>
+            <Button variant={'outline'}>More</Button>
+          </Link>
         </Stack>
       </Stack>
       <Stack align={"center"} spacing={'40px'} pb={'80px'}>

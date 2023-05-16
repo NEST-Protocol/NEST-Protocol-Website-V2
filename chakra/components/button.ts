@@ -10,11 +10,12 @@ export const Button = {
     ghost: {
       fontWeight: '500',
       fontSize: '15px',
+      color: '#EAAA00',
       _hover: {
-        bg: 'none'
+        bg: '#F7C728'
       },
       _active: {
-        bg: 'none'
+        bg: '#FFDC52'
       }
     },
     outline: {
@@ -27,10 +28,10 @@ export const Button = {
       fontWeight: '700',
       px: '24px',
       _hover: {
-        bg: null
+        bg: '#F7C728'
       },
       _active: {
-        bg: null
+        bg: '#FFDC52'
       }
     },
     solid: {
@@ -42,10 +43,10 @@ export const Button = {
       lineHeight: '22px',
       px: '24px',
       _hover: {
-        bg: '#EAAA00'
+        bg: '#F7C728'
       },
       _active: {
-        bg: '#EAAA00'
+        bg: '#FFDC52'
       }
     }
   },
