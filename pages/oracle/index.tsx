@@ -132,10 +132,10 @@ const Page = () => {
           on decentralized price flows on the chain. <br/>
         </Text>
         <HStack spacing={'48px'}>
-          <Button as={Link} href={'/docs/Concept/NEST-Oracle'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer
+          <Button as={Link} href={'/docs/Concept/NEST-Oracle'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#030308'}>Developer
             Doc</Button>
           <Button as={Link} href={'https://github.com/NEST-Protocol'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'}
-                  color={'#003232'}>Github</Button>
+                  color={'#030308'}>Github</Button>
         </HStack>
       </Stack>
       <Stack bg={"white"} align={"center"} textAlign={"center"} pt={'90px'} pb={'60px'} spacing={'44px'}>

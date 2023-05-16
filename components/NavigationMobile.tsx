@@ -21,7 +21,7 @@ export default function NavigationMobile() {
   const router = useRouter()
 
   return (
-    <HStack w={'full'} px={'24px'} py={'20px'} spacing={'15px'}>
+    <HStack w={'full'} px={'24px'} h={'60px'} spacing={'12px'}>
       <Link href={'/'}>
         <chakra.img
           src={"/logo.svg"}
@@ -56,7 +56,7 @@ export default function NavigationMobile() {
                 <Link href={'https://finance.nestprotocol.org/'}>
                   <HStack fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
                           opacity={showAbout || showBlog ? 0.6 : 1}
-                          color={router.pathname === '/nest-fi' ? '#EAAA00' : '#003232'}>
+                          color={router.pathname === '/nest-fi' ? '#EAAA00' : '#030308'}>
                     <span>NESTFi</span>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -70,12 +70,12 @@ export default function NavigationMobile() {
                 </Link>
                 <Link href={'/craft'}>
                   <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
-                        color={router.pathname === '/craft' ? '#EAAA00' : '#003232'}
+                        color={router.pathname === '/craft' ? '#EAAA00' : '#030308'}
                         opacity={showAbout || showBlog ? 0.6 : 1}>NESTCraft</Text>
                 </Link>
                 <Link href={'/oracle/'}>
                   <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
-                        color={router.pathname === '/oracle' ? '#EAAA00' : '#003232'}
+                        color={router.pathname === '/oracle' ? '#EAAA00' : '#030308'}
                         opacity={showAbout || showBlog ? 0.6 : 1}>NESTOracle</Text>
                 </Link>
                 <ChakraLink href={'https://nft.nestprotocol.org/'} isExternal fontSize={'16px'} lineHeight={'22px'}
@@ -93,7 +93,7 @@ export default function NavigationMobile() {
                   </HStack>
                 </ChakraLink>
                 <Link href={'/docs/'}>
-                  <Text fontSize={'16px'} color={router.pathname === '/docs' ? '#EAAA00' : '#003232'}
+                  <Text fontSize={'16px'} color={router.pathname === '/docs' ? '#EAAA00' : '#030308'}
                         opacity={showAbout || showBlog ? 0.6 : 1}
                         fontWeight={'700'}>Doc</Text>
                 </Link>
@@ -104,11 +104,11 @@ export default function NavigationMobile() {
                     <>
                       <Link href={'/blogs/'}>
                         <Text fontSize={'16px'} lineHeight={'22px'}
-                              color={router.pathname === '/blogs' ? '#EAAA00' : '#003232'} fontWeight={'700'}>News</Text>
+                              color={router.pathname === '/blogs' ? '#EAAA00' : '#030308'} fontWeight={'700'}>News</Text>
                       </Link>
                       <Link href={'/about/roundtable/'}>
                         <Text fontSize={'16px'} lineHeight={'22px'}
-                              color={router.pathname === '/about/roundtable' ? '#EAAA00' : '#003232'} fontWeight={'700'}>NEST
+                              color={router.pathname === '/about/roundtable' ? '#EAAA00' : '#030308'} fontWeight={'700'}>NEST
                           Roundtable</Text>
                       </Link>
                     </>
@@ -120,12 +120,12 @@ export default function NavigationMobile() {
                   showAbout && (
                     <>
                       <Link href={'/about/team/'}>
-                        <Text fontSize={'16px'} color={router.pathname === '/about/team' ? '#EAAA00' : '#003232'}
+                        <Text fontSize={'16px'} color={router.pathname === '/about/team' ? '#EAAA00' : '#030308'}
                               lineHeight={'22px'}
                               fontWeight={'700'}>Team</Text>
                       </Link>
                       <Link href={'/about/partnership/'}>
-                        <Text fontSize={'16px'} color={router.pathname === '/about/partnership' ? '#EAAA00' : '#003232'}
+                        <Text fontSize={'16px'} color={router.pathname === '/about/partnership' ? '#EAAA00' : '#030308'}
                               lineHeight={'22px'}
                               fontWeight={'700'}>Partnership</Text>
                       </Link>

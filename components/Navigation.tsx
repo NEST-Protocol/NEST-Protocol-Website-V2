@@ -44,9 +44,9 @@ export default function Navigation() {
             h={'20px'}
           />
         </Link>
-        <Stack direction={"row"} align={"center"} spacing={'32px'} fontWeight={'700'} fontSize={'16px'} lineHeight={'22px'} color={'#003232'}>
+        <Stack direction={"row"} align={"center"} spacing={'32px'} fontWeight={'700'} fontSize={'16px'} lineHeight={'22px'} color={'#030308'}>
           <Link href={'https://finance.nestprotocol.org/'}>
-            <HStack _hover={{ color: '#EAAA00' }} color={router.pathname === '/nest-fi' ? '#EAAA00' : '#003232'} cursor={"pointer"}>
+            <HStack _hover={{ color: '#EAAA00' }} color={router.pathname === '/nest-fi' ? '#EAAA00' : '#030308'} cursor={"pointer"}>
               <span>
                 NESTFi
               </span>
@@ -57,10 +57,10 @@ export default function Navigation() {
             </HStack>
           </Link>
           <Link href={'/craft/'}>
-            <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/craft' ? '#EAAA00' : '#003232'}>NESTCraft</chakra.a>
+            <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/craft' ? '#EAAA00' : '#030308'}>NESTCraft</chakra.a>
           </Link>
           <Link href={'/oracle/'}>
-            <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/oracle' ? '#EAAA00' : '#003232'}>NESTOracle</chakra.a>
+            <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/oracle' ? '#EAAA00' : '#030308'}>NESTOracle</chakra.a>
           </Link>
           <Link href={'https://nft.nestprotocol.org/'}>
             <HStack _hover={{ color: '#EAAA00' }} cursor={"pointer"}>
@@ -72,7 +72,7 @@ export default function Navigation() {
             </HStack>
           </Link>
           <Link href={'/docs/'}>
-            <chakra.a _hover={{ color: '#EAAA00' }} color={router.pathname.startsWith('/docs') ? '#EAAA00' : '#003232'} cursor={"pointer"}>Doc</chakra.a>
+            <chakra.a _hover={{ color: '#EAAA00' }} color={router.pathname.startsWith('/docs') ? '#EAAA00' : '#030308'} cursor={"pointer"}>Doc</chakra.a>
           </Link>
           <Popover trigger={'hover'}>
             <PopoverTrigger>
@@ -81,10 +81,10 @@ export default function Navigation() {
             <PopoverContent px={'44px'} bg={"white"} py={'26px'} w={'240px'} borderRadius={'20px'} border={""} opacity={0.8}>
               <PopoverArrow/>
               <Link href={'/blogs/'}>
-                <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/blogs' ? '#EAAA00' : '#003232'}>News</chakra.a>
+                <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/blogs' ? '#EAAA00' : '#030308'}>News</chakra.a>
               </Link>
               <Link href={'/about/roundtable/'}>
-                <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/about/roundtable' ? '#EAAA00' : '#003232'}>NEST Roundtable</chakra.a>
+                <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/about/roundtable' ? '#EAAA00' : '#030308'}>NEST Roundtable</chakra.a>
               </Link>
             </PopoverContent>
           </Popover>
@@ -95,16 +95,16 @@ export default function Navigation() {
             <PopoverContent px={'44px'} bg={"white"} py={'26px'} w={'240px'} borderRadius={'20px'} border={""} opacity={0.8}>
               <PopoverArrow/>
               <Link href={'/about/team/'}>
-                <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/about/team' ? '#EAAA00' : '#003232'}>Team</chakra.a>
+                <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/about/team' ? '#EAAA00' : '#030308'}>Team</chakra.a>
               </Link>
               <Link href={'/about/partnership/'}>
-                <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/about/partnership' ? '#EAAA00' : '#003232'}>Partnership</chakra.a>
+                <chakra.a _hover={{ color: '#EAAA00' }} cursor={"pointer"} color={router.pathname === '/about/partnership' ? '#EAAA00' : '#030308'}>Partnership</chakra.a>
               </Link>
             </PopoverContent>
           </Popover>
         </Stack>
       </Stack>
-      <Button fontSize={'12px'} bg={'#EAAA00'} minH={'36px'} borderRadius={'8px'} lineHeight={'16px'} color={'#003232'} fontWeight={"bold"}
+      <Button fontSize={'12px'} bg={'#EAAA00'} minH={'36px'} borderRadius={'8px'} lineHeight={'16px'} color={'#030308'} fontWeight={"bold"}
               onClick={() => {
                 gtag('event', 'clickApp', {
                   'from': 'desktop header'

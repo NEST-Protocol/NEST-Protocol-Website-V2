@@ -73,7 +73,7 @@ const Wheretobuy = () => {
                   ].map((item, index) => (
                     <Link href={item.link} isExternal key={index}
                           _hover={{bg: 'rgba(240, 241, 245, 1)', borderRadius: 'full'}}>
-                      <chakra.img src={item.icon}/>
+                      <chakra.img src={item.icon} h={'48px'}/>
                     </Link>
                   ))
                 }
@@ -104,7 +104,7 @@ const Wheretobuy = () => {
                   ].map((item, index) => (
                     <Link href={item.link} isExternal key={index}
                           _hover={{bg: 'rgba(240, 241, 245, 1)', borderRadius: 'full'}}>
-                      <chakra.img src={item.icon}/>
+                      <chakra.img src={item.icon} h={'48px'}/>
                     </Link>
                   ))
                 }
@@ -176,7 +176,7 @@ const Wheretobuy = () => {
                 ].map((item, index) => (
                   <Link href={item.link} isExternal key={index}
                         _hover={{bg: 'rgba(240, 241, 245, 1)', borderRadius: 'full'}}>
-                    <chakra.img src={item.icon}/>
+                    <chakra.img src={item.icon} h={'48px'}/>
                   </Link>
                 ))
               }
@@ -195,7 +195,7 @@ const Wheretobuy = () => {
                 ].map((item, index) => (
                   <Link href={item.link} isExternal key={index}
                         _hover={{bg: 'rgba(240, 241, 245, 1)', borderRadius: 'full'}}>
-                    <chakra.img src={item.icon}/>
+                    <chakra.img src={item.icon} h={'48px'}/>
                   </Link>
                 ))
               }
@@ -226,7 +226,7 @@ const Wheretobuy = () => {
                 ].map((item, index) => (
                   <Link href={item.link} isExternal key={index}
                         _hover={{bg: 'rgba(240, 241, 245, 1)', borderRadius: 'full'}}>
-                    <chakra.img src={item.icon}/>
+                    <chakra.img src={item.icon} h={'48px'}/>
                   </Link>
                 ))
               }

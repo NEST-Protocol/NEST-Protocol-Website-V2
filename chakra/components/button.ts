@@ -36,7 +36,7 @@ export const Button = {
     },
     solid: {
       bg: '#EAAA00',
-      color: '#003232',
+      color: '#030308',
       fontWeight: '700',
       borderRadius: '12px',
       fontSize: '16px',

@@ -97,7 +97,7 @@ const Page = ({blogs}: any) => {
                     {item.attributes.title}
                   </Link>
                   <Stack h={'8px'}></Stack>
-                  <Text fontWeight={'500'} fontSize={'15px'} color={'#003232'}>
+                  <Text fontWeight={'500'} fontSize={'15px'} color={'#030308'}>
                     {item.attributes.date}
                   </Text>
                   {/*TODO: hidden markdown symbol*/}
