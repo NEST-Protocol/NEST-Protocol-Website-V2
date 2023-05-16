@@ -69,7 +69,7 @@ const Wheretobuy = () => {
                   $NEST you buy until you send it to a wallet you control. If you want more control, buy $NEST
                   peer-to-peer.
                   With a DEX, you can trade without giving control of your funds to a centralized company.</Text>
-                <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} href={''}
+                <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
                       style={{opacity: 0}}
                       color={'rgba(234, 170, 0, 1)'}>Learn
                   more {">"}</Link>
@@ -116,7 +116,8 @@ const Wheretobuy = () => {
                   achieve blockchain interoperability through different bridges, transferring assets from one chain to
                   another without intermediaries. You can manage your $NEST assets on ERC-20 and BEP-20 through the
                   cross-chain bridge Poly Network and MapProtocol.</Text>
-                <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} href={''}
+                <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
+                      href={'/blogs/how-to-manage-your-nest-on-different-chain'}
                       color={'rgba(234, 170, 0, 1)'}>Learn
                   more {">"}</Link>
               </Stack>
@@ -250,7 +251,8 @@ const Wheretobuy = () => {
               achieve blockchain interoperability through different bridges, transferring assets from one chain to
               another without intermediaries. You can manage your $NEST assets on ERC-20 and BEP-20 through the
               cross-chain bridge Poly Network and MapProtocol.</Text>
-            <Link pt={'12px'} fontSize={'14px'} lineHeight={'20px'} textAlign={"center"} fontWeight={'700'} href={''}
+            <Link pt={'12px'} fontSize={'14px'} lineHeight={'20px'} textAlign={"center"} fontWeight={'700'}
+                  href={'/blogs/how-to-manage-your-nest-on-different-chain'}
                   color={'rgba(234, 170, 0, 1)'}>Learn more {">"}
             </Link>
             <Stack spacing={'12px'} align={"center"} pt={'32px'}>
