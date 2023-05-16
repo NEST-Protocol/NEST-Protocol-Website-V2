@@ -1,6 +1,6 @@
 export const Link = {
   baseStyle: {
-    fontFamily: "Montserrat",
+    fontFamily: 'Open Sans',
     color: '#003232'
   },
 }

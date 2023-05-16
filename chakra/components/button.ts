@@ -4,7 +4,7 @@ export const Button = {
     fontSize: 'md',
     height: '48px',
     maxH: '48px',
-    fontFamily: 'Montserrat',
+    fontFamily: 'Open Sans',
   },
   variants: {
     ghost: {
