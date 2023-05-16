@@ -190,7 +190,7 @@ export default function Home() {
             }
           </Stack>
         </Stack>
-        <Stack py={'40px'} px={['20px', '60px', '100px', '150px']}
+        <Stack py={'40px'} px={['20px', '40px', '60px', '80px', '120px', '150px']}
                bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'} borderTopRadius={'40px'}>
           <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>Get started</Text>
           <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>As the
