@@ -157,7 +157,7 @@ export default function Home() {
                   color={'rgba(3, 3, 8, 0.6)'}>Trading with smart contract. No market
               makers. No LPs</Text>
             <HStack pt={'8px'} justify={"center"}>
-              <Link href={'https://finance.nestprotocol.org/'}>
+              <Link href={'https://finance.nestprotocol.org/'} isExternal>
                 <Button>
                   Explore NEST
                 </Button>
@@ -207,7 +207,7 @@ export default function Home() {
                   <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
                         color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
                   <HStack pt={'8px'}>
-                    <Link href={item.link}>
+                    <Link href={item.link} isExternal>
                       <Button
                         fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
                       >{item.button}</Button>
