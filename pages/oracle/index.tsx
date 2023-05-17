@@ -9,7 +9,7 @@ import {
   Wrap,
   WrapItem,
   chakra,
-  Spacer, AspectRatio
+  Spacer
 } from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
@@ -17,6 +17,7 @@ import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
 import {ChevronRightIcon} from "@chakra-ui/icons";
 import Head from "next/head";
+import {BigPlayButton, Player} from "video-react";
 
 const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
@@ -140,13 +141,12 @@ const Page = () => {
       </Stack>
       <Stack bg={"white"} align={"center"} textAlign={"center"} pt={'90px'} pb={'60px'} spacing={'44px'}>
         <Heading fontSize={'50px'}>What is NEST Oracle?</Heading>
-        <Stack w={'1200px'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"}>
-          <AspectRatio ratio={16/9}>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/mOF8o0OZoxE"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen></iframe>
-          </AspectRatio>
+        <Stack w={'960px'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"}>
+          <Player src={'https://video.nestprotocol.org/What_is_NEST_Oracle_.mp4'}
+                  // poster="/image/Home/What_is_NEST_Oracle_.png"
+          >
+            <BigPlayButton position="center"/>
+          </Player>
         </Stack>
       </Stack>
 
@@ -264,12 +264,11 @@ const Page = () => {
         <Heading fontSize={'25px'}>What is <br/>
           NEST Oracle?</Heading>
         <Stack w={'full'} h={'full'} borderRadius={'12px'} overflow={"hidden"}>
-          <AspectRatio ratio={16/9}>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/mOF8o0OZoxE"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen></iframe>
-          </AspectRatio>
+          <Player src={'https://video.nestprotocol.org/What_is_NEST_Oracle_.mp4'}
+            // poster="/image/Home/What_is_NEST_Oracle_.png"
+          >
+            <BigPlayButton position="center"/>
+          </Player>
         </Stack>
       </Stack>
       <Stack align={"center"} textAlign={"center"} px={'24px'} py={'62px'} spacing={'40px'}>

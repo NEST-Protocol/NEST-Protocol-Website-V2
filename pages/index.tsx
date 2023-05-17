@@ -6,15 +6,16 @@ import {
   Button,
   chakra,
   Box,
-  Link, Divider, useMediaQuery, AspectRatio
+  Link, Divider, useMediaQuery
 } from "@chakra-ui/react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import {useEffect, useState} from "react";
-import gtag, {install} from 'ga-gtag'
+import {install} from 'ga-gtag'
 import Head from "next/head";
 import NavigationMobile from "../components/NavigationMobile";
 import FooterMobile from "../components/FooterMobile";
+import { Player, BigPlayButton } from 'video-react';
 
 export default function Home() {
   const [start, setStart] = useState(0)
@@ -140,13 +141,12 @@ export default function Home() {
       <Navigation/>
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'120px'}>
         <Stack align={'center'} pt={'40px'} px={'20px'}>
-          <Stack maxW={'960px'} w={'full'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"}>
-            <AspectRatio ratio={16 / 9}>
-              <iframe width="560" height="480" src="https://www.youtube.com/embed/f6unr9kPb5s"
-                      title="YouTube video player"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen></iframe>
-            </AspectRatio>
+          <Stack maxW={'960px'} w={'full'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"} spacing={0}>
+            <Player src={'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4'}
+                    poster="/image/Home/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.png"
+            >
+              <BigPlayButton position="center"/>
+            </Player>
           </Stack>
         </Stack>
         <Stack pt={'40px'} pb={'120px'}>
@@ -407,12 +407,11 @@ export default function Home() {
       {SEO}
       <NavigationMobile/>
       <Stack w={'full'}>
-        <AspectRatio ratio={16 / 9}>
-          <iframe width="560" height="480" src="https://www.youtube.com/embed/f6unr9kPb5s"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen></iframe>
-        </AspectRatio>
+        <Player src={'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4'}
+                poster="/image/Home/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.png"
+        >
+          <BigPlayButton position="center"/>
+        </Player>
       </Stack>
       <Stack textAlign={"center"} p={'20px'} spacing={'16px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>NEST PROTOCOL<br/>A Decentralized Martingale Network</Text>
