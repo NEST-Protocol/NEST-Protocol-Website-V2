@@ -176,15 +176,18 @@ export default function Home() {
             }
           </Stack>
         </Stack>
-        <Stack pt={'40px'} spacing={0} bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'} align={"center"} borderTopRadius={'40px'}>
-          <Stack direction={'row'} spacing={'80px'} maxW={'1600px'}>
-            <Stack w={'100%'} justify={"center"} px={'40px'}>
+        <Stack pt={'40px'} spacing={0} bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'}
+               align={"center"} borderTopRadius={'40px'}>
+          <Stack direction={'row'} spacing={['20px', '20px', '20px', '80px']} maxW={'1600px'}>
+            <Stack w={'100%'} justify={"center"} px={['20px', '20px', '20px', '40px']} bg={'red'}>
               <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>Get started</Text>
               <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>As the
-                The NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply traders with unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
+                The NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply
+                traders with unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
             </Stack>
             <Stack align={'center'} px={'20px'} w={'100%'}>
-              <Stack w={'517.33px'} h={'full'} borderRadius={'12px'} overflow={'hidden'} spacing={0}>
+              <Stack w={['400px', '400px', '400px', '517.33px']} h={'full'} borderRadius={'12px'} overflow={'hidden'}
+                     spacing={0}>
                 <Player
                   src={'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4'}
                   poster="/image/Home/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.png"
@@ -422,7 +425,8 @@ export default function Home() {
         </Link>
       </HStack>
       <Stack pt={'80px'} pb={'100px'} spacing={'40px'}>
-        <Text fontSize={'24px'} px={'20px'} lineHeight={'32px'} fontWeight={'700'} textAlign={"center"}>The superiority of NEST
+        <Text fontSize={'24px'} px={'20px'} lineHeight={'32px'} fontWeight={'700'} textAlign={"center"}>The superiority
+          of NEST
           Protocol</Text>
         <HStack spacing={'12px'} w={'full'} overflow={'scroll'} justify={'start'} px={'20px'}>
           {
@@ -503,16 +507,16 @@ export default function Home() {
         <Text fontSize={'20px'} fontWeight={'700'} textAlign={"center"} lineHeight={'28px'}>Over <span
           style={{color: 'rgba(234, 170, 0, 1)'}}>1 MILLION</span> community<br/> members, Join us</Text>
         <HStack spacing={'28px'}>
-          <Link href={'https://twitter.com/nest_protocol/'} isExternal opacity={0.6} _hover={{ opacity: 1 }}>
+          <Link href={'https://twitter.com/nest_protocol/'} isExternal opacity={0.6} _hover={{opacity: 1}}>
             <chakra.img src={'/image/Footer/twitter.svg'}/>
           </Link>
-          <Link href={'https://t.me/nest_chat/'} isExternal opacity={0.6} _hover={{ opacity: 1 }}>
+          <Link href={'https://t.me/nest_chat/'} isExternal opacity={0.6} _hover={{opacity: 1}}>
             <chakra.img src={'/image/Footer/telegram.svg'}/>
           </Link>
-          <Link href={'https://github.com/NEST-Protocol'} isExternal opacity={0.6} _hover={{ opacity: 1 }}>
+          <Link href={'https://github.com/NEST-Protocol'} isExternal opacity={0.6} _hover={{opacity: 1}}>
             <chakra.img src={'/image/Footer/github.svg'}/>
           </Link>
-          <Link href={'https://www.tiktok.com/@nest_protocol'} isExternal opacity={0.6} _hover={{ opacity: 1 }}>
+          <Link href={'https://www.tiktok.com/@nest_protocol'} isExternal opacity={0.6} _hover={{opacity: 1}}>
             <chakra.img src={'/image/Footer/Tiktok.svg'}/>
           </Link>
         </HStack>
