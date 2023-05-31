@@ -1,10 +1,10 @@
 import '../styles/globals.css'
 import '../styles/github.css'
+import '../styles/video-react.css'
 import type {AppProps} from 'next/app'
 import {Center, Stack, ChakraProvider} from "@chakra-ui/react";
 import theme from "../chakra"
 import Script from "next/script";
-import 'video-react/dist/video-react.css';
 
 export default function App({Component, pageProps}: AppProps) {
   return (
