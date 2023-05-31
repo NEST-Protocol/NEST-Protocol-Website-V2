@@ -15,7 +15,7 @@ import {install} from 'ga-gtag'
 import Head from "next/head";
 import NavigationMobile from "../components/NavigationMobile";
 import FooterMobile from "../components/FooterMobile";
-import { Player, BigPlayButton } from 'video-react';
+import {Player, BigPlayButton} from 'video-react';
 
 export default function Home() {
   const [start, setStart] = useState(0)
@@ -75,21 +75,21 @@ export default function Home() {
   const superiority = [
     {
       title: 'More Advanced Derivatives Trading Structures',
-      desc: `Based on the benefit of Martingale Network, the system uses smart contracts to eliminate market markers and LPs while providing traders with nearly infinite liquidity through risk sharing.`,
-      icon: `/image/Home/superiority1.png`,
-      mobileIcon: '/image/Home/superiority_mobile.png'
+      desc: `The system eliminates market markers and LPs via smart contracts and risk sharing to provide traders with practically infinite liquidity.`,
+      icon: `/image/Home/home-3.svg`,
+      mobileIcon: '/image/Home/home-3.svg'
     },
     {
       title: 'More Stable Price Oracles',
-      desc: `NEST Oracle provides a secure and stable decentralized price stream. It takes 51% of the assets in the Oracle network to form a price attack. And it is entirely open and free of charge, allowing price offers and verifiers to verify prices.`,
-      icon: `/image/Home/superiority2.png`,
-      mobileIcon: '/image/Home/superiority_mobile-1.png'
+      desc: `NEST Oracle offers a stable decentralized price stream. Price attacks require 51% of network assets. It's free and open to price offers and verifiers.`,
+      icon: `/image/Home/home-1.svg`,
+      mobileIcon: '/image/Home/home-1.svg'
     },
     {
       title: 'Deflationary Economic Model',
-      desc: `All users trade with smart contracts, burning $NEST to obtain the corresponding financial assets, such as futures, options, synthetic assets, etc. So the $NEST burned will exceed the $NEST generated, which allows the economic model to deflate and the $NEST price to rise.`,
-      icon: `/image/Home/superiority3.png`,
-      mobileIcon: '/image/Home/superiority_mobile-2.png'
+      desc: `Users burn $NEST to buy financial assets including futures, options, synthetic assets, etc. The $NEST price rises because $NEST burned exceeds $NEST generated.`,
+      icon: `/image/Home/home-2.svg`,
+      mobileIcon: '/image/Home/home-2.svg'
     },
   ]
 
@@ -140,16 +140,7 @@ export default function Home() {
       {SEO}
       <Navigation/>
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'120px'}>
-        <Stack align={'center'} pt={'40px'} px={'20px'}>
-          <Stack maxW={'960px'} w={'full'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"} spacing={0}>
-            <Player src={'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4'}
-                    poster="/image/Home/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.png"
-            >
-              <BigPlayButton position="center"/>
-            </Player>
-          </Stack>
-        </Stack>
-        <Stack pt={'40px'} pb={'120px'}>
+        <Stack pt={'260px'} pb={'200px'}>
           <Stack spacing={'16px'}>
             <Heading fontSize={'48px'} lineHeight={'60px'} textAlign={"center"}>NEST PROTOCOL<br/>A Decentralized
               Martingale Network</Heading>
@@ -172,9 +163,9 @@ export default function Home() {
                  spacing={'24px'} w={'full'} overflow={'scroll'} px={'20px'}>
             {
               superiority.map((item, index) => (
-                <Stack minW={'520px'} width={'520px'} bg={'white'} borderRadius={'12px'} minH={'374px'} key={index}>
+                <Stack minW={'517.33px'} width={'517.33px'} bg={'white'} borderRadius={'12px'} key={index}>
                   <chakra.img src={item.icon} height={'160px'} alt={''}/>
-                  <Stack px={'24px'} spacing={'12px'}>
+                  <Stack px={'24px'} pb={'40px'} spacing={'12px'}>
                     <Text textAlign={"center"} fontWeight={'700'} fontSize={'20px'}
                           lineHeight={'28px'}>{item.title}</Text>
                     <Text fontWeight={'700'} fontSize={'16px'} lineHeight={'22px'}
@@ -185,38 +176,54 @@ export default function Home() {
             }
           </Stack>
         </Stack>
-        <Stack py={'40px'} px={['20px', '40px', '60px', '80px', '120px', '150px']}
-               bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'} borderTopRadius={'40px'}>
-          <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>Get started</Text>
-          <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>As the
-            infrastructure of the decentralized field, a new trading paradigm, martingale trading, proposed by the NEST
-            Protocol, makes good use of the technical characteristics of the blockchain and provides traders with
-            unlimited liquidity through risk sharing. It can be used, including decentralized contract exchanges,
-            financial derivatives supermarkets, on-chain and off-chain risk hedging etc.</Text>
-        </Stack>
-        <Stack px={['20px', '40px', '60px', '80px', '120px', '150px']} pt={'40px'} spacing={'40px'}>
-          {
-            products.map((item, index) => (
-              <Stack direction={'row'} p={'40px'} bg={'white'} justify={'space-around'} align={"center"}
-                     flexDirection={index % 2 ? "row-reverse" : "row"} borderRadius={'12px'} key={index}>
-                <Stack maxW={'45%'}>
-                  <chakra.img src={item.image} w={'full'}/>
-                </Stack>
-                <Stack spacing={'16px'} maxW={'45%'} justify={"center"}>
-                  <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>{item.title}</Text>
-                  <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
-                        color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
-                  <HStack pt={'8px'}>
-                    <Link href={item.link} isExternal>
-                      <Button
-                        fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
-                      >{item.button}</Button>
-                    </Link>
-                  </HStack>
-                </Stack>
+        <Stack pt={'40px'} spacing={0} bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'} align={"center"} borderTopRadius={'40px'}>
+          <Stack direction={'row'} spacing={'80px'} maxW={'1600px'}>
+            <Stack w={'100%'} justify={"center"} >
+              <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>Get started</Text>
+              <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>As the
+                infrastructure of the decentralized field, a new trading paradigm, martingale trading, proposed by the
+                NEST
+                Protocol, makes good use of the technical characteristics of the blockchain and provides traders with
+                unlimited liquidity through risk sharing. It can be used, including decentralized contract exchanges,
+                financial derivatives supermarkets, on-chain and off-chain risk hedging etc.</Text>
+            </Stack>
+            <Stack align={'center'} px={'20px'} w={'100%'}>
+              <Stack w={'full'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"} spacing={0}>
+                <Player
+                  src={'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4'}
+                  poster="/image/Home/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.png"
+                >
+                  <BigPlayButton position="center" className={"bigPlayButton"}/>
+                </Player>
               </Stack>
-            ))
-          }
+            </Stack>
+          </Stack>
+        </Stack>
+        <Stack pt={'120px'} spacing={0} align={"center"}>
+          <Stack spacing={'80px'} maxW={'1600px'}>
+            {
+              products.map((item, index) => (
+                <Stack direction={'row'} p={'40px'} bg={'white'} justify={'space-between'} align={"center"}
+                       flexDirection={index % 2 ? "row-reverse" : "row"} borderRadius={'12px'} key={index}>
+                  <Stack maxW={'45%'}>
+                    <chakra.img src={item.image} w={'full'}/>
+                  </Stack>
+                  <Stack spacing={'16px'} maxW={'45%'} justify={"center"}>
+                    <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>{item.title}</Text>
+                    <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
+                          color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
+                    <HStack pt={'8px'}>
+                      <Link href={item.link} isExternal>
+                        <Button
+                          fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
+                        >{item.button}</Button>
+                      </Link>
+                    </HStack>
+                  </Stack>
+                </Stack>
+              ))
+            }
+          </Stack>
         </Stack>
         <Stack py={'120px'} spacing={0}>
           <Heading fontSize={'50px'} textAlign={"center"}>Development path</Heading>
@@ -259,26 +266,27 @@ export default function Home() {
             </Button>
           </HStack>
         </Stack>
-        <Stack direction={"row"} py={'40px'} justify={'space-between'}
-               px={['20px', '40px', '60px', '80px', '120px', '200px']} bg={'rgba(255, 255, 255, 0.8)'}>
-          <Text fontSize={'28px'} lineHeight={'40px'} fontWeight={'700'}>Over <span
-            style={{color: 'rgba(234, 170, 0, 1)'}}>1 MILLION</span> community members, Join us</Text>
-          <Stack direction={'row'} spacing={'40px'}>
-            <Link href={'https://twitter.com/nest_protocol/'} isExternal minW={'40px'} opacity={0.6}
-                  _hover={{opacity: 1}}>
-              <chakra.img src={'/image/Footer/twitter.svg'} w={'40px'}/>
-            </Link>
-            <Link href={'https://t.me/nest_chat/'} isExternal minW={'40px'} opacity={0.6} _hover={{opacity: 1}}>
-              <chakra.img src={'/image/Footer/telegram.svg'}/>
-            </Link>
-            <Link href={'https://github.com/NEST-Protocol'} isExternal minW={'40px'} opacity={0.6}
-                  _hover={{opacity: 1}}>
-              <chakra.img src={'/image/Footer/github.svg'}/>
-            </Link>
-            <Link href={'https://www.tiktok.com/@nest_protocol'} isExternal minW={'40px'} opacity={0.6}
-                  _hover={{opacity: 1}}>
-              <chakra.img src={'/image/Footer/Tiktok.svg'}/>
-            </Link>
+        <Stack py={'40px'} spacing={0} bg={'rgba(255, 255, 255, 0.8)'} align={"center"}>
+          <Stack direction={"row"} justify={'space-between'} maxW={'1600px'} w={'full'}>
+            <Text fontSize={'28px'} lineHeight={'40px'} fontWeight={'700'}>Over <span
+              style={{color: 'rgba(234, 170, 0, 1)'}}>1 MILLION</span> community members, Join us</Text>
+            <Stack direction={'row'} spacing={'40px'}>
+              <Link href={'https://twitter.com/nest_protocol/'} isExternal minW={'40px'} opacity={0.6}
+                    _hover={{opacity: 1}}>
+                <chakra.img src={'/image/Footer/twitter.svg'} w={'40px'}/>
+              </Link>
+              <Link href={'https://t.me/nest_chat/'} isExternal minW={'40px'} opacity={0.6} _hover={{opacity: 1}}>
+                <chakra.img src={'/image/Footer/telegram.svg'}/>
+              </Link>
+              <Link href={'https://github.com/NEST-Protocol'} isExternal minW={'40px'} opacity={0.6}
+                    _hover={{opacity: 1}}>
+                <chakra.img src={'/image/Footer/github.svg'}/>
+              </Link>
+              <Link href={'https://www.tiktok.com/@nest_protocol'} isExternal minW={'40px'} opacity={0.6}
+                    _hover={{opacity: 1}}>
+                <chakra.img src={'/image/Footer/Tiktok.svg'}/>
+              </Link>
+            </Stack>
           </Stack>
         </Stack>
         <Stack py={'120px'} align={"center"} spacing={'48px'}>
@@ -287,7 +295,7 @@ export default function Home() {
                   justifyContent={['start', 'start', 'start', 'start', 'start', 'center']} px={'40px'}>
             {
               blogs.map((item, index) => (
-                <Stack minW={'400px'} w={'450px'} cursor={"pointer"} key={index} onClick={() => {
+                <Stack minW={'517.33px'} w={'517.33px'} cursor={"pointer"} key={index} onClick={() => {
                   window.open('/blogs/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST', '_blank')
                 }} p={'12px'}
                 >
@@ -406,14 +414,7 @@ export default function Home() {
     <Stack h={'100%'} bgImage={'/image/Home/01-Phone-bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       {SEO}
       <NavigationMobile/>
-      <Stack w={'full'}>
-        <Player src={'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4'}
-                poster="/image/Home/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.png"
-        >
-          <BigPlayButton position="center"/>
-        </Player>
-      </Stack>
-      <Stack textAlign={"center"} p={'20px'} spacing={'16px'}>
+      <Stack textAlign={"center"} p={'72px 20px 20px 20px'} spacing={'16px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>NEST PROTOCOL<br/>A Decentralized Martingale Network</Text>
         <Text fontSize={'12.5px'} fontWeight={'600'}>Trading with smart contract. No market makers. No LPs</Text>
       </Stack>
@@ -424,13 +425,13 @@ export default function Home() {
           </Button>
         </Link>
       </HStack>
-      <Stack py={'80px'} spacing={'40px'}>
-        <Text fontSize={'24px'} lineHeight={'32px'} fontWeight={'700'} textAlign={"center"}>The superiority of NEST
+      <Stack pt={'80px'} pb={'100px'} spacing={'40px'}>
+        <Text fontSize={'24px'} px={'20px'} lineHeight={'32px'} fontWeight={'700'} textAlign={"center"}>The superiority of NEST
           Protocol</Text>
         <HStack spacing={'12px'} w={'full'} overflow={'scroll'} justify={'start'} px={'20px'}>
           {
             superiority.map((item, index) => (
-              <Stack key={index} minW={'320px'} minH={'332px'} bg={'white'} p={'20px'} borderRadius={'12px'}>
+              <Stack key={index} minW={'320px'} bg={'white'} px={'20px'} pb={'40px'} borderRadius={'12px'}>
                 <chakra.img src={item.mobileIcon} width={'full'}/>
                 <Text textAlign={'center'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}>{item.title}</Text>
                 <Text pt={'12px'} fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'}
@@ -449,6 +450,16 @@ export default function Home() {
           blockchain and provides traders with unlimited liquidity through risk sharing. It can be used, including
           decentralized contract exchanges, financial derivatives supermarkets, on-chain and off-chain risk hedging
           etc.</Text>
+        <Stack w={'full'} px={'20px'}>
+          <Stack borderRadius={'12px'} overflow={'hidden'}>
+            <Player
+              src={'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4'}
+              poster="/image/Home/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.png"
+            >
+              <BigPlayButton position="center" className={"bigPlayButton"}/>
+            </Player>
+          </Stack>
+        </Stack>
       </Stack>
       <Stack px={'20px'} pt={'60px'} spacing={'20px'}>
         {
@@ -496,16 +507,16 @@ export default function Home() {
         <Text fontSize={'20px'} fontWeight={'700'} textAlign={"center"} lineHeight={'28px'}>Over <span
           style={{color: 'rgba(234, 170, 0, 1)'}}>1 MILLION</span> community<br/> members, Join us</Text>
         <HStack spacing={'28px'}>
-          <Link href={'https://twitter.com/nest_protocol/'} isExternal>
+          <Link href={'https://twitter.com/nest_protocol/'} isExternal opacity={0.6} _hover={{ opacity: 1 }}>
             <chakra.img src={'/image/Footer/twitter.svg'}/>
           </Link>
-          <Link href={'https://t.me/nest_chat/'} isExternal>
+          <Link href={'https://t.me/nest_chat/'} isExternal opacity={0.6} _hover={{ opacity: 1 }}>
             <chakra.img src={'/image/Footer/telegram.svg'}/>
           </Link>
-          <Link href={'https://github.com/NEST-Protocol'} isExternal>
+          <Link href={'https://github.com/NEST-Protocol'} isExternal opacity={0.6} _hover={{ opacity: 1 }}>
             <chakra.img src={'/image/Footer/github.svg'}/>
           </Link>
-          <Link href={'https://www.tiktok.com/@nest_protocol'} isExternal>
+          <Link href={'https://www.tiktok.com/@nest_protocol'} isExternal opacity={0.6} _hover={{ opacity: 1 }}>
             <chakra.img src={'/image/Footer/Tiktok.svg'}/>
           </Link>
         </HStack>
