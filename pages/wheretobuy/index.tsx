@@ -28,9 +28,8 @@ const Wheretobuy = () => {
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'64px'} align={"center"} pt={'140px'}>
         <Stack spacing={'16px'} pb={'40px'} align={"center"}>
           <Heading fontSize={'48px'} lineHeight={'60px'} fontWeight={'700'}>Where to buy $NEST</Heading>
-          <Text fontSize={'16px'} lineHeight={'22px'} px={'40px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>You
-            can buy $NEST
-            from exchanges or wallets directly.
+          <Text fontSize={'16px'} textAlign={"center"} lineHeight={'22px'} px={'40px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>You
+            can buy $NEST from exchanges or wallets directly.<br/>
             You can also manage your assets across multiple chains.</Text>
         </Stack>
         <Stack p={'40px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} borderRadius={'12px'} spacing={'16px'}>

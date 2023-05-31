@@ -146,7 +146,7 @@ export default function Home() {
               Martingale Network</Heading>
             <Text textAlign={"center"} fontWeight={'600'} fontSize={'16px'} lineHeight={'22px'}
                   color={'rgba(3, 3, 8, 0.6)'}>Trading with smart contract. No market
-              makers. No LPs</Text>
+              makers. No LPs.</Text>
             <HStack pt={'8px'} justify={"center"}>
               <Link href={'https://finance.nestprotocol.org/'} isExternal>
                 <Button>
@@ -412,7 +412,7 @@ export default function Home() {
       <NavigationMobile/>
       <Stack textAlign={"center"} p={'72px 20px 20px 20px'} spacing={'16px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>NEST PROTOCOL<br/>A Decentralized Martingale Network</Text>
-        <Text fontSize={'12.5px'} fontWeight={'600'}>Trading with smart contract. No market makers. No LPs</Text>
+        <Text fontSize={'12.5px'} fontWeight={'600'}>Trading with smart contract. No market makers. No LPs.</Text>
       </Stack>
       <HStack align={"center"} justify={"center"} p={'4px'}>
         <Link href={'https://finance.nestprotocol.org/'} isExternal>
