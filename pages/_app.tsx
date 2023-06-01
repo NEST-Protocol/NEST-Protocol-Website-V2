@@ -24,7 +24,7 @@ export default function App({Component, pageProps}: AppProps) {
                 `}
       </Script>
       <Center>
-        <Stack maxW={"1920px"} w={'100%'} spacing={0}>
+        <Stack w={'100%'} spacing={0}>
           <Component {...pageProps} />
         </Stack>
       </Center>

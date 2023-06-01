@@ -6,7 +6,7 @@ import {
   Button,
   chakra,
   Box,
-  Link, Divider, useMediaQuery
+  Link, useMediaQuery
 } from "@chakra-ui/react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
@@ -224,41 +224,43 @@ export default function Home() {
             }
           </Stack>
         </Stack>
-        <Stack py={'120px'} spacing={0}>
-          <Heading fontSize={'50px'} textAlign={"center"}>Development path</Heading>
-          <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'bold'} textAlign={"center"}
-                color={'rgba(3, 3, 8, 0.6)'}>The NEST community always insists on
-            decentralization and innovation</Text>
-          <HStack px={'40px'} pt={'80px'} align={"center"} overflow={'scroll'}>
-            <Button isDisabled={start === 0} px={'0'} borderRadius={'full'} onClick={() => {
-              if (start > 0) {
-                setStart(start - 4)
-              }
-            }}>
-              <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'} transform={'rotate(180deg)'}/>
-            </Button>
-            <Stack w={'full'} spacing={'-36px'} align={"center"}>
-              <Stack h={'44px'} w={'full'} justify={"center"} px={'15px'}>
-                <Box h={'1px'} w={'full'} bg={'rgba(28, 28, 35, 0.08)'}/>
+        <Stack align={"center"}>
+          <Stack py={'120px'} spacing={0} w={'full'} maxW={'1920px'}>
+            <Heading fontSize={'50px'} textAlign={"center"}>Development path</Heading>
+            <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'bold'} textAlign={"center"}
+                  color={'rgba(3, 3, 8, 0.6)'}>The NEST community always insists on
+              decentralization and innovation</Text>
+            <HStack px={'40px'} pt={'80px'} align={"center"} overflow={'scroll'}>
+              <Button isDisabled={start === 0} px={'0'} borderRadius={'full'} onClick={() => {
+                if (start > 0) {
+                  setStart(start - 4)
+                }
+              }}>
+                <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'} transform={'rotate(180deg)'}/>
+              </Button>
+              <Stack w={'full'} spacing={'-36px'} align={"center"}>
+                <Stack h={'44px'} w={'full'} justify={"center"} px={'15px'}>
+                  <Box h={'1px'} w={'full'} bg={'rgba(28, 28, 35, 0.08)'}/>
+                </Stack>
+                <HStack px={'45px'} justify={"space-around"} w={'full'} align={"start"}>
+                  {developmentPath.slice(start, start + 5).map((item, index) => (
+                    <Stack key={index} align={"center"} w={'200px'} h={'180px'}>
+                      <chakra.img src={'/image/Home/01-icon-03.png'} h={'24px'} w={'36px'} alt={''} mb={'22px'}/>
+                      <Text fontSize={'17px'} fontWeight={'bold'}>{item.title}</Text>
+                      <Text fontSize={'15px'} fontWeight={'600'} textAlign={"center"}>{item.desc}</Text>
+                    </Stack>
+                  ))}
+                </HStack>
               </Stack>
-              <HStack px={'45px'} justify={"space-around"} w={'full'} align={"start"}>
-                {developmentPath.slice(start, start + 5).map((item, index) => (
-                  <Stack key={index} align={"center"} w={'200px'} h={'180px'}>
-                    <chakra.img src={'/image/Home/01-icon-03.png'} h={'24px'} w={'36px'} alt={''} mb={'22px'}/>
-                    <Text fontSize={'17px'} fontWeight={'bold'}>{item.title}</Text>
-                    <Text fontSize={'15px'} fontWeight={'600'} textAlign={"center"}>{item.desc}</Text>
-                  </Stack>
-                ))}
-              </HStack>
-            </Stack>
-            <Button px={'0'} isDisabled={start >= developmentPath.length - 4} borderRadius={'full'} onClick={() => {
-              if (start < developmentPath.length - 4) {
-                setStart(start + 4)
-              }
-            }}>
-              <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'}/>
-            </Button>
-          </HStack>
+              <Button px={'0'} isDisabled={start >= developmentPath.length - 4} borderRadius={'full'} onClick={() => {
+                if (start < developmentPath.length - 4) {
+                  setStart(start + 4)
+                }
+              }}>
+                <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'}/>
+              </Button>
+            </HStack>
+          </Stack>
         </Stack>
         <Stack py={'40px'} spacing={0} bg={'rgba(255, 255, 255, 0.8)'} align={"center"}>
           <Stack direction={"row"} justify={'space-between'} maxW={'1600px'} w={'full'}>
