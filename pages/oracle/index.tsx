@@ -284,7 +284,7 @@ const Page = () => {
                   <Stack h={'40px'}>
                     <chakra.img src={item.img} h={'full'} objectFit={'contain'}/>
                   </Stack>
-                  <Stack px={'30px'} h={'120px'}>
+                  <Stack px={['10px', '10px', '30px']} h={'120px'}>
                     <Text fontSize={'18px'} fontWeight={'bold'}>{item.title}</Text>
                     <Text fontSize={'13px'} fontWeight={'600'}>{item.desc}</Text>
                   </Stack>

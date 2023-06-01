@@ -269,9 +269,8 @@ export default function Home() {
               }}>
                 <chakra.img src={'/svg/right_icon.svg'} transform={'rotate(180deg)'}/>
               </Button>
-              <Stack w={'full'} spacing={'0'} align={"center"} position={'relative'} zIndex={1}>
-                <Stack h={'1px'} w={'full'} justify={"center"} position={'absolute'} top={'12px'}
-                       bg={'rgba(28, 28, 35, 0.08)'}></Stack>
+              <Stack w={'full'} spacing={'-12px'} align={"center"} zIndex={1}>
+                <Box h={'1px'} w={'full'} bg={'rgba(28, 28, 35, 0.08)'}></Box>
                 <HStack px={'45px'} justify={"space-around"} w={'full'} align={"start"}>
                   {developmentPath.slice(start, start + page).map((item, index) => (
                     <Stack key={index} align={"center"} w={'200px'} h={'180px'}>
@@ -482,7 +481,7 @@ export default function Home() {
         <Text fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={"center"}>Get Started</Text>
         <Text fontSize={'14px'} fontWeight={'700'} lineHeight={'20px'} px={'20px'} textAlign={'center'}
               color={'rgba(3, 3, 8, 0.6)'}>NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply traders with unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
-        <Stack w={'full'} px={'40px'}>
+        <Stack w={'full'} px={'20px'}>
           <Stack borderRadius={'12px'} overflow={'hidden'}>
             <Player
               src={'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4'}
@@ -521,15 +520,17 @@ export default function Home() {
         <HStack w={'full'} p={'40px'} justify={"start"} spacing={0}>
           <Stack spacing={'0'}>
             {developmentPath.map((item, index) => (
-                <HStack key={item.title} textAlign={"start"} align={'start'} spacing={'16px'} position={'relative'}>
-                  <chakra.div w={'1px'} h={'100%'} bg={'rgba(28, 28, 35, 0.08)'} position={'absolute'} left={'30px'}
-                              opacity={index === developmentPath.length - 1 ? 0 : 1}/>
-                  <chakra.img src={'/image/Home/01-icon-03.png'} h={'20px'} w={'30px'} alt={''}/>
-                  <Stack w={'300px'} pb={'32px'}>
-                    <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'bold'}> {item.title}</Text>
-                    <Text fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'}
-                          color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
-                  </Stack>
+                <HStack key={index} position={'relative'} spacing={'-15px'}>
+                  <Box w={'1px'} h={'100%'} bg={'rgba(28, 28, 35, 0.08)'} position={'absolute'}
+                       opacity={index === developmentPath.length - 1 ? 0 : 1}/>
+                  <HStack textAlign={"start"} spacing={'16px'} align={'start'} >
+                    <chakra.img src={'/image/Home/01-icon-03.png'} h={'20px'} w={'30px'} alt={''}/>
+                    <Stack w={'300px'} pb={'32px'}>
+                      <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'bold'}> {item.title}</Text>
+                      <Text fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'}
+                            color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
+                    </Stack>
+                  </HStack>
                 </HStack>
               )
             )}

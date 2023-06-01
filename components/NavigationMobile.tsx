@@ -7,10 +7,9 @@ import {
   ModalCloseButton,
   ModalContent,
   Spacer, useDisclosure,
-  VStack, Text, Stack,
+  VStack, Text, Stack, Link,
 } from "@chakra-ui/react";
 import {HamburgerIcon} from "@chakra-ui/icons";
-import Link from "next/link";
 import {useState} from "react";
 import {useRouter} from "next/router";
 
