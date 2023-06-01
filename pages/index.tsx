@@ -6,7 +6,7 @@ import {
   Button,
   chakra,
   Box,
-  Link, useMediaQuery
+  Link, useMediaQuery, Divider
 } from "@chakra-ui/react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
@@ -269,8 +269,8 @@ export default function Home() {
               }}>
                 <chakra.img src={'/svg/right_icon.svg'} transform={'rotate(180deg)'}/>
               </Button>
-              <Stack w={'full'} spacing={'-12px'} align={"center"} zIndex={1}>
-                <Box h={'1px'} w={'full'} bg={'rgba(28, 28, 35, 0.08)'}></Box>
+              <Stack w={'full'} align={"center"} position={'relative'} spacing={0}>
+                <Box h={'1px'} w={'full'} bg={'rgba(28, 28, 35, 0.08)'} position={'absolute'} top={'12px'}/>
                 <HStack px={'45px'} justify={"space-around"} w={'full'} align={"start"}>
                   {developmentPath.slice(start, start + page).map((item, index) => (
                     <Stack key={index} align={"center"} w={'200px'} h={'180px'}>
