@@ -520,8 +520,8 @@ export default function Home() {
         <HStack w={'full'} p={'40px'} justify={"start"} spacing={0}>
           <Stack spacing={'0'}>
             {developmentPath.map((item, index) => (
-                <HStack key={index} position={'relative'} spacing={'-15px'}>
-                  <Box w={'1px'} h={'100%'} bg={'rgba(28, 28, 35, 0.08)'} position={'absolute'}
+                <HStack key={index} position={'relative'} spacing={0}>
+                  <Box w={'1px'} h={'100%'} bg={'rgba(28, 28, 35, 0.08)'} position={'absolute'} left={'15px'}
                        opacity={index === developmentPath.length - 1 ? 0 : 1}/>
                   <HStack textAlign={"start"} spacing={'16px'} align={'start'} >
                     <chakra.img src={'/image/Home/01-icon-03.png'} h={'20px'} w={'30px'} alt={''}/>
