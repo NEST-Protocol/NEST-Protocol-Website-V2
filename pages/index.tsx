@@ -230,19 +230,16 @@ export default function Home() {
                 color={'rgba(3, 3, 8, 0.6)'}>The NEST community always insists on
             decentralization and innovation</Text>
           <HStack px={'40px'} pt={'80px'} align={"center"} overflow={'scroll'}>
-            <Button value={'ghost'} px={'0'} borderRadius={'full'} onClick={() => {
+            <Button isDisabled={start === 0} px={'0'} borderRadius={'full'} onClick={() => {
               if (start > 0) {
                 setStart(start - 4)
               }
             }}>
-              <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'} transform={'rotate(180deg)'}
-                          opacity={start === 0 ? 0.5 : 1}
-              />
+              <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'} transform={'rotate(180deg)'}/>
             </Button>
-
             <Stack w={'full'} spacing={'-36px'} align={"center"}>
               <Stack h={'44px'} w={'full'} justify={"center"} px={'15px'}>
-                <Divider h={'1px'} color={'#C9C9C9'}/>
+                <Box h={'1px'} w={'full'} bg={'rgba(28, 28, 35, 0.08)'}/>
               </Stack>
               <HStack px={'45px'} justify={"space-around"} w={'full'} align={"start"}>
                 {developmentPath.slice(start, start + 5).map((item, index) => (
@@ -254,14 +251,12 @@ export default function Home() {
                 ))}
               </HStack>
             </Stack>
-            <Button value={'ghost'} px={'0'} borderRadius={'full'} onClick={() => {
+            <Button px={'0'} isDisabled={start >= developmentPath.length - 4} borderRadius={'full'} onClick={() => {
               if (start < developmentPath.length - 4) {
                 setStart(start + 4)
               }
             }}>
-              <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'}
-                          opacity={start + 4 > developmentPath.length ? 0.5 : 1}
-              />
+              <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'}/>
             </Button>
           </HStack>
         </Stack>
@@ -486,13 +481,14 @@ export default function Home() {
         <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'bold'}>The NEST community always insists<br/>on
           decentralization and
           innovation</Text>
-        <HStack w={'full'} px={'20px'} py={'40px'} justify={"center"} spacing={'-16px'}>
-          <chakra.div w={'1px'} h={'680px'} bg={'#C9C9C9'}/>
-          <Stack spacing={'32px'}>
-            {developmentPath.map((item) => (
-                <HStack key={item.title} textAlign={"start"} align={'start'} spacing={'16px'}>
+        <HStack w={'full'} px={'20px'} py={'40px'} justify={"center"} spacing={0}>
+          <Stack spacing={'0'}>
+            {developmentPath.map((item, index) => (
+                <HStack key={item.title} textAlign={"start"} align={'start'} spacing={'16px'} position={'relative'}>
+                  <chakra.div w={'1px'} h={'100%'} bg={'rgba(28, 28, 35, 0.08)'} position={'absolute'} left={'30px'}
+                              opacity={index === developmentPath.length - 1 ? 0 : 1}/>
                   <chakra.img src={'/image/Home/01-icon-03.png'} h={'20px'} w={'30px'} alt={''}/>
-                  <Stack w={'300px'}>
+                  <Stack w={'300px'} pb={'32px'}>
                     <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'bold'}> {item.title}</Text>
                     <Text fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'}
                           color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
