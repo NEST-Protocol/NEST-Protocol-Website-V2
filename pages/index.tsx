@@ -179,7 +179,7 @@ export default function Home() {
         <Stack pt={'40px'} spacing={0} bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'}
                align={"center"} borderTopRadius={'40px'}>
           <Stack direction={'row'} spacing={['20px', '20px', '20px', '80px']} maxW={'1600px'}>
-            <Stack w={'100%'} justify={"center"} px={['20px', '20px', '20px', '40px']} bg={'red'}>
+            <Stack w={'100%'} justify={"center"} px={['20px', '20px', '20px', '40px']}>
               <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>Get started</Text>
               <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>As the
                 The NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply
