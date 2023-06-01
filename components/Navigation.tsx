@@ -67,12 +67,12 @@ export default function Navigation() {
             </Link>
             <Link href={'/craft/'}>
               <chakra.a _hover={{color: '#EAAA00'}} cursor={"pointer"}
-                        color={router.pathname === '/craft' ? '#EAAA00' : '#030308'}>NESTCraft
+                        color={router.pathname === '/craft' ? '#EAAA00' : '#030308'}>NEST Craft
               </chakra.a>
             </Link>
             <Link href={'/oracle/'}>
               <chakra.a _hover={{color: '#EAAA00'}} cursor={"pointer"}
-                        color={router.pathname === '/oracle' ? '#EAAA00' : '#030308'}>NESTOracle
+                        color={router.pathname === '/oracle' ? '#EAAA00' : '#030308'}>NEST Oracle
               </chakra.a>
             </Link>
             <Link href={'https://nft.nestprotocol.org/'} target={'_blank'}>

@@ -12,7 +12,7 @@ export const Button = {
       fontSize: '15px',
       color: '#EAAA00',
       _hover: {
-        bg: '#F7C728'
+        color: '#F7C728'
       },
       _active: {
         bg: '#FFDC52'
@@ -20,20 +20,22 @@ export const Button = {
     },
     outline: {
       border: '1px solid',
-      borderColor: '#EAAA00',
-      color: "#EAAA00",
+      borderColor: 'rgba(234, 170, 0, 0.4)',
+      color: "rgba(234, 170, 0, 0.4)",
       borderRadius: '12px',
       fontSize: '16px',
       lineHeight: '22px',
       fontWeight: '700',
       px: '24px',
       _hover: {
-        bg: '#EAAA00',
+        bg: 'rgba(247, 199, 40, 1)',
         color: "#030308",
         border: 'none',
       },
       _active: {
-        bg: '#FFDC52'
+        bg: '#FFDC52',
+        color: "#030308",
+        border: 'none',
       }
     },
     solid: {

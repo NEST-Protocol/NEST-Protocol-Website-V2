@@ -40,7 +40,7 @@ export default function NavigationMobile() {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        blockScrollOnMount={false}
+        blockScrollOnMount={true}
         returnFocusOnClose={false}
         size={'full'}
       >
@@ -71,12 +71,12 @@ export default function NavigationMobile() {
                 <Link href={'/craft'}>
                   <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
                         color={router.pathname === '/craft' ? '#EAAA00' : '#030308'}
-                        opacity={showAbout || showBlog ? 0.6 : 1}>NESTCraft</Text>
+                        opacity={showAbout || showBlog ? 0.6 : 1}>NEST Craft</Text>
                 </Link>
                 <Link href={'/oracle/'}>
                   <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
                         color={router.pathname === '/oracle' ? '#EAAA00' : '#030308'}
-                        opacity={showAbout || showBlog ? 0.6 : 1}>NESTOracle</Text>
+                        opacity={showAbout || showBlog ? 0.6 : 1}>NEST Oracle</Text>
                 </Link>
                 <Link href={'https://nft.nestprotocol.org/'} target={'_blank'} >
                   <HStack fontSize={'16px'} lineHeight={'22px'} opacity={showAbout || showBlog ? 0.6 : 1} fontWeight={'700'}>

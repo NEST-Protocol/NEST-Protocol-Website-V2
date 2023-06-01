@@ -62,12 +62,9 @@ const Wheretobuy = () => {
               <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'}>Centralized and Decentralized
                 Exchanges</Text>
               <Stack spacing={0} h={'120px'}>
-                <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>CEXs
-                  are
-                  businesses that let you buy crypto using traditional currencies. They have custody over any
-                  $NEST you buy until you send it to a wallet you control. If you want more control, buy $NEST
-                  peer-to-peer.
-                  With a DEX, you can trade without giving control of your funds to a centralized company.</Text>
+                <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>
+                  CEXs let you buy crypto using fiat. They hold $NEST you buy until you send it to a wallet you control. Or your can buy $NEST peer-to-peer on DEXs to lets you keep your funds in your hands.
+                </Text>
                 <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
                       style={{opacity: 0}}
                       color={'rgba(234, 170, 0, 1)'}>Learn
@@ -110,11 +107,9 @@ const Wheretobuy = () => {
             <Stack bg={'white'} py={'40px'} h={'full'} px={'24px'} borderRadius={'12px'} spacing={0}>
               <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'}>Supporting Multiple Chains</Text>
               <Stack spacing={0} h={'120px'}>
-                <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>Users
-                  can
-                  achieve blockchain interoperability through different bridges, transferring assets from one chain to
-                  another without intermediaries. You can manage your $NEST assets on ERC-20 and BEP-20 through the
-                  cross-chain bridge Poly Network and MapProtocol.</Text>
+                <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>
+                  Bridges let users transfer assets between blockchains without intermediaries. Poly Network and Map Protocol enable cross-chain management of $NEST assets on different chains.
+                </Text>
                 <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
                       href={'/blogs/how-to-manage-your-nest-on-different-chain'}
                       color={'rgba(234, 170, 0, 1)'}>Learn
@@ -194,11 +189,9 @@ const Wheretobuy = () => {
               Decentralized
               Exchanges</Text>
             <Text pt={'12px'} fontSize={'14px'} textAlign={"center"} lineHeight={'20px'} fontWeight={'700'}
-                  color={'rgba(3, 3, 8, 0.6)'}>CEXs
-              are
-              businesses that let you buy crypto using traditional currencies. They have custody over any
-              $NEST you buy until you send it to a wallet you control. If you want more control, buy $NEST peer-to-peer.
-              With a DEX, you can trade without giving control of your funds to a centralized company.</Text>
+                  color={'rgba(3, 3, 8, 0.6)'}>
+              CEXs let you buy crypto using fiat. They hold $NEST you buy until you send it to a wallet you control. Or your can buy $NEST peer-to-peer on DEXs to lets you keep your funds in your hands.
+            </Text>
             <HStack justify={"center"} pt={'32px'} spacing={'10px'}>
               {
                 [
@@ -246,10 +239,9 @@ const Wheretobuy = () => {
             <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'} textAlign={"center"}>Supporting Multiple
               Chains</Text>
             <Text pt={'12px'} fontSize={'14px'} lineHeight={'20px'} textAlign={"center"} fontWeight={'700'}
-                  color={'rgba(3, 3, 8, 0.6)'}>Users can
-              achieve blockchain interoperability through different bridges, transferring assets from one chain to
-              another without intermediaries. You can manage your $NEST assets on ERC-20 and BEP-20 through the
-              cross-chain bridge Poly Network and MapProtocol.</Text>
+                  color={'rgba(3, 3, 8, 0.6)'}>
+              Bridges let users transfer assets between blockchains without intermediaries. Poly Network and Map Protocol enable cross-chain management of $NEST assets on different chains.
+            </Text>
             <Link pt={'12px'} fontSize={'14px'} lineHeight={'20px'} textAlign={"center"} fontWeight={'700'}
                   href={'/blogs/how-to-manage-your-nest-on-different-chain'}
                   color={'rgba(234, 170, 0, 1)'}>Learn more {">"}

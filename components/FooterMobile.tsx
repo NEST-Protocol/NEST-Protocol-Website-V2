@@ -11,11 +11,11 @@ export default function FooterMobile() {
               link: 'https://finance.nestprotocol.org/',
             },
             {
-              title: 'NESTCraft',
+              title: 'NEST Craft',
               link: '/craft',
             },
             {
-              title: 'NESTOracle',
+              title: 'NEST Oracle',
               link: '/oracle',
             },
             {
