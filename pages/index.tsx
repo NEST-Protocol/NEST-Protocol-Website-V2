@@ -467,10 +467,10 @@ export default function Home() {
         <HStack spacing={'12px'} w={'full'} overflow={'scroll'} justify={'start'} px={'20px'}>
           {
             superiority.map((item, index) => (
-              <Stack key={index} minW={'320px'} bg={'white'} px={'20px'} pb={'40px'} borderRadius={'12px'}>
+              <Stack key={index} minW={'320px'} w={'320px'} bg={'white'} px={'20px'} pb={'40px'} borderRadius={'12px'}>
                 <chakra.img src={item.mobileIcon} width={'full'}/>
                 <Text textAlign={'center'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}>{item.title}</Text>
-                <Text pt={'12px'} fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'}
+                <Text pt={'12px'} fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'} minH={'112px'}
                       color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
               </Stack>
             ))
