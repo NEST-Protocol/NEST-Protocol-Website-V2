@@ -14,6 +14,13 @@ const overrides = {
     Heading,
     Text,
     Link
+  },
+  breakpoints: {
+    sm: '0', // 0px
+    md: '48em', // 768px
+    lg: '62em', // 992px
+    xl: '1200px', // 1200px
+    '2xl': '1600px', // 1600px
   }
 }
 

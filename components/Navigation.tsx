@@ -36,7 +36,7 @@ export default function Navigation() {
   return (
     <Stack align={"center"} position={'sticky'} top={0} zIndex={'banner'} bg={isScrolled ? 'white' : 'transparent'} >
       <Stack px={['20px', '20px', '20px', '45px']} minH={'72px'} h={'72px'} direction={"row"}
-             justifyContent={"space-between"} w={'full'} maxW={'1920px'}
+             justifyContent={"space-between"} w={'full'}
              align={"center"} >
         <Stack direction={'row'} spacing={['20px', '20px', '20px', '50px']}>
           <Link href={'/'}>

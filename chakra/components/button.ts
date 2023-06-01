@@ -28,7 +28,9 @@ export const Button = {
       fontWeight: '700',
       px: '24px',
       _hover: {
-        bg: '#F7C728'
+        bg: '#EAAA00',
+        color: "#030308",
+        border: 'none',
       },
       _active: {
         bg: '#FFDC52'

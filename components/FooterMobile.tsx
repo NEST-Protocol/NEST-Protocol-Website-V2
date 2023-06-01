@@ -2,46 +2,46 @@ import {chakra, HStack, Link, Stack, Text} from "@chakra-ui/react";
 
 export default function FooterMobile() {
   return (
-    <Stack p={'20px'} bg={'rgba(255, 255,255, 0.7)'} align={"center"}>
+    <Stack py={'20px'} bg={'rgba(255, 255,255, 0.7)'} align={"center"}>
+      <Stack spacing={'8px'} w={'full'} px={'36px'}>
+        {
+          [
+            {
+              title: 'NESTFi',
+              link: 'https://finance.nestprotocol.org/',
+            },
+            {
+              title: 'NESTCraft',
+              link: '/craft',
+            },
+            {
+              title: 'NESTOracle',
+              link: '/oracle',
+            },
+            {
+              title: 'Cyber Ink',
+              link: 'https://nft.nestprotocol.org/',
+            },
+            {
+              title: 'Doc',
+              link: '/docs',
+            },
+            {
+              title: 'Blog',
+              link: '/blogs',
+            },
+            {
+              title: 'About',
+              link: '/about/team',
+            },
+          ].map((item, index) => (
+            <Link key={index} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} textAlign={"start"}>
+              {item.title}
+            </Link>
+          ))
+        }
+      </Stack>
       <Stack spacing={'24px'}>
-        <Stack spacing={'8px'}>
-          {
-            [
-              {
-                title: 'NESTFi',
-                link: 'https://finance.nestprotocol.org/',
-              },
-              {
-                title: 'NESTCraft',
-                link: '/craft',
-              },
-              {
-                title: 'NESTOracle',
-                link: '/oracle',
-              },
-              {
-                title: 'Cyber Ink',
-                link: 'https://nft.nestprotocol.org/',
-              },
-              {
-                title: 'Doc',
-                link: '/docs',
-              },
-              {
-                title: 'Blog',
-                link: '/blogs',
-              },
-              {
-                title: 'About',
-                link: '/about/team',
-              },
-            ].map((item, index) => (
-              <Link key={index} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} textAlign={"start"}>
-                {item.title}
-              </Link>
-            ))
-          }
-        </Stack>
         <HStack spacing={'20px'} align={"center"} justifyContent={"center"} >
           <Link href={'https://github.com/NEST-Protocol'} isExternal opacity={0.6} _hover={{ opacity: 1 }}>
             <chakra.img src={'/image/Footer/github.svg'} h={'40px'} w={'40px'}

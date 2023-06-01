@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import {useEffect, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 import {install} from 'ga-gtag'
 import Head from "next/head";
 import NavigationMobile from "../components/NavigationMobile";
@@ -18,8 +18,13 @@ import FooterMobile from "../components/FooterMobile";
 import {Player, BigPlayButton} from 'video-react';
 
 export default function Home() {
-  const [start, setStart] = useState(0)
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [start, setStart] = useState(0);
+  const [isMobile] = useMediaQuery("(max-width: 992px)");
+  const [isMax] = useMediaQuery("(min-width: 1600px)");
+
+  const page = useMemo(() => {
+    return isMax ? 5 : 3
+  }, [isMax])
 
   const developmentPath = [
     {title: `2018.12 v1.0`, desc: `Start! A lending\nprotocol goes live.`},
@@ -45,15 +50,15 @@ export default function Home() {
     },
     {
       image: `/image/Home/function2.png`,
-      title: `NEST FI`,
-      desc: `NEST Fi is a decentralized perpetual exchange. Trading requires neither market makers nor LPs, and smart contracts are the biggest seller in the system. Any transaction based on martingale information flow that traders require can be fulfilled.`,
+      title: `NESTFi`,
+      desc: `NESTFi is a decentralized perpetual exchange. Trading requires neither market makers nor LPs, and smart contracts are the biggest seller in the system. Any transaction based on martingale information flow that traders require can be fulfilled.`,
       button: `Start Trading`,
       link: `https://finance.nestprotocol.org/`,
     },
     {
       image: `/image/Home/function3.png`,
       title: `Cyber Ink`,
-      desc: `NEST Cyber Ink is a collection of 10,000 NFTs on the blockchain. Each Cyber Ink can unlock the NEST Fi membership and additional benefits. Members can get Cyber Ink on the official web, Element, OpenSea and other secondary NFT markets.`,
+      desc: `NEST Cyber Ink is a collection of 10,000 NFTs on the blockchain. Each Cyber Ink can unlock the NESTFi membership and additional benefits. Members can get Cyber Ink on the official web, Element, OpenSea and other secondary NFT markets.`,
       button: `More on NTFs`,
       link: `https://nft.nestprotocol.org/`,
     },
@@ -74,7 +79,7 @@ export default function Home() {
   ]
   const superiority = [
     {
-      title: 'More Advanced Derivatives Trading Structures',
+      title: 'Advanced Derivatives Trading Structures',
       desc: `The system eliminates market markers and LPs via smart contracts and risk sharing to provide traders with practically infinite liquidity.`,
       icon: `/image/Home/home-3.svg`,
       mobileIcon: '/image/Home/home-3.svg'
@@ -139,8 +144,8 @@ export default function Home() {
     <Stack bgSize={'cover'} bgImage={"image/Home/Home_bg.jpg"} bgPosition={"center"}>
       {SEO}
       <Navigation/>
-      <Stack w={'100%'} h={'100%'} spacing={0} pb={'120px'}>
-        <Stack pt={'260px'} pb={'200px'}>
+      <Stack w={'100%'} h={'100%'} spacing={0} pb={'120px'} align={"center"}>
+        <Stack pt={'260px'} pb={'200px'} w={'full'} maxW={'1600px'}>
           <Stack spacing={'16px'}>
             <Heading fontSize={'48px'} lineHeight={'60px'} textAlign={"center"}>NEST PROTOCOL<br/>A Decentralized
               Martingale Network</Heading>
@@ -156,24 +161,26 @@ export default function Home() {
             </HStack>
           </Stack>
         </Stack>
-        <Stack pb={'120px'} spacing={'40px'}>
-          <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'} textAlign={"center"}>The superiority of NEST
-            Protocol</Text>
-          <Stack direction={'row'} justifyContent={['start', 'start', 'start', 'start', 'start', 'center']}
-                 spacing={'24px'} w={'full'} overflow={'scroll'} px={'20px'}>
-            {
-              superiority.map((item, index) => (
-                <Stack minW={'517.33px'} width={'517.33px'} bg={'white'} borderRadius={'12px'} key={index}>
-                  <chakra.img src={item.icon} height={'160px'} alt={''}/>
-                  <Stack px={'24px'} pb={'40px'} spacing={'12px'}>
-                    <Text textAlign={"center"} fontWeight={'700'} fontSize={'20px'}
-                          lineHeight={'28px'}>{item.title}</Text>
-                    <Text fontWeight={'700'} fontSize={'16px'} lineHeight={'22px'}
-                          color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
+        <Stack px={'40px'} align={"center"}>
+          <Stack pb={'120px'} spacing={'40px'} maxW={'1600px'} w={'full'}>
+            <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'} textAlign={"center"}>The superiority of NEST
+              Protocol</Text>
+            <Stack direction={'row'} justifyContent={['start', 'start', 'start', 'center', 'center', 'center']}
+                   spacing={'24px'} w={'full'} overflow={'scroll'}>
+              {
+                superiority.map((item, index) => (
+                  <Stack w={'full'} bg={'white'} borderRadius={'12px'} key={index}>
+                    <chakra.img src={item.icon} height={'160px'} alt={''}/>
+                    <Stack px={'24px'} pb={'40px'} spacing={'12px'}>
+                      <Text textAlign={"center"} fontWeight={'700'} fontSize={'20px'}
+                            lineHeight={'28px'}>{item.title}</Text>
+                      <Text fontWeight={'700'} fontSize={'16px'} lineHeight={'22px'}
+                            color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
+                    </Stack>
                   </Stack>
-                </Stack>
-              ))
-            }
+                ))
+              }
+            </Stack>
           </Stack>
         </Stack>
         <Stack pt={'40px'} spacing={0} bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'}
@@ -181,12 +188,12 @@ export default function Home() {
           <Stack direction={'row'} spacing={['20px', '20px', '20px', '80px']} maxW={'1600px'}>
             <Stack w={'100%'} justify={"center"} px={['20px', '20px', '20px', '40px']}>
               <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>Get started</Text>
-              <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>As the
-                The NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply
+              <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>NEST
+                Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply
                 traders with unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
             </Stack>
-            <Stack align={'center'} px={'20px'} w={'100%'}>
-              <Stack w={['400px', '400px', '400px', '517.33px']} h={'full'} borderRadius={'12px'} overflow={'hidden'}
+            <Stack align={'center'} pr={'40px'} w={'100%'}>
+              <Stack w={['400px', '400px', '400px', '100%']} h={'full'} borderRadius={'12px'} overflow={'hidden'}
                      spacing={0}>
                 <Player
                   src={'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4'}
@@ -198,52 +205,77 @@ export default function Home() {
             </Stack>
           </Stack>
         </Stack>
-        <Stack pt={'120px'} spacing={0} align={"center"}>
+        <Stack pt={'120px'} px={'40px'} spacing={0} align={"center"}>
           <Stack spacing={'80px'} maxW={'1600px'}>
             {
               products.map((item, index) => (
                 <Stack direction={'row'} p={'40px'} bg={'white'} justify={'space-between'} align={"center"}
-                       flexDirection={index % 2 ? "row-reverse" : "row"} borderRadius={'12px'} key={index}>
-                  <Stack maxW={'45%'}>
-                    <chakra.img src={item.image} w={'full'}/>
-                  </Stack>
-                  <Stack spacing={'16px'} maxW={'45%'} justify={"center"}>
-                    <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>{item.title}</Text>
-                    <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
-                          color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
-                    <HStack pt={'8px'}>
-                      <Link href={item.link} isExternal>
-                        <Button
-                          fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
-                        >{item.button}</Button>
-                      </Link>
-                    </HStack>
-                  </Stack>
+                       spacing={'80px'}
+                       borderRadius={'12px'} key={index}>
+                  {
+                    index % 2 === 0 ? (
+                      <>
+                        <Stack w={'50%'}>
+                          <chakra.img src={item.image} w={'full'}/>
+                        </Stack>
+                        <Stack spacing={'16px'} w={'50%'} justify={"center"}>
+                          <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>{item.title}</Text>
+                          <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
+                                color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
+                          <HStack pt={'8px'}>
+                            <Link href={item.link} isExternal>
+                              <Button
+                                fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
+                              >{item.button}</Button>
+                            </Link>
+                          </HStack>
+                        </Stack>
+                      </>
+                    ) : (
+                      <>
+                        <Stack spacing={'16px'} w={'50%'} justify={"center"}>
+                          <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>{item.title}</Text>
+                          <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
+                                color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
+                          <HStack pt={'8px'}>
+                            <Link href={item.link} isExternal>
+                              <Button
+                                fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
+                              >{item.button}</Button>
+                            </Link>
+                          </HStack>
+                        </Stack>
+                        <Stack w={'50%'}>
+                          <chakra.img src={item.image} w={'full'}/>
+                        </Stack>
+                      </>
+                    )
+                  }
                 </Stack>
               ))
             }
           </Stack>
         </Stack>
-        <Stack align={"center"}>
-          <Stack py={'120px'} spacing={0} w={'full'} maxW={'1920px'}>
+        <Stack align={"center"} w={'full'} px={'40px'}>
+          <Stack py={'120px'} spacing={0} w={'full'} maxW={'1600px'}>
             <Heading fontSize={'50px'} textAlign={"center"}>Development path</Heading>
             <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'bold'} textAlign={"center"}
                   color={'rgba(3, 3, 8, 0.6)'}>The NEST community always insists on
               decentralization and innovation</Text>
-            <HStack px={'40px'} pt={'80px'} align={"center"} overflow={'scroll'}>
-              <Button isDisabled={start === 0} px={'0'} borderRadius={'full'} onClick={() => {
+            <HStack pt={'80px'} align={"center"} position={'relative'} spacing={0} w={'full'}>
+              <Button isDisabled={start === 0} px={'0'} position={'absolute'} left={0} zIndex={10}
+                      borderRadius={'full'} onClick={() => {
                 if (start > 0) {
-                  setStart(start - 4)
+                  setStart(start - page + 1)
                 }
               }}>
                 <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'} transform={'rotate(180deg)'}/>
               </Button>
-              <Stack w={'full'} spacing={'-36px'} align={"center"}>
-                <Stack h={'44px'} w={'full'} justify={"center"} px={'15px'}>
-                  <Box h={'1px'} w={'full'} bg={'rgba(28, 28, 35, 0.08)'}/>
-                </Stack>
+              <Stack w={'full'} spacing={'0'} align={"center"} position={'relative'} zIndex={1}>
+                <Stack h={'1px'} w={'full'} justify={"center"} position={'absolute'} top={'12px'}
+                       bg={'rgba(28, 28, 35, 0.08)'}></Stack>
                 <HStack px={'45px'} justify={"space-around"} w={'full'} align={"start"}>
-                  {developmentPath.slice(start, start + 5).map((item, index) => (
+                  {developmentPath.slice(start, start + page).map((item, index) => (
                     <Stack key={index} align={"center"} w={'200px'} h={'180px'}>
                       <chakra.img src={'/image/Home/01-icon-03.png'} h={'24px'} w={'36px'} alt={''} mb={'22px'}/>
                       <Text fontSize={'17px'} fontWeight={'bold'}>{item.title}</Text>
@@ -252,9 +284,11 @@ export default function Home() {
                   ))}
                 </HStack>
               </Stack>
-              <Button px={'0'} isDisabled={start >= developmentPath.length - 4} borderRadius={'full'} onClick={() => {
-                if (start < developmentPath.length - 4) {
-                  setStart(start + 4)
+              <Button px={'0'} isDisabled={start >= developmentPath.length - 4} position={'absolute'} right={0}
+                      zIndex={10}
+                      borderRadius={'full'} onClick={() => {
+                if (start < developmentPath.length - page + 1) {
+                  setStart(start + page - 1)
                 }
               }}>
                 <chakra.img src={'/svg/right_icon.svg'} w={'44px'} h={'44px'}/>
@@ -262,8 +296,8 @@ export default function Home() {
             </HStack>
           </Stack>
         </Stack>
-        <Stack py={'40px'} spacing={0} bg={'rgba(255, 255, 255, 0.8)'} align={"center"}>
-          <Stack direction={"row"} justify={'space-between'} maxW={'1600px'} w={'full'}>
+        <Stack spacing={0} bg={'rgba(255, 255, 255, 0.8)'} align={"center"} w={'full'} px={'40px'}>
+          <Stack py={'40px'} direction={"row"} justify={'space-between'} maxW={'1600px'} w={'full'} align={"center"}>
             <Text fontSize={'28px'} lineHeight={'40px'} fontWeight={'700'}>Over <span
               style={{color: 'rgba(234, 170, 0, 1)'}}>1 MILLION</span> community members, Join us</Text>
             <Stack direction={'row'} spacing={'40px'}>
@@ -285,21 +319,26 @@ export default function Home() {
             </Stack>
           </Stack>
         </Stack>
-        <Stack py={'120px'} align={"center"} spacing={'48px'}>
-          <Heading fontSize={'50px'} textAlign={"center"}>Blogs</Heading>
-          <HStack spacing={'0'} overflow={'scroll'} w={'full'}
-                  justifyContent={['start', 'start', 'start', 'start', 'start', 'center']} px={'40px'}>
-            {
-              blogs.map((item, index) => (
-                <Stack minW={'517.33px'} w={'517.33px'} cursor={"pointer"} key={index} onClick={() => {
-                  window.open('/blogs/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST', '_blank')
-                }} p={'12px'}
-                >
-                  <Stack _hover={{
-                    transform: 'scale(1.02)',
-                    boxShadow: '0px 2px 12px rgba(16, 18, 19, 0.15)',
-                    '& .title': {color: 'rgba(234, 170, 0, 1)'}
-                  }} bg={"white"} borderRadius={'12px'} spacing={0}>
+        <Stack align={"center"} w={'full'} px={'40px'}>
+          <Stack py={'120px'} align={"center"} spacing={'48px'} maxW={'1600px'} w={'full'}>
+            <Heading fontSize={'50px'} textAlign={"center"}>Blogs</Heading>
+            <HStack spacing={'24px'} overflow={'scroll'} w={'full'} position={'relative'}
+                    justifyContent={['start', 'start', 'start', 'start', 'center', 'center']}>
+              {
+                blogs.map((item, index) => (
+                  <Stack
+                    w={'full'} cursor={"pointer"} key={index}
+                    _after={{position: 'absolute'}}
+                    _hover={{
+                      transform: 'scale(1.02)',
+                      boxShadow: '0px 2px 12px rgba(16, 18, 19, 0.15)',
+                      '& .title': {color: 'rgba(234, 170, 0, 1)'},
+                    }}
+                    bg={"white"} spacing={0} borderRadius={'12px'} overflow={'hidden'}
+                    onClick={() => {
+                      window.open('/blogs/Coinbase-Announces-Planned-Listing-of-Tokens-Adds-NEST', '_blank')
+                    }}
+                  >
                     <chakra.img src={item.image} w={'full'} alt={''}/>
                     <Stack spacing={'12px'} p={'20px'} h={'210px'}>
                       <Text fontSize={'18px'} fontWeight={'bold'} className={'title'}>{item.title}</Text>
@@ -307,98 +346,100 @@ export default function Home() {
                       <Text fontSize={'13px'} fontWeight={500} color={'#878787'}>{item.date}</Text>
                     </Stack>
                   </Stack>
-                </Stack>
-              ))
-            }
-          </HStack>
-          <Box pt={'20px'}>
-            <Link href={'/blogs/'} isExternal>
-              <Button variant={'outline'}>
-                More
-              </Button>
-            </Link>
-          </Box>
+                ))
+              }
+            </HStack>
+            <Box pt={'20px'}>
+              <Link href={'/blogs/'} isExternal>
+                <Button variant={'outline'}>
+                  More
+                </Button>
+              </Link>
+            </Box>
+          </Stack>
         </Stack>
-        <Stack spacing={'80px'}>
-          <Heading fontSize={'50px'} textAlign={"center"}>Integrations & Partners</Heading>
-          <Stack align={"center"} spacing={'40px'} justify={"center"}>
-            {
-              [
+        <Stack w={'full'} align={"center"} px={'40px'}>
+          <Stack spacing={'80px'} w={'full'} maxW={'1600px'}>
+            <Heading fontSize={'50px'} textAlign={"center"}>Integrations & Partners</Heading>
+            <Stack align={"center"} spacing={'40px'} justify={"center"}>
+              {
                 [
-                  {
-                    link: 'https://www.huobi.com/en-us/exchange/nest_usdt',
-                    image: '/svg/huobi.svg',
-                  },
-                  {
-                    link: 'https://www.binance.com/',
-                    image: '/svg/binance.svg',
-                  },
-                  {
-                    link: 'https://www.coinbase.com/price/nest-protocol',
-                    image: '/svg/Coinbase.svg',
-                  },
-                  {
-                    link: 'https://polygon.technology/',
-                    image: '/svg/polygon.svg',
-                  }
-                ],
-                [
-                  {
-                    link: 'https://kcc.io/',
-                    image: '/svg/kcc.svg',
-                  },
-                  {
-                    link: 'https://cointelegraph.com/',
-                    image: '/svg/cointelegraph.svg',
-                  },
-                  {
-                    link: 'https://cube.network/',
-                    image: '/svg/cube.svg',
-                  },
-                  {
-                    link: 'https://peckshield.com/',
-                    image: '/svg/peckshield.svg',
-                  },
-                  {
-                    link: 'https://for.tube/',
-                    image: '/svg/fortube.svg',
-                  }
-                ],
-                [
-                  {
-                    link: 'https://polygon.technology/',
-                    image: '/svg/polynetwork.svg',
-                  },
-                  {
-                    link: 'https://cofix.tech/',
-                    image: '/svg/CoFiX.svg',
-                  },
-                  {
-                    link: 'https://www.parasset.top/',
-                    image: '/svg/Parasset.svg',
-                  },
-                  {
-                    link: 'https://www.certik.com/',
-                    image: '/svg/certik.svg',
-                  }
-                ],
-              ].map((item, index) => (
-                <HStack spacing={'40px'} key={index}>
-                  {
-                    item.map((item, index) => (
-                      <Stack h={'72px'} borderRadius={'full'} py={'12px'} px={'20px'} bg={'white'}
-                             _hover={{bg: 'rgba(234, 170, 0, 1)'}}
-                             justifyContent={"center"} key={index} alignItems={"center"}>
-                        <Link href={item.link} isExternal>
-                          <chakra.img src={item.image} h={'45px'} alt={item.link}/>
-                        </Link>
-                      </Stack>
-                    ))
-                  }
-                </HStack>
-              ))
-            }
-            <Text fontSize={'20px'} fontWeight={'700'} lineHeight={'28px'}>Listed on more than 15 exchanges</Text>
+                  [
+                    {
+                      link: 'https://www.huobi.com/en-us/exchange/nest_usdt',
+                      image: '/svg/huobi.svg',
+                    },
+                    {
+                      link: 'https://www.binance.com/',
+                      image: '/svg/binance.svg',
+                    },
+                    {
+                      link: 'https://www.coinbase.com/price/nest-protocol',
+                      image: '/svg/Coinbase.svg',
+                    },
+                    {
+                      link: 'https://polygon.technology/',
+                      image: '/svg/polygon.svg',
+                    }
+                  ],
+                  [
+                    {
+                      link: 'https://kcc.io/',
+                      image: '/svg/kcc.svg',
+                    },
+                    {
+                      link: 'https://cointelegraph.com/',
+                      image: '/svg/cointelegraph.svg',
+                    },
+                    {
+                      link: 'https://cube.network/',
+                      image: '/svg/cube.svg',
+                    },
+                    {
+                      link: 'https://peckshield.com/',
+                      image: '/svg/peckshield.svg',
+                    },
+                    {
+                      link: 'https://for.tube/',
+                      image: '/svg/fortube.svg',
+                    }
+                  ],
+                  [
+                    {
+                      link: 'https://polygon.technology/',
+                      image: '/svg/polynetwork.svg',
+                    },
+                    {
+                      link: 'https://cofix.tech/',
+                      image: '/svg/CoFiX.svg',
+                    },
+                    {
+                      link: 'https://www.parasset.top/',
+                      image: '/svg/Parasset.svg',
+                    },
+                    {
+                      link: 'https://www.certik.com/',
+                      image: '/svg/certik.svg',
+                    }
+                  ],
+                ].map((item, index) => (
+                  <HStack spacing={'40px'} key={index}>
+                    {
+                      item.map((item, index) => (
+                        <Stack h={'72px'} borderRadius={'full'} py={'12px'} px={'20px'} bg={'white'}
+                               _hover={{bg: 'rgba(234, 170, 0, 1)'}}
+                               justifyContent={"center"} key={index} alignItems={"center"}>
+                          <Link href={item.link} isExternal>
+                            <chakra.img src={item.image} h={'45px'} alt={item.link}/>
+                          </Link>
+                        </Stack>
+                      ))
+                    }
+                  </HStack>
+                ))
+              }
+              <Text fontSize={'20px'} fontWeight={'700'} lineHeight={'28px'}>Listed on more than 15 exchanges</Text>
+            </Stack>
           </Stack>
         </Stack>
       </Stack>
@@ -447,7 +488,7 @@ export default function Home() {
           blockchain and provides traders with unlimited liquidity through risk sharing. It can be used, including
           decentralized contract exchanges, financial derivatives supermarkets, on-chain and off-chain risk hedging
           etc.</Text>
-        <Stack w={'full'} px={'20px'}>
+        <Stack w={'full'} px={'40px'}>
           <Stack borderRadius={'12px'} overflow={'hidden'}>
             <Player
               src={'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4'}
@@ -483,7 +524,7 @@ export default function Home() {
         <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'bold'}>The NEST community always insists<br/>on
           decentralization and
           innovation</Text>
-        <HStack w={'full'} px={'20px'} py={'40px'} justify={"center"} spacing={0}>
+        <HStack w={'full'} p={'40px'} justify={"start"} spacing={0}>
           <Stack spacing={'0'}>
             {developmentPath.map((item, index) => (
                 <HStack key={item.title} textAlign={"start"} align={'start'} spacing={'16px'} position={'relative'}>
