@@ -86,13 +86,13 @@ export default function Home() {
     },
     {
       title: 'More Stable Price Oracle',
-      desc: `NEST Oracle offers a stable decentralized price stream. Price attacks require 51% of network assets. It's free and open to price offers and verifiers.`,
+      desc: `NEST Oracle offers a stable decentralized price stream. Price attacks require 51% of network assets. Open for price offers and verifiers.`,
       icon: `/image/Home/home-1.svg`,
       mobileIcon: '/image/Home/home-1.svg'
     },
     {
       title: 'Deflationary Economic Model',
-      desc: `Users burn $NEST to buy financial assets, including futures, options, synthetic assets, etc. The $NEST price rises because the $NEST burned ex`,
+      desc: `Users burn $NEST to buy financial assets, including futures, options etc. The $NEST price rises because the $NEST burned exceeds the $NEST generated.`,
       icon: `/image/Home/home-2.svg`,
       mobileIcon: '/image/Home/home-2.svg'
     },
