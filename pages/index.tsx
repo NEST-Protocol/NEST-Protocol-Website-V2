@@ -27,16 +27,16 @@ export default function Home() {
   }, [isMax])
 
   const developmentPath = [
-    {title: `2018.12 v1.0`, desc: `Start! A lending\nprotocol goes live.`},
-    {title: '2019.12 v2.0', desc: `NEST Oracle V1.0\ngoes live.`},
+    {title: `2018.12 v1.0`, desc: `Start! A lending protocol goes live.`},
+    {title: '2019.12 v2.0', desc: `NEST Oracle V1.0 goes live.`},
     {
       title: '2020.07 v3.0',
-      desc: `NEST Oracle upgraded.\nOpen all oracle tracks\nand supported all\nERC20 Token/ETH price`
+      desc: `NEST Oracle upgraded.\nOpen all oracle tracks and supported all ERC20 Token/ETH price`
     },
     {title: '2021.04 v3.6', desc: `Voting governance\nmodule was added`},
-    {title: '2021.11 v4.1', desc: `NEST Oracle upgraded.\nAllows anyone\nto build their oracle\nfor their project.`},
-    {title: '2021.12 v4.3', desc: `NEST Oracle upgraded.\nAllows each channel for\nmultiple quotation pairs.`},
-    {title: '2022.07 v5.0', desc: `Merge FORT protocol\nNEST protocol= NEST Oracle\n+ NESTFi +PVM`},
+    {title: '2021.11 v4.1', desc: `NEST Oracle upgraded.\nAllows anyone to build their oracle for their project.`},
+    {title: '2021.12 v4.3', desc: `NEST Oracle upgraded.\nAllows each channel for multiple quotation pairs.`},
+    {title: '2022.07 v5.0', desc: `Merge FORT protocol\nNEST protocol= NEST Oracle + NESTFi +PVM`},
     {title: '2023.02.10', desc: `NEST protocol upgraded.\nNEST launched the decentralized martingale network`}
   ]
 
@@ -524,10 +524,11 @@ export default function Home() {
                        opacity={index === developmentPath.length - 1 ? 0 : 1}/>
                   <HStack textAlign={"start"} spacing={'16px'} align={'start'} >
                     <chakra.img src={'/image/Home/01-icon-03.png'} h={'20px'} w={'30px'} alt={''}/>
-                    <Stack w={'300px'} pb={'32px'}>
-                      <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'bold'}> {item.title}</Text>
-                      <Text fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'}
-                            color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
+                    <Stack pb={'32px'}>
+                      <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'bold'}>{item.title}</Text>
+                      <Text fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}
+                            whiteSpace={'pre-wrap'}
+                      >{item.desc}</Text>
                     </Stack>
                   </HStack>
                 </HStack>
