@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import '../styles/github.css'
-import '../styles/video-react.css'
 import 'focus-visible/dist/focus-visible'
+import "plyr-react/plyr.css"
 import type {AppProps} from 'next/app'
 import {Center, Stack, ChakraProvider} from "@chakra-ui/react";
 import theme from "../chakra"

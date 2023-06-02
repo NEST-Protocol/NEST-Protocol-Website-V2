@@ -6,7 +6,7 @@ import {
   Button,
   chakra,
   Box,
-  Link, useMediaQuery, Divider
+  Link, useMediaQuery,
 } from "@chakra-ui/react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
@@ -15,7 +15,7 @@ import {install} from 'ga-gtag'
 import Head from "next/head";
 import NavigationMobile from "../components/NavigationMobile";
 import FooterMobile from "../components/FooterMobile";
-import {Player, BigPlayButton} from 'video-react';
+import Plyr from "plyr-react"
 
 export default function Home() {
   const [start, setStart] = useState(0);
@@ -154,7 +154,7 @@ export default function Home() {
               makers. No LPs.</Text>
             <HStack pt={'8px'} justify={"center"}>
               <Link href={'https://finance.nestprotocol.org/'} isExternal>
-                <Button>
+                <Button minH={'48px'}>
                   Explore NEST
                 </Button>
               </Link>
@@ -191,14 +191,22 @@ export default function Home() {
               <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply traders with unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
             </Stack>
             <Stack align={'center'} pr={'40px'} w={'100%'}>
-              <Stack w={['400px', '400px', '400px', '100%']} h={'full'} borderRadius={'12px'} overflow={'hidden'}
-                     spacing={0}>
-                <Player
-                  src={'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4'}
-                  poster="/image/Home/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.png"
-                >
-                  <BigPlayButton position="center"/>
-                </Player>
+              <Stack w={['400px', '400px', '400px', '100%']} h={'full'} borderRadius={'12px'} overflow={'hidden'}>
+                <Plyr source={{
+                  type: 'video',
+                  title: 'The First Decentralized Martingale Trading Protocol',
+                  sources: [
+                    {
+                      src: 'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4',
+                      type: 'video/mp4',
+                      size: 720,
+                    },
+                  ],
+                  poster: '/image/Home/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.png',
+                }} options={{
+                  controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'],
+                }}>
+                </Plyr>
               </Stack>
             </Stack>
           </Stack>
@@ -222,7 +230,7 @@ export default function Home() {
                                 color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
                           <HStack pt={'8px'}>
                             <Link href={item.link} isExternal>
-                              <Button
+                              <Button minH={'48px'}
                                 fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
                               >{item.button}</Button>
                             </Link>
@@ -237,7 +245,7 @@ export default function Home() {
                                 color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
                           <HStack pt={'8px'}>
                             <Link href={item.link} isExternal>
-                              <Button
+                              <Button minH={'48px'}
                                 fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
                               >{item.button}</Button>
                             </Link>
@@ -347,7 +355,7 @@ export default function Home() {
             </HStack>
             <Box pt={'20px'}>
               <Link href={'/blogs/'} isExternal>
-                <Button variant={'outline'}>
+                <Button variant={'outline'} minH={'48px'}>
                   More
                 </Button>
               </Link>
@@ -482,12 +490,21 @@ export default function Home() {
               color={'rgba(3, 3, 8, 0.6)'}>NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply traders with unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
         <Stack w={'full'} px={'20px'}>
           <Stack borderRadius={'12px'} overflow={'hidden'}>
-            <Player
-              src={'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4'}
-              poster="/image/Home/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.png"
-            >
-              <BigPlayButton position="center"/>
-            </Player>
+            <Plyr source={{
+              type: 'video',
+              title: 'The First Decentralized Martingale Trading Protocol',
+              sources: [
+                {
+                  src: 'https://video.nestprotocol.org/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.mp4',
+                  type: 'video/mp4',
+                  size: 720,
+                },
+              ],
+              poster: '/image/Home/What_is_NEST_Protocol__NEST_Protocol_Explained_Next_Stage_of_The_Trading_Evolution.png',
+            }} options={{
+              controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'],
+            }}>
+            </Plyr>
           </Stack>
         </Stack>
       </Stack>

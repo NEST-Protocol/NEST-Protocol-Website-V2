@@ -17,7 +17,7 @@ import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
 import {ChevronRightIcon} from "@chakra-ui/icons";
 import Head from "next/head";
-import {BigPlayButton, Player} from "video-react";
+import Plyr from "plyr-react";
 
 const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
@@ -142,11 +142,19 @@ const Page = () => {
       <Stack bg={"white"} align={"center"} textAlign={"center"} pt={'90px'} pb={'60px'} spacing={'44px'}>
         <Heading fontSize={'50px'}>What is NEST Oracle?</Heading>
         <Stack w={'960px'} h={'full'} position={"relative"} borderRadius={'12px'} overflow={"hidden"}>
-          <Player src={'https://video.nestprotocol.org/What_is_NEST_Oracle_.mp4'}
-                  // poster="/image/Home/What_is_NEST_Oracle_.png"
-          >
-            <BigPlayButton position="center"/>
-          </Player>
+          <Plyr source={{
+            type: 'video',
+            sources: [
+              {
+                src: 'https://video.nestprotocol.org/What_is_NEST_Oracle_.mp4',
+                type: 'video/mp4',
+                size: 720,
+              },
+            ],
+          }} options={{
+            controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'],
+          }}>
+          </Plyr>
         </Stack>
       </Stack>
 
@@ -264,11 +272,19 @@ const Page = () => {
         <Heading fontSize={'25px'}>What is <br/>
           NEST Oracle?</Heading>
         <Stack w={'full'} h={'full'} borderRadius={'12px'} overflow={"hidden"}>
-          <Player src={'https://video.nestprotocol.org/What_is_NEST_Oracle_.mp4'}
-            // poster="/image/Home/What_is_NEST_Oracle_.png"
-          >
-            <BigPlayButton position="center"/>
-          </Player>
+          <Plyr source={{
+            type: 'video',
+            sources: [
+              {
+                src: 'https://video.nestprotocol.org/What_is_NEST_Oracle_.mp4',
+                type: 'video/mp4',
+                size: 720,
+              },
+            ],
+          }} options={{
+            controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'],
+          }}>
+          </Plyr>
         </Stack>
       </Stack>
       <Stack align={"center"} textAlign={"center"} px={'24px'} py={'62px'} spacing={'40px'}>

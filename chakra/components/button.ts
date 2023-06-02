@@ -2,8 +2,6 @@ export const Button = {
   baseStyle: {
     fontWeight: 'medium',
     fontSize: 'md',
-    height: '48px',
-    maxH: '48px',
     fontFamily: 'Open Sans',
   },
   variants: {
@@ -55,7 +53,7 @@ export const Button = {
     }
   },
   defaultProps: {
-    size: 'md',
+    // size: 'md',
     variant: 'solid'
   }
 }
