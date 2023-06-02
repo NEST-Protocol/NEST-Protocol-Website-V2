@@ -29,7 +29,7 @@ export default function NavigationMobile() {
         />
       </Link>
       <Spacer/>
-      <Button maxH={'36px'} px={'12px'} fontSize={'12px'} lineHeight={'16px'}>
+      <Button maxH={'36px'} px={'12px'} fontSize={'12px'} lineHeight={'16px'} borderRadius={'8px'}>
         Launch App
       </Button>
       <Box onClick={onOpen}>
