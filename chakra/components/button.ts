@@ -20,15 +20,15 @@ export const Button = {
     },
     outline: {
       border: '1px solid',
-      borderColor: 'rgba(234, 170, 0, 0.4)',
-      color: "rgba(234, 170, 0, 0.4)",
+      borderColor: '#EAAA00',
+      color: "#EAAA00",
       borderRadius: '12px',
       fontSize: '16px',
       lineHeight: '22px',
       fontWeight: '700',
       px: '24px',
       _hover: {
-        bg: 'rgba(247, 199, 40, 1)',
+        bg: '#EAAA00',
         color: "#030308",
         border: 'none',
       },

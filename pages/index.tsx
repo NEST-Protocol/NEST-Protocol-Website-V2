@@ -316,16 +316,15 @@ export default function Home() {
             </Stack>
           </Stack>
         </Stack>
-        <Stack align={"center"} w={'full'} px={'40px'}>
+        <Stack align={"center"} w={'full'} px={'28px'}>
           <Stack py={'120px'} align={"center"} spacing={'48px'} maxW={'1600px'} w={'full'}>
             <Heading fontSize={'50px'} textAlign={"center"}>Blogs</Heading>
-            <HStack spacing={'24px'} overflow={'scroll'} w={'full'} position={'relative'}
+            <HStack spacing={'24px'} overflow={'scroll'} w={'full'} position={'relative'} p={'12px'}
                     justifyContent={['start', 'start', 'start', 'start', 'center', 'center']}>
               {
                 blogs.map((item, index) => (
                   <Stack
                     w={'full'} cursor={"pointer"} key={index}
-                    _after={{position: 'absolute'}}
                     _hover={{
                       transform: 'scale(1.02)',
                       boxShadow: '0px 2px 12px rgba(16, 18, 19, 0.15)',
@@ -445,14 +444,14 @@ export default function Home() {
   )
 
   const mobilePage = (
-    <Stack h={'100%'} bgImage={'/image/Home/01-Phone-bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
+    <Stack h={'100%'} spacing={0} bgImage={'/image/Home/01-Phone-bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       {SEO}
       <NavigationMobile/>
       <Stack textAlign={"center"} p={'72px 20px 20px 20px'} spacing={'16px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>NEST PROTOCOL<br/>A Decentralized Martingale Network</Text>
         <Text fontSize={'12.5px'} fontWeight={'600'}>Trading with smart contract. No market makers. No LPs.</Text>
       </Stack>
-      <HStack align={"center"} justify={"center"} p={'4px'}>
+      <HStack align={"center"} justify={"center"} pt={'4px'}>
         <Link href={'https://finance.nestprotocol.org/'} isExternal>
           <Button minH={'48px'}>
             Explore NEST

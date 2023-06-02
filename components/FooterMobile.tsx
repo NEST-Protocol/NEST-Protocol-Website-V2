@@ -1,45 +1,49 @@
-import {chakra, HStack, Link, Stack, Text} from "@chakra-ui/react";
+import {chakra, HStack, Link, Stack, Text, useMediaQuery} from "@chakra-ui/react";
 
 export default function FooterMobile() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   return (
-    <Stack py={'20px'} bg={'rgba(255, 255,255, 0.7)'} align={"center"}>
-      <Stack spacing={'8px'} w={'full'} px={'36px'}>
-        {
-          [
-            {
-              title: 'NESTFi',
-              link: 'https://finance.nestprotocol.org/',
-            },
-            {
-              title: 'NEST Craft',
-              link: '/craft',
-            },
-            {
-              title: 'NEST Oracle',
-              link: '/oracle',
-            },
-            {
-              title: 'Cyber Ink',
-              link: 'https://nft.nestprotocol.org/',
-            },
-            {
-              title: 'Doc',
-              link: '/docs',
-            },
-            {
-              title: 'Blog',
-              link: '/blogs',
-            },
-            {
-              title: 'About',
-              link: '/about/team',
-            },
-          ].map((item, index) => (
-            <Link key={index} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} textAlign={"start"}>
-              {item.title}
-            </Link>
-          ))
-        }
+    <Stack py={'20px'} spacing={'20px'} bg={'rgba(255, 255,255, 0.7)'} align={"center"}>
+      <Stack w={'full'} px={'20px'} align={"center"}>
+        <Stack spacing={'8px'} w={'full'} maxW={isMobile ? '340px' : 'full'}>
+          {
+            [
+              {
+                title: 'NESTFi',
+                link: 'https://finance.nestprotocol.org/',
+              },
+              {
+                title: 'NEST Craft',
+                link: '/craft',
+              },
+              {
+                title: 'NEST Oracle',
+                link: '/oracle',
+              },
+              {
+                title: 'Cyber Ink',
+                link: 'https://nft.nestprotocol.org/',
+              },
+              {
+                title: 'Doc',
+                link: '/docs',
+              },
+              {
+                title: 'Blog',
+                link: '/blogs',
+              },
+              {
+                title: 'About',
+                link: '/about/team',
+              },
+            ].map((item, index) => (
+              <Link key={index} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} textAlign={"start"}>
+                {item.title}
+              </Link>
+            ))
+          }
+        </Stack>
       </Stack>
       <Stack spacing={'24px'}>
         <HStack spacing={'20px'} align={"center"} justifyContent={"center"} >

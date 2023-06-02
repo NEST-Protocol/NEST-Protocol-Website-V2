@@ -61,14 +61,10 @@ const Wheretobuy = () => {
             <Stack bg={'white'} py={'40px'} h={'full'} px={'24px'} spacing={0} borderRadius={'12px'}>
               <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'}>Centralized and Decentralized
                 Exchanges</Text>
-              <Stack spacing={0} h={'120px'}>
+              <Stack spacing={0} h={'90px'}>
                 <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>
                   CEXs let you buy crypto using fiat. They hold $NEST you buy until you send it to a wallet you control. Or your can buy $NEST peer-to-peer on DEXs to lets you keep your funds in your hands.
                 </Text>
-                <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
-                      style={{opacity: 0}}
-                      color={'rgba(234, 170, 0, 1)'}>Learn
-                  more {">"}</Link>
               </Stack>
               <Stack direction={'row'} gap={'12px'} pt={'40px'}>
                 {
@@ -106,7 +102,7 @@ const Wheretobuy = () => {
           <WrapItem w={'788px'} h={'full'}>
             <Stack bg={'white'} py={'40px'} h={'full'} px={'24px'} borderRadius={'12px'} spacing={0}>
               <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'}>Supporting Multiple Chains</Text>
-              <Stack spacing={0} h={'120px'}>
+              <Stack spacing={0} h={'90px'}>
                 <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>
                   Bridges let users transfer assets between blockchains without intermediaries. Poly Network and Map Protocol enable cross-chain management of $NEST assets on different chains.
                 </Text>
@@ -146,7 +142,7 @@ const Wheretobuy = () => {
     <Stack h={'100%'} bgImage={'/image/NEST_Fi/02-Phone-bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       <NavigationMobile/>
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'80px'} align={"center"} pt={'90px'}>
-        <Stack spacing={'16px'} pb={'40px'} align={"center"}>
+        <Stack spacing={'16px'} pb={'40px'} align={"center"} px={'20px'}>
           <Heading fontSize={'24px'} lineHeight={'32px'} textAlign={"center"} fontWeight={'700'}>Where to buy
             $NEST</Heading>
           <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}
