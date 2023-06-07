@@ -225,6 +225,10 @@ const Wheretobuy = () => {
                   {
                     icon: '/image/Wheretobuy/gate.svg',
                     link: 'https://www.gate.io/trade/NEST_USDT',
+                  },
+                  {
+                    icon: '/image/Wheretobuy/pancake.svg',
+                    link: 'https://pancakeswap.finance/swap?inputCurrency=0x98f8669F6481EbB341B522fCD3663f79A3d1A6A7',
                   }
                 ].map((item, index) => (
                   <Link href={item.link} isExternal key={index}
