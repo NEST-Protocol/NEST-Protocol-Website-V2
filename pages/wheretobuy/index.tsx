@@ -8,7 +8,7 @@ import {
   Wrap,
   WrapItem,
   HStack,
-  Popover, PopoverTrigger, PopoverContent, PopoverArrow, PopoverCloseButton, PopoverHeader, PopoverBody
+  Popover, PopoverTrigger, PopoverContent,
 } from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";

@@ -424,7 +424,11 @@ export default function Home() {
                     {
                       link: 'https://www.certik.com/',
                       image: '/svg/certik.svg',
-                    }
+                    },
+                    {
+                      link: 'https://www.dragonfly.xyz/',
+                      image: '/svg/dragonfly.svg'
+                    },
                   ],
                 ].map((item, index) => (
                   <HStack spacing={'40px'} key={index}>
@@ -672,6 +676,11 @@ export default function Home() {
             <Stack p={'8px 12px'} bg={'white'} borderRadius={'full'}>
               <Link href={'https://www.certik.com/'} isExternal>
                 <chakra.img src={"/svg/certik.svg"} h={'25px'} alt={'certik'}/>
+              </Link>
+            </Stack>
+            <Stack p={'8px 12px'} bg={'white'} borderRadius={'full'}>
+              <Link href={'https://www.dragonfly.xyz/'} isExternal>
+                <chakra.img src={"/svg/dragonfly.svg"} h={'25px'} alt={'dragonfly'}/>
               </Link>
             </Stack>
           </HStack>
