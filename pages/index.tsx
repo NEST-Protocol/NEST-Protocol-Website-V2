@@ -149,7 +149,7 @@ export default function Home() {
           <Stack spacing={'16px'}>
             <Heading fontSize={'48px'} lineHeight={'60px'} textAlign={"center"}>NEST PROTOCOL<br/>A Decentralized
               Martingale Network</Heading>
-            <Text textAlign={"center"} fontWeight={'600'} fontSize={'16px'} lineHeight={'22px'}
+            <Text textAlign={"center"} fontWeight={'400'} fontSize={'16px'} lineHeight={'22px'}
                   color={'rgba(3, 3, 8, 0.6)'}>Trading with smart contract. No market
               makers. No LPs.</Text>
             <HStack pt={'8px'} justify={"center"}>
@@ -174,7 +174,7 @@ export default function Home() {
                     <Stack px={'24px'} pb={'40px'} spacing={'12px'}>
                       <Text textAlign={"center"} fontWeight={'700'} fontSize={'20px'}
                             lineHeight={'28px'}>{item.title}</Text>
-                      <Text fontWeight={'700'} fontSize={'16px'} lineHeight={'22px'}
+                      <Text fontWeight={'400'} fontSize={'16px'} lineHeight={'22px'}
                             color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
                     </Stack>
                   </Stack>
@@ -188,7 +188,7 @@ export default function Home() {
           <Stack direction={'row'} spacing={['20px', '20px', '20px', '80px']} maxW={'1600px'}>
             <Stack w={'100%'} justify={"center"} px={['20px', '20px', '20px', '40px']}>
               <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>Get Started</Text>
-              <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply traders with unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
+              <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply traders with unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
             </Stack>
             <Stack align={'center'} pr={'40px'} w={'100%'}>
               <Stack w={['400px', '400px', '400px', '100%']} h={'full'} borderRadius={'12px'} overflow={'hidden'}>
@@ -226,7 +226,7 @@ export default function Home() {
                         </Stack>
                         <Stack spacing={'16px'} w={'50%'} justify={"center"}>
                           <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>{item.title}</Text>
-                          <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
+                          <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'}
                                 color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
                           <HStack pt={'8px'}>
                             <Link href={item.link} isExternal>
@@ -346,8 +346,8 @@ export default function Home() {
                     <chakra.img src={item.image} w={'full'} alt={''}/>
                     <Stack spacing={'12px'} p={'20px'} h={'210px'}>
                       <Text fontSize={'18px'} fontWeight={'bold'} className={'title'}>{item.title}</Text>
-                      <Text fontSize={'13px'} fontWeight={'600'} color={'#878787'}>{item.desc}</Text>
-                      <Text fontSize={'13px'} fontWeight={500} color={'#878787'}>{item.date}</Text>
+                      <Text fontSize={'13px'} fontWeight={'400'} color={'#878787'}>{item.desc}</Text>
+                      <Text fontSize={'13px'} fontWeight={'400'} color={'#878787'}>{item.date}</Text>
                     </Stack>
                   </Stack>
                 ))
@@ -461,7 +461,7 @@ export default function Home() {
       <NavigationMobile/>
       <Stack textAlign={"center"} p={'72px 20px 20px 20px'} spacing={'16px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>NEST PROTOCOL<br/>A Decentralized Martingale Network</Text>
-        <Text fontSize={'12.5px'} fontWeight={'600'}>Trading with smart contract. No market makers. No LPs.</Text>
+        <Text fontSize={'12.5px'} fontWeight={'400'}>Trading with smart contract. No market makers. No LPs.</Text>
       </Stack>
       <HStack align={"center"} justify={"center"} pt={'4px'}>
         <Link href={'https://finance.nestprotocol.org/'} isExternal>
@@ -480,7 +480,7 @@ export default function Home() {
               <Stack key={index} minW={'320px'} w={'320px'} bg={'white'} px={'20px'} pb={'40px'} borderRadius={'12px'}>
                 <chakra.img src={item.mobileIcon} width={'full'}/>
                 <Text textAlign={'center'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}>{item.title}</Text>
-                <Text pt={'12px'} fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'} minH={'112px'}
+                <Text pt={'12px'} fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} minH={'112px'}
                       color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
               </Stack>
             ))
@@ -490,7 +490,7 @@ export default function Home() {
       <Stack pt={'20px'} spacing={'12px'} bg={'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)'}
              borderRadius={'40px'}>
         <Text fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={"center"}>Get Started</Text>
-        <Text fontSize={'14px'} fontWeight={'700'} lineHeight={'20px'} px={'20px'} textAlign={'center'}
+        <Text fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} px={'20px'} textAlign={'center'}
               color={'rgba(3, 3, 8, 0.6)'}>NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply traders with unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
         <Stack w={'full'} px={'20px'}>
           <Stack borderRadius={'12px'} overflow={'hidden'}>
@@ -519,7 +519,7 @@ export default function Home() {
                    overflow={'hidden'}>
               <chakra.img src={item.image} width={'full'}/>
               <Text fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'}>{item.title}</Text>
-              <Text textAlign={'center'} fontSize={'14px'} fontWeight={'700'} lineHeight={'20px'}
+              <Text textAlign={'center'} fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'}
                     color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
               <HStack align={"center"} justify={"center"}>
                 <Link href={item.link} isExternal>
@@ -534,7 +534,7 @@ export default function Home() {
       </Stack>
       <Stack textAlign={"center"} align={"center"} pt={'80px'} pb={'40px'}>
         <Text fontSize={'24px'} lineHeight={'32px'} fontWeight={'bold'}>Development path</Text>
-        <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'bold'}>The NEST community always insists<br/>on
+        <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'}>The NEST community always insists<br/>on
           decentralization and
           innovation</Text>
         <HStack w={'full'} p={'40px'} justify={"start"} spacing={0}>
@@ -587,9 +587,9 @@ export default function Home() {
                   window.open(item.link, '_blank')
                 }}>
                   <Text fontSize={'12.5px'} fontWeight={'bold'}>{item.title}</Text>
-                  <Text fontSize={'10.5px'} fontWeight={'600'} color={'#878787'}>{item.desc}
+                  <Text fontSize={'10.5px'} fontWeight={'400'} color={'#878787'}>{item.desc}
                   </Text>
-                  <Text fontSize={'10.5px'} fontWeight={'500'} color={'#878787'}>{item.date}</Text>
+                  <Text fontSize={'10.5px'} fontWeight={'400'} color={'#878787'}>{item.date}</Text>
                 </Stack>
               </Stack>
             ))

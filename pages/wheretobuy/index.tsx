@@ -28,7 +28,7 @@ const Wheretobuy = () => {
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'64px'} align={"center"} pt={'140px'}>
         <Stack spacing={'16px'} pb={'40px'} align={"center"}>
           <Heading fontSize={'48px'} lineHeight={'60px'} fontWeight={'700'}>Where to buy $NEST</Heading>
-          <Text fontSize={'16px'} textAlign={"center"} lineHeight={'22px'} px={'40px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>You
+          <Text fontSize={'16px'} textAlign={"center"} lineHeight={'22px'} px={'40px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>You
             can buy $NEST from exchanges or wallets directly.<br/>
             You can also manage your assets across multiple chains.</Text>
         </Stack>
@@ -62,7 +62,7 @@ const Wheretobuy = () => {
               <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'}>Centralized and Decentralized
                 Exchanges</Text>
               <Stack spacing={0} h={'90px'}>
-                <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>
+                <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>
                   CEXs let you buy crypto using fiat. They hold $NEST you buy until you send it to a wallet you control. Or your can buy $NEST peer-to-peer on DEXs to lets you keep your funds in your hands.
                 </Text>
               </Stack>
@@ -107,7 +107,7 @@ const Wheretobuy = () => {
             <Stack bg={'white'} py={'40px'} h={'full'} px={'24px'} borderRadius={'12px'} spacing={0}>
               <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'}>Supporting Multiple Chains</Text>
               <Stack spacing={0} h={'90px'}>
-                <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}>
+                <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>
                   Bridges let users transfer assets between blockchains without intermediaries. Poly Network and Map Protocol enable cross-chain management of $NEST assets on different chains.
                 </Text>
                 <Link pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
@@ -149,7 +149,7 @@ const Wheretobuy = () => {
         <Stack spacing={'16px'} pb={'40px'} align={"center"} px={'20px'}>
           <Heading fontSize={'24px'} lineHeight={'32px'} textAlign={"center"} fontWeight={'700'}>Where to buy
             $NEST</Heading>
-          <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'} color={'rgba(3, 3, 8, 0.6)'}
+          <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}
                 textAlign={"center"}>You can buy $NEST
             from exchanges or wallets directly.<br/>
             You can also manage your assets across multiple chains.</Text>
@@ -188,7 +188,7 @@ const Wheretobuy = () => {
             <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'} textAlign={"center"}>Centralized and
               Decentralized
               Exchanges</Text>
-            <Text pt={'12px'} fontSize={'14px'} textAlign={"center"} lineHeight={'20px'} fontWeight={'700'}
+            <Text pt={'12px'} fontSize={'14px'} textAlign={"center"} lineHeight={'20px'} fontWeight={'400'}
                   color={'rgba(3, 3, 8, 0.6)'}>
               CEXs let you buy crypto using fiat. They hold $NEST you buy until you send it to a wallet you control. Or your can buy $NEST peer-to-peer on DEXs to lets you keep your funds in your hands.
             </Text>
@@ -242,7 +242,7 @@ const Wheretobuy = () => {
           <Stack bg={'white'} w={'full'} py={'40px'} px={'24px'} borderRadius={'12px'} spacing={0}>
             <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'} textAlign={"center"}>Supporting Multiple
               Chains</Text>
-            <Text pt={'12px'} fontSize={'14px'} lineHeight={'20px'} textAlign={"center"} fontWeight={'700'}
+            <Text pt={'12px'} fontSize={'14px'} lineHeight={'20px'} textAlign={"center"} fontWeight={'400'}
                   color={'rgba(3, 3, 8, 0.6)'}>
               Bridges let users transfer assets between blockchains without intermediaries. Poly Network and Map Protocol enable cross-chain management of $NEST assets on different chains.
             </Text>
