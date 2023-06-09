@@ -241,7 +241,7 @@ export default function Home() {
                       <>
                         <Stack spacing={'16px'} w={'50%'} justify={"center"}>
                           <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>{item.title}</Text>
-                          <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
+                          <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'}
                                 color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
                           <HStack pt={'8px'}>
                             <Link href={item.link} isExternal>
@@ -265,7 +265,7 @@ export default function Home() {
         <Stack align={"center"} w={'full'} px={'40px'}>
           <Stack py={'120px'} spacing={0} w={'full'} maxW={'1600px'}>
             <Heading fontSize={'50px'} textAlign={"center"}>Development path</Heading>
-            <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'bold'} textAlign={"center"}
+            <Text pt={'12px'} fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'} textAlign={"center"}
                   color={'rgba(3, 3, 8, 0.6)'}>The NEST community always insists on
               decentralization and innovation</Text>
             <HStack pt={'80px'} align={"center"} position={'relative'} spacing={0} w={'full'}>
