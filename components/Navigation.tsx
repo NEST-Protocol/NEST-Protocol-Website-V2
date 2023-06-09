@@ -97,7 +97,9 @@ export default function Navigation() {
             </Link>
             <Popover trigger={'hover'}>
               <PopoverTrigger>
-                <Text cursor={'pointer'} _hover={{color: '#EAAA00'}}>Blog</Text>
+                <Text cursor={'pointer'} _hover={{color: '#EAAA00'}} color={
+                  (router.pathname === '/blogs' || router.pathname === '/about/roundtable') ? '#EAAA00' : '#030308'}
+                >Blog</Text>
               </PopoverTrigger>
               <PopoverContent px={'44px'} bg={"white"} py={'26px'} w={'240px'} borderRadius={'20px'} border={""}
                               opacity={0.8}>
@@ -116,7 +118,9 @@ export default function Navigation() {
             </Popover>
             <Popover trigger={'hover'}>
               <PopoverTrigger>
-                <Text cursor={'pointer'} _hover={{color: '#EAAA00'}}>About</Text>
+                <Text cursor={'pointer'} _hover={{color: '#EAAA00'}} color={
+                  (router.pathname === '/about/team' || router.pathname === '/about/partnership') ? '#EAAA00' : '#030308'}
+                >About</Text>
               </PopoverTrigger>
               <PopoverContent px={'44px'} bg={"white"} py={'26px'} w={'240px'} borderRadius={'20px'} border={""}
                               opacity={0.8}>

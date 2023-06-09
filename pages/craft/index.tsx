@@ -36,7 +36,7 @@ const Page = () => {
         <Heading fontSize={'50px'}>
           NESTCraft,<br/> the martingale function library
         </Heading>
-        <Text fontSize={'18px'} fontWeight={'bold'}>
+        <Text fontSize={'18px'} fontWeight={'400'}>
           NESTCraft, which is a combination of martingales functions<br/> similar to the Ethereum virtual machine,<br/> will greatly broaden the scope of NEST&apos;s application,<br/> transforming it into a chain infrastructure that will enable anyone<br/> to create more NEST-based applications.
         </Text>
         <HStack spacing={'48px'}>
@@ -65,7 +65,7 @@ const Page = () => {
         <Heading fontSize={'50px'}>
           NESTCraft<br/>Applications
         </Heading>
-        <Text fontSize={'25px'} fontWeight={'600'} maxW={'container.md'}>A given random information flow can be transformed by various functions to obtain a series of martingales, which can be used for the NEST martingale transactions. NESTcraft can continue to expand the basic function library accordingto the needs of the on chain world, thereby improving the application range of the NEST. This is a basic feature of the NEST’s greater scalability</Text>
+        <Text fontSize={'25px'} fontWeight={'400'} maxW={'container.md'}>A given random information flow can be transformed by various functions to obtain a series of martingales, which can be used for the NEST martingale transactions. NESTcraft can continue to expand the basic function library accordingto the needs of the on chain world, thereby improving the application range of the NEST. This is a basic feature of the NEST’s greater scalability</Text>
         <Wrap spacing={'44px'}>
           {
             array1.map((item, index) => (
@@ -99,16 +99,10 @@ const Page = () => {
       <NavigationMobile/>
       <Stack textAlign={"center"} align={"center"} pt={'100px'} pb={'150px'}>
         <Heading fontSize={'25px'}>
-          PVM,<br/>
-          Another Revolution<br/>
-          in Blockchain
+          NESTCraft,<br/> the martingale function library
         </Heading>
-        <Text fontSize={'12.5px'} fontWeight={'600'}>
-          NEST ecosystem is a paradigm revolution<br/>
-          to the traditional market mechanism,<br/>
-          providing the blockchain world with a<br/>
-          whole new range of development<br/>
-          tools and creative new assets.
+        <Text fontSize={'12.5px'} fontWeight={'400'}>
+          NESTCraft, which is a combination of martingales functions<br/> similar to the Ethereum virtual machine,<br/> will greatly broaden the scope of NEST&apos;s application,<br/> transforming it into a chain infrastructure that will enable anyone<br/> to create more NEST-based applications.
         </Text>
         <Stack spacing={'30px'} pt={'20px'}>
           <Button w={'170px'} as={Link} href={'/docs/Concept/NESTcraft'} minH={'44px'}>
@@ -135,24 +129,10 @@ const Page = () => {
       </Stack>
       <Stack textAlign={"center"} py={'62px'} spacing={'40px'}>
         <Heading fontSize={'25px'}>
-          Building your tokenomic<br/>
-          based on NEST
+          NESTCraft<br/>Applications
         </Heading>
-        <Text fontSize={'16.5px'} fontWeight={"bold"}>
-          Developers can build their<br/>
-          own tokenomic
-        </Text>
-        <Text fontSize={'15px'} fontWeight={'600'}>
-          Developers can simplify the building<br/>
-          of tokenomic systems into the<br/>
-          construction of stochastic assets,<br/>
-          developers only need to call the<br/>
-          fundamental functions provided by PVM,<br/>
-          create stochastic assets by programming<br/>
-          these functions, and trade and settle the<br/>
-          assets through the OMM mechanism.<br/>
-          NEST Oracle provides the random<br/>
-          information flow.
+        <Text fontSize={'15px'} fontWeight={'400'} px={'40px'}>
+          A given random information flow can be transformed by various functions to obtain a series of martingales, which can be used for the NEST martingale transactions. NESTcraft can continue to expand the basic function library accordingto the needs of the on chain world, thereby improving the application range of the NEST. This is a basic feature of the NEST’s greater scalability
         </Text>
       </Stack>
       <Stack px={'24px'} spacing={'24px'}>

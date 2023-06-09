@@ -79,7 +79,7 @@ const Page = () => {
 
         <Stack pt={'150px'} pb={'65px'}>
           <Text fontSize={'33px'} fontWeight={'bold'}>Who is Behind NEST?</Text>
-          <Text fontSize={'15px'} fontWeight={'bold'}>The NEST protocol is coordinated by the NEST DAO and has the
+          <Text fontSize={'15px'} fontWeight={'400'}>The NEST protocol is coordinated by the NEST DAO and has the
             following organisation:</Text>
         </Stack>
 
@@ -199,7 +199,7 @@ const Page = () => {
       </Stack>
       <Stack textAlign={"center"} align={"center"}>
         <Heading fontSize={'25px'}>Who is Behind NEST?</Heading>
-        <Text fontSize={'12.5px'} fontWeight={'600'}>The NEST protocol is coordinated by the<br/>
+        <Text fontSize={'12.5px'} fontWeight={'400'}>The NEST protocol is coordinated by the<br/>
           NEST DAO and has the following organisation:</Text>
       </Stack>
       <Stack px={'20px'} pt={'40px'} spacing={'20px'}>
