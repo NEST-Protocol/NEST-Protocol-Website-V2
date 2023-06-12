@@ -54,7 +54,7 @@ const Page = ({blogs}: any) => {
                   </Stack>
                   <Stack px={'44px'} py={'34px'}>
                     <Link href={item.link} fontWeight={'bold'} fontSize={'18px'}>{item.title}</Link>
-                    <Text fontSize={'13px'} fontWeight={'600'} h={'60px'}>{item.desc}</Text>
+                    <Text fontSize={'13px'} fontWeight={'400'} h={'60px'} color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
                     <Text fontSize={'13px'} fontWeight={'500'}>{item.date}</Text>
                   </Stack>
                 </Stack>
@@ -101,7 +101,7 @@ const Page = ({blogs}: any) => {
                     {item.attributes.date}
                   </Text>
                   {/*TODO: hidden markdown symbol*/}
-                  <Text fontWeight={'600'} fontSize={'15px'} noOfLines={3}>
+                  <Text fontWeight={'400'} fontSize={'15px'} noOfLines={3} color={'rgba(3, 3, 8, 0.6)'}>
                     {item.attributes.content}
                   </Text>
                   <Stack h={'44px'}></Stack>
@@ -110,7 +110,7 @@ const Page = ({blogs}: any) => {
               ))
             }
             <Stack align={"center"} pt={'8px'}>
-              <Button w={'140px'} variant={'outline'} h={'34px'} borderRadius={'17px'} border={'2px solid'}
+              <Button w={'140px'} variant={'outline'} border={'2px solid'}
                       color={'#EAAA00'} borderColor={'#EAAA00'} onClick={() => {
                 setShowMore(!showMore)}
               }>{ !showMore ? 'More' : 'Less' }</Button>
@@ -139,7 +139,7 @@ const Page = ({blogs}: any) => {
                 </Stack>
                 <Stack px={'44px'} py={'34px'}>
                   <Link href={item.link} fontWeight={'bold'} fontSize={'18px'}>{item.title}</Link>
-                  <Text fontSize={'13px'} fontWeight={'600'}>{item.desc}</Text>
+                  <Text fontSize={'13px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
                   <Text fontSize={'13px'} fontWeight={'500'}>{item.date}</Text>
                 </Stack>
               </Stack>
@@ -176,7 +176,7 @@ const Page = ({blogs}: any) => {
                 <Stack px={'24px'} pb={'27px'} spacing={'22px'} key={index}>
                   <Text fontWeight={"bold"} fontSize={'15px'}>{item.attributes.title}</Text>
                   <Text fontSize={'10px'} fontWeight={'500'}>{item.attributes.date}</Text>
-                  <Text fontSize={'10px'} fontWeight={'600'} noOfLines={3}>{item.attributes.content}</Text>
+                  <Text fontSize={'10px'} fontWeight={'400'} noOfLines={3} color={'rgba(3, 3, 8, 0.6)'}>{item.attributes.content}</Text>
                   <Divider/>
                 </Stack>
               ))

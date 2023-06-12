@@ -42,7 +42,7 @@ const Page = ({roundtables}: any) => {
       <Navigation/>
       <Stack textAlign={"center"} align={"center"} py={'140px'}>
         <Heading fontSize={'50px'}>NEST Roundtable</Heading>
-        <Text fontSize={'18px'} fontWeight={'400'}>NEST Roundtable, A weekly current affairs topic<br/>to understand
+        <Text fontSize={'18px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>NEST Roundtable, A weekly current affairs topic<br/>to understand
           the world of blockchain</Text>
       </Stack>
       <Wrap justify={"center"} spacing={'40px'}>
@@ -102,7 +102,7 @@ const Page = ({roundtables}: any) => {
         <Heading fontSize={'25px'}>
           NEST Roundtable
         </Heading>
-        <Text fontSize={'12.5px'} fontWeight={'400'}>NEST Roundtable, A weekly current affairs<br/>
+        <Text fontSize={'12.5px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>NEST Roundtable, A weekly current affairs<br/>
           topic to understand the world of blockchain</Text>
       </Stack>
       <Stack px={'20px'} spacing={'20px'}>

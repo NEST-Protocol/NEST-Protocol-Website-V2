@@ -36,14 +36,13 @@ const Page = () => {
         <Heading fontSize={'50px'}>
           NESTCraft,<br/> the martingale function library
         </Heading>
-        <Text fontSize={'18px'} fontWeight={'400'}>
+        <Text fontSize={'18px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>
           NESTCraft, which is a combination of martingales functions<br/> similar to the Ethereum virtual machine,<br/> will greatly broaden the scope of NEST&apos;s application,<br/> transforming it into a chain infrastructure that will enable anyone<br/> to create more NEST-based applications.
         </Text>
         <HStack spacing={'48px'}>
-          <Button as={Link} href={'/docs/Concept/NESTcraft'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'} color={'#003232'}>Developer
+          <Button as={Link} href={'/docs/Concept/NESTcraft'} bg={'#EAAA00'} w={'160px'}>Developer
             Doc</Button>
-          <Button as={Link} href={'https://github.com/NEST-Protocol'} bg={'#EAAA00'} h={'34px'} w={'160px'} borderRadius={'17px'} fontWeight={'bold'}
-                  color={'#003232'}>Github</Button>
+          <Button as={Link} href={'https://github.com/NEST-Protocol'} bg={'#EAAA00'} w={'160px'}>Github</Button>
         </HStack>
       </Stack>
 
@@ -53,8 +52,8 @@ const Page = () => {
         </Stack>
         <Stack>
           <Text fontSize={'25px'} fontWeight={'600'}>Schematic of NESTCraft</Text>
-          <Text fontSize={'15px'} fontWeight={'600'}>When NEST gains more liquidity, we can use the NEST/USD oracle to convert the underlying assets of the transaction from X NESTs to X USD of NESTs, which will meet the needs of many attempts to establish hedging positions based on the fiat currency standard.</Text>
-          <HStack fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'24px'}>
+          <Text fontSize={'15px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>When NEST gains more liquidity, we can use the NEST/USD oracle to convert the underlying assets of the transaction from X NESTs to X USD of NESTs, which will meet the needs of many attempts to establish hedging positions based on the fiat currency standard.</Text>
+          <HStack fontSize={'15px'} fontWeight={'600'} color={'#EAAA00'} pt={'24px'}>
             <Link w={'200px'} color={'00A0E9'} href={'/docs/Concept/NESTcraft'}>NESTCraft Mechanism <ChevronRightIcon/></Link>
             <Link w={'200px'} color={'00A0E9'} href={'/doc/ennestwhitepaper.pdf'}>Whitepaper <ChevronRightIcon/></Link>
           </HStack>
@@ -65,7 +64,7 @@ const Page = () => {
         <Heading fontSize={'50px'}>
           NESTCraft<br/>Applications
         </Heading>
-        <Text fontSize={'25px'} fontWeight={'400'} maxW={'container.md'}>A given random information flow can be transformed by various functions to obtain a series of martingales, which can be used for the NEST martingale transactions. NESTcraft can continue to expand the basic function library accordingto the needs of the on chain world, thereby improving the application range of the NEST. This is a basic feature of the NEST’s greater scalability</Text>
+        <Text fontSize={'25px'} fontWeight={'400'} maxW={'container.md'} color={'rgba(3, 3, 8, 0.6)'}>A given random information flow can be transformed by various functions to obtain a series of martingales, which can be used for the NEST martingale transactions. NESTcraft can continue to expand the basic function library accordingto the needs of the on chain world, thereby improving the application range of the NEST. This is a basic feature of the NEST’s greater scalability</Text>
         <Wrap spacing={'44px'}>
           {
             array1.map((item, index) => (
@@ -81,7 +80,7 @@ const Page = () => {
                     <chakra.img src={item.image} alt={''} h={'98px'}/>
                   </Stack>
                   <Text fontSize={'18px'} fontWeight={'bold'}>{item.title}</Text>
-                  <Text fontWeight={'600'} fontSize={'13px'}>{item.body}</Text>
+                  <Text fontWeight={'400'} fontSize={'13px'} color={'rgba(3, 3, 8, 0.6)'}>{item.body}</Text>
                 </Stack>
               </WrapItem>
             ))
@@ -97,11 +96,11 @@ const Page = () => {
     <Stack bgImage={'/image/PVM/bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       {SEO}
       <NavigationMobile/>
-      <Stack textAlign={"center"} align={"center"} pt={'100px'} pb={'150px'}>
+      <Stack textAlign={"center"} align={"center"} pt={'100px'} pb={'150px'} px={'20px'}>
         <Heading fontSize={'25px'}>
           NESTCraft,<br/> the martingale function library
         </Heading>
-        <Text fontSize={'12.5px'} fontWeight={'400'}>
+        <Text fontSize={'12.5px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>
           NESTCraft, which is a combination of martingales functions<br/> similar to the Ethereum virtual machine,<br/> will greatly broaden the scope of NEST&apos;s application,<br/> transforming it into a chain infrastructure that will enable anyone<br/> to create more NEST-based applications.
         </Text>
         <Stack spacing={'30px'} pt={'20px'}>
@@ -120,7 +119,7 @@ const Page = () => {
         </Stack>
         <Stack align={"center"} textAlign={"center"}>
           <Text fontSize={'16.5px'} fontWeight={'600'}>Schematic of NESTCraft</Text>
-          <Text fontSize={'12.5px'} fontWeight={'600'}>When NEST gains more liquidity, we can use the NEST/USD oracle to convert the underlying assets of the transaction from X NESTs to X USD of NESTs, which will meet the needs of many attempts to establish hedging positions based on the fiat currency standard.</Text>
+          <Text fontSize={'12.5px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>When NEST gains more liquidity, we can use the NEST/USD oracle to convert the underlying assets of the transaction from X NESTs to X USD of NESTs, which will meet the needs of many attempts to establish hedging positions based on the fiat currency standard.</Text>
           <Stack fontSize={'12.5px'} fontWeight={'600'} color={'#00A0E9'} pt={'24px'}>
             <Link w={'200px'} color={'#00A0E9'} href={'/docs/Concept/NESTcraft'}>NESTCraft Mechanism <ChevronRightIcon/></Link>
             <Link w={'200px'} color={'#00A0E9'} href={'/doc/ennestwhitepaper.pdf'}>Whitepaper <ChevronRightIcon/></Link>
@@ -131,7 +130,7 @@ const Page = () => {
         <Heading fontSize={'25px'}>
           NESTCraft<br/>Applications
         </Heading>
-        <Text fontSize={'15px'} fontWeight={'400'} px={'40px'}>
+        <Text fontSize={'15px'} fontWeight={'400'} px={'40px'} color={'rgba(3, 3, 8, 0.6)'}>
           A given random information flow can be transformed by various functions to obtain a series of martingales, which can be used for the NEST martingale transactions. NESTcraft can continue to expand the basic function library accordingto the needs of the on chain world, thereby improving the application range of the NEST. This is a basic feature of the NEST’s greater scalability
         </Text>
       </Stack>
@@ -144,7 +143,7 @@ const Page = () => {
               </Stack>
               <Stack pt={'20px'} pb={'50px'} w={'full'} textAlign={"center"}>
                 <Text fontWeight={'bold'} fontSize={'16px'}>{item.title}</Text>
-                <Text fontWeight={'600'} fontSize={'12.5px'}>{item.body}</Text>
+                <Text fontWeight={'400'} fontSize={'12.5px'} color={'rgba(3, 3, 8, 0.6)'}>{item.body}</Text>
               </Stack>
             </Stack>
           ))

@@ -79,7 +79,7 @@ const Page = () => {
 
         <Stack pt={'150px'} pb={'65px'}>
           <Text fontSize={'33px'} fontWeight={'bold'}>Who is Behind NEST?</Text>
-          <Text fontSize={'15px'} fontWeight={'400'}>The NEST protocol is coordinated by the NEST DAO and has the
+          <Text fontSize={'15px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>The NEST protocol is coordinated by the NEST DAO and has the
             following organisation:</Text>
         </Stack>
 
@@ -89,14 +89,14 @@ const Page = () => {
               <chakra.img src={'/image/Team/NRA_pic@2x.png'} h={'100px'} objectFit={'contain'}/>
             </Stack>
             <Text fontSize={'25px'} fontWeight={'600'}>NEST Research Academy (NRA)</Text>
-            <Text fontSize={'15px'} fontWeight={'600'}>The NRA core is made up of practitioners from academic and
+            <Text fontSize={'15px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>The NRA core is made up of practitioners from academic and
               industrial<br/>
               institutions in Europe and North America, with the goal of providing<br/>
               technical and theoretical support for new categories while also<br/>
               maintaining long-term relationships with Vitalik, the Ether Foundation,<br/>
               Coindesk, Consensus, and others.
             </Text>
-            <Link href={'/about/nra/'} fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'10px'}>NRA <ChevronRightIcon/></Link>
+            <Link href={'/about/nra/'} fontSize={'15px'} fontWeight={'600'} color={'#EAAA00'} pt={'10px'}>NRA <ChevronRightIcon/></Link>
           </Stack>
 
           <Stack py={'74px'} bg={'rgba(255,255,255,0.84)'} borderRadius={'20px'}>
@@ -104,7 +104,7 @@ const Page = () => {
               <chakra.img src={'/image/Team/NIB_pic@2x.png'} h={'100px'} objectFit={'contain'}/>
             </Stack>
             <Text fontSize={'25px'} fontWeight={'600'}>NEST Influence Block (NIB)</Text>
-            <Text fontSize={'15px'} fontWeight={'600'}>The main goal of NIB is to spread the new concept, category,and
+            <Text fontSize={'15px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>The main goal of NIB is to spread the new concept, category,and
               vision of NEST, <br/>
               provide the public with narrative logic and communication basis, <br/>
               various media campaigns, relationships with Vitalik, the Ether Foundation, <br/>
@@ -112,8 +112,8 @@ const Page = () => {
               as well as grant and ecological fund management.
             </Text>
             <HStack pt={'10px'} justify={"center"} spacing={'68px'}>
-              <Link href={'/blogs/'} fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'}>News <ChevronRightIcon/></Link>
-              <Link href={'/about/roundtable/'} fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'}>NEST Roundtable <ChevronRightIcon/></Link>
+              <Link href={'/blogs/'} fontSize={'15px'} fontWeight={'600'} color={'#EAAA00'}>News <ChevronRightIcon/></Link>
+              <Link href={'/about/roundtable/'} fontSize={'15px'} fontWeight={'600'} color={'#EAAA00'}>NEST Roundtable <ChevronRightIcon/></Link>
             </HStack>
 
           </Stack>
@@ -123,13 +123,13 @@ const Page = () => {
               <chakra.img src={'/image/Team/NDA_pic@2x.png'} h={'100px'} objectFit={'contain'}/>
             </Stack>
             <Text fontSize={'25px'} fontWeight={'600'}>NEST Developer Alliance (NDA)</Text>
-            <Text fontSize={'15px'} fontWeight={'600'}>NDA is in charge of the development of core protocols and
+            <Text fontSize={'15px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>NDA is in charge of the development of core protocols and
               peripheral<br/>
               applications, as well as the creation of developer communities,<br/>
               technical and theoretical support for new categories while also<br/>
               such as future hackathons.
             </Text>
-            <Link href={'/docs/'} fontSize={'15px'} fontWeight={'600'} color={'#00A0E9'} pt={'10px'}>Developer Docs <ChevronRightIcon/></Link>
+            <Link href={'/docs/'} fontSize={'15px'} fontWeight={'600'} color={'#EAAA00'} pt={'10px'}>Developer Docs <ChevronRightIcon/></Link>
           </Stack>
 
           <Stack py={'74px'} bg={'rgba(255,255,255,0.84)'} borderRadius={'20px'}>
@@ -137,7 +137,7 @@ const Page = () => {
               <chakra.img src={'/image/Team/NC_pic@2x.png'} h={'100px'} objectFit={'contain'}/>
             </Stack>
             <Text fontSize={'25px'} fontWeight={'600'}>NEST Community</Text>
-            <Text fontSize={'15px'} fontWeight={'600'}>The NEST Community is primarily responsible for the
+            <Text fontSize={'15px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>The NEST Community is primarily responsible for the
               community&apos;s
               growth,<br/>
               the promotion of consensus, and the promotion and management<br/>
@@ -148,16 +148,16 @@ const Page = () => {
               Join NEST Community
             </Text>
             <HStack justify={"center"} pt={'25px'} spacing={'28px'}>
-              <Button as={Link} href={'https://twitter.com/nest_protocol/'} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
+              <Button as={Link} href={'https://twitter.com/nest_protocol/'} variant={'outline'} borderColor={'#EAAA00'} color={'#EAAA00'}>
                 Twitter
               </Button>
-              <Button as={Link} href={'https://t.me/nest_chat/'} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
+              <Button as={Link} href={'https://t.me/nest_chat/'} variant={'outline'} borderColor={'#EAAA00'} color={'#EAAA00'}>
                 Telegram
               </Button>
-              <Button as={Link} href={'https://discord.gg/nestprotocol'} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
+              <Button as={Link} href={'https://discord.gg/nestprotocol'} variant={'outline'} borderColor={'#EAAA00'} color={'#EAAA00'}>
                 Discord
               </Button>
-              <Button as={Link} href={'https://github.com/NEST-Protocol'} variant={'outline'} borderColor={'#00A0E9'} color={'#00A0E9'}>
+              <Button as={Link} href={'https://github.com/NEST-Protocol'} variant={'outline'} borderColor={'#EAAA00'} color={'#EAAA00'}>
                 Github
               </Button>
             </HStack>
@@ -199,7 +199,7 @@ const Page = () => {
       </Stack>
       <Stack textAlign={"center"} align={"center"}>
         <Heading fontSize={'25px'}>Who is Behind NEST?</Heading>
-        <Text fontSize={'12.5px'} fontWeight={'400'}>The NEST protocol is coordinated by the<br/>
+        <Text fontSize={'12.5px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>The NEST protocol is coordinated by the<br/>
           NEST DAO and has the following organisation:</Text>
       </Stack>
       <Stack px={'20px'} pt={'40px'} spacing={'20px'}>
@@ -212,7 +212,7 @@ const Page = () => {
           <Text fontSize={'18px'} fontWeight={'600'}>
             NEST Research Academy (NRA)
           </Text>
-          <Text fontSize={'12.5px'} fontWeight={'600'}>
+          <Text fontSize={'12.5px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>
             The NRA core is made up of practitioners
             from academic and industrial institutions
             in Europe and North America, with the goal
@@ -222,7 +222,7 @@ const Page = () => {
             with Vitalik, the Ether Foundation,
             Coindesk, Consensus, and others.
           </Text>
-          <Link color={'#00A0E9'} fontSize={'12.5px'} fontWeight={'600'} href={'/about/nra/'} >
+          <Link color={'#EAAA00'} fontSize={'12.5px'} fontWeight={'600'} href={'/about/nra/'} >
             NRA <ChevronRightIcon/>
           </Link>
         </Stack>
@@ -235,17 +235,17 @@ const Page = () => {
           <Text fontSize={'18px'} fontWeight={'600'}>
             NEST Influence Block (NIB)
           </Text>
-          <Text fontSize={'12.5px'} fontWeight={'600'}>
+          <Text fontSize={'12.5px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>
             The main goal of NIB is to spread the new concept, category,and vision of NEST, provide the public with
             narrative logic and communication basis, and enhance the brand and influence of NEST, which includes holding
             various media campaigns, relationships with Vitalik, the Ether Foundation, constructing Twitter, TikTok,
             Telegram, Discord, and so on, as well as grant and ecological fund management.
           </Text>
           <HStack justifyContent={"space-around"} w={'full'}>
-            <Link color={'#00A0E9'} fontSize={'12.5px'} fontWeight={'600'}>
+            <Link color={'#EAAA00'} fontSize={'12.5px'} fontWeight={'600'}>
               News <ChevronRightIcon/>
             </Link>
-            <Link color={'#00A0E9'} fontSize={'12.5px'} fontWeight={'600'} href={'/about/roundtable/'}>
+            <Link color={'#EAAA00'} fontSize={'12.5px'} fontWeight={'600'} href={'/about/roundtable/'}>
               NEST Roundtable <ChevronRightIcon/>
             </Link>
           </HStack>
@@ -259,13 +259,13 @@ const Page = () => {
           <Text fontSize={'18px'} fontWeight={'600'}>
             NEST Developer Alliance (NDA)
           </Text>
-          <Text fontSize={'12.5px'} fontWeight={'600'}>
+          <Text fontSize={'12.5px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>
             NDA is in charge of the development of core
             protocols and peripheral applications, as well
             as the creation of developer communities,
             such as future hackathons.
           </Text>
-          <Link color={'#00A0E9'} fontSize={'12.5px'} fontWeight={'600'} href={'/docs/'}>
+          <Link color={'#EAAA00'} fontSize={'12.5px'} fontWeight={'600'} href={'/docs/'}>
             Developer Docs <ChevronRightIcon/>
           </Link>
         </Stack>
@@ -287,18 +287,18 @@ const Page = () => {
             largest distributed community.
           </Text>
           <HStack spacing={'30px'}>
-            <Button w={'90px'} as={Link} variant={'outline'} color={'#00A0E9'} borderColor={'#00A0E9'} href={'https://twitter.com/nest_protocol/'}>
+            <Button w={'90px'} as={Link} variant={'outline'} color={'#EAAA00'} borderColor={'#EAAA00'} href={'https://twitter.com/nest_protocol/'}>
               Twitter
             </Button>
-            <Button w={'90px'} as={Link} variant={'outline'} color={'#00A0E9'} borderColor={'#00A0E9'} href={'https://t.me/nest_chat/'}>
+            <Button w={'90px'} as={Link} variant={'outline'} color={'#EAAA00'} borderColor={'#EAAA00'} href={'https://t.me/nest_chat/'}>
               Telegram
             </Button>
           </HStack>
           <HStack spacing={'30px'}>
-            <Button w={'90px'} as={Link} variant={'outline'} color={'#00A0E9'} borderColor={'#00A0E9'} href={'https://discord.gg/nestprotocol'}>
+            <Button w={'90px'} as={Link} variant={'outline'} color={'#EAAA00'} borderColor={'#EAAA00'} href={'https://discord.gg/nestprotocol'}>
               Discord
             </Button>
-            <Button w={'90px'} as={Link} variant={'outline'} color={'#00A0E9'} borderColor={'#00A0E9'} href={'https://github.com/NEST-Protocol'}>
+            <Button w={'90px'} as={Link} variant={'outline'} color={'#EAAA00'} borderColor={'#EAAA00'} href={'https://github.com/NEST-Protocol'}>
               Github
             </Button>
           </HStack>

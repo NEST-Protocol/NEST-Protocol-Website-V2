@@ -38,7 +38,7 @@ export default function FooterMobile() {
                 link: '/about/team',
               },
             ].map((item, index) => (
-              <Link key={index} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} textAlign={"start"}>
+              <Link href={item.link} key={index} fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} textAlign={"start"}>
                 {item.title}
               </Link>
             ))

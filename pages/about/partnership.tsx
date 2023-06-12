@@ -31,7 +31,7 @@ const Page = ({category, partners}: any) => {
       <Navigation/>
       <Stack textAlign={"center"} align={"center"} py={'160px'}>
         <Heading fontSize={'50px'}>Integration & Partners</Heading>
-        <Text fontWeight={'400'} fontSize={'18px'}>Expanding influence in the Crypto world</Text>
+        <Text fontWeight={'400'} fontSize={'18px'} color={'rgba(3, 3, 8, 0.6)'}>Expanding influence in the Crypto world</Text>
       </Stack>
       <Stack p={'45px'}>
         <Stack bg={"rgba(255,255,255,0.8)"} borderRadius={'20px'}>
@@ -82,7 +82,7 @@ const Page = ({category, partners}: any) => {
         <Text fontSize={'25px'} fontWeight={'bold'}>Intergrations<br/>
           &<br/>
           Partners</Text>
-        <Text fontSize={'12.5px'} fontWeight={'400'}>Expanding influence in the Crypto world</Text>
+        <Text fontSize={'12.5px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>Expanding influence in the Crypto world</Text>
       </Stack>
       <Stack px={'24px'}>
         <Stack w={'full'} borderRadius={'20px'} py={'15px'} px={'10px'} spacing={'10px'}
