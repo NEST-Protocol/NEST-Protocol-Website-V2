@@ -110,8 +110,7 @@ const Page = ({blogs}: any) => {
               ))
             }
             <Stack align={"center"} pt={'8px'}>
-              <Button w={'140px'} variant={'outline'} border={'2px solid'}
-                      color={'#EAAA00'} borderColor={'#EAAA00'} onClick={() => {
+              <Button variant={'outline'} onClick={() => {
                 setShowMore(!showMore)}
               }>{ !showMore ? 'More' : 'Less' }</Button>
             </Stack>
