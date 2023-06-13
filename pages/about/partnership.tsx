@@ -29,46 +29,50 @@ const Page = ({category, partners}: any) => {
     <Stack bgImage={'/image/partnership/bg.jpg'} bgPosition={"center"} bgSize={'cover'} minH={'100vh'}>
       {SEO}
       <Navigation/>
-      <Stack textAlign={"center"} align={"center"} py={'160px'}>
-        <Heading fontSize={'50px'}>Integration & Partners</Heading>
-        <Text fontWeight={'400'} fontSize={'18px'} color={'rgba(3, 3, 8, 0.6)'}>Expanding influence in the Crypto world</Text>
-      </Stack>
-      <Stack p={'45px'}>
-        <Stack bg={"rgba(255,255,255,0.8)"} borderRadius={'20px'}>
-          <HStack pt={'45px'} overflow={"scroll"} justifyContent={"center"} spacing={0}>
-            <Button h={'42px'} w={'150px'} borderRadius={0} variant={'unstyled'}
-                    borderLeftRadius={'21px'} border={'1px solid'}
-                    borderColor={'#E5E5E5'} bg={selectId === -1 ? '#EAAA00' : 'white'}
-                    onClick={() => setSelectId(-1)}
-            >
-              All
-            </Button>
-            {
-              category.map((item: any, index: number) => (
-                <Button key={item.id} h={'42px'} w={'150px'} borderRadius={0} variant={'unstyled'}
-                        border={'1px solid'}
-                        borderColor={'#E5E5E5'} bg={selectId === item.id ? '#EAAA00' : 'white'}
-                        borderRightRadius={index === category.length - 1 ? '21px' : 0}
-                        onClick={() => setSelectId(item.id)}
+      <Stack w={'full'} align={"center"}>
+        <Stack maxW={'1600px'} w={'full'}>
+          <Stack textAlign={"center"} align={"center"} py={'160px'}>
+            <Heading fontSize={'50px'}>Integration & Partners</Heading>
+            <Text fontWeight={'400'} fontSize={'18px'} color={'rgba(3, 3, 8, 0.6)'}>Expanding influence in the Crypto world</Text>
+          </Stack>
+          <Stack p={'45px'}>
+            <Stack bg={"rgba(255,255,255,0.8)"} borderRadius={'20px'}>
+              <HStack pt={'45px'} overflow={"scroll"} justifyContent={"center"} spacing={0}>
+                <Button h={'42px'} w={'150px'} borderRadius={0} variant={'unstyled'}
+                        borderLeftRadius={'21px'} border={'1px solid'}
+                        borderColor={'#E5E5E5'} bg={selectId === -1 ? '#EAAA00' : 'white'}
+                        onClick={() => setSelectId(-1)}
                 >
-                  {item.attributes.name}
+                  All
                 </Button>
-              ))
-            }
-          </HStack>
-          <Wrap justify={"center"} p={'45px'}>
-            { partners.filter((item: any) => {
-              if (selectId === -1) return true;
-              return item.attributes.category.data?.id === selectId;
-            }).map((item: any) => (
-              <WrapItem key={item.id} w={'200px'} justifyContent={"center"}>
-                <chakra.img src={'https://cms.nestfi.net/' + item.attributes.logo.data.attributes.url} h={'100px'}/>
-              </WrapItem>
-            )) }
-          </Wrap>
+                {
+                  category.map((item: any, index: number) => (
+                    <Button key={item.id} h={'42px'} w={'150px'} borderRadius={0} variant={'unstyled'}
+                            border={'1px solid'}
+                            borderColor={'#E5E5E5'} bg={selectId === item.id ? '#EAAA00' : 'white'}
+                            borderRightRadius={index === category.length - 1 ? '21px' : 0}
+                            onClick={() => setSelectId(item.id)}
+                    >
+                      {item.attributes.name}
+                    </Button>
+                  ))
+                }
+              </HStack>
+              <Wrap justify={"center"} p={'45px'}>
+                { partners.filter((item: any) => {
+                  if (selectId === -1) return true;
+                  return item.attributes.category.data?.id === selectId;
+                }).map((item: any) => (
+                  <WrapItem key={item.id} w={'200px'} justifyContent={"center"}>
+                    <chakra.img src={'https://cms.nestfi.net/' + item.attributes.logo.data.attributes.url} h={'100px'}/>
+                  </WrapItem>
+                )) }
+              </Wrap>
+            </Stack>
+          </Stack>
+          <Stack h={'62px'}></Stack>
         </Stack>
       </Stack>
-      <Stack h={'62px'}></Stack>
       <Spacer/>
       <Footer/>
     </Stack>

@@ -40,54 +40,58 @@ const Page = ({roundtables}: any) => {
     <Stack bgImage={'/image/Roundtable/bg.jpg'} bgPosition={"center"} bgSize={'cover'} minH={'100vh'}>
       {SEO}
       <Navigation/>
-      <Stack textAlign={"center"} align={"center"} py={'140px'}>
-        <Heading fontSize={'50px'}>NEST Roundtable</Heading>
-        <Text fontSize={'18px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>NEST Roundtable, A weekly current affairs topic<br/>to understand
-          the world of blockchain</Text>
-      </Stack>
-      <Wrap justify={"center"} spacing={'40px'}>
-        {
-          roundtables.filter((item: any, index: number) => {
-            if (showMore) {
-              return true
+      <Stack w={'full'} align={"center"}>
+        <Stack maxW={'1600px'}>
+          <Stack textAlign={"center"} align={"center"} py={'140px'}>
+            <Heading fontSize={'50px'}>NEST Roundtable</Heading>
+            <Text fontSize={'18px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>NEST Roundtable, A weekly current affairs topic<br/>to understand
+              the world of blockchain</Text>
+          </Stack>
+          <Wrap justify={"center"} spacing={'40px'}>
+            {
+              roundtables.filter((item: any, index: number) => {
+                if (showMore) {
+                  return true
+                }
+                return index < 8
+              }).map((item: any) => (
+                <WrapItem key={item.id}>
+                  <Stack w={'618px'} bg={"rgba(255,255,255,0.8)"} p={'40px'} borderRadius={'20px'} spacing={'20px'}>
+                    <HStack>
+                      <Link href={item.attributes.link} isExternal>
+                        <chakra.img src={'/image/Roundtable/Audio.svg'} h={'34px'}/>
+                      </Link>
+                      <Spacer/>
+                      <Text>{item.attributes.scheduled_start}</Text>
+                    </HStack>
+                    <Divider/>
+                    <Stack>
+                      <Link href={item.attributes.blog_link} isExternal fontSize={'21px'} fontWeight={'bold'} h={'60px'} noOfLines={2}>
+                        {item.attributes.title}
+                      </Link>
+                    </Stack>
+                    <HStack spacing={'10px'} overflow={'hidden'} h={'20px'}>
+                      {
+                        item.attributes.invited_user_icons.data?.map((icon: any) => (
+                          <chakra.img key={icon.id} src={'https://cms.nestfi.net/' + icon.attributes.url}
+                                      h={'20px'} objectFit={'contain'}/>
+                        ))
+                      }
+                    </HStack>
+                  </Stack>
+                </WrapItem>
+              ))
             }
-            return index < 8
-          }).map((item: any) => (
-            <WrapItem key={item.id}>
-              <Stack w={'618px'} bg={"rgba(255,255,255,0.8)"} p={'40px'} borderRadius={'20px'} spacing={'20px'}>
-                <HStack>
-                  <Link href={item.attributes.link} isExternal>
-                    <chakra.img src={'/image/Roundtable/Audio.svg'} h={'34px'}/>
-                  </Link>
-                  <Spacer/>
-                  <Text>{item.attributes.scheduled_start}</Text>
-                </HStack>
-                <Divider/>
-                <Stack>
-                  <Link href={item.attributes.blog_link} isExternal fontSize={'21px'} fontWeight={'bold'} h={'60px'} noOfLines={2}>
-                    {item.attributes.title}
-                  </Link>
-                </Stack>
-                <HStack spacing={'10px'} overflow={'hidden'} h={'20px'}>
-                  {
-                    item.attributes.invited_user_icons.data?.map((icon: any) => (
-                      <chakra.img key={icon.id} src={'https://cms.nestfi.net/' + icon.attributes.url}
-                                  h={'20px'} objectFit={'contain'}/>
-                    ))
-                  }
-                </HStack>
-              </Stack>
-            </WrapItem>
-          ))
-        }
-      </Wrap>
-      <Stack align={"center"} pt={'48px'} pb={'138px'}>
-        <Button w={'170px'} variant={'outline'} onClick={() => {
-          setShowMore(!showMore)
-        }
-        }>
-          {showMore ? 'Show Less' : 'Show More'}
-        </Button>
+          </Wrap>
+          <Stack align={"center"} pt={'48px'} pb={'138px'}>
+            <Button w={'170px'} variant={'outline'} onClick={() => {
+              setShowMore(!showMore)
+            }
+            }>
+              {showMore ? 'Show Less' : 'Show More'}
+            </Button>
+          </Stack>
+        </Stack>
       </Stack>
       <Spacer/>
       <Footer/>

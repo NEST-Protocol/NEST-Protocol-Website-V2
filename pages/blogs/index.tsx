@@ -42,77 +42,79 @@ const Page = ({blogs}: any) => {
     <Stack bgSize={'cover'} bgImage={"image/Blog/bg.jpg"} bgPosition={"center"}>
       { SEO }
       <Navigation/>
-      <Stack spacing={'44px'} px={'45px'}>
-        <Wrap justify={'space-between'} spacing={'40px'}>
-          {
-            array1.map((item, index) => (
-              <WrapItem key={index} w={'30%'} bg={"rgba(255, 255, 255, 0.7)"} borderRadius={'20px'}
-                        border={'1px solid #EEEEEE'}>
-                <Stack>
+      <Stack w={'full'} align={"center"} px={'45px'}>
+        <Stack spacing={'44px'} maxW={'1600px'}>
+          <Wrap justify={'space-between'} spacing={'40px'}>
+            {
+              array1.map((item, index) => (
+                <WrapItem key={index} w={'30%'} bg={"rgba(255, 255, 255, 0.7)"} borderRadius={'20px'}
+                          border={'1px solid #EEEEEE'}>
                   <Stack>
-                    <chakra.img src={item.image} objectFit={'contain'} />
+                    <Stack>
+                      <chakra.img src={item.image} objectFit={'contain'} />
+                    </Stack>
+                    <Stack px={'44px'} py={'34px'}>
+                      <Link href={item.link} fontWeight={'bold'} fontSize={'18px'}>{item.title}</Link>
+                      <Text fontSize={'13px'} fontWeight={'400'} h={'60px'} color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
+                      <Text fontSize={'13px'} fontWeight={'500'}>{item.date}</Text>
+                    </Stack>
                   </Stack>
-                  <Stack px={'44px'} py={'34px'}>
-                    <Link href={item.link} fontWeight={'bold'} fontSize={'18px'}>{item.title}</Link>
-                    <Text fontSize={'13px'} fontWeight={'400'} h={'60px'} color={'rgba(3, 3, 8, 0.6)'}>{item.desc}</Text>
-                    <Text fontSize={'13px'} fontWeight={'500'}>{item.date}</Text>
-                  </Stack>
-                </Stack>
-              </WrapItem>
-            ))
-          }
-        </Wrap>
-        <Stack py={'48px'} px={'44px'} borderRadius={'20px'} bg={"rgba(255,255,255,0.8)"}>
-          <HStack spacing={0} justify={"center"} pb={'30px'}>
-            {
-              blogs.map((item: any, index: number) => (
-                <Button key={index} fontSize={'15px'} w={'150px'} h={'42px'} borderRadius={0} bg={index === categoryIndex ? '#EAAA00' : ''}
-                        border={'1px solid'} borderColor={'#EEEEEE'} variant={'unstyled'} borderLeftRadius={index === 0 ? '21px' : ''}
-                        borderRightRadius={index === blogs.length - 1 ? '21px' : ''} fontWeight={'600'}
-                        onClick={() => {
-                          setCategoryIndex(index)
-                        }
-                } >
-                  {item.attributes.name}
-                </Button>
+                </WrapItem>
               ))
             }
-          </HStack>
-          <Divider/>
-          <Stack h={'44px'}></Stack>
-          <Stack h={'900px'} overflow={"scroll"}>
-            {
-              blogs[categoryIndex].attributes.blogs.data
-                .sort((a: any, b: any) => {
-                  return new Date(b.attributes.date).getTime() - new Date(a.attributes.date).getTime()
-                })
-                .filter((item: any ,index: number) => {
-                if (showMore) {
-                  return true
-                }
-                return index < 3
-              }).map((item: any, index: number) => (
-                <Stack pb={'44px'} key={index} px={'128px'}>
-                  <Link fontWeight={'600'} fontSize={'25px'} href={`/blogs/${item.attributes.slug}`}>
-                    {item.attributes.title}
-                  </Link>
-                  <Stack h={'8px'}></Stack>
-                  <Text fontWeight={'500'} fontSize={'15px'} color={'#030308'}>
-                    {item.attributes.date}
-                  </Text>
-                  {/*TODO: hidden markdown symbol*/}
-                  <Text fontWeight={'400'} fontSize={'15px'} noOfLines={3} color={'rgba(3, 3, 8, 0.6)'}>
-                    {item.attributes.content}
-                  </Text>
-                  <Stack h={'44px'}></Stack>
-                  <Divider/>
-                </Stack>
-              ))
-            }
-            <Stack align={"center"} pt={'8px'}>
-              <Button variant={'outline'} onClick={() => {
-                setShowMore(!showMore)}
-              }>{ !showMore ? 'More' : 'Less' }</Button>
+          </Wrap>
+          <Stack py={'48px'} px={'44px'} borderRadius={'20px'} bg={"rgba(255,255,255,0.8)"}>
+            <HStack spacing={0} justify={"center"} pb={'30px'}>
+              {
+                blogs.map((item: any, index: number) => (
+                  <Button key={index} fontSize={'15px'} w={'150px'} h={'42px'} borderRadius={0} bg={index === categoryIndex ? '#EAAA00' : ''}
+                          border={'1px solid'} borderColor={'#EEEEEE'} variant={'unstyled'} borderLeftRadius={index === 0 ? '21px' : ''}
+                          borderRightRadius={index === blogs.length - 1 ? '21px' : ''} fontWeight={'600'}
+                          onClick={() => {
+                            setCategoryIndex(index)
+                          }
+                          } >
+                    {item.attributes.name}
+                  </Button>
+                ))
+              }
+            </HStack>
+            <Divider/>
+            <Stack h={'44px'}></Stack>
+            <Stack h={'900px'} overflow={"scroll"}>
+              {
+                blogs[categoryIndex].attributes.blogs.data
+                  .sort((a: any, b: any) => {
+                    return new Date(b.attributes.date).getTime() - new Date(a.attributes.date).getTime()
+                  })
+                  .filter((item: any ,index: number) => {
+                    if (showMore) {
+                      return true
+                    }
+                    return index < 3
+                  }).map((item: any, index: number) => (
+                  <Stack pb={'44px'} key={index} px={'128px'}>
+                    <Link fontWeight={'600'} fontSize={'25px'} href={`/blogs/${item.attributes.slug}`}>
+                      {item.attributes.title}
+                    </Link>
+                    <Stack h={'8px'}></Stack>
+                    <Text fontWeight={'500'} fontSize={'15px'} color={'#030308'}>
+                      {item.attributes.date}
+                    </Text>
+                    {/*TODO: hidden markdown symbol*/}
+                    <Text fontWeight={'400'} fontSize={'15px'} noOfLines={3} color={'rgba(3, 3, 8, 0.6)'}>
+                      {item.attributes.content}
+                    </Text>
+                    <Stack h={'44px'}></Stack>
+                    <Divider/>
+                  </Stack>
+                ))
+              }
+              <Stack align={"center"} pt={'8px'}>
+                <Button variant={'outline'} onClick={() => {
+                  setShowMore(!showMore)}
+                }>{ !showMore ? 'More' : 'Less' }</Button>
+              </Stack>
             </Stack>
           </Stack>
         </Stack>
