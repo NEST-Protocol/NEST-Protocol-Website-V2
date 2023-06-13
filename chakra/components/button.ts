@@ -3,6 +3,7 @@ export const Button = {
     fontWeight: 'medium',
     fontSize: 'md',
     fontFamily: 'Open Sans',
+    minH: '48px',
   },
   variants: {
     ghost: {

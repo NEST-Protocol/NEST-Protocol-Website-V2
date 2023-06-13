@@ -40,9 +40,13 @@ const Page = () => {
           NESTCraft, which is a combination of martingales functions<br/> similar to the Ethereum virtual machine,<br/> will greatly broaden the scope of NEST&apos;s application,<br/> transforming it into a chain infrastructure that will enable anyone<br/> to create more NEST-based applications.
         </Text>
         <HStack spacing={'48px'}>
-          <Button as={Link} href={'/docs/Concept/NESTcraft'} bg={'#EAAA00'} w={'160px'}>Developer
-            Doc</Button>
-          <Button as={Link} href={'https://github.com/NEST-Protocol'} bg={'#EAAA00'} w={'160px'}>Github</Button>
+          <Link href={'/docs/Concept/NESTcraft'} >
+            <Button bg={'#EAAA00'} w={'160px'}>Developer
+              Doc</Button>
+          </Link>
+          <Link href={'https://github.com/NEST-Protocol'}>
+            <Button bg={'#EAAA00'} w={'160px'}>Github</Button>
+          </Link>
         </HStack>
       </Stack>
 
@@ -104,12 +108,16 @@ const Page = () => {
           NESTCraft, which is a combination of martingales functions<br/> similar to the Ethereum virtual machine,<br/> will greatly broaden the scope of NEST&apos;s application,<br/> transforming it into a chain infrastructure that will enable anyone<br/> to create more NEST-based applications.
         </Text>
         <Stack spacing={'30px'} pt={'20px'}>
-          <Button w={'170px'} as={Link} href={'/docs/Concept/NESTcraft'} minH={'44px'}>
-            Developer Doc
-          </Button>
-          <Button as={Link} href={'https://github.com/NEST-Protocol'} w={'170px'} minH={'44px'}>
-            Github
-          </Button>
+          <Link href={'/docs/Concept/NESTcraft'} >
+            <Button w={'170px'} minH={'44px'}>
+              Developer Doc
+            </Button>
+          </Link>
+          <Link href={'https://github.com/NEST-Protocol'}>
+            <Button w={'170px'} minH={'44px'}>
+              Github
+            </Button>
+          </Link>
         </Stack>
       </Stack>
       <Stack py={'50px'} px={'50px'} bg={'rgba(255,255,255, 0.8)'} spacing={'160px'}>

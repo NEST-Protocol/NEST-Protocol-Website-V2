@@ -136,9 +136,13 @@ const Page = () => {
           on decentralized price flows on the chain. <br/>
         </Text>
         <HStack spacing={'48px'}>
-          <Button as={Link} href={'/docs/Concept/NEST-Oracle'} bg={'#EAAA00'} w={'160px'}>Developer
-            Doc</Button>
-          <Button as={Link} href={'https://github.com/NEST-Protocol'} bg={'#EAAA00'} w={'160px'}>Github</Button>
+          <Link href={'/docs/Concept/NEST-Oracle'} >
+            <Button bg={'#EAAA00'} w={'160px'}>Developer
+              Doc</Button>
+          </Link>
+          <Link href={'https://github.com/NEST-Protocol'}>
+            <Button bg={'#EAAA00'} w={'160px'}>Github</Button>
+          </Link>
         </HStack>
       </Stack>
       <Stack bg={"white"} align={"center"} textAlign={"center"} pt={'90px'} pb={'60px'} spacing={'44px'}>
@@ -212,9 +216,11 @@ const Page = () => {
           }
         </Wrap>
         <Stack pt={'30px'} pb={'40px'}>
-          <Button as={Link} href={'/docs/root/Technical-Reference-NEST-Oracle'} variant={'outline'}>
-            More
-          </Button>
+          <Link href={'/docs/root/Technical-Reference-NEST-Oracle'}>
+            <Button variant={'outline'}>
+              More
+            </Button>
+          </Link>
         </Stack>
 
         <Wrap justify={"center"} pt={'69px'} spacing={'44px'}>
@@ -261,12 +267,16 @@ const Page = () => {
           price flows on the chain.
         </Text>
         <Stack spacing={'30px'} pt={'20px'}>
-          <Button w={'170px'} minH={'44px'} as={Link} href={'/docs/Concept/NEST-Oracle'}>
-            Developer Doc
-          </Button>
-          <Button w={'170px'} minH={'44px'} as={Link} href={'https://github.com/NEST-Protocol'}>
-            Github
-          </Button>
+          <Link href={'/docs/Concept/NEST-Oracle'}>
+            <Button w={'170px'} minH={'44px'}>
+              Developer Doc
+            </Button>
+          </Link>
+          <Link href={'https://github.com/NEST-Protocol'}>
+            <Button w={'170px'} minH={'44px'}>
+              Github
+            </Button>
+          </Link>
         </Stack>
       </Stack>
       <Stack textAlign={"center"} align={"center"} py={'120px'} bg={'rgba(255, 255,255, 0.7)'} spacing={'80px'}
@@ -337,10 +347,12 @@ const Page = () => {
         }
 
         <Stack align={"center"} pt={'44px'}>
-          <Button as={Link} href={'/docs/root/Technical-Reference-NEST-Oracle'} w={'190px'} variant={"outline"}
-                  minH={'44px'}>
-            More
-          </Button>
+          <Link href={'/docs/root/Technical-Reference-NEST-Oracle'}>
+            <Button w={'190px'} variant={"outline"}
+                    minH={'44px'}>
+              More
+            </Button>
+          </Link>
         </Stack>
       </Stack>
       <Stack px={'24px'} spacing={'24px'} pb={'64px'}>
