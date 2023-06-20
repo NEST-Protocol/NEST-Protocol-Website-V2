@@ -53,7 +53,7 @@ export default function Home() {
       title: `NESTFi`,
       desc: `NEST Fi is a decentralized perpetual exchange. Trading with smart contract. No market makers. No LPs.`,
       button: `Start Trading`,
-      link: `https://finance.nestprotocol.org/`,
+      link: `https://nestfi.org/`,
     },
     {
       image: `/image/Home/function3.png`,
@@ -153,7 +153,7 @@ export default function Home() {
                   color={'rgba(3, 3, 8, 0.6)'}>Trading with smart contract. No market
               makers. No LPs.</Text>
             <HStack pt={'8px'} justify={"center"}>
-              <Link href={'https://finance.nestprotocol.org/'} isExternal>
+              <Link href={'https://nestfi.org/'} isExternal>
                 <Button minH={'48px'}>
                   Explore NEST
                 </Button>
@@ -464,7 +464,7 @@ export default function Home() {
         <Text fontSize={'12.5px'} fontWeight={'400'}>Trading with smart contract. No market makers. No LPs.</Text>
       </Stack>
       <HStack align={"center"} justify={"center"} pt={'4px'}>
-        <Link href={'https://finance.nestprotocol.org/'} isExternal>
+        <Link href={'https://nestfi.org/'} isExternal>
           <Button minH={'48px'}>
             Explore NEST
           </Button>

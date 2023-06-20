@@ -86,7 +86,7 @@ const Page = () => {
                   <Text fontSize={'15px'} fontWeight={600}>Trade BTC/USDT and ETH/USDT perpetual futures directly from your wallet with 0 slippage and up to 50x leverage.</Text>
                   <Box pt={'25px'}>
                     <Button w={'160px'} onClick={() => {
-                      window.open('https://finance.nestprotocol.org/#/futures', '_blank')
+                      window.open('https://nestfi.org/#/futures', '_blank')
                     }}>
                       Trade on NESTFi
                     </Button>
@@ -170,7 +170,7 @@ const Page = () => {
         <Text textAlign={"center"} fontWeight={'600'} fontSize={'12.5px'}>Trade BTC/USDT and ETH/USDT<br/> perpetual futures directly from your wallet<br/> with 0 slippage<br/> and up to 50x leverage.</Text>
         <Stack pt={'30px'}>
           <Button onClick={() => {
-            window.open('https://finance.nestprotocol.org/#/futures', '_blank')
+            window.open('https://nestfi.org/#/futures', '_blank')
           }}>Trade on NESTFi</Button>
         </Stack>
       </Stack>
@@ -183,7 +183,7 @@ const Page = () => {
       {/*    exercise date,<br/>direction and strike price, and no commission</Text>*/}
       {/*  <Stack pt={'30px'}>*/}
       {/*    <Button onClick={() => {*/}
-      {/*      window.open('https://finance.nestprotocol.org/#/options', '_blank')*/}
+      {/*      window.open('https://nestfi.org/#/options', '_blank')*/}
       {/*    }}>Open Options</Button>*/}
       {/*  </Stack>*/}
       {/*</Stack>*/}

@@ -57,7 +57,7 @@ export default function NavigationMobile() {
               <Stack spacing={'25px'} textAlign={"start"}>
                 <HStack fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}
                         onClick={() => {
-                          window.open('https://finance.nestprotocol.org/', '_blank')
+                          window.open('https://nestfi.org/', '_blank')
                         }}
                         opacity={showAbout || showBlog ? 0.6 : 1}
                         color={router.pathname === '/nest-fi' ? '#EAAA00' : '#030308'}>

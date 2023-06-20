@@ -53,7 +53,7 @@ export default function Navigation() {
             <HStack _hover={{color: '#EAAA00'}} color={router.pathname === '/nest-fi' ? '#EAAA00' : '#030308'}
                     cursor={"pointer"}
                     onClick={() => {
-                      window.open('https://finance.nestprotocol.org/', '_blank')
+                      window.open('https://nestfi.org/', '_blank')
                     }}>
               <span>
                 NESTFi
@@ -145,7 +145,7 @@ export default function Navigation() {
                   gtag('event', 'clickApp', {
                     'from': 'desktop header'
                   })
-                  window.open('https://finance.nestprotocol.org/', '_blank')
+                  window.open('https://nestfi.org/', '_blank')
                 }}>
           Launch App
         </Button>
