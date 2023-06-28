@@ -155,7 +155,7 @@ const Page = () => {
                 <Button as={Link} href={'https://t.me/nest_chat/'} variant={'outline'} borderColor={'#EAAA00'} color={'#EAAA00'}>
                   Telegram
                 </Button>
-                <Button as={Link} href={'https://discord.gg/nestprotocol'} variant={'outline'} borderColor={'#EAAA00'} color={'#EAAA00'}>
+                <Button as={Link} href={'https://discord.gg/GWMhV4kdFg'} variant={'outline'} borderColor={'#EAAA00'} color={'#EAAA00'}>
                   Discord
                 </Button>
                 <Button as={Link} href={'https://github.com/NEST-Protocol'} variant={'outline'} borderColor={'#EAAA00'} color={'#EAAA00'}>
@@ -297,7 +297,7 @@ const Page = () => {
             </Button>
           </HStack>
           <HStack spacing={'30px'}>
-            <Button w={'90px'} as={Link} variant={'outline'} color={'#EAAA00'} borderColor={'#EAAA00'} href={'https://discord.gg/nestprotocol'}>
+            <Button w={'90px'} as={Link} variant={'outline'} color={'#EAAA00'} borderColor={'#EAAA00'} href={'https://discord.gg/GWMhV4kdFg'}>
               Discord
             </Button>
             <Button w={'90px'} as={Link} variant={'outline'} color={'#EAAA00'} borderColor={'#EAAA00'} href={'https://github.com/NEST-Protocol'}>

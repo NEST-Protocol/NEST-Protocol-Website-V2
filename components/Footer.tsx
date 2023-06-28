@@ -57,7 +57,7 @@ export default function Footer() {
           <chakra.img src={'/image/Footer/medium.svg'} h={'40px'} w={'40px'}
                       alt={'NEST-Protocol Medium'}/>
         </Link>
-        <Link href={'https://discord.gg/nestprotocol'} isExternal opacity={0.6} _hover={{ opacity: 1 }}>
+        <Link href={'https://discord.gg/GWMhV4kdFg'} isExternal opacity={0.6} _hover={{ opacity: 1 }}>
           <chakra.img src={'/image/Footer/discord.svg'} h={'40px'} w={'40px'}
                       alt={'NEST-Protocol Discord'}/>
         </Link>
