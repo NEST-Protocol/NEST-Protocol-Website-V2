@@ -3,6 +3,7 @@ import Navigation from "../../components/Navigation";
 import {getAllBlogs, getBlog, getRecentBlogs} from "../../lib/blogs";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import Moment from "react-moment";
 import NavigationMobile from "../../components/NavigationMobile";
 import Head from "next/head";
@@ -52,7 +53,7 @@ export default function Page({content, publishedAt, recentBlogs, title, descript
         </Stack>
         <Stack w={'container.xl'} h={'full'} p={'40px'}>
           {/* eslint-disable-next-line react/no-children-prop */}
-          <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} className={'markdown-body'}/>
+          <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} className={'markdown-body'}/>
           <br/>
           <Moment format="YYYY/MM/DD">{publishedAt}</Moment>
         </Stack>
@@ -67,7 +68,7 @@ export default function Page({content, publishedAt, recentBlogs, title, descript
       <Divider/>
       <Stack w={'full'} h={'full'} p={'24px'}>
         {/* eslint-disable-next-line react/no-children-prop */}
-        <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} className={'markdown-body'}/>
+        <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} className={'markdown-body'}/>
         <br/>
         <Moment format="YYYY/MM/DD">{publishedAt}</Moment>
       </Stack>
