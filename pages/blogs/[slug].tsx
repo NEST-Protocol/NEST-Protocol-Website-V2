@@ -8,7 +8,7 @@ import Moment from "react-moment";
 import NavigationMobile from "../../components/NavigationMobile";
 import Head from "next/head";
 
-export default function Page({content, publishedAt, recentBlogs, title, description, banner}: any) {
+export default function Page({content, date, recentBlogs, title, description, banner}: any) {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
 
   const SEO = (
@@ -55,7 +55,7 @@ export default function Page({content, publishedAt, recentBlogs, title, descript
           {/* eslint-disable-next-line react/no-children-prop */}
           <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} className={'markdown-body'}/>
           <br/>
-          <Moment format="YYYY/MM/DD">{publishedAt}</Moment>
+          <Moment format="YYYY/MM/DD">{date}</Moment>
         </Stack>
       </HStack>
     </Stack>
@@ -70,7 +70,7 @@ export default function Page({content, publishedAt, recentBlogs, title, descript
         {/* eslint-disable-next-line react/no-children-prop */}
         <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} className={'markdown-body'}/>
         <br/>
-        <Moment format="YYYY/MM/DD">{publishedAt}</Moment>
+        <Moment format="YYYY/MM/DD">{date}</Moment>
       </Stack>
       <Divider/>
       <Stack w={'full'} h={'full'} p={'24px'}>
