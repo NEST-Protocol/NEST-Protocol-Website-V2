@@ -26,14 +26,11 @@ import FooterMobile from "../components/FooterMobile";
 import Plyr from "plyr-react"
 import {InjectedConnector} from 'wagmi/connectors/injected'
 import {useAccount, useConnect, useEnsName, useNetwork} from "wagmi";
-import {bsc, mainnet} from 'wagmi/chains'
-import {disconnect, switchNetwork} from "@wagmi/core";
+import {mainnet} from 'wagmi/chains'
+import {switchNetwork} from "@wagmi/core";
 
 const NEST_ADDRESS = {
-  // TODO, use new NEST token
-  [bsc.id]: '0x98f8669F6481EbB341B522fCD3663f79A3d1A6A7',
-  // TODO, use new NEST token
-  [mainnet.id]: '0x04abEdA201850aC0124161F037Efd70c74ddC74C',
+  [mainnet.id]: '0xcd6926193308d3B371FdD6A6219067E550000000',
 }
 
 export default function Home() {
@@ -49,7 +46,7 @@ export default function Home() {
   const {isOpen, onOpen, onClose} = useDisclosure()
 
   const addNestToMetaMask = () => {
-    if (chain?.id !== bsc.id && chain?.id !== mainnet.id) {
+    if (chain?.id !== mainnet.id) {
       return
     }
     // @ts-ignore
