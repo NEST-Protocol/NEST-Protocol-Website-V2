@@ -6,7 +6,15 @@ import {
   Button,
   chakra,
   Box,
-  Link, useMediaQuery,
+  Link,
+  useMediaQuery,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  useDisclosure,
 } from "@chakra-ui/react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
@@ -16,11 +24,56 @@ import Head from "next/head";
 import NavigationMobile from "../components/NavigationMobile";
 import FooterMobile from "../components/FooterMobile";
 import Plyr from "plyr-react"
+import {InjectedConnector} from 'wagmi/connectors/injected'
+import {useAccount, useConnect, useEnsName, useNetwork} from "wagmi";
+import {bsc, mainnet} from 'wagmi/chains'
+import {disconnect, switchNetwork} from "@wagmi/core";
+
+const NEST_ADDRESS = {
+  // TODO, use new NEST token
+  [bsc.id]: '0x98f8669F6481EbB341B522fCD3663f79A3d1A6A7',
+  // TODO, use new NEST token
+  [mainnet.id]: '0x04abEdA201850aC0124161F037Efd70c74ddC74C',
+}
 
 export default function Home() {
   const [start, setStart] = useState(0);
   const [isMobile] = useMediaQuery("(max-width: 992px)");
   const [isMax] = useMediaQuery("(min-width: 1600px)");
+  const {chain} = useNetwork()
+  const {address, isConnected} = useAccount()
+  const {data: ensName} = useEnsName({address})
+  const {connect} = useConnect({
+    connector: new InjectedConnector(),
+  })
+  const {isOpen, onOpen, onClose} = useDisclosure()
+
+  const addNestToMetaMask = () => {
+    if (chain?.id !== bsc.id && chain?.id !== mainnet.id) {
+      return
+    }
+    // @ts-ignore
+    window?.ethereum?.request({
+      method: 'wallet_watchAsset',
+      params: {
+        type: 'ERC20',
+        options: {
+          address: NEST_ADDRESS[chain.id],
+          symbol: 'NEST',
+          decimals: 18,
+          image: 'https://nestprotocol.org/favicon.ico',
+        },
+      },
+    })
+      .then((success: any) => {
+        if (success) {
+          console.log('Successfully added NEST to MetaMask')
+        } else {
+          throw new Error('Something went wrong.');
+        }
+      })
+      .catch(console.error);
+  }
 
   const page = useMemo(() => {
     return isMax ? 5 : 3
@@ -144,6 +197,32 @@ export default function Home() {
     <Stack bgSize={'cover'} bgImage={"image/Home/Home_bg.jpg"} bgPosition={"center"}>
       {SEO}
       <Navigation/>
+      <Stack align={"center"} w={'full'} px={'40px'}>
+        <Stack maxW={'1600px'} w={'full'} bg={'rgba(234, 170, 0, 0.40)'} h={'80px'} justify={"center"} px={'24px'}
+               borderRadius={'12px'}>
+          <HStack w={"full"} justifyContent={'space-between'}>
+            <Text>
+              换币的提示
+            </Text>
+            {
+              address ? (
+                <HStack spacing={'20px'}>
+                  <Text fontWeight={'bold'}>
+                    {address.slice(0, 8)}...{address.slice(-6)}
+                  </Text>
+                  <Button onClick={onOpen}>
+                    Add to MetaMask
+                  </Button>
+                </HStack>
+              ) : (
+                <Button onClick={() => connect()}>
+                  Connect Wallet
+                </Button>
+              )
+            }
+          </HStack>
+        </Stack>
+      </Stack>
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'120px'} align={"center"}>
         <Stack pt={'260px'} pb={'200px'} w={'full'} maxW={'1600px'}>
           <Stack spacing={'16px'}>
@@ -188,7 +267,9 @@ export default function Home() {
           <Stack direction={'row'} spacing={['20px', '20px', '20px', '80px']} maxW={'1600px'}>
             <Stack w={'100%'} justify={"center"} px={['20px', '20px', '20px', '40px']}>
               <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>Get Started</Text>
-              <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply traders with unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
+              <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>NEST
+                Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply traders with
+                unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
             </Stack>
             <Stack align={'center'} pr={'40px'} w={'100%'}>
               <Stack w={['400px', '400px', '400px', '100%']} h={'full'} borderRadius={'12px'} overflow={'hidden'}>
@@ -231,7 +312,7 @@ export default function Home() {
                           <HStack pt={'8px'}>
                             <Link href={item.link} isExternal>
                               <Button minH={'48px'}
-                                fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
+                                      fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
                               >{item.button}</Button>
                             </Link>
                           </HStack>
@@ -246,7 +327,7 @@ export default function Home() {
                           <HStack pt={'8px'}>
                             <Link href={item.link} isExternal>
                               <Button minH={'48px'}
-                                fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
+                                      fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
                               >{item.button}</Button>
                             </Link>
                           </HStack>
@@ -459,6 +540,32 @@ export default function Home() {
     <Stack h={'100%'} spacing={0} bgImage={'/image/Home/01-Phone-bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       {SEO}
       <NavigationMobile/>
+      <Stack align={"center"} w={'full'} px={'20px'} pt={'10px'}>
+        <Stack maxW={'full'} w={'full'} bg={'rgba(234, 170, 0, 0.40)'} justify={"center"} p={'20px'}
+               borderRadius={'12px'}>
+          <Stack w={"full"} justifyContent={'space-between'}>
+            <Text>
+              换币的提示
+            </Text>
+            {
+              address ? (
+                <Stack spacing={'10px'}>
+                  <Text fontWeight={'bold'}>
+                    {address.slice(0, 8)}...{address.slice(-6)}
+                  </Text>
+                  <Button onClick={onOpen}>
+                    Add to MetaMask
+                  </Button>
+                </Stack>
+              ) : (
+                <Button onClick={() => connect()}>
+                  Connect Wallet
+                </Button>
+              )
+            }
+          </Stack>
+        </Stack>
+      </Stack>
       <Stack textAlign={"center"} p={'72px 20px 20px 20px'} spacing={'16px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>NEST PROTOCOL<br/>A Decentralized Martingale Network</Text>
         <Text fontSize={'12.5px'} fontWeight={'400'}>Trading with smart contract. No market makers. No LPs.</Text>
@@ -491,7 +598,9 @@ export default function Home() {
              borderRadius={'40px'}>
         <Text fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={"center"}>Get Started</Text>
         <Text fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} px={'20px'} textAlign={'center'}
-              color={'rgba(3, 3, 8, 0.6)'}>NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply traders with unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
+              color={'rgba(3, 3, 8, 0.6)'}>NEST Protocol&apos;s martingale trading paradigm combines blockchain
+          characteristics to supply traders with unlimited liquidity through risk sharing. The actual implementation is
+          listed below.</Text>
         <Stack w={'full'} px={'20px'}>
           <Stack borderRadius={'12px'} overflow={'hidden'}>
             <Plyr source={{
@@ -543,7 +652,7 @@ export default function Home() {
                 <HStack key={index} position={'relative'} spacing={0}>
                   <Box w={'1px'} h={'100%'} bg={'rgba(28, 28, 35, 0.08)'} position={'absolute'} left={'15px'}
                        opacity={index === developmentPath.length - 1 ? 0 : 1}/>
-                  <HStack textAlign={"start"} spacing={'16px'} align={'start'} >
+                  <HStack textAlign={"start"} spacing={'16px'} align={'start'}>
                     <chakra.img src={'/image/Home/01-icon-03.png'} h={'20px'} w={'30px'} alt={''}/>
                     <Stack pb={'32px'}>
                       <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'bold'}>{item.title}</Text>
@@ -692,11 +801,38 @@ export default function Home() {
     </Stack>
   )
 
-  if (isMobile) {
-    return mobilePage
-  } else {
-    return (
-      pcPage
-    )
-  }
+  return (
+    <>
+      {
+        isMobile ? mobilePage : pcPage
+      }
+      <Modal isOpen={isOpen && !!address} onClose={onClose} isCentered>
+        <ModalOverlay/>
+        <ModalContent>
+          <ModalHeader>Add to MetaMask</ModalHeader>
+          <ModalCloseButton/>
+          <ModalBody pb={'20px'}>
+            <Stack spacing={'20px'}>
+              <Text>
+                Bala Bala
+              </Text>
+              {
+                chain?.id === mainnet.id  ? (
+                  <Button onClick={addNestToMetaMask}>
+                    Add
+                  </Button>
+                ) : (
+                  <Button onClick={() => switchNetwork({
+                    chainId: mainnet.id,
+                  })} variant={'outline'}>
+                    Switch to Mainnet
+                  </Button>
+                )
+              }
+            </Stack>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  )
 }
