@@ -25,9 +25,8 @@ import NavigationMobile from "../components/NavigationMobile";
 import FooterMobile from "../components/FooterMobile";
 import Plyr from "plyr-react"
 import {InjectedConnector} from 'wagmi/connectors/injected'
-import {useAccount, useConnect, useEnsName, useNetwork} from "wagmi";
+import {useAccount, useConnect, useEnsName, useNetwork, useSwitchNetwork} from "wagmi";
 import {mainnet} from 'wagmi/chains'
-import {switchNetwork} from "@wagmi/core";
 
 const NEST_ADDRESS = {
   [mainnet.id]: '0xcd6926193308d3B371FdD6A6219067E550000000',
@@ -41,9 +40,12 @@ export default function Home() {
   const {address, isConnected} = useAccount()
   const {data: ensName} = useEnsName({address})
   const {connect} = useConnect({
+    // @ts-ignore
     connector: new InjectedConnector(),
   })
   const {isOpen, onOpen, onClose} = useDisclosure()
+  const {isLoading, pendingChainId, switchNetwork} =
+    useSwitchNetwork()
 
   const addNestToMetaMask = () => {
     if (chain?.id !== mainnet.id) {
@@ -819,9 +821,7 @@ export default function Home() {
                     Add
                   </Button>
                 ) : (
-                  <Button onClick={() => switchNetwork({
-                    chainId: mainnet.id,
-                  })} variant={'outline'}>
+                  <Button onClick={() => switchNetwork?.(mainnet.id)} variant={'outline'}>
                     Switch to Mainnet
                   </Button>
                 )
