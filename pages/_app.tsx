@@ -9,9 +9,10 @@ import Script from "next/script";
 
 import {configureChains, createConfig, mainnet, WagmiConfig} from 'wagmi'
 import {publicProvider} from 'wagmi/providers/public'
+import {bscTestnet} from "@wagmi/chains";
 
 const {chains, publicClient, webSocketPublicClient} = configureChains(
-  [mainnet],
+  [mainnet, bscTestnet],
   [publicProvider()],
 )
 

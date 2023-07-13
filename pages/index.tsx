@@ -8,13 +8,6 @@ import {
   Box,
   Link,
   useMediaQuery,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  useDisclosure,
 } from "@chakra-ui/react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
@@ -24,55 +17,10 @@ import Head from "next/head";
 import NavigationMobile from "../components/NavigationMobile";
 import FooterMobile from "../components/FooterMobile";
 import Plyr from "plyr-react"
-import {InjectedConnector} from 'wagmi/connectors/injected'
-import {useAccount, useConnect, useEnsName, useNetwork, useSwitchNetwork} from "wagmi";
-import {mainnet} from 'wagmi/chains'
-
-const NEST_ADDRESS = {
-  [mainnet.id]: '0xcd6926193308d3B371FdD6A6219067E550000000',
-}
-
 export default function Home() {
   const [start, setStart] = useState(0);
   const [isMobile] = useMediaQuery("(max-width: 992px)");
   const [isMax] = useMediaQuery("(min-width: 1600px)");
-  const {chain} = useNetwork()
-  const {address, isConnected} = useAccount()
-  const {data: ensName} = useEnsName({address})
-  const {connect} = useConnect({
-    // @ts-ignore
-    connector: new InjectedConnector(),
-  })
-  const {isOpen, onOpen, onClose} = useDisclosure()
-  const {isLoading, pendingChainId, switchNetwork} =
-    useSwitchNetwork()
-
-  const addNestToMetaMask = () => {
-    if (chain?.id !== mainnet.id) {
-      return
-    }
-    // @ts-ignore
-    window?.ethereum?.request({
-      method: 'wallet_watchAsset',
-      params: {
-        type: 'ERC20',
-        options: {
-          address: NEST_ADDRESS[chain.id],
-          symbol: 'NEST',
-          decimals: 18,
-          image: 'https://nestprotocol.org/favicon.ico',
-        },
-      },
-    })
-      .then((success: any) => {
-        if (success) {
-          console.log('Successfully added NEST to MetaMask')
-        } else {
-          throw new Error('Something went wrong.');
-        }
-      })
-      .catch(console.error);
-  }
 
   const page = useMemo(() => {
     return isMax ? 5 : 3
@@ -197,28 +145,17 @@ export default function Home() {
       {SEO}
       <Navigation/>
       <Stack align={"center"} w={'full'} px={'40px'}>
-        <Stack maxW={'1600px'} w={'full'} bg={'rgba(234, 170, 0, 0.40)'} h={'80px'} justify={"center"} px={'24px'}
+        <Stack maxW={'1600px'} w={'full'} bg={'rgba(255, 255, 255, 0.8)'} h={'80px'} justify={"center"} px={'40px'}
                borderRadius={'12px'}>
           <HStack w={"full"} justifyContent={'space-between'}>
             <Text>
               换币的提示
             </Text>
-            {
-              address ? (
-                <HStack spacing={'20px'}>
-                  <Text fontWeight={'bold'}>
-                    {address.slice(0, 8)}...{address.slice(-6)}
-                  </Text>
-                  <Button onClick={onOpen}>
-                    Add to MetaMask
-                  </Button>
-                </HStack>
-              ) : (
-                <Button onClick={() => connect()}>
-                  Connect Wallet
-                </Button>
-              )
-            }
+            <Link href={'switch'} isExternal>
+              <Button>
+                switch
+              </Button>
+            </Link>
           </HStack>
         </Stack>
       </Stack>
@@ -540,28 +477,17 @@ export default function Home() {
       {SEO}
       <NavigationMobile/>
       <Stack align={"center"} w={'full'} px={'20px'} pt={'10px'}>
-        <Stack maxW={'full'} w={'full'} bg={'rgba(234, 170, 0, 0.40)'} justify={"center"} p={'20px'}
+        <Stack maxW={'full'} w={'full'} bg={'rgba(255, 255, 255, 0.8)'} justify={"center"} p={'20px'}
                borderRadius={'12px'}>
           <Stack w={"full"} justifyContent={'space-between'}>
             <Text>
               换币的提示
             </Text>
-            {
-              address ? (
-                <Stack spacing={'10px'}>
-                  <Text fontWeight={'bold'}>
-                    {address.slice(0, 8)}...{address.slice(-6)}
-                  </Text>
-                  <Button onClick={onOpen}>
-                    Add to MetaMask
-                  </Button>
-                </Stack>
-              ) : (
-                <Button onClick={() => connect()}>
-                  Connect Wallet
-                </Button>
-              )
-            }
+            <Link href={'switch'} isExternal>
+              <Button>
+                switch
+              </Button>
+            </Link>
           </Stack>
         </Stack>
       </Stack>
@@ -801,35 +727,6 @@ export default function Home() {
   )
 
   return (
-    <>
-      {
-        isMobile ? mobilePage : pcPage
-      }
-      <Modal isOpen={isOpen && !!address} onClose={onClose} isCentered>
-        <ModalOverlay/>
-        <ModalContent>
-          <ModalHeader>Add to MetaMask</ModalHeader>
-          <ModalCloseButton/>
-          <ModalBody pb={'20px'}>
-            <Stack spacing={'20px'}>
-              <Text>
-                Bala Bala
-              </Text>
-              {
-                chain?.id === mainnet.id  ? (
-                  <Button onClick={addNestToMetaMask}>
-                    Add
-                  </Button>
-                ) : (
-                  <Button onClick={() => switchNetwork?.(mainnet.id)} variant={'outline'}>
-                    Switch to Mainnet
-                  </Button>
-                )
-              }
-            </Stack>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
-    </>
+    isMobile ? mobilePage : pcPage
   )
 }
