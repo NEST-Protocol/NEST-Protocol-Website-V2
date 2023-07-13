@@ -105,7 +105,7 @@ const Switch = () => {
       {SEO}
       <Navigation/>
       <Stack align={"center"} w={'full'} px={'40px'}>
-        <Stack pt={'180px'} maxW={'1600px'}>
+        <Stack py={'180px'} maxW={'1600px'}>
           <HStack justifyContent={"center"}>
             <svg width="240" height="88" viewBox="0 0 240 88" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
