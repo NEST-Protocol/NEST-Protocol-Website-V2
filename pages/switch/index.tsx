@@ -223,93 +223,120 @@ const Switch = () => {
                         </Stack>
                       </HStack>
                     ) : (
-                      <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'} py={'24px'}
-                              gap={'24px'}>
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M32.9639 32.9639C29.6462 36.2816 25.0629 38.3337 20.0003 38.3337C14.9378 38.3337 10.3544 36.2816 7.0367 32.9639C3.71902 29.6462 1.66699 25.0629 1.66699 20.0003C1.66699 14.9378 3.71902 10.3544 7.0367 7.0367C10.3544 3.71902 14.9378 1.66699 20.0003 1.66699C25.0629 1.66699 29.6462 3.71902 32.9639 7.0367C36.2816 10.3544 38.3337 14.9378 38.3337 20.0003C38.3337 25.0629 36.2816 29.6462 32.9639 32.9639ZM29.5122 16.1788C30.163 15.528 30.163 14.4727 29.5122 13.8218C28.8613 13.1709 27.806 13.1709 27.1551 13.8218L18.3337 22.6433L14.5122 18.8218C13.8613 18.1709 12.806 18.1709 12.1551 18.8218C11.5043 19.4727 11.5043 20.528 12.1551 21.1788L17.1551 26.1788C17.806 26.8297 18.8613 26.8297 19.5122 26.1788L29.5122 16.1788Z"
-                                fill="#2ECD3C"/>
-                        </svg>
-                        <Stack spacing={'8px'}>
-                          <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>换币成功</Text>
-                          <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}>
-                            链接钱包后领取您的新代币
+                      <Stack>
+                        <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'} py={'24px'}
+                                gap={'24px'}>
+                          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M32.9639 32.9639C29.6462 36.2816 25.0629 38.3337 20.0003 38.3337C14.9378 38.3337 10.3544 36.2816 7.0367 32.9639C3.71902 29.6462 1.66699 25.0629 1.66699 20.0003C1.66699 14.9378 3.71902 10.3544 7.0367 7.0367C10.3544 3.71902 14.9378 1.66699 20.0003 1.66699C25.0629 1.66699 29.6462 3.71902 32.9639 7.0367C36.2816 10.3544 38.3337 14.9378 38.3337 20.0003C38.3337 25.0629 36.2816 29.6462 32.9639 32.9639ZM29.5122 16.1788C30.163 15.528 30.163 14.4727 29.5122 13.8218C28.8613 13.1709 27.806 13.1709 27.1551 13.8218L18.3337 22.6433L14.5122 18.8218C13.8613 18.1709 12.806 18.1709 12.1551 18.8218C11.5043 19.4727 11.5043 20.528 12.1551 21.1788L17.1551 26.1788C17.806 26.8297 18.8613 26.8297 19.5122 26.1788L29.5122 16.1788Z"
+                                  fill="#2ECD3C"/>
+                          </svg>
+                          <Stack spacing={'8px'}>
+                            <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>换币成功</Text>
+                            <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}>
+                              链接钱包后领取您的新代币
+                            </Text>
+                          </Stack>
+                          <Spacer/>
+                          <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
+                            {withdrawNewStatus == 'idle' && '领取'}
+                            {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && '领取中'}
+                            {waitWithdrawNewStatus === 'success' && '领取成功'}
+                            {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && '领取失败'}
+                          </Button>
+                        </HStack>
+                        <HStack justify={"center"}>
+                          <Text fontSize={'14px'} onClick={() => setPass(false)} cursor={'pointer'} textDecoration={'underline'}>
+                            上一步
                           </Text>
-                        </Stack>
-                        <Spacer/>
-                        <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
-                          {withdrawNewStatus == 'idle' && '领取'}
-                          {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && '领取中'}
-                          {waitWithdrawNewStatus === 'success' && '领取成功'}
-                          {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && '领取失败'}
-                        </Button>
-                      </HStack>
+                          <Text fontSize={'14px'} onClick={() => setReceived(true)} cursor={'pointer'} textDecoration={'underline'}>
+                            下一步
+                          </Text>
+                        </HStack>
+                      </Stack>
                     )
                   ) : (
-                    <Stack px={'40px'} py={'24px'} bg={'rgba(234, 170, 0, 0.40)'} border={'1px solid #EAAA00'}
-                           w={'full'} borderRadius={'12px'} spacing={'12px'}>
-                      <HStack spacing={'24px'}>
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M1.66699 20.0003C1.66699 9.8751 9.8751 1.66699 20.0003 1.66699C30.1256 1.66699 38.3337 9.8751 38.3337 20.0003C38.3337 30.1256 30.1256 38.3337 20.0003 38.3337C9.8751 38.3337 1.66699 30.1256 1.66699 20.0003ZM21.6739 10.0006C21.674 9.08012 20.9279 8.33385 20.0074 8.33376C19.0869 8.33367 18.3407 9.07979 18.3406 10.0003L18.3396 20.0076C18.3395 20.4497 18.5151 20.8737 18.8277 21.1863L25.8939 28.2524C26.5448 28.9033 27.6 28.9033 28.2509 28.2524C28.9018 27.6016 28.9018 26.5463 28.2509 25.8954L21.673 19.3175L21.6739 10.0006Z"
-                                fill="#EAAA00"/>
-                        </svg>
-                        <Stack>
-                          <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
-                                lineHeight={'28px'}>换币已经提交，请等待</Text>
-                          <Text fontSize={'16px'} fontWeight={400}
-                                lineHeight={'22px'}>这里是说明，如：1个工作日后会有结果，若长时间未变化请与我们联系</Text>
-                        </Stack>
-                      </HStack>
-                      <HStack spacing={'24px'}>
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        </svg>
-                        <Button px={'24px'}>
-                          <HStack spacing={'12px'}>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                              <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M10.0003 18.3337C14.6027 18.3337 18.3337 14.6027 18.3337 10.0003C18.3337 5.39795 14.6027 1.66699 10.0003 1.66699C5.39795 1.66699 1.66699 5.39795 1.66699 10.0003C1.66699 14.6027 5.39795 18.3337 10.0003 18.3337ZM14.5791 6.80976C14.6562 5.97754 13.7311 6.32022 13.7311 6.32022C13.0481 6.58882 12.3437 6.86179 11.6316 7.13771C9.42383 7.99324 7.1429 8.87712 5.19989 9.747C4.14633 10.1142 4.76305 10.4813 4.76305 10.4813L6.43333 10.9709C7.20421 11.1912 7.61535 10.9464 7.61535 10.9464L11.2129 8.62107C12.4977 7.78885 12.1893 8.47421 11.881 8.76794L9.18283 11.2156C8.77169 11.5583 8.97726 11.852 9.15714 11.9989C9.66692 12.4262 10.921 13.208 11.4685 13.5493C11.6109 13.6382 11.7056 13.6971 11.7268 13.7123C11.8553 13.8102 12.5491 14.2508 13.0116 14.1529C13.4742 14.055 13.5255 13.492 13.5255 13.492L14.1423 9.64911C14.2348 8.98196 14.3409 8.34071 14.4256 7.82855C14.5056 7.34479 14.5666 6.97621 14.5791 6.80976Z"
-                                    fill="#333333"/>
-                            </svg>
-                            <Text>联系我们</Text>
-                          </HStack>
-                        </Button>
+                    <Stack>
+                      <Stack px={'40px'} py={'24px'} bg={'rgba(234, 170, 0, 0.40)'} border={'1px solid #EAAA00'}
+                             w={'full'} borderRadius={'12px'} spacing={'12px'}>
+                        <HStack spacing={'24px'}>
+                          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M1.66699 20.0003C1.66699 9.8751 9.8751 1.66699 20.0003 1.66699C30.1256 1.66699 38.3337 9.8751 38.3337 20.0003C38.3337 30.1256 30.1256 38.3337 20.0003 38.3337C9.8751 38.3337 1.66699 30.1256 1.66699 20.0003ZM21.6739 10.0006C21.674 9.08012 20.9279 8.33385 20.0074 8.33376C19.0869 8.33367 18.3407 9.07979 18.3406 10.0003L18.3396 20.0076C18.3395 20.4497 18.5151 20.8737 18.8277 21.1863L25.8939 28.2524C26.5448 28.9033 27.6 28.9033 28.2509 28.2524C28.9018 27.6016 28.9018 26.5463 28.2509 25.8954L21.673 19.3175L21.6739 10.0006Z"
+                                  fill="#EAAA00"/>
+                          </svg>
+                          <Stack>
+                            <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
+                                  lineHeight={'28px'}>换币已经提交，请等待</Text>
+                            <Text fontSize={'16px'} fontWeight={400}
+                                  lineHeight={'22px'}>这里是说明，如：1个工作日后会有结果，若长时间未变化请与我们联系</Text>
+                          </Stack>
+                        </HStack>
+                        <HStack spacing={'24px'}>
+                          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          </svg>
+                          <Button px={'24px'}>
+                            <HStack spacing={'12px'}>
+                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                   xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M10.0003 18.3337C14.6027 18.3337 18.3337 14.6027 18.3337 10.0003C18.3337 5.39795 14.6027 1.66699 10.0003 1.66699C5.39795 1.66699 1.66699 5.39795 1.66699 10.0003C1.66699 14.6027 5.39795 18.3337 10.0003 18.3337ZM14.5791 6.80976C14.6562 5.97754 13.7311 6.32022 13.7311 6.32022C13.0481 6.58882 12.3437 6.86179 11.6316 7.13771C9.42383 7.99324 7.1429 8.87712 5.19989 9.747C4.14633 10.1142 4.76305 10.4813 4.76305 10.4813L6.43333 10.9709C7.20421 11.1912 7.61535 10.9464 7.61535 10.9464L11.2129 8.62107C12.4977 7.78885 12.1893 8.47421 11.881 8.76794L9.18283 11.2156C8.77169 11.5583 8.97726 11.852 9.15714 11.9989C9.66692 12.4262 10.921 13.208 11.4685 13.5493C11.6109 13.6382 11.7056 13.6971 11.7268 13.7123C11.8553 13.8102 12.5491 14.2508 13.0116 14.1529C13.4742 14.055 13.5255 13.492 13.5255 13.492L14.1423 9.64911C14.2348 8.98196 14.3409 8.34071 14.4256 7.82855C14.5056 7.34479 14.5666 6.97621 14.5791 6.80976Z"
+                                      fill="#333333"/>
+                              </svg>
+                              <Text>联系我们</Text>
+                            </HStack>
+                          </Button>
+                        </HStack>
+                      </Stack>
+                      <HStack justify={"center"}>
+                        <Text fontSize={'14px'} onClick={() => setSent(false)} cursor={'pointer'} textDecoration={'underline'}>
+                          上一步
+                        </Text>
+                        <Text fontSize={'14px'} onClick={() => setPass(true)} cursor={'pointer'} textDecoration={'underline'}>
+                          下一步
+                        </Text>
                       </HStack>
                     </Stack>
                   )
                 ) : (
-                  <HStack bg={'rgba(255,255,255,0.8)'} px={'20px'} py={'24px'} borderRadius={'12px'} gap={'24px'} w={'full'}>
-                    <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M2.16699 19.9998C2.16699 9.87461 10.3751 1.6665 20.5003 1.6665C30.6256 1.6665 38.8337 9.87461 38.8337 19.9998C38.8337 30.1251 30.6256 38.3332 20.5003 38.3332C10.3751 38.3332 2.16699 30.1251 2.16699 19.9998ZM11.3337 17.4998C11.3337 16.5794 12.0799 15.8332 13.0003 15.8332H23.9766L20.9885 12.845C20.3376 12.1941 20.3376 11.1389 20.9885 10.488C21.6394 9.83712 22.6946 9.83712 23.3455 10.488L29.1788 16.3213C29.8297 16.9722 29.8297 18.0275 29.1788 18.6783C29.019 18.8381 28.8349 18.9587 28.6383 19.04C28.444 19.1206 28.2312 19.1655 28.008 19.1665L28.0003 19.1665H13.0003C12.0799 19.1665 11.3337 18.4203 11.3337 17.4998ZM11.4601 21.8619C11.3786 22.0584 11.3337 22.2739 11.3337 22.4998C11.3337 22.9554 11.5165 23.3683 11.8127 23.6692C11.8161 23.6726 11.8195 23.676 11.8228 23.6794L17.6551 29.5117C18.306 30.1626 19.3613 30.1626 20.0122 29.5117C20.663 28.8608 20.663 27.8055 20.0122 27.1547L17.024 24.1665H28.0003C28.9208 24.1665 29.667 23.4203 29.667 22.4998C29.667 21.5794 28.9208 20.8332 28.0003 20.8332H13.0003C12.9978 20.8332 12.9952 20.8332 12.9926 20.8332C12.5401 20.8352 12.1301 21.0177 11.831 21.3123C11.8248 21.3183 11.8188 21.3244 11.8127 21.3305C11.6574 21.4881 11.5399 21.669 11.4601 21.8619Z"
-                            fill="#030308"/>
-                    </svg>
-                    <Stack spacing={'8px'} minW={'150px'}>
-                      <Text fontSize={'20px'} fontWeight={700}
-                            lineHeight={'28px'}>{balanceOfNEST?.formatted} NEST</Text>
-                      <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'}
-                            color={'rgba(3,3,8,0.6)'}>可兑换额度</Text>
-                    </Stack>
-                    <Spacer/>
-                    {
-                      allowanceData && allowanceData > BigInt(0) ? (
-                        <Button isDisabled={!switchOld} onClick={switchOld}>
-                          {switchOldStatus == 'idle' && '兑换'}
-                          {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && '兑换中'}
-                          {waitSwitchOldStatus === 'success' && '兑换成功'}
-                          {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && '兑换失败'}
-                        </Button>
-                      ) : (
-                        <Button onClick={approve} isDisabled={!approve}>
-                          {approveStatus == 'idle' && '授权'}
-                          {(approveStatus == 'loading' || waitApproveStatus === 'loading') && '授权中'}
-                          {waitApproveStatus === 'success' && '授权成功'}
-                          {(approveStatus == 'error' || waitApproveStatus === 'error') && '授权失败'}
-                        </Button>
-                      )
-                    }
-                  </HStack>
+                  <Stack>
+                    <HStack bg={'rgba(255,255,255,0.8)'} px={'20px'} py={'24px'} borderRadius={'12px'} gap={'24px'} w={'full'}>
+                      <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M2.16699 19.9998C2.16699 9.87461 10.3751 1.6665 20.5003 1.6665C30.6256 1.6665 38.8337 9.87461 38.8337 19.9998C38.8337 30.1251 30.6256 38.3332 20.5003 38.3332C10.3751 38.3332 2.16699 30.1251 2.16699 19.9998ZM11.3337 17.4998C11.3337 16.5794 12.0799 15.8332 13.0003 15.8332H23.9766L20.9885 12.845C20.3376 12.1941 20.3376 11.1389 20.9885 10.488C21.6394 9.83712 22.6946 9.83712 23.3455 10.488L29.1788 16.3213C29.8297 16.9722 29.8297 18.0275 29.1788 18.6783C29.019 18.8381 28.8349 18.9587 28.6383 19.04C28.444 19.1206 28.2312 19.1655 28.008 19.1665L28.0003 19.1665H13.0003C12.0799 19.1665 11.3337 18.4203 11.3337 17.4998ZM11.4601 21.8619C11.3786 22.0584 11.3337 22.2739 11.3337 22.4998C11.3337 22.9554 11.5165 23.3683 11.8127 23.6692C11.8161 23.6726 11.8195 23.676 11.8228 23.6794L17.6551 29.5117C18.306 30.1626 19.3613 30.1626 20.0122 29.5117C20.663 28.8608 20.663 27.8055 20.0122 27.1547L17.024 24.1665H28.0003C28.9208 24.1665 29.667 23.4203 29.667 22.4998C29.667 21.5794 28.9208 20.8332 28.0003 20.8332H13.0003C12.9978 20.8332 12.9952 20.8332 12.9926 20.8332C12.5401 20.8352 12.1301 21.0177 11.831 21.3123C11.8248 21.3183 11.8188 21.3244 11.8127 21.3305C11.6574 21.4881 11.5399 21.669 11.4601 21.8619Z"
+                              fill="#030308"/>
+                      </svg>
+                      <Stack spacing={'8px'} minW={'150px'}>
+                        <Text fontSize={'20px'} fontWeight={700}
+                              lineHeight={'28px'}>{balanceOfNEST?.formatted} NEST</Text>
+                        <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'}
+                              color={'rgba(3,3,8,0.6)'}>可兑换额度</Text>
+                      </Stack>
+                      <Spacer/>
+                      {
+                        allowanceData && allowanceData > BigInt(0) ? (
+                          <Button isDisabled={!switchOld} onClick={switchOld}>
+                            {switchOldStatus == 'idle' && '兑换'}
+                            {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && '兑换中'}
+                            {waitSwitchOldStatus === 'success' && '兑换成功'}
+                            {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && '兑换失败'}
+                          </Button>
+                        ) : (
+                          <Button onClick={approve} isDisabled={!approve}>
+                            {approveStatus == 'idle' && '授权'}
+                            {(approveStatus == 'loading' || waitApproveStatus === 'loading') && '授权中'}
+                            {waitApproveStatus === 'success' && '授权成功'}
+                            {(approveStatus == 'error' || waitApproveStatus === 'error') && '授权失败'}
+                          </Button>
+                        )
+                      }
+                    </HStack>
+                    <HStack justify={"center"}>
+                      <Text fontSize={'14px'} onClick={() => setSent(true)} cursor={'pointer'} textDecoration={'underline'}>
+                        我已存入，直接进入下一步
+                      </Text>
+                    </HStack>
+                  </Stack>
                 )
               ) : (
                 <Button onClick={() => connect({
@@ -383,92 +410,118 @@ const Switch = () => {
                         </Stack>
                       </HStack>
                     ) : (
-                      <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'40px'} py={'24px'}
-                              gap={'24px'}>
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M32.9639 32.9639C29.6462 36.2816 25.0629 38.3337 20.0003 38.3337C14.9378 38.3337 10.3544 36.2816 7.0367 32.9639C3.71902 29.6462 1.66699 25.0629 1.66699 20.0003C1.66699 14.9378 3.71902 10.3544 7.0367 7.0367C10.3544 3.71902 14.9378 1.66699 20.0003 1.66699C25.0629 1.66699 29.6462 3.71902 32.9639 7.0367C36.2816 10.3544 38.3337 14.9378 38.3337 20.0003C38.3337 25.0629 36.2816 29.6462 32.9639 32.9639ZM29.5122 16.1788C30.163 15.528 30.163 14.4727 29.5122 13.8218C28.8613 13.1709 27.806 13.1709 27.1551 13.8218L18.3337 22.6433L14.5122 18.8218C13.8613 18.1709 12.806 18.1709 12.1551 18.8218C11.5043 19.4727 11.5043 20.528 12.1551 21.1788L17.1551 26.1788C17.806 26.8297 18.8613 26.8297 19.5122 26.1788L29.5122 16.1788Z"
-                                fill="#2ECD3C"/>
-                        </svg>
-                        <Stack spacing={'8px'}>
-                          <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>换币成功</Text>
-                          <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}>
-                            链接钱包后领取您的新代币
+                      <Stack>
+                        <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'40px'} py={'24px'}
+                                gap={'24px'}>
+                          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M32.9639 32.9639C29.6462 36.2816 25.0629 38.3337 20.0003 38.3337C14.9378 38.3337 10.3544 36.2816 7.0367 32.9639C3.71902 29.6462 1.66699 25.0629 1.66699 20.0003C1.66699 14.9378 3.71902 10.3544 7.0367 7.0367C10.3544 3.71902 14.9378 1.66699 20.0003 1.66699C25.0629 1.66699 29.6462 3.71902 32.9639 7.0367C36.2816 10.3544 38.3337 14.9378 38.3337 20.0003C38.3337 25.0629 36.2816 29.6462 32.9639 32.9639ZM29.5122 16.1788C30.163 15.528 30.163 14.4727 29.5122 13.8218C28.8613 13.1709 27.806 13.1709 27.1551 13.8218L18.3337 22.6433L14.5122 18.8218C13.8613 18.1709 12.806 18.1709 12.1551 18.8218C11.5043 19.4727 11.5043 20.528 12.1551 21.1788L17.1551 26.1788C17.806 26.8297 18.8613 26.8297 19.5122 26.1788L29.5122 16.1788Z"
+                                  fill="#2ECD3C"/>
+                          </svg>
+                          <Stack spacing={'8px'}>
+                            <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>换币成功</Text>
+                            <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}>
+                              链接钱包后领取您的新代币
+                            </Text>
+                          </Stack>
+                          <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
+                            {withdrawNewStatus == 'idle' && '领取'}
+                            {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && '领取中'}
+                            {waitWithdrawNewStatus === 'success' && '领取成功'}
+                            {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && '领取失败'}
+                          </Button>
+                        </HStack>
+                        <HStack justify={"center"}>
+                          <Text fontSize={'14px'} onClick={() => setPass(false)} cursor={'pointer'} textDecoration={'underline'}>
+                            上一步
                           </Text>
-                        </Stack>
-                        <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
-                          {withdrawNewStatus == 'idle' && '领取'}
-                          {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && '领取中'}
-                          {waitWithdrawNewStatus === 'success' && '领取成功'}
-                          {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && '领取失败'}
-                        </Button>
-                      </HStack>
+                          <Text fontSize={'14px'} onClick={() => setReceived(true)} cursor={'pointer'} textDecoration={'underline'}>
+                            下一步
+                          </Text>
+                        </HStack>
+                      </Stack>
                     )
                   ) : (
-                    <Stack px={'40px'} py={'24px'} bg={'rgba(234, 170, 0, 0.40)'} border={'1px solid #EAAA00'}
-                           minW={'540px'} borderRadius={'12px'} spacing={'12px'}>
-                      <HStack spacing={'24px'}>
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M1.66699 20.0003C1.66699 9.8751 9.8751 1.66699 20.0003 1.66699C30.1256 1.66699 38.3337 9.8751 38.3337 20.0003C38.3337 30.1256 30.1256 38.3337 20.0003 38.3337C9.8751 38.3337 1.66699 30.1256 1.66699 20.0003ZM21.6739 10.0006C21.674 9.08012 20.9279 8.33385 20.0074 8.33376C19.0869 8.33367 18.3407 9.07979 18.3406 10.0003L18.3396 20.0076C18.3395 20.4497 18.5151 20.8737 18.8277 21.1863L25.8939 28.2524C26.5448 28.9033 27.6 28.9033 28.2509 28.2524C28.9018 27.6016 28.9018 26.5463 28.2509 25.8954L21.673 19.3175L21.6739 10.0006Z"
-                                fill="#EAAA00"/>
-                        </svg>
-                        <Stack>
-                          <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
-                                lineHeight={'28px'}>换币已经提交，请等待</Text>
-                          <Text fontSize={'16px'} fontWeight={400}
-                                lineHeight={'22px'}>这里是说明，如：1个工作日后会有结果，若长时间未变化请与我们联系</Text>
-                        </Stack>
+                    <Stack>
+                      <Stack px={'40px'} py={'24px'} bg={'rgba(234, 170, 0, 0.40)'} border={'1px solid #EAAA00'}
+                             minW={'540px'} borderRadius={'12px'} spacing={'12px'}>
+                        <HStack spacing={'24px'}>
+                          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M1.66699 20.0003C1.66699 9.8751 9.8751 1.66699 20.0003 1.66699C30.1256 1.66699 38.3337 9.8751 38.3337 20.0003C38.3337 30.1256 30.1256 38.3337 20.0003 38.3337C9.8751 38.3337 1.66699 30.1256 1.66699 20.0003ZM21.6739 10.0006C21.674 9.08012 20.9279 8.33385 20.0074 8.33376C19.0869 8.33367 18.3407 9.07979 18.3406 10.0003L18.3396 20.0076C18.3395 20.4497 18.5151 20.8737 18.8277 21.1863L25.8939 28.2524C26.5448 28.9033 27.6 28.9033 28.2509 28.2524C28.9018 27.6016 28.9018 26.5463 28.2509 25.8954L21.673 19.3175L21.6739 10.0006Z"
+                                  fill="#EAAA00"/>
+                          </svg>
+                          <Stack>
+                            <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
+                                  lineHeight={'28px'}>换币已经提交，请等待</Text>
+                            <Text fontSize={'16px'} fontWeight={400}
+                                  lineHeight={'22px'}>这里是说明，如：1个工作日后会有结果，若长时间未变化请与我们联系</Text>
+                          </Stack>
+                        </HStack>
+                        <HStack spacing={'24px'}>
+                          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          </svg>
+                          <Button px={'24px'}>
+                            <HStack spacing={'12px'}>
+                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                   xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M10.0003 18.3337C14.6027 18.3337 18.3337 14.6027 18.3337 10.0003C18.3337 5.39795 14.6027 1.66699 10.0003 1.66699C5.39795 1.66699 1.66699 5.39795 1.66699 10.0003C1.66699 14.6027 5.39795 18.3337 10.0003 18.3337ZM14.5791 6.80976C14.6562 5.97754 13.7311 6.32022 13.7311 6.32022C13.0481 6.58882 12.3437 6.86179 11.6316 7.13771C9.42383 7.99324 7.1429 8.87712 5.19989 9.747C4.14633 10.1142 4.76305 10.4813 4.76305 10.4813L6.43333 10.9709C7.20421 11.1912 7.61535 10.9464 7.61535 10.9464L11.2129 8.62107C12.4977 7.78885 12.1893 8.47421 11.881 8.76794L9.18283 11.2156C8.77169 11.5583 8.97726 11.852 9.15714 11.9989C9.66692 12.4262 10.921 13.208 11.4685 13.5493C11.6109 13.6382 11.7056 13.6971 11.7268 13.7123C11.8553 13.8102 12.5491 14.2508 13.0116 14.1529C13.4742 14.055 13.5255 13.492 13.5255 13.492L14.1423 9.64911C14.2348 8.98196 14.3409 8.34071 14.4256 7.82855C14.5056 7.34479 14.5666 6.97621 14.5791 6.80976Z"
+                                      fill="#333333"/>
+                              </svg>
+                              <Text>联系我们</Text>
+                            </HStack>
+                          </Button>
+                        </HStack>
+                      </Stack>
+                      <HStack justify={"center"}>
+                        <Text fontSize={'14px'} onClick={() => setSent(false)} cursor={'pointer'} textDecoration={'underline'}>
+                          上一步
+                        </Text>
+                        <Text fontSize={'14px'} onClick={() => setPass(true)} cursor={'pointer'} textDecoration={'underline'}>
+                          下一步
+                        </Text>
                       </HStack>
-                      <HStack spacing={'24px'}>
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        </svg>
-                        <Button px={'24px'}>
-                          <HStack spacing={'12px'}>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                              <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M10.0003 18.3337C14.6027 18.3337 18.3337 14.6027 18.3337 10.0003C18.3337 5.39795 14.6027 1.66699 10.0003 1.66699C5.39795 1.66699 1.66699 5.39795 1.66699 10.0003C1.66699 14.6027 5.39795 18.3337 10.0003 18.3337ZM14.5791 6.80976C14.6562 5.97754 13.7311 6.32022 13.7311 6.32022C13.0481 6.58882 12.3437 6.86179 11.6316 7.13771C9.42383 7.99324 7.1429 8.87712 5.19989 9.747C4.14633 10.1142 4.76305 10.4813 4.76305 10.4813L6.43333 10.9709C7.20421 11.1912 7.61535 10.9464 7.61535 10.9464L11.2129 8.62107C12.4977 7.78885 12.1893 8.47421 11.881 8.76794L9.18283 11.2156C8.77169 11.5583 8.97726 11.852 9.15714 11.9989C9.66692 12.4262 10.921 13.208 11.4685 13.5493C11.6109 13.6382 11.7056 13.6971 11.7268 13.7123C11.8553 13.8102 12.5491 14.2508 13.0116 14.1529C13.4742 14.055 13.5255 13.492 13.5255 13.492L14.1423 9.64911C14.2348 8.98196 14.3409 8.34071 14.4256 7.82855C14.5056 7.34479 14.5666 6.97621 14.5791 6.80976Z"
-                                    fill="#333333"/>
-                            </svg>
-                            <Text>联系我们</Text>
-                          </HStack>
-                        </Button>
-                      </HStack>
-
                     </Stack>
                   )
                 ) : (
-                  <HStack bg={'rgba(255,255,255,0.8)'} px={'40px'} py={'24px'} borderRadius={'12px'} gap={'24px'}>
-                    <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M2.16699 19.9998C2.16699 9.87461 10.3751 1.6665 20.5003 1.6665C30.6256 1.6665 38.8337 9.87461 38.8337 19.9998C38.8337 30.1251 30.6256 38.3332 20.5003 38.3332C10.3751 38.3332 2.16699 30.1251 2.16699 19.9998ZM11.3337 17.4998C11.3337 16.5794 12.0799 15.8332 13.0003 15.8332H23.9766L20.9885 12.845C20.3376 12.1941 20.3376 11.1389 20.9885 10.488C21.6394 9.83712 22.6946 9.83712 23.3455 10.488L29.1788 16.3213C29.8297 16.9722 29.8297 18.0275 29.1788 18.6783C29.019 18.8381 28.8349 18.9587 28.6383 19.04C28.444 19.1206 28.2312 19.1655 28.008 19.1665L28.0003 19.1665H13.0003C12.0799 19.1665 11.3337 18.4203 11.3337 17.4998ZM11.4601 21.8619C11.3786 22.0584 11.3337 22.2739 11.3337 22.4998C11.3337 22.9554 11.5165 23.3683 11.8127 23.6692C11.8161 23.6726 11.8195 23.676 11.8228 23.6794L17.6551 29.5117C18.306 30.1626 19.3613 30.1626 20.0122 29.5117C20.663 28.8608 20.663 27.8055 20.0122 27.1547L17.024 24.1665H28.0003C28.9208 24.1665 29.667 23.4203 29.667 22.4998C29.667 21.5794 28.9208 20.8332 28.0003 20.8332H13.0003C12.9978 20.8332 12.9952 20.8332 12.9926 20.8332C12.5401 20.8352 12.1301 21.0177 11.831 21.3123C11.8248 21.3183 11.8188 21.3244 11.8127 21.3305C11.6574 21.4881 11.5399 21.669 11.4601 21.8619Z"
-                            fill="#030308"/>
-                    </svg>
-                    <Stack spacing={'8px'} minW={'150px'}>
-                      <Text fontSize={'20px'} fontWeight={700}
-                            lineHeight={'28px'}>{balanceOfNEST?.formatted} NEST</Text>
-                      <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'}
-                            color={'rgba(3,3,8,0.6)'}>可兑换额度</Text>
-                    </Stack>
-                    {
-                      allowanceData && allowanceData > BigInt(0) ? (
-                        <Button isDisabled={!switchOld} onClick={switchOld}>
-                          {switchOldStatus == 'idle' && '兑换'}
-                          {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && '兑换中'}
-                          {waitSwitchOldStatus === 'success' && '兑换成功'}
-                          {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && '兑换失败'}
-                        </Button>
-                      ) : (
-                        <Button onClick={() => approve?.()} variant={'solid'} isDisabled={!approve || balanceOfNEST?.value === BigInt(0)}>
-                          {approveStatus == 'idle' && '授权'}
-                          {(approveStatus == 'loading' || waitApproveStatus === 'loading') && '授权中'}
-                          {waitApproveStatus === 'success' && '授权成功'}
-                          {(approveStatus == 'error' || waitApproveStatus === 'error') && '授权失败'}
-                        </Button>
-                      )
-                    }
-                  </HStack>
+                  <Stack>
+                    <HStack bg={'rgba(255,255,255,0.8)'} px={'40px'} py={'24px'} borderRadius={'12px'} gap={'24px'}>
+                      <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M2.16699 19.9998C2.16699 9.87461 10.3751 1.6665 20.5003 1.6665C30.6256 1.6665 38.8337 9.87461 38.8337 19.9998C38.8337 30.1251 30.6256 38.3332 20.5003 38.3332C10.3751 38.3332 2.16699 30.1251 2.16699 19.9998ZM11.3337 17.4998C11.3337 16.5794 12.0799 15.8332 13.0003 15.8332H23.9766L20.9885 12.845C20.3376 12.1941 20.3376 11.1389 20.9885 10.488C21.6394 9.83712 22.6946 9.83712 23.3455 10.488L29.1788 16.3213C29.8297 16.9722 29.8297 18.0275 29.1788 18.6783C29.019 18.8381 28.8349 18.9587 28.6383 19.04C28.444 19.1206 28.2312 19.1655 28.008 19.1665L28.0003 19.1665H13.0003C12.0799 19.1665 11.3337 18.4203 11.3337 17.4998ZM11.4601 21.8619C11.3786 22.0584 11.3337 22.2739 11.3337 22.4998C11.3337 22.9554 11.5165 23.3683 11.8127 23.6692C11.8161 23.6726 11.8195 23.676 11.8228 23.6794L17.6551 29.5117C18.306 30.1626 19.3613 30.1626 20.0122 29.5117C20.663 28.8608 20.663 27.8055 20.0122 27.1547L17.024 24.1665H28.0003C28.9208 24.1665 29.667 23.4203 29.667 22.4998C29.667 21.5794 28.9208 20.8332 28.0003 20.8332H13.0003C12.9978 20.8332 12.9952 20.8332 12.9926 20.8332C12.5401 20.8352 12.1301 21.0177 11.831 21.3123C11.8248 21.3183 11.8188 21.3244 11.8127 21.3305C11.6574 21.4881 11.5399 21.669 11.4601 21.8619Z"
+                              fill="#030308"/>
+                      </svg>
+                      <Stack spacing={'8px'} minW={'150px'}>
+                        <Text fontSize={'20px'} fontWeight={700}
+                              lineHeight={'28px'}>{balanceOfNEST?.formatted} NEST</Text>
+                        <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'}
+                              color={'rgba(3,3,8,0.6)'}>可兑换额度</Text>
+                      </Stack>
+                      {
+                        allowanceData && allowanceData > BigInt(0) ? (
+                          <Button isDisabled={!switchOld} onClick={switchOld}>
+                            {switchOldStatus == 'idle' && '兑换'}
+                            {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && '兑换中'}
+                            {waitSwitchOldStatus === 'success' && '兑换成功'}
+                            {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && '兑换失败'}
+                          </Button>
+                        ) : (
+                          <Button onClick={() => approve?.()} variant={'solid'} isDisabled={!approve || balanceOfNEST?.value === BigInt(0)}>
+                            {approveStatus == 'idle' && '授权'}
+                            {(approveStatus == 'loading' || waitApproveStatus === 'loading') && '授权中'}
+                            {waitApproveStatus === 'success' && '授权成功'}
+                            {(approveStatus == 'error' || waitApproveStatus === 'error') && '授权失败'}
+                          </Button>
+                        )
+                      }
+                    </HStack>
+                    <HStack justify={"center"}>
+                      <Text fontSize={'14px'} onClick={() => setSent(true)} cursor={'pointer'} textDecoration={'underline'}>
+                        我已存入，直接进入下一步
+                      </Text>
+                    </HStack>
+                  </Stack>
                 )
               ) : (
                 <Button onClick={() => connect({

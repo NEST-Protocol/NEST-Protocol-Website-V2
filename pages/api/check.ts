@@ -12,5 +12,5 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ sent: true, pass: false, received: false, proof: undefined })
+  res.status(200).json({ sent: false, pass: false, received: false, proof: undefined })
 }
