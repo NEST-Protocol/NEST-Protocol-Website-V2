@@ -3,7 +3,6 @@ import Navigation from "../../components/Navigation";
 import Head from "next/head";
 import Footer from "../../components/Footer";
 import {
-  Address,
   erc20ABI,
   useAccount, useBalance,
   useConnect,
@@ -17,14 +16,9 @@ import {bscTestnet} from "@wagmi/chains";
 import {useEffect, useState} from "react";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
-
-const NEST_ADDRESS: { [p: number]: Address } = {
-  [bscTestnet.id]: "0x821edD79cc386E56FeC9DA5793b87a3A52373cdE",
-}
-
-const NEST_SWITCH: { [p: number]: Address } = {
-  [bscTestnet.id]: "0x821edD79cc386E56FeC9DA5793b87a3A52373cdE",
-}
+import {NEST_SWITCH_ABI} from "../../lib/abi";
+import {NEST_ADDRESS, NEST_SWITCH_ADDRESS} from "../../lib/address";
+import useSWR from "swr";
 
 const Switch = () => {
   const [isMobile] = useMediaQuery("(max-width: 992px)");
@@ -48,7 +42,7 @@ const Switch = () => {
     functionName: 'allowance',
     args: [
       address!,
-      NEST_SWITCH[chain?.id ?? bscTestnet.id],
+      NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
     ],
     cacheTime: 3_000,
     watch: true,
@@ -58,10 +52,9 @@ const Switch = () => {
     abi: erc20ABI,
     functionName: 'approve',
     args: [
-      NEST_SWITCH[chain?.id ?? bscTestnet.id],
+      NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
       BigInt(10000000000000000)
     ],
-    chainId: chain?.id ?? bscTestnet.id,
   })
   const {
     data: approveData,
@@ -73,16 +66,73 @@ const Switch = () => {
     hash: approveData?.hash,
     cacheTime: 3_000,
   })
+  const {config: switchOldPrepareConfig} = usePrepareContractWrite({
+    address: NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
+    abi: NEST_SWITCH_ABI,
+    functionName: 'switchOld',
+    args: [
+      balanceOfNEST?.value
+    ],
+  })
+  const {
+    data: switchOldData,
+    write: switchOld,
+    status: switchOldStatus,
+    reset: resetSwitchOld,
+  } = useContractWrite(switchOldPrepareConfig)
+  const {status: waitSwitchOldStatus} = useWaitForTransaction({
+    hash: switchOldData?.hash,
+    cacheTime: 3_000,
+  })
+  const {config: withdrawNewPrepareConfig} = usePrepareContractWrite({
+    address: NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
+    abi: NEST_SWITCH_ABI,
+    functionName: 'withdrawNew',
+    args: [
+      balanceOfNEST?.value
+    ],
+  })
+  const {
+    data: withdrawNewData,
+    write: withdrawNew,
+    status: withdrawNewStatus,
+    reset: resetWithdrawNew,
+  } = useContractWrite(withdrawNewPrepareConfig)
+
+  const {status: waitWithdrawNewStatus} = useWaitForTransaction({
+    hash: withdrawNewData?.hash,
+    cacheTime: 3_000,
+  })
+
   // 是否已经转账过
   const [sent, setSent] = useState(false)
-  const [pass, setPass] = useState(true)
+  // 是否已经审核通过
+  const [pass, setPass] = useState(false)
+  // 是否已经领取
   const [received, setReceived] = useState(false)
+  const [proof, setProof] = useState('')
+
+  const {data: checkData, isLoading: isCheckLoading} = useSWR('/api/check', (url) => fetch(url).then(res => res.json()))
 
   useEffect(() => {
     if (approveStatus === 'success' || approveStatus === 'error') {
       resetApprove()
     }
   }, [approveStatus, resetApprove])
+
+  useEffect(() => {
+    if (switchOldStatus === 'success' && waitSwitchOldStatus === 'success') {
+      setSent(true)
+    }
+  }, [switchOldStatus, waitSwitchOldStatus])
+
+  useEffect(() => {
+    if (checkData) {
+      setSent(checkData.sent)
+      setPass(checkData.pass)
+      setReceived(checkData.received)
+    }
+  }, [checkData])
 
   const SEO = (
     <Head>
@@ -96,22 +146,32 @@ const Switch = () => {
   )
 
   const mobilePage = (
-    <Stack  bgSize={'cover'} bgImage={"image/Swap/bg.png"} bgPosition={"center"} minH={'100vh'}>
+    <Stack bgSize={'cover'} bgImage={"image/Swap/bg.png"} bgPosition={"center"} minH={'100vh'}>
       {SEO}
       <NavigationMobile/>
       <Stack align={"center"} w={'full'} px={'20px'}>
         <Stack py={'60px'} w={'full'}>
           <HStack justifyContent={"center"}>
             <svg width="224" height="72" viewBox="0 0 224 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M184 72C201.673 72 216 57.6731 216 40C216 22.3269 201.673 8 184 8C166.327 8 152 22.3269 152 40C152 57.6731 166.327 72 184 72Z" fill="black"/>
-              <path d="M200 33.8754C200 34.9009 199.798 36.1314 199.596 37.5671L196.361 54.1796C196.361 54.5898 195.956 54.7949 195.754 54.7949H191.71C191.306 54.7949 190.901 54.3847 191.104 53.9745L194.339 37.5671C194.541 36.5416 194.541 35.7212 194.541 35.106C194.541 31.0041 192.317 28.7481 187.464 28.7481C181.601 28.7481 177.557 32.0296 176.344 38.5925L173.311 54.3847C173.311 54.7949 172.906 55 172.704 55H168.66C168.256 55 167.852 54.5898 168.054 54.1796L173.715 24.8513C173.715 24.4411 174.12 24.236 174.322 24.236H178.163C178.568 24.236 178.972 24.6462 178.77 25.0564L178.568 26.2869C178.366 26.9022 179.174 27.3124 179.579 26.9022C182.207 24.8513 185.442 24.0309 189.082 24.0309C195.956 23.6207 200 27.3124 200 33.8754Z" fill="white"/>
+              <path
+                d="M184 72C201.673 72 216 57.6731 216 40C216 22.3269 201.673 8 184 8C166.327 8 152 22.3269 152 40C152 57.6731 166.327 72 184 72Z"
+                fill="black"/>
+              <path
+                d="M200 33.8754C200 34.9009 199.798 36.1314 199.596 37.5671L196.361 54.1796C196.361 54.5898 195.956 54.7949 195.754 54.7949H191.71C191.306 54.7949 190.901 54.3847 191.104 53.9745L194.339 37.5671C194.541 36.5416 194.541 35.7212 194.541 35.106C194.541 31.0041 192.317 28.7481 187.464 28.7481C181.601 28.7481 177.557 32.0296 176.344 38.5925L173.311 54.3847C173.311 54.7949 172.906 55 172.704 55H168.66C168.256 55 167.852 54.5898 168.054 54.1796L173.715 24.8513C173.715 24.4411 174.12 24.236 174.322 24.236H178.163C178.568 24.236 178.972 24.6462 178.77 25.0564L178.568 26.2869C178.366 26.9022 179.174 27.3124 179.579 26.9022C182.207 24.8513 185.442 24.0309 189.082 24.0309C195.956 23.6207 200 27.3124 200 33.8754Z"
+                fill="white"/>
               <g opacity="0.6">
-                <path d="M32 72C49.6731 72 64 57.6731 64 40C64 22.3269 49.6731 8 32 8C14.3269 8 0 22.3269 0 40C0 57.6731 14.3269 72 32 72Z" fill="black"/>
-                <path d="M48 33.8754C48 34.9009 47.7978 36.1314 47.5956 37.5671L44.3606 54.1796C44.3606 54.5898 43.9562 54.7949 43.754 54.7949H39.7102C39.3058 54.7949 38.9014 54.3847 39.1036 53.9745L42.3386 37.5671C42.5408 36.5416 42.5408 35.7212 42.5408 35.106C42.5408 31.0041 40.3167 28.7481 35.4641 28.7481C29.6006 28.7481 25.5568 32.0296 24.3436 38.5925L21.3108 54.3847C21.3108 54.7949 20.9064 55 20.7042 55H16.6604C16.256 55 15.8516 54.5898 16.0538 54.1796L21.7151 24.8513C21.7151 24.4411 22.1195 24.236 22.3217 24.236H26.1633C26.5677 24.236 26.9721 24.6462 26.7699 25.0564L26.5677 26.2869C26.3655 26.9022 27.1743 27.3124 27.5787 26.9022C30.2072 24.8513 33.4422 24.0309 37.0817 24.0309C43.9562 23.6207 48 27.3124 48 33.8754Z" fill="white"/>
+                <path
+                  d="M32 72C49.6731 72 64 57.6731 64 40C64 22.3269 49.6731 8 32 8C14.3269 8 0 22.3269 0 40C0 57.6731 14.3269 72 32 72Z"
+                  fill="black"/>
+                <path
+                  d="M48 33.8754C48 34.9009 47.7978 36.1314 47.5956 37.5671L44.3606 54.1796C44.3606 54.5898 43.9562 54.7949 43.754 54.7949H39.7102C39.3058 54.7949 38.9014 54.3847 39.1036 53.9745L42.3386 37.5671C42.5408 36.5416 42.5408 35.7212 42.5408 35.106C42.5408 31.0041 40.3167 28.7481 35.4641 28.7481C29.6006 28.7481 25.5568 32.0296 24.3436 38.5925L21.3108 54.3847C21.3108 54.7949 20.9064 55 20.7042 55H16.6604C16.256 55 15.8516 54.5898 16.0538 54.1796L21.7151 24.8513C21.7151 24.4411 22.1195 24.236 22.3217 24.236H26.1633C26.5677 24.236 26.9721 24.6462 26.7699 25.0564L26.5677 26.2869C26.3655 26.9022 27.1743 27.3124 27.5787 26.9022C30.2072 24.8513 33.4422 24.0309 37.0817 24.0309C43.9562 23.6207 48 27.3124 48 33.8754Z"
+                  fill="white"/>
               </g>
               <path d="M128 40L118 34.2265V45.7735L128 40ZM88 41H119V39H88V41Z" fill="#EAAA00"/>
               <circle cx="212" cy="12" r="12" fill="#EB5D2A"/>
-              <path d="M203.732 16V14.74L206.972 11.68C207.228 11.448 207.416 11.24 207.536 11.056C207.656 10.872 207.736 10.704 207.776 10.552C207.824 10.4 207.848 10.26 207.848 10.132C207.848 9.796 207.732 9.54 207.5 9.364C207.276 9.18 206.944 9.088 206.504 9.088C206.152 9.088 205.824 9.156 205.52 9.292C205.224 9.428 204.972 9.64 204.764 9.928L203.348 9.016C203.668 8.536 204.116 8.156 204.692 7.876C205.268 7.596 205.932 7.456 206.684 7.456C207.308 7.456 207.852 7.56 208.316 7.768C208.788 7.968 209.152 8.252 209.408 8.62C209.672 8.988 209.804 9.428 209.804 9.94C209.804 10.212 209.768 10.484 209.696 10.756C209.632 11.02 209.496 11.3 209.288 11.596C209.088 11.892 208.792 12.224 208.4 12.592L205.712 15.124L205.34 14.416H210.08V16H203.732ZM212.103 16.096C211.783 16.096 211.507 15.988 211.275 15.772C211.051 15.548 210.939 15.264 210.939 14.92C210.939 14.576 211.051 14.3 211.275 14.092C211.507 13.876 211.783 13.768 212.103 13.768C212.431 13.768 212.707 13.876 212.931 14.092C213.155 14.3 213.267 14.576 213.267 14.92C213.267 15.264 213.155 15.548 212.931 15.772C212.707 15.988 212.431 16.096 212.103 16.096ZM217.588 16.144C216.9 16.144 216.284 15.976 215.74 15.64C215.196 15.296 214.768 14.8 214.456 14.152C214.144 13.504 213.988 12.72 213.988 11.8C213.988 10.88 214.144 10.096 214.456 9.448C214.768 8.8 215.196 8.308 215.74 7.972C216.284 7.628 216.9 7.456 217.588 7.456C218.284 7.456 218.9 7.628 219.436 7.972C219.98 8.308 220.408 8.8 220.72 9.448C221.032 10.096 221.188 10.88 221.188 11.8C221.188 12.72 221.032 13.504 220.72 14.152C220.408 14.8 219.98 15.296 219.436 15.64C218.9 15.976 218.284 16.144 217.588 16.144ZM217.588 14.5C217.916 14.5 218.2 14.408 218.44 14.224C218.688 14.04 218.88 13.748 219.016 13.348C219.16 12.948 219.232 12.432 219.232 11.8C219.232 11.168 219.16 10.652 219.016 10.252C218.88 9.852 218.688 9.56 218.44 9.376C218.2 9.192 217.916 9.1 217.588 9.1C217.268 9.1 216.984 9.192 216.736 9.376C216.496 9.56 216.304 9.852 216.16 10.252C216.024 10.652 215.956 11.168 215.956 11.8C215.956 12.432 216.024 12.948 216.16 13.348C216.304 13.748 216.496 14.04 216.736 14.224C216.984 14.408 217.268 14.5 217.588 14.5Z" fill="white"/>
+              <path
+                d="M203.732 16V14.74L206.972 11.68C207.228 11.448 207.416 11.24 207.536 11.056C207.656 10.872 207.736 10.704 207.776 10.552C207.824 10.4 207.848 10.26 207.848 10.132C207.848 9.796 207.732 9.54 207.5 9.364C207.276 9.18 206.944 9.088 206.504 9.088C206.152 9.088 205.824 9.156 205.52 9.292C205.224 9.428 204.972 9.64 204.764 9.928L203.348 9.016C203.668 8.536 204.116 8.156 204.692 7.876C205.268 7.596 205.932 7.456 206.684 7.456C207.308 7.456 207.852 7.56 208.316 7.768C208.788 7.968 209.152 8.252 209.408 8.62C209.672 8.988 209.804 9.428 209.804 9.94C209.804 10.212 209.768 10.484 209.696 10.756C209.632 11.02 209.496 11.3 209.288 11.596C209.088 11.892 208.792 12.224 208.4 12.592L205.712 15.124L205.34 14.416H210.08V16H203.732ZM212.103 16.096C211.783 16.096 211.507 15.988 211.275 15.772C211.051 15.548 210.939 15.264 210.939 14.92C210.939 14.576 211.051 14.3 211.275 14.092C211.507 13.876 211.783 13.768 212.103 13.768C212.431 13.768 212.707 13.876 212.931 14.092C213.155 14.3 213.267 14.576 213.267 14.92C213.267 15.264 213.155 15.548 212.931 15.772C212.707 15.988 212.431 16.096 212.103 16.096ZM217.588 16.144C216.9 16.144 216.284 15.976 215.74 15.64C215.196 15.296 214.768 14.8 214.456 14.152C214.144 13.504 213.988 12.72 213.988 11.8C213.988 10.88 214.144 10.096 214.456 9.448C214.768 8.8 215.196 8.308 215.74 7.972C216.284 7.628 216.9 7.456 217.588 7.456C218.284 7.456 218.9 7.628 219.436 7.972C219.98 8.308 220.408 8.8 220.72 9.448C221.032 10.096 221.188 10.88 221.188 11.8C221.188 12.72 221.032 13.504 220.72 14.152C220.408 14.8 219.98 15.296 219.436 15.64C218.9 15.976 218.284 16.144 217.588 16.144ZM217.588 14.5C217.916 14.5 218.2 14.408 218.44 14.224C218.688 14.04 218.88 13.748 219.016 13.348C219.16 12.948 219.232 12.432 219.232 11.8C219.232 11.168 219.16 10.652 219.016 10.252C218.88 9.852 218.688 9.56 218.44 9.376C218.2 9.192 217.916 9.1 217.588 9.1C217.268 9.1 216.984 9.192 216.736 9.376C216.496 9.56 216.304 9.852 216.16 10.252C216.024 10.652 215.956 11.168 215.956 11.8C215.956 12.432 216.024 12.948 216.16 13.348C216.304 13.748 216.496 14.04 216.736 14.224C216.984 14.408 217.268 14.5 217.588 14.5Z"
+                fill="white"/>
             </svg>
           </HStack>
           <Stack textAlign={"center"} pt={'24px'} spacing={'16px'}>
@@ -129,7 +189,8 @@ const Switch = () => {
                 sent ? (
                   pass ? (
                     received ? (
-                      <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'} py={'24px'} w={'full'}
+                      <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'} py={'24px'}
+                              w={'full'}
                               gap={'24px'}>
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path fill-rule="evenodd" clip-rule="evenodd"
@@ -158,14 +219,17 @@ const Switch = () => {
                           </Text>
                         </Stack>
                         <Spacer/>
-                        <Button onClick={() => setReceived(true)}>
-                          立即领取
+                        <Button onClick={withdrawNew} disabled={!withdrawNew}>
+                          {withdrawNewStatus == 'idle' && '领取'}
+                          {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && '领取中'}
+                          {waitWithdrawNewStatus === 'success' && '领取成功'}
+                          {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && '领取失败'}
                         </Button>
                       </HStack>
                     )
                   ) : (
                     <Stack px={'40px'} py={'24px'} bg={'rgba(234, 170, 0, 0.40)'} border={'1px solid #EAAA00'}
-                           minW={'540px'} borderRadius={'12px'} spacing={'12px'}>
+                           w={'full'} borderRadius={'12px'} spacing={'12px'}>
                       <HStack spacing={'24px'}>
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path fill-rule="evenodd" clip-rule="evenodd"
@@ -194,7 +258,6 @@ const Switch = () => {
                           </HStack>
                         </Button>
                       </HStack>
-
                     </Stack>
                   )
                 ) : (
@@ -213,15 +276,18 @@ const Switch = () => {
                     <Spacer/>
                     {
                       allowanceData && allowanceData > BigInt(0) ? (
-                        <Button onClick={() => setSent(true)}>
-                          兑换
+                        <Button disabled={!switchOld} onClick={switchOld}>
+                          {switchOldStatus == 'idle' && '兑换'}
+                          {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && '兑换中'}
+                          {waitSwitchOldStatus === 'success' && '兑换成功'}
+                          {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && '兑换失败'}
                         </Button>
                       ) : (
-                        <Button onClick={() => approve?.()}>
+                        <Button onClick={approve} disabled={!approve}>
                           {approveStatus == 'idle' && '授权'}
-                          {approveStatus == 'loading' && '授权中'}
-                          {approveStatus == 'success' && '授权成功'}
-                          {approveStatus == 'error' && '授权失败'}
+                          {(approveStatus == 'loading' || waitApproveStatus === 'loading') && '授权中'}
+                          {waitApproveStatus === 'success' && '授权成功'}
+                          {(approveStatus == 'error' || waitApproveStatus === 'error') && '授权失败'}
                         </Button>
                       )
                     }
@@ -312,8 +378,11 @@ const Switch = () => {
                             链接钱包后领取您的新代币
                           </Text>
                         </Stack>
-                        <Button onClick={() => setReceived(true)}>
-                          立即领取
+                        <Button onClick={withdrawNew} disabled={!withdrawNew}>
+                          {withdrawNewStatus == 'idle' && '领取'}
+                          {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && '领取中'}
+                          {waitWithdrawNewStatus === 'success' && '领取成功'}
+                          {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && '领取失败'}
                         </Button>
                       </HStack>
                     )
@@ -366,15 +435,18 @@ const Switch = () => {
                     </Stack>
                     {
                       allowanceData && allowanceData > BigInt(0) ? (
-                        <Button onClick={() => setSent(true)}>
-                          兑换
+                        <Button disabled={!switchOld} onClick={switchOld}>
+                          {switchOldStatus == 'idle' && '兑换'}
+                          {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && '兑换中'}
+                          {waitSwitchOldStatus === 'success' && '兑换成功'}
+                          {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && '兑换失败'}
                         </Button>
                       ) : (
-                        <Button onClick={() => approve?.()}>
+                        <Button onClick={() => approve?.()} disabled={!approve}>
                           {approveStatus == 'idle' && '授权'}
-                          {approveStatus == 'loading' && '授权中'}
-                          {approveStatus == 'success' && '授权成功'}
-                          {approveStatus == 'error' && '授权失败'}
+                          {(approveStatus == 'loading' || waitApproveStatus === 'loading') && '授权中'}
+                          {waitApproveStatus === 'success' && '授权成功'}
+                          {(approveStatus == 'error' || waitApproveStatus === 'error') && '授权失败'}
                         </Button>
                       )
                     }

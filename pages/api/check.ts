@@ -2,12 +2,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
-  name: string
+  sent: boolean,
+  pass: boolean,
+  received: boolean,
+  proof?: string,
 }
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+  res.status(200).json({ sent: true, pass: true, received: true, proof: undefined })
 }
