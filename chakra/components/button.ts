@@ -50,6 +50,10 @@ export const Button = {
       },
       _active: {
         bg: '#FFDC52'
+      },
+      _disabled: {
+        bg: '#E6E7EA',
+        color: 'rgba(28, 28, 35, 0.35)',
       }
     }
   },

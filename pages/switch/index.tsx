@@ -115,8 +115,26 @@ const Switch = () => {
   const {data: checkData, isLoading: isCheckLoading} = useSWR('/api/check', (url) => fetch(url).then(res => res.json()))
 
   useEffect(() => {
+    if (withdrawNewStatus === 'error') {
+      setTimeout(() => {
+        resetWithdrawNew()
+      }, 3_000)
+    }
+  }, [resetWithdrawNew, withdrawNewStatus])
+
+  useEffect(() => {
+    if (switchOldStatus === 'error') {
+      setTimeout(() => {
+        resetSwitchOld()
+      }, 3_000)
+    }
+  }, [resetSwitchOld, switchOldStatus])
+
+  useEffect(() => {
     if (approveStatus === 'success' || approveStatus === 'error') {
-      resetApprove()
+      setTimeout(() => {
+        resetApprove()
+      }, 3000)
     }
   }, [approveStatus, resetApprove])
 
@@ -219,7 +237,7 @@ const Switch = () => {
                           </Text>
                         </Stack>
                         <Spacer/>
-                        <Button onClick={withdrawNew} disabled={!withdrawNew}>
+                        <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
                           {withdrawNewStatus == 'idle' && '领取'}
                           {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && '领取中'}
                           {waitWithdrawNewStatus === 'success' && '领取成功'}
@@ -276,14 +294,14 @@ const Switch = () => {
                     <Spacer/>
                     {
                       allowanceData && allowanceData > BigInt(0) ? (
-                        <Button disabled={!switchOld} onClick={switchOld}>
+                        <Button isDisabled={!switchOld} onClick={switchOld}>
                           {switchOldStatus == 'idle' && '兑换'}
                           {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && '兑换中'}
                           {waitSwitchOldStatus === 'success' && '兑换成功'}
                           {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && '兑换失败'}
                         </Button>
                       ) : (
-                        <Button onClick={approve} disabled={!approve}>
+                        <Button onClick={approve} isDisabled={!approve}>
                           {approveStatus == 'idle' && '授权'}
                           {(approveStatus == 'loading' || waitApproveStatus === 'loading') && '授权中'}
                           {waitApproveStatus === 'success' && '授权成功'}
@@ -378,7 +396,7 @@ const Switch = () => {
                             链接钱包后领取您的新代币
                           </Text>
                         </Stack>
-                        <Button onClick={withdrawNew} disabled={!withdrawNew}>
+                        <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
                           {withdrawNewStatus == 'idle' && '领取'}
                           {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && '领取中'}
                           {waitWithdrawNewStatus === 'success' && '领取成功'}
@@ -435,14 +453,14 @@ const Switch = () => {
                     </Stack>
                     {
                       allowanceData && allowanceData > BigInt(0) ? (
-                        <Button disabled={!switchOld} onClick={switchOld}>
+                        <Button isDisabled={!switchOld} onClick={switchOld}>
                           {switchOldStatus == 'idle' && '兑换'}
                           {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && '兑换中'}
                           {waitSwitchOldStatus === 'success' && '兑换成功'}
                           {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && '兑换失败'}
                         </Button>
                       ) : (
-                        <Button onClick={() => approve?.()} disabled={!approve}>
+                        <Button onClick={() => approve?.()} variant={'solid'} isDisabled={!approve || balanceOfNEST?.value === BigInt(0)}>
                           {approveStatus == 'idle' && '授权'}
                           {(approveStatus == 'loading' || waitApproveStatus === 'loading') && '授权中'}
                           {waitApproveStatus === 'success' && '授权成功'}
