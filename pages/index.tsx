@@ -476,19 +476,18 @@ export default function Home() {
     <Stack h={'100%'} spacing={0} bgImage={'/image/Home/01-Phone-bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       {SEO}
       <NavigationMobile/>
-      <Stack align={"center"} w={'full'} px={'20px'} pt={'10px'}>
-        <Stack maxW={'full'} w={'full'} bg={'rgba(255, 255, 255, 0.8)'} justify={"center"} p={'20px'}
-               borderRadius={'12px'}>
-          <Stack w={"full"} justifyContent={'space-between'}>
+      <Stack align={"center"} w={'full'} pt={'10px'}>
+        <Stack maxW={'full'} w={'full'} bg={'rgba(255, 255, 255, 0.8)'} justify={"center"} p={'20px'}>
+          <HStack w={"full"} justifyContent={'space-between'}>
             <Text>
               换币的提示
             </Text>
             <Link href={'switch'} isExternal>
-              <Button>
+              <Button minH={'24px'} fontSize={'10px'} lineHeight={'14px'} fontWeight={'700'}>
                 switch
               </Button>
             </Link>
-          </Stack>
+          </HStack>
         </Stack>
       </Stack>
       <Stack textAlign={"center"} p={'72px 20px 20px 20px'} spacing={'16px'}>
