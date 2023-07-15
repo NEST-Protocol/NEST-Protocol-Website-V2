@@ -63,10 +63,6 @@ export default function FooterMobile() {
             <chakra.img src={'/image/Footer/medium.svg'} h={'40px'} w={'40px'}
                         alt={'NEST-Protocol Medium'}/>
           </Link>
-          <Link href={'https://discord.gg/GWMhV4kdFg'} isExternal opacity={0.6} _hover={{ opacity: 1 }}>
-            <chakra.img src={'/image/Footer/discord.svg'} h={'40px'} w={'40px'}
-                        alt={'NEST-Protocol Discord'}/>
-          </Link>
           <Link href={'mailto:hello@nestprotocol.org'} isExternal opacity={0.6} _hover={{ opacity: 1 }}>
             <chakra.img src={'/image/Footer/Email.svg'} h={'40px'} w={'40px'}
                         alt={'hello@nestprotocol.org'}/>
