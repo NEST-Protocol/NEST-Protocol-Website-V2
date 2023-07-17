@@ -23,8 +23,6 @@ import {NEST_ADDRESS, NEST_SWITCH_ADDRESS} from "../../lib/address";
 import useSWR from "swr";
 import {MerkleTree} from "merkletreejs"
 import {keccak256} from "@ethersproject/keccak256"
-import {add} from "@noble/hashes/_u64";
-import {withMiddleware} from "swr/_internal";
 
 const Switch = () => {
   const [isMobile] = useMediaQuery("(max-width: 992px)");
