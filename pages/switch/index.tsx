@@ -1,12 +1,14 @@
-import {Spacer, Stack, Text, useMediaQuery, Button, HStack} from "@chakra-ui/react";
+import {Button, HStack, Spacer, Stack, Text, useMediaQuery} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Head from "next/head";
 import Footer from "../../components/Footer";
 import {
   erc20ABI,
-  useAccount, useBalance,
+  useAccount,
+  useBalance,
   useConnect,
-  useContractRead, useContractWrite,
+  useContractRead,
+  useContractWrite,
   useNetwork,
   usePrepareContractWrite,
   useWaitForTransaction
@@ -19,6 +21,9 @@ import FooterMobile from "../../components/FooterMobile";
 import {NEST_SWITCH_ABI} from "../../lib/abi";
 import {NEST_ADDRESS, NEST_SWITCH_ADDRESS} from "../../lib/address";
 import useSWR from "swr";
+import {MerkleTree} from "merkletreejs"
+import {keccak256} from "@ethersproject/keccak256"
+import {add} from "@noble/hashes/_u64";
 
 const Switch = () => {
   const [isMobile] = useMediaQuery("(max-width: 992px)");
@@ -112,7 +117,33 @@ const Switch = () => {
   // 是否已经领取
   const [received, setReceived] = useState(false)
 
-  const {data: checkData, isLoading: isCheckLoading} = useSWR( address ? `https://api.nestfi.net/api/users/switch/info?address=${address}&chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()).then(res => res.value))
+  const {
+    data: checkData,
+    isLoading: isCheckLoading,
+  } = useSWR(address ? `https://api.nestfi.net/api/users/switch/info?address=${address}&chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()).then(res => res.value))
+
+  const {
+    data: nodesData,
+    isLoading: isNodesLoading,
+  } = useSWR(chain?.id ? `https://api.nestfi.net/api/users/pass/list?chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()))
+
+  useEffect(() => {
+    if (address && nodesData) {
+      const leaves = nodesData.map((x: string) => keccak256(x))
+      const tree = new MerkleTree(leaves, keccak256)
+      const root = tree.getHexRoot()
+      const leaf = keccak256(address)
+      const proof = tree.getHexProof(leaf)
+      const verified = tree.verify(proof, leaf, root)
+      if (verified) {
+        setProof(proof)
+      } else {
+        setProof([])
+      }
+    } else {
+      setProof([])
+    }
+  }, [nodesData, address])
 
   useEffect(() => {
     if (withdrawNewStatus === 'error') {
@@ -216,10 +247,12 @@ const Switch = () => {
                     sent ? (
                       pass ? (
                         received ? (
-                          <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'} py={'24px'}
+                          <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'}
+                                  py={'24px'}
                                   w={'full'}
                                   gap={'24px'}>
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M32.9639 32.9639C29.6462 36.2816 25.0629 38.3337 20.0003 38.3337C14.9378 38.3337 10.3544 36.2816 7.0367 32.9639C3.71902 29.6462 1.66699 25.0629 1.66699 20.0003C1.66699 14.9378 3.71902 10.3544 7.0367 7.0367C10.3544 3.71902 14.9378 1.66699 20.0003 1.66699C25.0629 1.66699 29.6462 3.71902 32.9639 7.0367C36.2816 10.3544 38.3337 14.9378 38.3337 20.0003C38.3337 25.0629 36.2816 29.6462 32.9639 32.9639ZM29.5122 16.1788C30.163 15.528 30.163 14.4727 29.5122 13.8218C28.8613 13.1709 27.806 13.1709 27.1551 13.8218L18.3337 22.6433L14.5122 18.8218C13.8613 18.1709 12.806 18.1709 12.1551 18.8218C11.5043 19.4727 11.5043 20.528 12.1551 21.1788L17.1551 26.1788C17.806 26.8297 18.8613 26.8297 19.5122 26.1788L29.5122 16.1788Z"
                                     fill="#2ECD3C"/>
@@ -233,9 +266,11 @@ const Switch = () => {
                           </HStack>
                         ) : (
                           <Stack>
-                            <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'} py={'24px'}
+                            <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'}
+                                    py={'24px'}
                                     gap={'24px'}>
-                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                   xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                       d="M32.9639 32.9639C29.6462 36.2816 25.0629 38.3337 20.0003 38.3337C14.9378 38.3337 10.3544 36.2816 7.0367 32.9639C3.71902 29.6462 1.66699 25.0629 1.66699 20.0003C1.66699 14.9378 3.71902 10.3544 7.0367 7.0367C10.3544 3.71902 14.9378 1.66699 20.0003 1.66699C25.0629 1.66699 29.6462 3.71902 32.9639 7.0367C36.2816 10.3544 38.3337 14.9378 38.3337 20.0003C38.3337 25.0629 36.2816 29.6462 32.9639 32.9639ZM29.5122 16.1788C30.163 15.528 30.163 14.4727 29.5122 13.8218C28.8613 13.1709 27.806 13.1709 27.1551 13.8218L18.3337 22.6433L14.5122 18.8218C13.8613 18.1709 12.806 18.1709 12.1551 18.8218C11.5043 19.4727 11.5043 20.528 12.1551 21.1788L17.1551 26.1788C17.806 26.8297 18.8613 26.8297 19.5122 26.1788L29.5122 16.1788Z"
                                       fill="#2ECD3C"/>
@@ -261,7 +296,8 @@ const Switch = () => {
                           <Stack px={'40px'} py={'24px'} bg={'rgba(234, 170, 0, 0.40)'} border={'1px solid #EAAA00'}
                                  w={'full'} borderRadius={'12px'} spacing={'12px'}>
                             <HStack spacing={'24px'}>
-                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                   xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                       d="M1.66699 20.0003C1.66699 9.8751 9.8751 1.66699 20.0003 1.66699C30.1256 1.66699 38.3337 9.8751 38.3337 20.0003C38.3337 30.1256 30.1256 38.3337 20.0003 38.3337C9.8751 38.3337 1.66699 30.1256 1.66699 20.0003ZM21.6739 10.0006C21.674 9.08012 20.9279 8.33385 20.0074 8.33376C19.0869 8.33367 18.3407 9.07979 18.3406 10.0003L18.3396 20.0076C18.3395 20.4497 18.5151 20.8737 18.8277 21.1863L25.8939 28.2524C26.5448 28.9033 27.6 28.9033 28.2509 28.2524C28.9018 27.6016 28.9018 26.5463 28.2509 25.8954L21.673 19.3175L21.6739 10.0006Z"
                                       fill="#EAAA00"/>
@@ -274,7 +310,8 @@ const Switch = () => {
                               </Stack>
                             </HStack>
                             <HStack spacing={'24px'}>
-                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                   xmlns="http://www.w3.org/2000/svg">
                               </svg>
                               <Button px={'24px'}>
                                 <HStack spacing={'12px'}>
@@ -293,8 +330,10 @@ const Switch = () => {
                       )
                     ) : (
                       <Stack>
-                        <HStack bg={'rgba(255,255,255,0.8)'} px={'20px'} py={'24px'} borderRadius={'12px'} gap={'24px'} w={'full'}>
-                          <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <HStack bg={'rgba(255,255,255,0.8)'} px={'20px'} py={'24px'} borderRadius={'12px'} gap={'24px'}
+                                w={'full'}>
+                          <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
+                               xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                   d="M2.16699 19.9998C2.16699 9.87461 10.3751 1.6665 20.5003 1.6665C30.6256 1.6665 38.8337 9.87461 38.8337 19.9998C38.8337 30.1251 30.6256 38.3332 20.5003 38.3332C10.3751 38.3332 2.16699 30.1251 2.16699 19.9998ZM11.3337 17.4998C11.3337 16.5794 12.0799 15.8332 13.0003 15.8332H23.9766L20.9885 12.845C20.3376 12.1941 20.3376 11.1389 20.9885 10.488C21.6394 9.83712 22.6946 9.83712 23.3455 10.488L29.1788 16.3213C29.8297 16.9722 29.8297 18.0275 29.1788 18.6783C29.019 18.8381 28.8349 18.9587 28.6383 19.04C28.444 19.1206 28.2312 19.1655 28.008 19.1665L28.0003 19.1665H13.0003C12.0799 19.1665 11.3337 18.4203 11.3337 17.4998ZM11.4601 21.8619C11.3786 22.0584 11.3337 22.2739 11.3337 22.4998C11.3337 22.9554 11.5165 23.3683 11.8127 23.6692C11.8161 23.6726 11.8195 23.676 11.8228 23.6794L17.6551 29.5117C18.306 30.1626 19.3613 30.1626 20.0122 29.5117C20.663 28.8608 20.663 27.8055 20.0122 27.1547L17.024 24.1665H28.0003C28.9208 24.1665 29.667 23.4203 29.667 22.4998C29.667 21.5794 28.9208 20.8332 28.0003 20.8332H13.0003C12.9978 20.8332 12.9952 20.8332 12.9926 20.8332C12.5401 20.8352 12.1301 21.0177 11.831 21.3123C11.8248 21.3183 11.8188 21.3244 11.8127 21.3305C11.6574 21.4881 11.5399 21.669 11.4601 21.8619Z"
                                   fill="#030308"/>
@@ -391,9 +430,11 @@ const Switch = () => {
                     sent ? (
                       pass ? (
                         received ? (
-                          <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'40px'} py={'24px'}
+                          <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'40px'}
+                                  py={'24px'}
                                   gap={'24px'}>
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M32.9639 32.9639C29.6462 36.2816 25.0629 38.3337 20.0003 38.3337C14.9378 38.3337 10.3544 36.2816 7.0367 32.9639C3.71902 29.6462 1.66699 25.0629 1.66699 20.0003C1.66699 14.9378 3.71902 10.3544 7.0367 7.0367C10.3544 3.71902 14.9378 1.66699 20.0003 1.66699C25.0629 1.66699 29.6462 3.71902 32.9639 7.0367C36.2816 10.3544 38.3337 14.9378 38.3337 20.0003C38.3337 25.0629 36.2816 29.6462 32.9639 32.9639ZM29.5122 16.1788C30.163 15.528 30.163 14.4727 29.5122 13.8218C28.8613 13.1709 27.806 13.1709 27.1551 13.8218L18.3337 22.6433L14.5122 18.8218C13.8613 18.1709 12.806 18.1709 12.1551 18.8218C11.5043 19.4727 11.5043 20.528 12.1551 21.1788L17.1551 26.1788C17.806 26.8297 18.8613 26.8297 19.5122 26.1788L29.5122 16.1788Z"
                                     fill="#2ECD3C"/>
@@ -407,9 +448,11 @@ const Switch = () => {
                           </HStack>
                         ) : (
                           <Stack>
-                            <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'40px'} py={'24px'}
+                            <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'40px'}
+                                    py={'24px'}
                                     gap={'24px'}>
-                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                   xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                       d="M32.9639 32.9639C29.6462 36.2816 25.0629 38.3337 20.0003 38.3337C14.9378 38.3337 10.3544 36.2816 7.0367 32.9639C3.71902 29.6462 1.66699 25.0629 1.66699 20.0003C1.66699 14.9378 3.71902 10.3544 7.0367 7.0367C10.3544 3.71902 14.9378 1.66699 20.0003 1.66699C25.0629 1.66699 29.6462 3.71902 32.9639 7.0367C36.2816 10.3544 38.3337 14.9378 38.3337 20.0003C38.3337 25.0629 36.2816 29.6462 32.9639 32.9639ZM29.5122 16.1788C30.163 15.528 30.163 14.4727 29.5122 13.8218C28.8613 13.1709 27.806 13.1709 27.1551 13.8218L18.3337 22.6433L14.5122 18.8218C13.8613 18.1709 12.806 18.1709 12.1551 18.8218C11.5043 19.4727 11.5043 20.528 12.1551 21.1788L17.1551 26.1788C17.806 26.8297 18.8613 26.8297 19.5122 26.1788L29.5122 16.1788Z"
                                       fill="#2ECD3C"/>
@@ -434,7 +477,8 @@ const Switch = () => {
                           <Stack px={'40px'} py={'24px'} bg={'rgba(234, 170, 0, 0.40)'} border={'1px solid #EAAA00'}
                                  minW={'540px'} borderRadius={'12px'} spacing={'12px'}>
                             <HStack spacing={'24px'}>
-                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                   xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                       d="M1.66699 20.0003C1.66699 9.8751 9.8751 1.66699 20.0003 1.66699C30.1256 1.66699 38.3337 9.8751 38.3337 20.0003C38.3337 30.1256 30.1256 38.3337 20.0003 38.3337C9.8751 38.3337 1.66699 30.1256 1.66699 20.0003ZM21.6739 10.0006C21.674 9.08012 20.9279 8.33385 20.0074 8.33376C19.0869 8.33367 18.3407 9.07979 18.3406 10.0003L18.3396 20.0076C18.3395 20.4497 18.5151 20.8737 18.8277 21.1863L25.8939 28.2524C26.5448 28.9033 27.6 28.9033 28.2509 28.2524C28.9018 27.6016 28.9018 26.5463 28.2509 25.8954L21.673 19.3175L21.6739 10.0006Z"
                                       fill="#EAAA00"/>
@@ -447,7 +491,8 @@ const Switch = () => {
                               </Stack>
                             </HStack>
                             <HStack spacing={'24px'}>
-                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                   xmlns="http://www.w3.org/2000/svg">
                               </svg>
                               <Button px={'24px'}>
                                 <HStack spacing={'12px'}>
@@ -467,7 +512,8 @@ const Switch = () => {
                     ) : (
                       <Stack>
                         <HStack bg={'rgba(255,255,255,0.8)'} px={'40px'} py={'24px'} borderRadius={'12px'} gap={'24px'}>
-                          <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
+                               xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                   d="M2.16699 19.9998C2.16699 9.87461 10.3751 1.6665 20.5003 1.6665C30.6256 1.6665 38.8337 9.87461 38.8337 19.9998C38.8337 30.1251 30.6256 38.3332 20.5003 38.3332C10.3751 38.3332 2.16699 30.1251 2.16699 19.9998ZM11.3337 17.4998C11.3337 16.5794 12.0799 15.8332 13.0003 15.8332H23.9766L20.9885 12.845C20.3376 12.1941 20.3376 11.1389 20.9885 10.488C21.6394 9.83712 22.6946 9.83712 23.3455 10.488L29.1788 16.3213C29.8297 16.9722 29.8297 18.0275 29.1788 18.6783C29.019 18.8381 28.8349 18.9587 28.6383 19.04C28.444 19.1206 28.2312 19.1655 28.008 19.1665L28.0003 19.1665H13.0003C12.0799 19.1665 11.3337 18.4203 11.3337 17.4998ZM11.4601 21.8619C11.3786 22.0584 11.3337 22.2739 11.3337 22.4998C11.3337 22.9554 11.5165 23.3683 11.8127 23.6692C11.8161 23.6726 11.8195 23.676 11.8228 23.6794L17.6551 29.5117C18.306 30.1626 19.3613 30.1626 20.0122 29.5117C20.663 28.8608 20.663 27.8055 20.0122 27.1547L17.024 24.1665H28.0003C28.9208 24.1665 29.667 23.4203 29.667 22.4998C29.667 21.5794 28.9208 20.8332 28.0003 20.8332H13.0003C12.9978 20.8332 12.9952 20.8332 12.9926 20.8332C12.5401 20.8352 12.1301 21.0177 11.831 21.3123C11.8248 21.3183 11.8188 21.3244 11.8127 21.3305C11.6574 21.4881 11.5399 21.669 11.4601 21.8619Z"
                                   fill="#030308"/>
@@ -487,7 +533,8 @@ const Switch = () => {
                                 {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && '兑换失败'}
                               </Button>
                             ) : (
-                              <Button onClick={() => approve?.()} variant={'solid'} isDisabled={!approve || balanceOfNEST?.value === BigInt(0)}>
+                              <Button onClick={() => approve?.()} variant={'solid'}
+                                      isDisabled={!approve || balanceOfNEST?.value === BigInt(0)}>
                                 {approveStatus == 'idle' && '授权'}
                                 {(approveStatus == 'loading' || waitApproveStatus === 'loading') && '授权中'}
                                 {waitApproveStatus === 'success' && '授权成功'}
