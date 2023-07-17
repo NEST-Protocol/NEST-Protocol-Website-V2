@@ -24,6 +24,7 @@ import useSWR from "swr";
 import {MerkleTree} from "merkletreejs"
 import {keccak256} from "@ethersproject/keccak256"
 import {add} from "@noble/hashes/_u64";
+import {withMiddleware} from "swr/_internal";
 
 const Switch = () => {
   const [isMobile] = useMediaQuery("(max-width: 992px)");
@@ -174,6 +175,12 @@ const Switch = () => {
       setSent(true)
     }
   }, [switchOldStatus, waitSwitchOldStatus])
+
+  useEffect(() => {
+    if (withdrawNewStatus === 'success' && waitWithdrawNewStatus === 'success') {
+      setReceived(true)
+    }
+  }, [withdrawNewStatus, waitWithdrawNewStatus])
 
   useEffect(() => {
     if (checkData) {
