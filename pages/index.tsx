@@ -56,13 +56,6 @@ export default function Home() {
       link: `https://nestfi.org/`,
     },
     {
-      image: `/image/Home/function3.png`,
-      title: `Cyber Ink`,
-      desc: `Cyber Ink is a collection of 10,000 NFTs on the blockchain. Each NFT can unlock the NEST Fi membership and benefit.`,
-      button: `More on NTFs`,
-      link: `https://nft.nestprotocol.org/`,
-    },
-    {
       image: `/image/Home/function4.png`,
       title: `NEST Oracle`,
       desc: `NEST Oracle builds a decentralized non-cooperative game network to determine the final price through arbitrage and two-way options. It introduces the random information of decentralized price flow into the chain.`,
@@ -75,6 +68,13 @@ export default function Home() {
       desc: `Like Ethereum virtual machine, NEST Craft uses martingale functions. It will turn NEST Protocol into a chain infrastructure that allows anyone to create more NEST-based apps.`,
       button: `Start Building`,
       link: `/craft`,
+    },
+    {
+      image: `/image/Home/function3.png`,
+      title: `Cyber Ink`,
+      desc: `Cyber Ink is a collection of 10,000 NFTs on the blockchain. Each NFT can unlock the NEST Fi membership and benefit.`,
+      button: `More on NTFs`,
+      link: `https://nft.nestprotocol.org/`,
     },
   ]
   const superiority = [
