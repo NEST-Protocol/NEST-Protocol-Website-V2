@@ -6,15 +6,26 @@ import {
   useMediaQuery,
   Divider,
 } from "@chakra-ui/react";
-import {getAllDocs, getAllDocsCategory, getDoc} from "../../lib/docs";
 import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Navigation from "../../components/Navigation";
 import NavigationMobile from "../../components/NavigationMobile";
+import useSWR from "swr";
+import {useRouter} from "next/router";
 
-export default function Page({content, publishedAt, menu}: any) {
+export default function Page() {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const router = useRouter();
+  const slug = router.query.slug?.[1];
+  const {data: menu} = useSWR('https://cms.nestfi.net/cmsapi/doc-categories?populate[docs][fields][0]=slug&populate[docs][fields][1]=title', (url) => fetch(url)
+    .then((res) => res.json())
+    .then((data) => data.data)
+  );
+  const {data: doc} = useSWR( slug ? `https://cms.nestfi.net/cmsapi/docs/?filters[slug][$eq]=${slug}` : undefined, (url) => fetch(url)
+    .then((res) => res.json())
+    .then((data) => data.data[0])
+  );
 
   const pcPage = (
     <Stack h={'100vh'}>
@@ -22,11 +33,11 @@ export default function Page({content, publishedAt, menu}: any) {
       <HStack px={'45px'} h={'full'} borderTop={'0.5px solid #c8c9cc'}>
         <Stack minW={'300px'} w={'300px'} h={'full'} borderRight={'0.5px solid #c8c9cc'} py={'40px'}>
           {
-            menu.map((item: any) => (
+            menu?.map((item: any) => (
               <Stack key={item.id}>
-                { item.attributes.docs.data.length > 0 && (
+                {item.attributes.docs.data.length > 0 && (
                   <Text fontWeight={'600'}>{item.attributes.name}</Text>
-                ) }
+                )}
                 {
                   item.attributes.docs.data.map((doc: any) => (
                     <Link key={doc.id} href={`/docs/${item.attributes.name}/${doc.attributes.slug}`}>
@@ -40,8 +51,8 @@ export default function Page({content, publishedAt, menu}: any) {
         </Stack>
         <Stack w={'container.xl'} h={'full'} p={'40px'} overflow={"scroll"}>
           {/* eslint-disable-next-line react/no-children-prop */}
-          <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} className={'markdown-body'}/>
-          <Moment format="YYYY/MM/DD">{publishedAt}</Moment>
+          <ReactMarkdown children={doc?.attributes?.content} remarkPlugins={[remarkGfm]} className={'markdown-body'}/>
+          <Moment format="YYYY/MM/DD">{doc?.attributes?.publishedAt}</Moment>
         </Stack>
       </HStack>
     </Stack>
@@ -53,22 +64,22 @@ export default function Page({content, publishedAt, menu}: any) {
       <Divider/>
       <Stack w={'full'} h={'full'} p={'24px'} overflow={"scroll"}>
         {/* eslint-disable-next-line react/no-children-prop */}
-        <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} className={'markdown-body'}/>
+        <ReactMarkdown children={doc?.attributes?.content} remarkPlugins={[remarkGfm]} className={'markdown-body'}/>
         <br/>
-        <Text fontSize={'sm'}>Published at: <Moment format="YYYY/MM/DD">{publishedAt}</Moment></Text>
+        <Text fontSize={'sm'}>Published at: <Moment format="YYYY/MM/DD">{doc?.attributes?.publishedAt}</Moment></Text>
       </Stack>
       <Divider/>
       <Stack w={'full'} h={'full'} borderRight={'0.5px solid #c8c9cc'} p={'24px'}>
         {
-          menu.map((item: any) => (
+          menu?.map((item: any) => (
             <Stack key={item.id}>
-              { item.attributes.docs.data.length > 0 && (
+              {item.attributes.docs.data.length > 0 && (
                 <Text fontWeight={'600'}>{item.attributes.name}</Text>
-              ) }
+              )}
               {
                 item.attributes.docs.data.map((doc: any) => (
-                  <Link key={doc.id} href={`/docs/${item.attributes.name}/${doc.attributes.slug}`}>
-                    <Text fontSize={'sm'} cursor={"pointer"}>{doc.attributes.title}</Text>
+                  <Link key={doc.id} href={`/docs/${item.attributes.name}/${doc?.attributes?.slug}`}>
+                    <Text fontSize={'sm'} cursor={"pointer"}>{doc?.attributes?.title}</Text>
                   </Link>
                 ))
               }
@@ -85,31 +96,5 @@ export default function Page({content, publishedAt, menu}: any) {
     return (
       pcPage
     )
-  }
-}
-
-// get the path of the page
-export const getStaticPaths = async () => {
-  const docsRes = await getAllDocs()
-  return {
-    paths: docsRes.data.map((doc: any) => `/docs/${doc.attributes.category.data.attributes.name}/${doc.attributes.slug}`) || [],
-    fallback: false
-  }
-}
-
-export async function getStaticProps({params}: any) {
-  const slug = params.slug[1]
-  const docRes = await getDoc(slug)
-  const menu = await getAllDocsCategory()
-
-  return {
-    props: {
-      id: docRes.id,
-      slug: docRes.attributes.slug,
-      title: docRes.attributes.title,
-      content: docRes.attributes.content,
-      publishedAt: docRes.attributes.publishedAt,
-      menu: menu.data
-    }
   }
 }

@@ -3,14 +3,19 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
-import {getBlogCategory} from "../../lib/blogs";
 import {useState} from "react";
 import Head from "next/head";
+import useSWR from "swr";
 
-const Page = ({blogs}: any) => {
+const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [showMore, setShowMore] = useState(false);
+
+  const {data: blogs} = useSWR('https://cms.nestfi.net/cmsapi/blog-categories?populate=blogs', (url) => fetch(url)
+    .then(res=> res.json())
+    .then(data => data.data)
+  )
 
   const array1 = [
     {image: '/image/Blog/blog_card_01@2x.png', title: 'Coinbase Announces Planned Listing of Tokens, Adds $NEST',
@@ -66,7 +71,7 @@ const Page = ({blogs}: any) => {
           <Stack py={'48px'} px={'44px'} borderRadius={'20px'} bg={"rgba(255,255,255,0.8)"}>
             <HStack spacing={0} justify={"center"} pb={'30px'}>
               {
-                blogs.map((item: any, index: number) => (
+                blogs?.map((item: any, index: number) => (
                   <Button key={index} fontSize={'15px'} w={'150px'} h={'42px'} borderRadius={0} bg={index === categoryIndex ? '#EAAA00' : ''}
                           border={'1px solid'} borderColor={'#EEEEEE'} variant={'unstyled'} borderLeftRadius={index === 0 ? '21px' : ''}
                           borderRightRadius={index === blogs.length - 1 ? '21px' : ''} fontWeight={'600'}
@@ -83,8 +88,7 @@ const Page = ({blogs}: any) => {
             <Stack h={'44px'}></Stack>
             <Stack h={'900px'} overflow={"scroll"}>
               {
-                blogs[categoryIndex].attributes.blogs.data
-                  .sort((a: any, b: any) => {
+                blogs?.[categoryIndex]?.attributes?.blogs?.data?.sort((a: any, b: any) => {
                     return new Date(b.attributes.date).getTime() - new Date(a.attributes.date).getTime()
                   })
                   .filter((item: any ,index: number) => {
@@ -152,7 +156,7 @@ const Page = ({blogs}: any) => {
         <Stack py={'35px'} spacing={'27px'} bg={'white'} borderRadius={'20px'}>
           <HStack spacing={0} px={'8px'}>
             {
-              blogs.map((item: any, index: number) => (
+              blogs?.map((item: any, index: number) => (
                 <Button key={index} fontSize={'15px'} w={'150px'} h={'33px'} borderRadius={0} bg={index === categoryIndex ? '#EAAA00' : ''}
                         border={'1px solid'} borderColor={'#EEEEEE'} variant={'unstyled'} borderLeftRadius={index === 0 ? '28px' : ''}
                         borderRightRadius={index === blogs.length - 1 ? '21px' : ''} fontWeight={'600'}
@@ -168,7 +172,7 @@ const Page = ({blogs}: any) => {
           <Divider/>
           <Stack h={'700px'} overflow={'scroll'}>
             {
-              blogs[categoryIndex].attributes.blogs.data.filter((item: any ,index: number) => {
+              blogs?.[categoryIndex]?.attributes?.blogs?.data?.filter((item: any ,index: number) => {
                 if (showMore) {
                   return true
                 }
@@ -208,12 +212,3 @@ const Page = ({blogs}: any) => {
 }
 
 export default Page
-
-export async function getStaticProps() {
-  const blogRes = await getBlogCategory()
-  return {
-    props: {
-      blogs: blogRes.data
-    }
-  }
-}

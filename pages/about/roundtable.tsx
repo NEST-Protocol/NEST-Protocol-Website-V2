@@ -14,14 +14,18 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
-import {getAllRoundtable} from "../../lib/roundtable";
 import {useState} from "react";
 import Head from "next/head";
+import useSWR from "swr";
 
-const Page = ({roundtables}: any) => {
+const Page = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
   const [showMore, setShowMore] = useState(false);
 
+  const {data: roundtables} = useSWR('https://cms.nestfi.net/cmsapi/roundtables?populate=invited_user_icons&sort=scheduled_start%3Adesc', (url) => fetch(url)
+    .then(res=> res.json())
+    .then(data => data.data)
+  )
   const title = "NEST Roundtable | NEST Protocol";
   const description = "NEST Roundtable, A weekly current affairs topic to understand the world of blockchain";
 
@@ -49,7 +53,7 @@ const Page = ({roundtables}: any) => {
           </Stack>
           <Wrap justify={"center"} spacing={'40px'}>
             {
-              roundtables.filter((item: any, index: number) => {
+              roundtables?.filter((item: any, index: number) => {
                 if (showMore) {
                   return true
                 }
@@ -111,7 +115,7 @@ const Page = ({roundtables}: any) => {
       </Stack>
       <Stack px={'20px'} spacing={'20px'}>
         {
-          roundtables.filter((item: any, index: number) => {
+          roundtables?.filter((item: any, index: number) => {
             if (showMore) {
               return true
             }
@@ -163,12 +167,3 @@ const Page = ({roundtables}: any) => {
 }
 
 export default Page
-
-export async function getStaticProps() {
-  const res = await getAllRoundtable()
-  return {
-    props: {
-      roundtables: res.data
-    }
-  }
-}
