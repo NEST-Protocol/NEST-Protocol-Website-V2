@@ -34,13 +34,15 @@ const Switch = () => {
   })
   const {chain} = useNetwork()
   const {address} = useAccount()
+  console.log('address:', address)
   const {data: balanceOfNEST} = useBalance({
     address: address,
     token: NEST_ADDRESS[chain?.id ?? bscTestnet.id],
-    cacheTime: 3_000,
+    cacheTime: 1_000,
     watch: true,
   })
-  const {data: allowanceData} = useContractRead({
+  console.log('balanceOfNEST:', balanceOfNEST?.value)
+  const {data: allowanceData, refetch: allowanceRefetch} = useContractRead({
     abi: erc20ABI,
     address: NEST_ADDRESS[chain?.id ?? bscTestnet.id],
     functionName: 'allowance',
@@ -48,9 +50,10 @@ const Switch = () => {
       address!,
       NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
     ],
-    cacheTime: 3_000,
+    cacheTime: 1_000,
     watch: true,
   })
+  console.log('allowance:', allowanceData)
   const {config: approvePrepareConfig} = usePrepareContractWrite({
     address: NEST_ADDRESS[chain?.id ?? bscTestnet.id],
     abi: erc20ABI,
@@ -70,7 +73,7 @@ const Switch = () => {
     hash: approveData?.hash,
     cacheTime: 3_000,
   })
-  const {config: switchOldPrepareConfig} = usePrepareContractWrite({
+  const {config: switchOldPrepareConfig, status: switchOldPrepareStatus, refetch: refetchSwitchOldPrepare} = usePrepareContractWrite({
     address: NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
     abi: NEST_SWITCH_ABI,
     functionName: 'switchOld',
@@ -82,7 +85,6 @@ const Switch = () => {
     data: switchOldData,
     write: switchOld,
     status: switchOldStatus,
-    reset: resetSwitchOld,
   } = useContractWrite(switchOldPrepareConfig)
   const {status: waitSwitchOldStatus} = useWaitForTransaction({
     hash: switchOldData?.hash,
@@ -119,11 +121,27 @@ const Switch = () => {
   const {
     data: checkData,
     isLoading: isCheckLoading,
-  } = useSWR(address ? `https://api.nestfi.net/api/users/switch/info?address=${address}&chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()).then(res => res.value))
+    mutate: mutateInfo,
+  } = useSWR(address ? `https://api.nestfi.net/api/users/switch/info?address=${address}&chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()).then(res => res.value), {
+    refreshInterval: 3_000,
+  })
 
   const {
     data: nodesData,
   } = useSWR(chain?.id ? `https://api.nestfi.net/api/users/pass/list?chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()))
+
+  useEffect(() => {
+    setSent(false)
+    setPass(false)
+    setReceived(false)
+    mutateInfo()
+  }, [address])
+
+  useEffect(() => {
+    if (approveStatus === 'success') {
+      allowanceRefetch();
+    }
+  }, [approveStatus])
 
   useEffect(() => {
     if (address && nodesData) {
@@ -152,12 +170,18 @@ const Switch = () => {
   }, [resetWithdrawNew, withdrawNewStatus])
 
   useEffect(() => {
-    if (switchOldStatus === 'error') {
+    if (switchOldStatus === 'error' || waitApproveStatus === 'success') {
       setTimeout(() => {
-        resetSwitchOld()
-      }, 3_000)
+        refetchSwitchOldPrepare()
+      }, 1_000)
     }
-  }, [resetSwitchOld, switchOldStatus])
+  }, [switchOldStatus, waitApproveStatus])
+
+  useEffect(() => {
+    if (switchOldPrepareStatus === "error" && allowanceData && allowanceData >= (balanceOfNEST?.value || 0)) {
+      refetchSwitchOldPrepare()
+    }
+  }, [switchOldPrepareStatus, balanceOfNEST, allowanceData])
 
   useEffect(() => {
     if (approveStatus === 'success' || approveStatus === 'error') {
@@ -338,7 +362,7 @@ const Switch = () => {
                                 w={'full'}>
                           <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
                                xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
+                            <path fillRule="evenodd" clipRule="evenodd"
                                   d="M2.16699 19.9998C2.16699 9.87461 10.3751 1.6665 20.5003 1.6665C30.6256 1.6665 38.8337 9.87461 38.8337 19.9998C38.8337 30.1251 30.6256 38.3332 20.5003 38.3332C10.3751 38.3332 2.16699 30.1251 2.16699 19.9998ZM11.3337 17.4998C11.3337 16.5794 12.0799 15.8332 13.0003 15.8332H23.9766L20.9885 12.845C20.3376 12.1941 20.3376 11.1389 20.9885 10.488C21.6394 9.83712 22.6946 9.83712 23.3455 10.488L29.1788 16.3213C29.8297 16.9722 29.8297 18.0275 29.1788 18.6783C29.019 18.8381 28.8349 18.9587 28.6383 19.04C28.444 19.1206 28.2312 19.1655 28.008 19.1665L28.0003 19.1665H13.0003C12.0799 19.1665 11.3337 18.4203 11.3337 17.4998ZM11.4601 21.8619C11.3786 22.0584 11.3337 22.2739 11.3337 22.4998C11.3337 22.9554 11.5165 23.3683 11.8127 23.6692C11.8161 23.6726 11.8195 23.676 11.8228 23.6794L17.6551 29.5117C18.306 30.1626 19.3613 30.1626 20.0122 29.5117C20.663 28.8608 20.663 27.8055 20.0122 27.1547L17.024 24.1665H28.0003C28.9208 24.1665 29.667 23.4203 29.667 22.4998C29.667 21.5794 28.9208 20.8332 28.0003 20.8332H13.0003C12.9978 20.8332 12.9952 20.8332 12.9926 20.8332C12.5401 20.8352 12.1301 21.0177 11.831 21.3123C11.8248 21.3183 11.8188 21.3244 11.8127 21.3305C11.6574 21.4881 11.5399 21.669 11.4601 21.8619Z"
                                   fill="#030308"/>
                           </svg>
@@ -350,7 +374,7 @@ const Switch = () => {
                           </Stack>
                           <Spacer/>
                           {
-                            allowanceData && allowanceData > BigInt(0) ? (
+                            allowanceData && allowanceData >= (balanceOfNEST?.value || 0) ? (
                               <Button isDisabled={!switchOld} onClick={switchOld}>
                                 {switchOldStatus == 'idle' && '兑换'}
                                 {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && '兑换中'}
@@ -531,7 +555,7 @@ const Switch = () => {
                                   color={'rgba(3,3,8,0.6)'}>可兑换额度</Text>
                           </Stack>
                           {
-                            allowanceData && allowanceData > BigInt(0) ? (
+                            allowanceData && allowanceData >= (balanceOfNEST?.value || 0) ? (
                               <Button isDisabled={!switchOld} onClick={switchOld}>
                                 {switchOldStatus == 'idle' && '兑换'}
                                 {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && '兑换中'}
