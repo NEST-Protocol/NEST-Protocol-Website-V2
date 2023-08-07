@@ -524,7 +524,9 @@ const Switch = () => {
                           </svg>
                           <Stack spacing={'8px'} minW={'150px'}>
                             <Text fontSize={'20px'} fontWeight={700}
-                                  lineHeight={'28px'}>{balanceOfNEST?.formatted} NEST</Text>
+                                  lineHeight={'28px'}>{Number(balanceOfNEST?.formatted).toLocaleString('en-US', {
+                                    maximumFractionDigits: 2,
+                            })} NEST</Text>
                             <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'}
                                   color={'rgba(3,3,8,0.6)'}>可兑换额度</Text>
                           </Stack>
