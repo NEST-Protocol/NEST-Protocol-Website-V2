@@ -294,12 +294,11 @@ const Switch = () => {
           </HStack>
           <Stack textAlign={"center"} pt={'24px'} spacing={'16px'}>
             <Stack spacing={0}>
-              <Text fontSize={'24px'} fontWeight={700} lineHeight={'32px'}>The NEST 2.0 token<br/> contract is now
-                live</Text>
+              <Text fontSize={'24px'} fontWeight={700} lineHeight={'32px'}>Users can migrate their NEST1.0 to NEST2.0 at a 1:1 ratio.</Text>
               <span style={{fontSize: '12px', fontWeight: '400', lineHeight: '20px'}}>(Ethereum)</span>
             </Stack>
             <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
-                  lineHeight={'22px'}>这里可以加一些说明，这里可以加一些说明，这里可以加一些说明，这里可以加一些说明里可以加一些说明，这里可以加一些说明，这里可以加一些说明里可以加一些说明，这里可以加一些说明，这里可以加一些说明</Text>
+                  lineHeight={'22px'}>Each address is only eligible for a single migration. To save on your gas fees, kindly authorize the entire NEST1.0 amount for the migration in one go.</Text>
           </Stack>
           {
             isCheckLoading ? (
@@ -370,9 +369,9 @@ const Switch = () => {
                               </svg>
                               <Stack>
                                 <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
-                                      lineHeight={'28px'}>换币已经提交，请等待</Text>
+                                      lineHeight={'28px'}>Your token migration has been submitted. Please await the outcome.</Text>
                                 <Text fontSize={'16px'} fontWeight={400}
-                                      lineHeight={'22px'}>这里是说明，如：1个工作日后会有结果，若长时间未变化请与我们联系</Text>
+                                      lineHeight={'22px'}>After 1 business day, you will receive 1:1 NEST 2.0 tokens in your wallet. If you haven&apos;t received them, please contact us.</Text>
                               </Stack>
                             </HStack>
                             <HStack spacing={'24px'}>
@@ -387,7 +386,7 @@ const Switch = () => {
                                           d="M10.0003 18.3337C14.6027 18.3337 18.3337 14.6027 18.3337 10.0003C18.3337 5.39795 14.6027 1.66699 10.0003 1.66699C5.39795 1.66699 1.66699 5.39795 1.66699 10.0003C1.66699 14.6027 5.39795 18.3337 10.0003 18.3337ZM14.5791 6.80976C14.6562 5.97754 13.7311 6.32022 13.7311 6.32022C13.0481 6.58882 12.3437 6.86179 11.6316 7.13771C9.42383 7.99324 7.1429 8.87712 5.19989 9.747C4.14633 10.1142 4.76305 10.4813 4.76305 10.4813L6.43333 10.9709C7.20421 11.1912 7.61535 10.9464 7.61535 10.9464L11.2129 8.62107C12.4977 7.78885 12.1893 8.47421 11.881 8.76794L9.18283 11.2156C8.77169 11.5583 8.97726 11.852 9.15714 11.9989C9.66692 12.4262 10.921 13.208 11.4685 13.5493C11.6109 13.6382 11.7056 13.6971 11.7268 13.7123C11.8553 13.8102 12.5491 14.2508 13.0116 14.1529C13.4742 14.055 13.5255 13.492 13.5255 13.492L14.1423 9.64911C14.2348 8.98196 14.3409 8.34071 14.4256 7.82855C14.5056 7.34479 14.5666 6.97621 14.5791 6.80976Z"
                                           fill="#333333"/>
                                   </svg>
-                                  <Text>联系我们</Text>
+                                  <Text>Contact us</Text>
                                 </HStack>
                               </Button>
                             </HStack>
@@ -410,7 +409,7 @@ const Switch = () => {
                               maximumFractionDigits: 2,
                             })} NEST</Text>
                             <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'}
-                                  color={'rgba(3,3,8,0.6)'}>可兑换额度</Text>
+                                  color={'rgba(3,3,8,0.6)'}>Convertible Limit</Text>
                           </Stack>
                           <Spacer/>
                           {
@@ -423,10 +422,10 @@ const Switch = () => {
                               </Button>
                             ) : (
                               <Button onClick={approve} isDisabled={!approve}>
-                                {approveStatus == 'idle' && '授权'}
-                                {(approveStatus == 'loading' || waitApproveStatus === 'loading') && '授权中'}
-                                {waitApproveStatus === 'success' && '授权成功'}
-                                {(approveStatus == 'error' || waitApproveStatus === 'error') && '授权失败'}
+                                {approveStatus == 'idle' && 'Approve'}
+                                {(approveStatus == 'loading' || waitApproveStatus === 'loading') && 'Approving'}
+                                {waitApproveStatus === 'success' && 'Approve success'}
+                                {(approveStatus == 'error' || waitApproveStatus === 'error') && 'Approve error'}
                               </Button>
                             )
                           }
@@ -481,10 +480,9 @@ const Switch = () => {
             </svg>
           </HStack>
           <Stack textAlign={"center"} pt={'24px'} spacing={'16px'}>
-            <Text fontSize={'48px'} fontWeight={700} lineHeight={'60px'}>The NEST 2.0 token contract is now
-              live <span style={{fontSize: '24px', fontWeight: '400', lineHeight: '32px'}}>(Ethereum)</span></Text>
+            <Text fontSize={'48px'} fontWeight={700} lineHeight={'60px'}>Users can migrate their NEST1.0 to NEST2.0 at a 1:1 ratio.</Text>
             <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
-                  lineHeight={'22px'}>这里可以加一些说明，这里可以加一些说明，这里可以加一些说明，这里可以加一些说明</Text>
+                  lineHeight={'22px'}>Each address is only eligible for a single migration. To save on your gas fees, kindly authorize the entire NEST1.0 amount for the migration in one go.</Text>
           </Stack>
           {
             isCheckLoading ? (
@@ -532,10 +530,10 @@ const Switch = () => {
                                 </Text>
                               </Stack>
                               <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
-                                {withdrawNewStatus == 'idle' && '领取'}
-                                {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && '领取中'}
-                                {waitWithdrawNewStatus === 'success' && '领取成功'}
-                                {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && '领取失败'}
+                                {withdrawNewStatus == 'idle' && 'Submit'}
+                                {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && 'Submitting'}
+                                {waitWithdrawNewStatus === 'success' && 'Submit success'}
+                                {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && 'Submit error'}
                               </Button>
                             </HStack>
                           </Stack>
@@ -553,9 +551,9 @@ const Switch = () => {
                               </svg>
                               <Stack>
                                 <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
-                                      lineHeight={'28px'}>换币已经提交，请等待</Text>
+                                      lineHeight={'28px'}>Your token migration has been submitted. Please await the outcome.</Text>
                                 <Text fontSize={'16px'} fontWeight={400}
-                                      lineHeight={'22px'}>这里是说明，如：1个工作日后会有结果，若长时间未变化请与我们联系</Text>
+                                      lineHeight={'22px'}>After 1 business day, you will receive 1:1 NEST 2.0 tokens in your wallet. If you haven&apos;t received them, please contact us.</Text>
                               </Stack>
                             </HStack>
                             <HStack spacing={'24px'}>
@@ -570,7 +568,7 @@ const Switch = () => {
                                           d="M10.0003 18.3337C14.6027 18.3337 18.3337 14.6027 18.3337 10.0003C18.3337 5.39795 14.6027 1.66699 10.0003 1.66699C5.39795 1.66699 1.66699 5.39795 1.66699 10.0003C1.66699 14.6027 5.39795 18.3337 10.0003 18.3337ZM14.5791 6.80976C14.6562 5.97754 13.7311 6.32022 13.7311 6.32022C13.0481 6.58882 12.3437 6.86179 11.6316 7.13771C9.42383 7.99324 7.1429 8.87712 5.19989 9.747C4.14633 10.1142 4.76305 10.4813 4.76305 10.4813L6.43333 10.9709C7.20421 11.1912 7.61535 10.9464 7.61535 10.9464L11.2129 8.62107C12.4977 7.78885 12.1893 8.47421 11.881 8.76794L9.18283 11.2156C8.77169 11.5583 8.97726 11.852 9.15714 11.9989C9.66692 12.4262 10.921 13.208 11.4685 13.5493C11.6109 13.6382 11.7056 13.6971 11.7268 13.7123C11.8553 13.8102 12.5491 14.2508 13.0116 14.1529C13.4742 14.055 13.5255 13.492 13.5255 13.492L14.1423 9.64911C14.2348 8.98196 14.3409 8.34071 14.4256 7.82855C14.5056 7.34479 14.5666 6.97621 14.5791 6.80976Z"
                                           fill="#333333"/>
                                   </svg>
-                                  <Text>联系我们</Text>
+                                  <Text>Contact us</Text>
                                 </HStack>
                               </Button>
                             </HStack>
@@ -592,23 +590,23 @@ const Switch = () => {
                                     maximumFractionDigits: 2,
                             })} NEST</Text>
                             <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'}
-                                  color={'rgba(3,3,8,0.6)'}>可兑换额度</Text>
+                                  color={'rgba(3,3,8,0.6)'}>Convertible Limit</Text>
                           </Stack>
                           {
                             allowanceData && allowanceData >= (balanceOfNEST?.value || 0) ? (
                               <Button isDisabled={!switchOld} onClick={switchOld}>
-                                {switchOldStatus == 'idle' && '兑换'}
-                                {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && '兑换中'}
-                                {waitSwitchOldStatus === 'success' && '兑换成功'}
-                                {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && '兑换失败'}
+                                {switchOldStatus == 'idle' && 'Submit'}
+                                {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && 'Submitting'}
+                                {waitSwitchOldStatus === 'success' && 'Submit success'}
+                                {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && 'Submit error'}
                               </Button>
                             ) : (
                               <Button onClick={() => approve?.()} variant={'solid'}
                                       isDisabled={!approve || balanceOfNEST?.value === BigInt(0)}>
-                                {approveStatus == 'idle' && '授权'}
-                                {(approveStatus == 'loading' || waitApproveStatus === 'loading') && '授权中'}
-                                {waitApproveStatus === 'success' && '授权成功'}
-                                {(approveStatus == 'error' || waitApproveStatus === 'error') && '授权失败'}
+                                {approveStatus == 'idle' && 'Approve'}
+                                {(approveStatus == 'loading' || waitApproveStatus === 'loading') && 'Approving'}
+                                {waitApproveStatus === 'success' && 'Approve success'}
+                                {(approveStatus == 'error' || waitApproveStatus === 'error') && 'Approve error'}
                               </Button>
                             )
                           }

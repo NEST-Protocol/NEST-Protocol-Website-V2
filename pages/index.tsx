@@ -145,16 +145,18 @@ export default function Home() {
     <Stack bgSize={'cover'} bgImage={"image/Home/Home_bg.jpg"} bgPosition={"center"}>
       {SEO}
       <Navigation/>
-      <Stack as={Link} href={'/switch'} align={"center"} w={'full'} px={'40px'}>
+      <Stack align={"center"} w={'full'} px={'40px'}>
         <Stack maxW={'1600px'} w={'full'} bg={'rgba(255, 255, 255, 0.8)'} h={'80px'} justify={"center"} px={'40px'}
                borderRadius={'12px'}>
           <HStack w={"full"} justifyContent={'space-between'}>
             <Text>
-              换币的提示
+              The ERC20 NEST 1.0 token will be deprecated. For more details, please refer to the official announcement
             </Text>
-            <Button>
-              switch
-            </Button>
+            <Link as={Link} href={'/switch'}>
+              <Button >
+                NEST Migration
+              </Button>
+            </Link>
           </HStack>
         </Stack>
       </Stack>
