@@ -98,7 +98,7 @@ const Switch = () => {
     cacheTime: 3_000,
   })
   const [proof, setProof] = useState<string[]>([])
-  const {config: withdrawNewPrepareConfig} = usePrepareContractWrite({
+  const {config: withdrawNewPrepareConfig, refetch: refetchWithdrawNewPrepare, status: withdrawNewStatusPrepare} = usePrepareContractWrite({
     address: NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
     abi: NEST_SWITCH_ABI,
     functionName: 'withdrawNew',
@@ -145,6 +145,12 @@ const Switch = () => {
   } = useSWR(chain?.id ? `https://api.nestfi.net/api/users/pass/list?chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()), {
     refreshInterval: 30_000,
   })
+
+  useEffect(() => {
+    if (pass && withdrawNewStatusPrepare === 'error') {
+      refetchWithdrawNewPrepare()
+    }
+  }, [withdrawNewStatusPrepare, pass])
 
   useEffect(() => {
     setSent(false)
