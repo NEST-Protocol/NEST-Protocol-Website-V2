@@ -34,14 +34,14 @@ const Switch = () => {
   })
   const {chain} = useNetwork()
   const {address} = useAccount()
-  console.log('address:', address)
-  const {data: balanceOfNEST} = useBalance({
+  // need refetchBalance when chain.id changed
+  const {data: balanceOfNEST, refetch: refetchBalance} = useBalance({
     address: address,
     token: NEST_ADDRESS[chain?.id ?? bscTestnet.id],
     cacheTime: 1_000,
     watch: true,
   })
-  console.log('balanceOfNEST:', balanceOfNEST?.value)
+  // need allowanceRefetch when address and chain.id changed
   const {data: allowanceData, refetch: allowanceRefetch} = useContractRead({
     abi: erc20ABI,
     address: NEST_ADDRESS[chain?.id ?? bscTestnet.id],
@@ -53,8 +53,8 @@ const Switch = () => {
     cacheTime: 1_000,
     watch: true,
   })
-  console.log('allowance:', allowanceData)
-  const {config: approvePrepareConfig} = usePrepareContractWrite({
+  // need refetchApprovePrepare when
+  const {config: approvePrepareConfig, refetch: refetchApprovePrepare,} = usePrepareContractWrite({
     address: NEST_ADDRESS[chain?.id ?? bscTestnet.id],
     abi: erc20ABI,
     functionName: 'approve',
@@ -123,7 +123,7 @@ const Switch = () => {
     isLoading: isCheckLoading,
     mutate: mutateInfo,
   } = useSWR(address ? `https://api.nestfi.net/api/users/switch/info?address=${address}&chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()).then(res => res.value), {
-    refreshInterval: 3_000,
+    refreshInterval: 2_000,
   })
 
   const {

@@ -17,6 +17,7 @@ import Head from "next/head";
 import NavigationMobile from "../components/NavigationMobile";
 import FooterMobile from "../components/FooterMobile";
 import Plyr from "plyr-react"
+
 export default function Home() {
   const [start, setStart] = useState(0);
   const [isMobile] = useMediaQuery("(max-width: 992px)");
@@ -144,18 +145,16 @@ export default function Home() {
     <Stack bgSize={'cover'} bgImage={"image/Home/Home_bg.jpg"} bgPosition={"center"}>
       {SEO}
       <Navigation/>
-      <Stack align={"center"} w={'full'} px={'40px'}>
+      <Stack as={Link} href={'/switch'} align={"center"} w={'full'} px={'40px'}>
         <Stack maxW={'1600px'} w={'full'} bg={'rgba(255, 255, 255, 0.8)'} h={'80px'} justify={"center"} px={'40px'}
                borderRadius={'12px'}>
           <HStack w={"full"} justifyContent={'space-between'}>
             <Text>
               换币的提示
             </Text>
-            <Link href={'switch'} isExternal>
-              <Button>
-                switch
-              </Button>
-            </Link>
+            <Button>
+              switch
+            </Button>
           </HStack>
         </Stack>
       </Stack>
