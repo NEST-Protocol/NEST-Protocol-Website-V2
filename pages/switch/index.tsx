@@ -142,12 +142,14 @@ const Switch = () => {
 
   const {
     data: nodesData,
+    mutate: mutateNodesData,
   } = useSWR(chain?.id ? `https://api.nestfi.net/api/users/pass/list?chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()), {
     refreshInterval: 30_000,
   })
 
   useEffect(() => {
     if (pass && withdrawNewStatusPrepare === 'error') {
+      mutateNodesData()
       refetchWithdrawNewPrepare()
     }
   }, [withdrawNewStatusPrepare, pass])
