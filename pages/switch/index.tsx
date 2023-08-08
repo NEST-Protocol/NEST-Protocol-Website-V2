@@ -39,7 +39,6 @@ const Switch = () => {
   })
   const {chain} = useNetwork()
   const {address} = useAccount()
-  console.log(address)
   // need refetchBalance when chain.id changed
   const {data: balanceOfNEST, refetch: refetchBalance} = useBalance({
     address: address,
@@ -223,7 +222,7 @@ const Switch = () => {
   }, [approveStatus, resetApprove])
 
   useEffect(() => {
-    if (switchOldStatus === 'success' && waitSwitchOldStatus === 'success') {
+    if (switchOldStatus === 'success' || waitSwitchOldStatus === 'success') {
       setSent(true)
     }
   }, [switchOldStatus, waitSwitchOldStatus])
