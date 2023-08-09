@@ -45,6 +45,7 @@ const Switch = () => {
     token: NEST_ADDRESS[chain?.id ?? bscTestnet.id],
     cacheTime: 1_000,
     watch: true,
+    enabled: !!address
   })
   // need allowanceRefetch when address and chain.id changed
   const {data: allowanceData, refetch: allowanceRefetch} = useContractRead({
@@ -57,6 +58,7 @@ const Switch = () => {
     ],
     cacheTime: 1_000,
     watch: true,
+    enabled: !!address,
   })
   // need refetchApprovePrepare when chain.id changed, balanceOfNEST changed
   const {config: approvePrepareConfig, refetch: refetchApprovePrepare,} = usePrepareContractWrite({
@@ -67,6 +69,7 @@ const Switch = () => {
       NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
       balanceOfNEST?.value || BigInt(10000000000000000)
     ],
+    enabled: !!address && !!balanceOfNEST?.value
   })
   const {
     data: approveData,
@@ -86,6 +89,7 @@ const Switch = () => {
     args: [
       balanceOfNEST?.value
     ],
+    enabled: !!address && !!balanceOfNEST?.value
   })
   const {
     data: switchOldData,
@@ -105,6 +109,7 @@ const Switch = () => {
     args: [
       proof
     ],
+    enabled: !!address && proof.length > 0
   })
   const {
     data: withdrawNewData,
@@ -121,7 +126,9 @@ const Switch = () => {
   useEffect(() => {
     if (!address) {
       try {
-        connect({connector: connectors.find((connector) => connector.id === 'injected')})
+        connect({
+          chainId: 97,
+        })
       } catch (e) {
         console.log(e)
       }
@@ -142,17 +149,18 @@ const Switch = () => {
 
   const {
     data: nodesData,
-    mutate: mutateNodesData,
   } = useSWR(chain?.id ? `https://api.nestfi.net/api/users/pass/list?chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()), {
-    refreshInterval: 30_000,
+    refreshInterval: 10_000,
   })
 
   useEffect(() => {
-    if (pass && withdrawNewStatusPrepare === 'error') {
-      mutateNodesData()
-      refetchWithdrawNewPrepare()
+    if (pass && proof.length > 0 && withdrawNewStatusPrepare === 'error') {
+      const interval = setInterval(() => {
+        refetchWithdrawNewPrepare()
+      }, 3_000)
+      return clearInterval(interval)
     }
-  }, [withdrawNewStatusPrepare, pass])
+  }, [withdrawNewStatusPrepare, pass, proof])
 
   useEffect(() => {
     setSent(false)
@@ -295,7 +303,6 @@ const Switch = () => {
           <Stack textAlign={"center"} pt={'24px'} spacing={'16px'}>
             <Stack spacing={0}>
               <Text fontSize={'24px'} fontWeight={700} lineHeight={'32px'}>Users can migrate their NEST1.0 to NEST2.0 at a 1:1 ratio.</Text>
-              <span style={{fontSize: '12px', fontWeight: '400', lineHeight: '20px'}}>(Ethereum)</span>
             </Stack>
             <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
                   lineHeight={'22px'}>Each address is only eligible for a single migration. To save on your gas fees, kindly authorize the entire NEST1.0 amount for the migration in one go.</Text>
@@ -303,7 +310,7 @@ const Switch = () => {
           {
             isCheckLoading ? (
               <Stack textAlign={"center"} pt={'40px'}>
-                <Text>loading...</Text>
+                <Text>...</Text>
               </Stack>
             ) : (
               <HStack justifyContent={"center"} pt={'40px'}>
@@ -323,10 +330,7 @@ const Switch = () => {
                                     fill="#2ECD3C"/>
                             </svg>
                             <Stack spacing={'8px'}>
-                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>您已完成换币</Text>
-                              <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}>
-                                说明文案
-                              </Text>
+                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>You have finished the NEST token migration, thanks for your support.</Text>
                             </Stack>
                           </HStack>
                         ) : (
@@ -341,17 +345,14 @@ const Switch = () => {
                                       fill="#2ECD3C"/>
                               </svg>
                               <Stack spacing={'8px'}>
-                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>换币成功</Text>
-                                <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}>
-                                  链接钱包后领取您的新代币
-                                </Text>
+                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration successfully!</Text>
                               </Stack>
                               <Spacer/>
                               <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
-                                {withdrawNewStatus == 'idle' && '领取'}
-                                {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && '领取中'}
-                                {waitWithdrawNewStatus === 'success' && '领取成功'}
-                                {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && '领取失败'}
+                                {withdrawNewStatus == 'idle' && 'Withdraw NEST2.0'}
+                                {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && 'Withdrawing'}
+                                {waitWithdrawNewStatus === 'success' && 'Withdraw success'}
+                                {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && 'Withdraw error'}
                               </Button>
                             </HStack>
                           </Stack>
@@ -371,7 +372,7 @@ const Switch = () => {
                                 <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
                                       lineHeight={'28px'}>Your token migration has been submitted. Please await the outcome.</Text>
                                 <Text fontSize={'16px'} fontWeight={400}
-                                      lineHeight={'22px'}>After 1 business day, you will receive 1:1 NEST 2.0 tokens in your wallet. If you haven&apos;t received them, please contact us.</Text>
+                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw NEST 2.0 tokens, if you find that you still do not have access to withdraw NEST 2.0, please contact us!</Text>
                               </Stack>
                             </HStack>
                             <HStack spacing={'24px'}>
@@ -415,10 +416,10 @@ const Switch = () => {
                           {
                             allowanceData && allowanceData >= (balanceOfNEST?.value || 0) ? (
                               <Button isDisabled={!switchOld} onClick={switchOld}>
-                                {switchOldStatus == 'idle' && '兑换'}
-                                {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && '兑换中'}
-                                {waitSwitchOldStatus === 'success' && '兑换成功'}
-                                {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && '兑换失败'}
+                                {switchOldStatus == 'idle' && 'Submit'}
+                                {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && 'Submitting'}
+                                {waitSwitchOldStatus === 'success' && 'Submit success'}
+                                {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && 'Submit error'}
                               </Button>
                             ) : (
                               <Button onClick={approve} isDisabled={!approve}>
@@ -487,7 +488,7 @@ const Switch = () => {
           {
             isCheckLoading ? (
               <Stack textAlign={"center"} pt={'40px'}>
-                <Text>loading...</Text>
+                <Text>...</Text>
               </Stack>
             ) : (
               <HStack justifyContent={"center"} pt={'40px'}>
@@ -506,10 +507,7 @@ const Switch = () => {
                                     fill="#2ECD3C"/>
                             </svg>
                             <Stack spacing={'8px'}>
-                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>您已完成换币</Text>
-                              <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}>
-                                说明文案
-                              </Text>
+                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>You have finished the NEST token migration, thanks for your support.</Text>
                             </Stack>
                           </HStack>
                         ) : (
@@ -524,10 +522,7 @@ const Switch = () => {
                                       fill="#2ECD3C"/>
                               </svg>
                               <Stack spacing={'8px'}>
-                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>换币成功</Text>
-                                <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}>
-                                  链接钱包后领取您的新代币
-                                </Text>
+                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration successfully!</Text>
                               </Stack>
                               <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
                                 {withdrawNewStatus == 'idle' && 'Submit'}
@@ -553,7 +548,7 @@ const Switch = () => {
                                 <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
                                       lineHeight={'28px'}>Your token migration has been submitted. Please await the outcome.</Text>
                                 <Text fontSize={'16px'} fontWeight={400}
-                                      lineHeight={'22px'}>After 1 business day, you will receive 1:1 NEST 2.0 tokens in your wallet. If you haven&apos;t received them, please contact us.</Text>
+                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw NEST 2.0 tokens,<br/> if you find that you still do not have access to withdraw NEST 2.0, please contact us!</Text>
                               </Stack>
                             </HStack>
                             <HStack spacing={'24px'}>
