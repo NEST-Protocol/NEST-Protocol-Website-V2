@@ -480,7 +480,7 @@ export default function Home() {
       <Stack align={"center"} w={'full'} pt={'10px'}>
         <Stack maxW={'full'} w={'full'} bg={'rgba(255, 255, 255, 0.8)'} justify={"center"} p={'20px'}>
           <HStack w={"full"} justifyContent={'space-between'}>
-            <Text>
+            <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'}>
               The ERC20 NEST 1.0 token will be deprecated. For more details, please refer to the official announcement
             </Text>
             <Link href={'switch'} isExternal>
