@@ -23,6 +23,7 @@ import {NEST_ADDRESS, NEST_SWITCH_ADDRESS} from "../../lib/address";
 import useSWR from "swr";
 import {MerkleTree} from "merkletreejs"
 import {keccak256} from "@ethersproject/keccak256"
+import {clearInterval} from "timers";
 
 const Switch = () => {
   const [isMobile] = useMediaQuery("(max-width: 992px)");
@@ -155,10 +156,9 @@ const Switch = () => {
 
   useEffect(() => {
     if (pass && proof.length > 0 && withdrawNewStatusPrepare === 'error') {
-      const interval = setInterval(() => {
+      setTimeout(() => {
         refetchWithdrawNewPrepare()
       }, 3_000)
-      return clearInterval(interval)
     }
   }, [withdrawNewStatusPrepare, pass, proof])
 
