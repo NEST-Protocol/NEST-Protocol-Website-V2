@@ -90,7 +90,7 @@ const Switch = () => {
     args: [
       balanceOfNEST?.value
     ],
-    enabled: !!address && !!balanceOfNEST?.value
+    enabled: !!address && !!balanceOfNEST?.value && balanceOfNEST?.value > 0
   })
   const {
     data: switchOldData,
