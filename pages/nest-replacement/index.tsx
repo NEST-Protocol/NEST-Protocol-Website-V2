@@ -320,12 +320,10 @@ const Switch = () => {
           </HStack>
           <Stack textAlign={"center"} pt={'24px'} spacing={'16px'}>
             <Stack spacing={0}>
-              <Text fontSize={'24px'} fontWeight={700} lineHeight={'32px'}>Users can migrate their NEST1.0 to NEST2.0 at
-                a 1:1 ratio.</Text>
+              <Text fontSize={'24px'} fontWeight={700} lineHeight={'32px'}>Users can swap their NEST1.0 to NEST2.0 at a 1:1 ratio.</Text>
             </Stack>
             <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
-                  lineHeight={'22px'}>Each address is only eligible for a single migration. To save on your gas fees,
-              kindly authorize the entire NEST1.0 amount for the migration in one go.</Text>
+                  lineHeight={'22px'}>Each address is only eligible for a single swap. To save on your gas fees, kindly authorize the entire NEST1.0 amount for the replacement in one go.</Text>
           </Stack>
           {
             isCheckLoading ? (
@@ -393,12 +391,9 @@ const Switch = () => {
                               </Stack>
                               <Stack>
                                 <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
-                                      lineHeight={'28px'}>Your token migration has been submitted. Please await the
-                                  outcome.</Text>
+                                      lineHeight={'28px'}>Your token replacement application has been submitted. Please await the outcome.</Text>
                                 <Text fontSize={'16px'} fontWeight={400}
-                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw
-                                  NEST 2.0 tokens, if you find that you still do not have access to withdraw NEST 2.0,
-                                  please contact us!</Text>
+                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw NEST 2.0 tokens, if you find that you still do not have access to withdraw NEST 2.0, please contact us!</Text>
                               </Stack>
                             </HStack>
                             <HStack spacing={'24px'}>
@@ -440,7 +435,7 @@ const Switch = () => {
                               maximumFractionDigits: 2,
                             })} NEST</Text>
                             <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'}
-                                  color={'rgba(3,3,8,0.6)'}>Convertible Limit</Text>
+                                  color={'rgba(3,3,8,0.6)'}>Replacement Limit</Text>
                           </Stack>
                           <Spacer/>
                           {
@@ -513,11 +508,9 @@ const Switch = () => {
             </Stack>
           </HStack>
           <Stack textAlign={"center"} pt={'24px'} spacing={'16px'}>
-            <Text fontSize={'48px'} fontWeight={700} lineHeight={'60px'}>Users can migrate their NEST1.0 to NEST2.0 at a
-              1:1 ratio.</Text>
+            <Text fontSize={'48px'} fontWeight={700} lineHeight={'60px'}>Users can swap their NEST1.0 to NEST2.0 at a 1:1 ratio.</Text>
             <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
-                  lineHeight={'22px'}>Each address is only eligible for a single migration. To save on your gas fees,
-              kindly authorize the entire NEST1.0 amount for the migration in one go.</Text>
+                  lineHeight={'22px'}>Each address is only eligible for a single swap. To save on your gas fees, kindly authorize the entire NEST1.0 amount for the replacement in one go.</Text>
           </Stack>
           {
             isCheckLoading ? (
@@ -587,12 +580,9 @@ const Switch = () => {
                               </Stack>
                               <Stack>
                                 <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
-                                      lineHeight={'28px'}>Your token migration has been submitted. Please await the
-                                  outcome.</Text>
+                                      lineHeight={'28px'}>Your token replacement application has been submitted. Please await the outcome.</Text>
                                 <Text fontSize={'16px'} fontWeight={400}
-                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw
-                                  NEST 2.0 tokens,<br/> if you find that you still do not have access to withdraw NEST
-                                  2.0, please contact us!</Text>
+                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw NEST 2.0 tokens,<br/>if you find that you still do not have access to withdraw NEST 2.0, please contact us!</Text>
                               </Stack>
                             </HStack>
                             <HStack spacing={'24px'}>
@@ -635,7 +625,7 @@ const Switch = () => {
                               maximumFractionDigits: 2,
                             })} NEST</Text>
                             <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'}
-                                  color={'rgba(3,3,8,0.6)'}>Convertible Limit</Text>
+                                  color={'rgba(3,3,8,0.6)'}>Replacement Limit</Text>
                           </Stack>
                           {
                             allowanceData && allowanceData >= (balanceOfNEST?.value || 0) ? (
