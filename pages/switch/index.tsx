@@ -125,7 +125,6 @@ const Switch = () => {
     status: withdrawNewStatus,
     reset: resetWithdrawNew,
   } = useContractWrite(withdrawNewPrepareConfig)
-
   const {status: waitWithdrawNewStatus} = useWaitForTransaction({
     hash: withdrawNewData?.hash,
     cacheTime: 3_000,
@@ -199,7 +198,9 @@ const Switch = () => {
   useEffect(() => {
     if (address && nodesData) {
       const leaves = nodesData.map((x: string) => keccak256(x))
-      const tree = new MerkleTree(leaves, keccak256)
+      const tree = new MerkleTree(leaves, keccak256, {
+        sortPairs: true,
+      })
       const root = tree.getHexRoot()
       const leaf = keccak256(address)
       const proof = tree.getHexProof(leaf)
@@ -357,8 +358,7 @@ const Switch = () => {
                                         fill="#2ECD3C"/>
                                 </svg>
                               </Stack>
-                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration
-                                successfully!</Text>
+                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration successfully!</Text>
                             </HStack>
                             <HStack pl={'40px'}>
                               <Button onClick={withdrawNew} isDisabled={!withdrawNew} size={'sm'} minH={'36px'} fontSize={'12px'} lineHeight={'16px'}>
@@ -553,14 +553,13 @@ const Switch = () => {
                                 </svg>
                               </Stack>
                               <Stack spacing={'8px'}>
-                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration
-                                  successfully!</Text>
+                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration successfully!</Text>
                               </Stack>
                               <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
-                                {withdrawNewStatus == 'idle' && 'Submit'}
-                                {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && 'Submitting'}
-                                {waitWithdrawNewStatus === 'success' && 'Submit success'}
-                                {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && 'Submit error'}
+                                {withdrawNewStatus == 'idle' && 'Withdraw NEST2.0'}
+                                {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && 'Withdrawing'}
+                                {waitWithdrawNewStatus === 'success' && 'Withdraw success'}
+                                {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && 'Withdraw error'}
                               </Button>
                             </HStack>
                           </Stack>
