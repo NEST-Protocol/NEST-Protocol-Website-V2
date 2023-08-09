@@ -362,7 +362,7 @@ const Switch = () => {
                                 successfully!</Text>
                             </HStack>
                             <HStack pl={'40px'}>
-                              <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
+                              <Button onClick={withdrawNew} isDisabled={!withdrawNew} maxH={'36px'} fontSize={'12px'} lineHeight={'16px'}>
                                 {withdrawNewStatus == 'idle' && 'Withdraw NEST2.0'}
                                 {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && 'Withdrawing'}
                                 {waitWithdrawNewStatus === 'success' && 'Withdraw success'}
@@ -400,7 +400,7 @@ const Switch = () => {
                                      xmlns="http://www.w3.org/2000/svg">
                                 </svg>
                               </Stack>
-                              <Button px={'24px'}>
+                              <Button px={'24px'} maxH={'36px'} fontSize={'12px'} lineHeight={'16px'}>
                                 <HStack spacing={'12px'}>
                                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                        xmlns="http://www.w3.org/2000/svg">
@@ -438,7 +438,7 @@ const Switch = () => {
                           <Spacer/>
                           {
                             allowanceData && allowanceData >= (balanceOfNEST?.value || 0) ? (
-                              <Button isDisabled={!switchOld} onClick={switchOld}>
+                              <Button isDisabled={!switchOld} onClick={switchOld} maxH={'36px'} fontSize={'12px'} lineHeight={'16px'}>
                                 {switchOldStatus == 'idle' && 'Submit'}
                                 {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && 'Submitting'}
                                 {waitSwitchOldStatus === 'success' && 'Submit success'}
