@@ -482,7 +482,8 @@ export default function Home() {
         <Stack maxW={'full'} w={'full'} bg={'rgba(255, 255, 255, 0.8)'} justify={"center"} p={'20px'}>
           <HStack w={"full"} justifyContent={'space-between'}>
             <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'}>
-              The ERC20 NEST 1.0 token will be deprecated. For more details, please refer to the official announcement
+              The ERC20 NEST 1.0 token will be deprecated. For more details, please refer to the official announcement:{' '}
+              <Link href={'nest-replacement'} color={'#EAAA00'}>nestprotocol.org/nest-replacement</Link>
             </Text>
             <Link href={'nest-replacement'} isExternal>
               <Button minH={'24px'} fontSize={'10px'} px={'12px'} lineHeight={'14px'} fontWeight={'700'}>
