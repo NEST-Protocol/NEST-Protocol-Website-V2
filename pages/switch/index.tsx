@@ -83,7 +83,11 @@ const Switch = () => {
     cacheTime: 3_000,
   })
   // need refetchSwitchOldPrepare when balanceOfNEST changed and approved value changed
-  const {config: switchOldPrepareConfig, status: switchOldPrepareStatus, refetch: refetchSwitchOldPrepare} = usePrepareContractWrite({
+  const {
+    config: switchOldPrepareConfig,
+    status: switchOldPrepareStatus,
+    refetch: refetchSwitchOldPrepare
+  } = usePrepareContractWrite({
     address: NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
     abi: NEST_SWITCH_ABI,
     functionName: 'switchOld',
@@ -103,7 +107,11 @@ const Switch = () => {
     cacheTime: 3_000,
   })
   const [proof, setProof] = useState<string[]>([])
-  const {config: withdrawNewPrepareConfig, refetch: refetchWithdrawNewPrepare, status: withdrawNewStatusPrepare} = usePrepareContractWrite({
+  const {
+    config: withdrawNewPrepareConfig,
+    refetch: refetchWithdrawNewPrepare,
+    status: withdrawNewStatusPrepare
+  } = usePrepareContractWrite({
     address: NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
     abi: NEST_SWITCH_ABI,
     functionName: 'withdrawNew',
@@ -278,34 +286,38 @@ const Switch = () => {
       <Stack align={"center"} w={'full'} px={'20px'}>
         <Stack py={'60px'} w={'full'}>
           <HStack justifyContent={"center"}>
-            <svg width="224" height="72" viewBox="0 0 224 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M184 72C201.673 72 216 57.6731 216 40C216 22.3269 201.673 8 184 8C166.327 8 152 22.3269 152 40C152 57.6731 166.327 72 184 72Z"
-                fill="black"/>
-              <path
-                d="M200 33.8754C200 34.9009 199.798 36.1314 199.596 37.5671L196.361 54.1796C196.361 54.5898 195.956 54.7949 195.754 54.7949H191.71C191.306 54.7949 190.901 54.3847 191.104 53.9745L194.339 37.5671C194.541 36.5416 194.541 35.7212 194.541 35.106C194.541 31.0041 192.317 28.7481 187.464 28.7481C181.601 28.7481 177.557 32.0296 176.344 38.5925L173.311 54.3847C173.311 54.7949 172.906 55 172.704 55H168.66C168.256 55 167.852 54.5898 168.054 54.1796L173.715 24.8513C173.715 24.4411 174.12 24.236 174.322 24.236H178.163C178.568 24.236 178.972 24.6462 178.77 25.0564L178.568 26.2869C178.366 26.9022 179.174 27.3124 179.579 26.9022C182.207 24.8513 185.442 24.0309 189.082 24.0309C195.956 23.6207 200 27.3124 200 33.8754Z"
-                fill="white"/>
-              <g opacity="0.6">
+            <Stack w={'224px'} h={'72px'}>
+              <svg width="224" height="72" viewBox="0 0 224 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
-                  d="M32 72C49.6731 72 64 57.6731 64 40C64 22.3269 49.6731 8 32 8C14.3269 8 0 22.3269 0 40C0 57.6731 14.3269 72 32 72Z"
+                  d="M184 72C201.673 72 216 57.6731 216 40C216 22.3269 201.673 8 184 8C166.327 8 152 22.3269 152 40C152 57.6731 166.327 72 184 72Z"
                   fill="black"/>
                 <path
-                  d="M48 33.8754C48 34.9009 47.7978 36.1314 47.5956 37.5671L44.3606 54.1796C44.3606 54.5898 43.9562 54.7949 43.754 54.7949H39.7102C39.3058 54.7949 38.9014 54.3847 39.1036 53.9745L42.3386 37.5671C42.5408 36.5416 42.5408 35.7212 42.5408 35.106C42.5408 31.0041 40.3167 28.7481 35.4641 28.7481C29.6006 28.7481 25.5568 32.0296 24.3436 38.5925L21.3108 54.3847C21.3108 54.7949 20.9064 55 20.7042 55H16.6604C16.256 55 15.8516 54.5898 16.0538 54.1796L21.7151 24.8513C21.7151 24.4411 22.1195 24.236 22.3217 24.236H26.1633C26.5677 24.236 26.9721 24.6462 26.7699 25.0564L26.5677 26.2869C26.3655 26.9022 27.1743 27.3124 27.5787 26.9022C30.2072 24.8513 33.4422 24.0309 37.0817 24.0309C43.9562 23.6207 48 27.3124 48 33.8754Z"
+                  d="M200 33.8754C200 34.9009 199.798 36.1314 199.596 37.5671L196.361 54.1796C196.361 54.5898 195.956 54.7949 195.754 54.7949H191.71C191.306 54.7949 190.901 54.3847 191.104 53.9745L194.339 37.5671C194.541 36.5416 194.541 35.7212 194.541 35.106C194.541 31.0041 192.317 28.7481 187.464 28.7481C181.601 28.7481 177.557 32.0296 176.344 38.5925L173.311 54.3847C173.311 54.7949 172.906 55 172.704 55H168.66C168.256 55 167.852 54.5898 168.054 54.1796L173.715 24.8513C173.715 24.4411 174.12 24.236 174.322 24.236H178.163C178.568 24.236 178.972 24.6462 178.77 25.0564L178.568 26.2869C178.366 26.9022 179.174 27.3124 179.579 26.9022C182.207 24.8513 185.442 24.0309 189.082 24.0309C195.956 23.6207 200 27.3124 200 33.8754Z"
                   fill="white"/>
-              </g>
-              <path d="M128 40L118 34.2265V45.7735L128 40ZM88 41H119V39H88V41Z" fill="#EAAA00"/>
-              <circle cx="212" cy="12" r="12" fill="#EB5D2A"/>
-              <path
-                d="M203.732 16V14.74L206.972 11.68C207.228 11.448 207.416 11.24 207.536 11.056C207.656 10.872 207.736 10.704 207.776 10.552C207.824 10.4 207.848 10.26 207.848 10.132C207.848 9.796 207.732 9.54 207.5 9.364C207.276 9.18 206.944 9.088 206.504 9.088C206.152 9.088 205.824 9.156 205.52 9.292C205.224 9.428 204.972 9.64 204.764 9.928L203.348 9.016C203.668 8.536 204.116 8.156 204.692 7.876C205.268 7.596 205.932 7.456 206.684 7.456C207.308 7.456 207.852 7.56 208.316 7.768C208.788 7.968 209.152 8.252 209.408 8.62C209.672 8.988 209.804 9.428 209.804 9.94C209.804 10.212 209.768 10.484 209.696 10.756C209.632 11.02 209.496 11.3 209.288 11.596C209.088 11.892 208.792 12.224 208.4 12.592L205.712 15.124L205.34 14.416H210.08V16H203.732ZM212.103 16.096C211.783 16.096 211.507 15.988 211.275 15.772C211.051 15.548 210.939 15.264 210.939 14.92C210.939 14.576 211.051 14.3 211.275 14.092C211.507 13.876 211.783 13.768 212.103 13.768C212.431 13.768 212.707 13.876 212.931 14.092C213.155 14.3 213.267 14.576 213.267 14.92C213.267 15.264 213.155 15.548 212.931 15.772C212.707 15.988 212.431 16.096 212.103 16.096ZM217.588 16.144C216.9 16.144 216.284 15.976 215.74 15.64C215.196 15.296 214.768 14.8 214.456 14.152C214.144 13.504 213.988 12.72 213.988 11.8C213.988 10.88 214.144 10.096 214.456 9.448C214.768 8.8 215.196 8.308 215.74 7.972C216.284 7.628 216.9 7.456 217.588 7.456C218.284 7.456 218.9 7.628 219.436 7.972C219.98 8.308 220.408 8.8 220.72 9.448C221.032 10.096 221.188 10.88 221.188 11.8C221.188 12.72 221.032 13.504 220.72 14.152C220.408 14.8 219.98 15.296 219.436 15.64C218.9 15.976 218.284 16.144 217.588 16.144ZM217.588 14.5C217.916 14.5 218.2 14.408 218.44 14.224C218.688 14.04 218.88 13.748 219.016 13.348C219.16 12.948 219.232 12.432 219.232 11.8C219.232 11.168 219.16 10.652 219.016 10.252C218.88 9.852 218.688 9.56 218.44 9.376C218.2 9.192 217.916 9.1 217.588 9.1C217.268 9.1 216.984 9.192 216.736 9.376C216.496 9.56 216.304 9.852 216.16 10.252C216.024 10.652 215.956 11.168 215.956 11.8C215.956 12.432 216.024 12.948 216.16 13.348C216.304 13.748 216.496 14.04 216.736 14.224C216.984 14.408 217.268 14.5 217.588 14.5Z"
-                fill="white"/>
-            </svg>
+                <g opacity="0.6">
+                  <path
+                    d="M32 72C49.6731 72 64 57.6731 64 40C64 22.3269 49.6731 8 32 8C14.3269 8 0 22.3269 0 40C0 57.6731 14.3269 72 32 72Z"
+                    fill="black"/>
+                  <path
+                    d="M48 33.8754C48 34.9009 47.7978 36.1314 47.5956 37.5671L44.3606 54.1796C44.3606 54.5898 43.9562 54.7949 43.754 54.7949H39.7102C39.3058 54.7949 38.9014 54.3847 39.1036 53.9745L42.3386 37.5671C42.5408 36.5416 42.5408 35.7212 42.5408 35.106C42.5408 31.0041 40.3167 28.7481 35.4641 28.7481C29.6006 28.7481 25.5568 32.0296 24.3436 38.5925L21.3108 54.3847C21.3108 54.7949 20.9064 55 20.7042 55H16.6604C16.256 55 15.8516 54.5898 16.0538 54.1796L21.7151 24.8513C21.7151 24.4411 22.1195 24.236 22.3217 24.236H26.1633C26.5677 24.236 26.9721 24.6462 26.7699 25.0564L26.5677 26.2869C26.3655 26.9022 27.1743 27.3124 27.5787 26.9022C30.2072 24.8513 33.4422 24.0309 37.0817 24.0309C43.9562 23.6207 48 27.3124 48 33.8754Z"
+                    fill="white"/>
+                </g>
+                <path d="M128 40L118 34.2265V45.7735L128 40ZM88 41H119V39H88V41Z" fill="#EAAA00"/>
+                <circle cx="212" cy="12" r="12" fill="#EB5D2A"/>
+                <path
+                  d="M203.732 16V14.74L206.972 11.68C207.228 11.448 207.416 11.24 207.536 11.056C207.656 10.872 207.736 10.704 207.776 10.552C207.824 10.4 207.848 10.26 207.848 10.132C207.848 9.796 207.732 9.54 207.5 9.364C207.276 9.18 206.944 9.088 206.504 9.088C206.152 9.088 205.824 9.156 205.52 9.292C205.224 9.428 204.972 9.64 204.764 9.928L203.348 9.016C203.668 8.536 204.116 8.156 204.692 7.876C205.268 7.596 205.932 7.456 206.684 7.456C207.308 7.456 207.852 7.56 208.316 7.768C208.788 7.968 209.152 8.252 209.408 8.62C209.672 8.988 209.804 9.428 209.804 9.94C209.804 10.212 209.768 10.484 209.696 10.756C209.632 11.02 209.496 11.3 209.288 11.596C209.088 11.892 208.792 12.224 208.4 12.592L205.712 15.124L205.34 14.416H210.08V16H203.732ZM212.103 16.096C211.783 16.096 211.507 15.988 211.275 15.772C211.051 15.548 210.939 15.264 210.939 14.92C210.939 14.576 211.051 14.3 211.275 14.092C211.507 13.876 211.783 13.768 212.103 13.768C212.431 13.768 212.707 13.876 212.931 14.092C213.155 14.3 213.267 14.576 213.267 14.92C213.267 15.264 213.155 15.548 212.931 15.772C212.707 15.988 212.431 16.096 212.103 16.096ZM217.588 16.144C216.9 16.144 216.284 15.976 215.74 15.64C215.196 15.296 214.768 14.8 214.456 14.152C214.144 13.504 213.988 12.72 213.988 11.8C213.988 10.88 214.144 10.096 214.456 9.448C214.768 8.8 215.196 8.308 215.74 7.972C216.284 7.628 216.9 7.456 217.588 7.456C218.284 7.456 218.9 7.628 219.436 7.972C219.98 8.308 220.408 8.8 220.72 9.448C221.032 10.096 221.188 10.88 221.188 11.8C221.188 12.72 221.032 13.504 220.72 14.152C220.408 14.8 219.98 15.296 219.436 15.64C218.9 15.976 218.284 16.144 217.588 16.144ZM217.588 14.5C217.916 14.5 218.2 14.408 218.44 14.224C218.688 14.04 218.88 13.748 219.016 13.348C219.16 12.948 219.232 12.432 219.232 11.8C219.232 11.168 219.16 10.652 219.016 10.252C218.88 9.852 218.688 9.56 218.44 9.376C218.2 9.192 217.916 9.1 217.588 9.1C217.268 9.1 216.984 9.192 216.736 9.376C216.496 9.56 216.304 9.852 216.16 10.252C216.024 10.652 215.956 11.168 215.956 11.8C215.956 12.432 216.024 12.948 216.16 13.348C216.304 13.748 216.496 14.04 216.736 14.224C216.984 14.408 217.268 14.5 217.588 14.5Z"
+                  fill="white"/>
+              </svg>
+            </Stack>
           </HStack>
           <Stack textAlign={"center"} pt={'24px'} spacing={'16px'}>
             <Stack spacing={0}>
-              <Text fontSize={'24px'} fontWeight={700} lineHeight={'32px'}>Users can migrate their NEST1.0 to NEST2.0 at a 1:1 ratio.</Text>
+              <Text fontSize={'24px'} fontWeight={700} lineHeight={'32px'}>Users can migrate their NEST1.0 to NEST2.0 at
+                a 1:1 ratio.</Text>
             </Stack>
             <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
-                  lineHeight={'22px'}>Each address is only eligible for a single migration. To save on your gas fees, kindly authorize the entire NEST1.0 amount for the migration in one go.</Text>
+                  lineHeight={'22px'}>Each address is only eligible for a single migration. To save on your gas fees,
+              kindly authorize the entire NEST1.0 amount for the migration in one go.</Text>
           </Stack>
           {
             isCheckLoading ? (
@@ -323,31 +335,35 @@ const Switch = () => {
                                   py={'24px'}
                                   w={'full'}
                                   gap={'24px'}>
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                              <path fillRule="evenodd" clipRule="evenodd"
-                                    d="M32.9639 32.9639C29.6462 36.2816 25.0629 38.3337 20.0003 38.3337C14.9378 38.3337 10.3544 36.2816 7.0367 32.9639C3.71902 29.6462 1.66699 25.0629 1.66699 20.0003C1.66699 14.9378 3.71902 10.3544 7.0367 7.0367C10.3544 3.71902 14.9378 1.66699 20.0003 1.66699C25.0629 1.66699 29.6462 3.71902 32.9639 7.0367C36.2816 10.3544 38.3337 14.9378 38.3337 20.0003C38.3337 25.0629 36.2816 29.6462 32.9639 32.9639ZM29.5122 16.1788C30.163 15.528 30.163 14.4727 29.5122 13.8218C28.8613 13.1709 27.806 13.1709 27.1551 13.8218L18.3337 22.6433L14.5122 18.8218C13.8613 18.1709 12.806 18.1709 12.1551 18.8218C11.5043 19.4727 11.5043 20.528 12.1551 21.1788L17.1551 26.1788C17.806 26.8297 18.8613 26.8297 19.5122 26.1788L29.5122 16.1788Z"
-                                    fill="#2ECD3C"/>
-                            </svg>
-                            <Stack spacing={'8px'}>
-                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>You have finished the NEST token migration, thanks for your support.</Text>
-                            </Stack>
-                          </HStack>
-                        ) : (
-                          <Stack>
-                            <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'}
-                                    py={'24px'}
-                                    gap={'24px'}>
+                            <Stack h={'40px'} w={'40px'}>
                               <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                    xmlns="http://www.w3.org/2000/svg">
                                 <path fillRule="evenodd" clipRule="evenodd"
                                       d="M32.9639 32.9639C29.6462 36.2816 25.0629 38.3337 20.0003 38.3337C14.9378 38.3337 10.3544 36.2816 7.0367 32.9639C3.71902 29.6462 1.66699 25.0629 1.66699 20.0003C1.66699 14.9378 3.71902 10.3544 7.0367 7.0367C10.3544 3.71902 14.9378 1.66699 20.0003 1.66699C25.0629 1.66699 29.6462 3.71902 32.9639 7.0367C36.2816 10.3544 38.3337 14.9378 38.3337 20.0003C38.3337 25.0629 36.2816 29.6462 32.9639 32.9639ZM29.5122 16.1788C30.163 15.528 30.163 14.4727 29.5122 13.8218C28.8613 13.1709 27.806 13.1709 27.1551 13.8218L18.3337 22.6433L14.5122 18.8218C13.8613 18.1709 12.806 18.1709 12.1551 18.8218C11.5043 19.4727 11.5043 20.528 12.1551 21.1788L17.1551 26.1788C17.806 26.8297 18.8613 26.8297 19.5122 26.1788L29.5122 16.1788Z"
                                       fill="#2ECD3C"/>
                               </svg>
-                              <Stack spacing={'8px'}>
-                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration successfully!</Text>
+                            </Stack>
+                            <Stack spacing={'8px'}>
+                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>You have finished the NEST
+                                token migration, thanks for your support.</Text>
+                            </Stack>
+                          </HStack>
+                        ) : (
+                          <Stack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'}
+                                 py={'24px'} gap={'12px'}>
+                            <HStack>
+                              <Stack h={'40px'} w={'40px'}>
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                  <path fillRule="evenodd" clipRule="evenodd"
+                                        d="M32.9639 32.9639C29.6462 36.2816 25.0629 38.3337 20.0003 38.3337C14.9378 38.3337 10.3544 36.2816 7.0367 32.9639C3.71902 29.6462 1.66699 25.0629 1.66699 20.0003C1.66699 14.9378 3.71902 10.3544 7.0367 7.0367C10.3544 3.71902 14.9378 1.66699 20.0003 1.66699C25.0629 1.66699 29.6462 3.71902 32.9639 7.0367C36.2816 10.3544 38.3337 14.9378 38.3337 20.0003C38.3337 25.0629 36.2816 29.6462 32.9639 32.9639ZM29.5122 16.1788C30.163 15.528 30.163 14.4727 29.5122 13.8218C28.8613 13.1709 27.806 13.1709 27.1551 13.8218L18.3337 22.6433L14.5122 18.8218C13.8613 18.1709 12.806 18.1709 12.1551 18.8218C11.5043 19.4727 11.5043 20.528 12.1551 21.1788L17.1551 26.1788C17.806 26.8297 18.8613 26.8297 19.5122 26.1788L29.5122 16.1788Z"
+                                        fill="#2ECD3C"/>
+                                </svg>
                               </Stack>
-                              <Spacer/>
+                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration
+                                successfully!</Text>
+                            </HStack>
+                            <HStack pl={'40px'}>
                               <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
                                 {withdrawNewStatus == 'idle' && 'Withdraw NEST2.0'}
                                 {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && 'Withdrawing'}
@@ -362,23 +378,30 @@ const Switch = () => {
                           <Stack px={'40px'} py={'24px'} bg={'rgba(234, 170, 0, 0.40)'} border={'1px solid #EAAA00'}
                                  w={'full'} borderRadius={'12px'} spacing={'12px'}>
                             <HStack spacing={'24px'}>
-                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                   xmlns="http://www.w3.org/2000/svg">
-                                <path fillRule="evenodd" clipRule="evenodd"
-                                      d="M1.66699 20.0003C1.66699 9.8751 9.8751 1.66699 20.0003 1.66699C30.1256 1.66699 38.3337 9.8751 38.3337 20.0003C38.3337 30.1256 30.1256 38.3337 20.0003 38.3337C9.8751 38.3337 1.66699 30.1256 1.66699 20.0003ZM21.6739 10.0006C21.674 9.08012 20.9279 8.33385 20.0074 8.33376C19.0869 8.33367 18.3407 9.07979 18.3406 10.0003L18.3396 20.0076C18.3395 20.4497 18.5151 20.8737 18.8277 21.1863L25.8939 28.2524C26.5448 28.9033 27.6 28.9033 28.2509 28.2524C28.9018 27.6016 28.9018 26.5463 28.2509 25.8954L21.673 19.3175L21.6739 10.0006Z"
-                                      fill="#EAAA00"/>
-                              </svg>
+                              <Stack h={'40px'} w={'40px'}>
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                  <path fillRule="evenodd" clipRule="evenodd"
+                                        d="M1.66699 20.0003C1.66699 9.8751 9.8751 1.66699 20.0003 1.66699C30.1256 1.66699 38.3337 9.8751 38.3337 20.0003C38.3337 30.1256 30.1256 38.3337 20.0003 38.3337C9.8751 38.3337 1.66699 30.1256 1.66699 20.0003ZM21.6739 10.0006C21.674 9.08012 20.9279 8.33385 20.0074 8.33376C19.0869 8.33367 18.3407 9.07979 18.3406 10.0003L18.3396 20.0076C18.3395 20.4497 18.5151 20.8737 18.8277 21.1863L25.8939 28.2524C26.5448 28.9033 27.6 28.9033 28.2509 28.2524C28.9018 27.6016 28.9018 26.5463 28.2509 25.8954L21.673 19.3175L21.6739 10.0006Z"
+                                        fill="#EAAA00"/>
+                                </svg>
+                              </Stack>
                               <Stack>
                                 <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
-                                      lineHeight={'28px'}>Your token migration has been submitted. Please await the outcome.</Text>
+                                      lineHeight={'28px'}>Your token migration has been submitted. Please await the
+                                  outcome.</Text>
                                 <Text fontSize={'16px'} fontWeight={400}
-                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw NEST 2.0 tokens, if you find that you still do not have access to withdraw NEST 2.0, please contact us!</Text>
+                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw
+                                  NEST 2.0 tokens, if you find that you still do not have access to withdraw NEST 2.0,
+                                  please contact us!</Text>
                               </Stack>
                             </HStack>
                             <HStack spacing={'24px'}>
-                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                   xmlns="http://www.w3.org/2000/svg">
-                              </svg>
+                              <Stack h={'40px'} w={'40px'}>
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                </svg>
+                              </Stack>
                               <Button px={'24px'}>
                                 <HStack spacing={'12px'}>
                                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -398,12 +421,14 @@ const Switch = () => {
                       <Stack>
                         <HStack bg={'rgba(255,255,255,0.8)'} px={'20px'} py={'24px'} borderRadius={'12px'} gap={'24px'}
                                 w={'full'}>
-                          <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
-                               xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd"
-                                  d="M2.16699 19.9998C2.16699 9.87461 10.3751 1.6665 20.5003 1.6665C30.6256 1.6665 38.8337 9.87461 38.8337 19.9998C38.8337 30.1251 30.6256 38.3332 20.5003 38.3332C10.3751 38.3332 2.16699 30.1251 2.16699 19.9998ZM11.3337 17.4998C11.3337 16.5794 12.0799 15.8332 13.0003 15.8332H23.9766L20.9885 12.845C20.3376 12.1941 20.3376 11.1389 20.9885 10.488C21.6394 9.83712 22.6946 9.83712 23.3455 10.488L29.1788 16.3213C29.8297 16.9722 29.8297 18.0275 29.1788 18.6783C29.019 18.8381 28.8349 18.9587 28.6383 19.04C28.444 19.1206 28.2312 19.1655 28.008 19.1665L28.0003 19.1665H13.0003C12.0799 19.1665 11.3337 18.4203 11.3337 17.4998ZM11.4601 21.8619C11.3786 22.0584 11.3337 22.2739 11.3337 22.4998C11.3337 22.9554 11.5165 23.3683 11.8127 23.6692C11.8161 23.6726 11.8195 23.676 11.8228 23.6794L17.6551 29.5117C18.306 30.1626 19.3613 30.1626 20.0122 29.5117C20.663 28.8608 20.663 27.8055 20.0122 27.1547L17.024 24.1665H28.0003C28.9208 24.1665 29.667 23.4203 29.667 22.4998C29.667 21.5794 28.9208 20.8332 28.0003 20.8332H13.0003C12.9978 20.8332 12.9952 20.8332 12.9926 20.8332C12.5401 20.8352 12.1301 21.0177 11.831 21.3123C11.8248 21.3183 11.8188 21.3244 11.8127 21.3305C11.6574 21.4881 11.5399 21.669 11.4601 21.8619Z"
-                                  fill="#030308"/>
-                          </svg>
+                          <Stack h={'40px'} w={'40px'}>
+                            <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                              <path fillRule="evenodd" clipRule="evenodd"
+                                    d="M2.16699 19.9998C2.16699 9.87461 10.3751 1.6665 20.5003 1.6665C30.6256 1.6665 38.8337 9.87461 38.8337 19.9998C38.8337 30.1251 30.6256 38.3332 20.5003 38.3332C10.3751 38.3332 2.16699 30.1251 2.16699 19.9998ZM11.3337 17.4998C11.3337 16.5794 12.0799 15.8332 13.0003 15.8332H23.9766L20.9885 12.845C20.3376 12.1941 20.3376 11.1389 20.9885 10.488C21.6394 9.83712 22.6946 9.83712 23.3455 10.488L29.1788 16.3213C29.8297 16.9722 29.8297 18.0275 29.1788 18.6783C29.019 18.8381 28.8349 18.9587 28.6383 19.04C28.444 19.1206 28.2312 19.1655 28.008 19.1665L28.0003 19.1665H13.0003C12.0799 19.1665 11.3337 18.4203 11.3337 17.4998ZM11.4601 21.8619C11.3786 22.0584 11.3337 22.2739 11.3337 22.4998C11.3337 22.9554 11.5165 23.3683 11.8127 23.6692C11.8161 23.6726 11.8195 23.676 11.8228 23.6794L17.6551 29.5117C18.306 30.1626 19.3613 30.1626 20.0122 29.5117C20.663 28.8608 20.663 27.8055 20.0122 27.1547L17.024 24.1665H28.0003C28.9208 24.1665 29.667 23.4203 29.667 22.4998C29.667 21.5794 28.9208 20.8332 28.0003 20.8332H13.0003C12.9978 20.8332 12.9952 20.8332 12.9926 20.8332C12.5401 20.8352 12.1301 21.0177 11.831 21.3123C11.8248 21.3183 11.8188 21.3244 11.8127 21.3305C11.6574 21.4881 11.5399 21.669 11.4601 21.8619Z"
+                                    fill="#030308"/>
+                            </svg>
+                          </Stack>
                           <Stack spacing={'8px'} minW={'150px'}>
                             <Text fontSize={'20px'} fontWeight={700}
                                   lineHeight={'28px'}>{Number(balanceOfNEST?.formatted).toLocaleString('en-US', {
@@ -481,9 +506,11 @@ const Switch = () => {
             </svg>
           </HStack>
           <Stack textAlign={"center"} pt={'24px'} spacing={'16px'}>
-            <Text fontSize={'48px'} fontWeight={700} lineHeight={'60px'}>Users can migrate their NEST1.0 to NEST2.0 at a 1:1 ratio.</Text>
+            <Text fontSize={'48px'} fontWeight={700} lineHeight={'60px'}>Users can migrate their NEST1.0 to NEST2.0 at a
+              1:1 ratio.</Text>
             <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
-                  lineHeight={'22px'}>Each address is only eligible for a single migration. To save on your gas fees, kindly authorize the entire NEST1.0 amount for the migration in one go.</Text>
+                  lineHeight={'22px'}>Each address is only eligible for a single migration. To save on your gas fees,
+              kindly authorize the entire NEST1.0 amount for the migration in one go.</Text>
           </Stack>
           {
             isCheckLoading ? (
@@ -507,7 +534,8 @@ const Switch = () => {
                                     fill="#2ECD3C"/>
                             </svg>
                             <Stack spacing={'8px'}>
-                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>You have finished the NEST token migration, thanks for your support.</Text>
+                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>You have finished the NEST
+                                token migration, thanks for your support.</Text>
                             </Stack>
                           </HStack>
                         ) : (
@@ -522,7 +550,8 @@ const Switch = () => {
                                       fill="#2ECD3C"/>
                               </svg>
                               <Stack spacing={'8px'}>
-                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration successfully!</Text>
+                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration
+                                  successfully!</Text>
                               </Stack>
                               <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
                                 {withdrawNewStatus == 'idle' && 'Submit'}
@@ -546,9 +575,12 @@ const Switch = () => {
                               </svg>
                               <Stack>
                                 <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
-                                      lineHeight={'28px'}>Your token migration has been submitted. Please await the outcome.</Text>
+                                      lineHeight={'28px'}>Your token migration has been submitted. Please await the
+                                  outcome.</Text>
                                 <Text fontSize={'16px'} fontWeight={400}
-                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw NEST 2.0 tokens,<br/> if you find that you still do not have access to withdraw NEST 2.0, please contact us!</Text>
+                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw
+                                  NEST 2.0 tokens,<br/> if you find that you still do not have access to withdraw NEST
+                                  2.0, please contact us!</Text>
                               </Stack>
                             </HStack>
                             <HStack spacing={'24px'}>
@@ -582,7 +614,7 @@ const Switch = () => {
                           <Stack spacing={'8px'} minW={'150px'}>
                             <Text fontSize={'20px'} fontWeight={700}
                                   lineHeight={'28px'}>{Number(balanceOfNEST?.formatted).toLocaleString('en-US', {
-                                    maximumFractionDigits: 2,
+                              maximumFractionDigits: 2,
                             })} NEST</Text>
                             <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'}
                                   color={'rgba(3,3,8,0.6)'}>Convertible Limit</Text>
