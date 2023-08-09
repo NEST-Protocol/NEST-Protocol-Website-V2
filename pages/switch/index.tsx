@@ -186,6 +186,14 @@ const Switch = () => {
   }, [switchOldStatus, waitSwitchOldStatus])
 
   useEffect(() => {
+    if (withdrawNewStatus === 'error' || withdrawNewStatus === 'success') {
+      setTimeout(() => {
+        resetWithdrawNew()
+      }, 3_000)
+    }
+  }, [withdrawNewStatus])
+
+  useEffect(() => {
     refetchApprovePrepare()
   }, [address, chain?.id, balanceOfNEST])
 
