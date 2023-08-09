@@ -484,7 +484,7 @@ export default function Home() {
               The ERC20 NEST 1.0 token will be deprecated. For more details, please refer to the official announcement
             </Text>
             <Link href={'switch'} isExternal>
-              <Button minH={'24px'} fontSize={'10px'} lineHeight={'14px'} fontWeight={'700'}>
+              <Button minH={'24px'} fontSize={'10px'} px={'12px'} lineHeight={'14px'} fontWeight={'700'}>
                 NEST Migration
               </Button>
             </Link>
