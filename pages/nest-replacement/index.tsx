@@ -26,7 +26,7 @@ import {keccak256} from "@ethersproject/keccak256"
 
 const Switch = () => {
   const [isMobile] = useMediaQuery("(max-width: 992px)");
-  const title = "NEST Protocol | Switch"
+  const title = "NEST Protocol | NEST Replacement"
   const description = "NEST Protocol is the stochastic computer based on PVM, enables the generation and programming of stochastic assets."
   const {connect, connectors} = useConnect({
     // @ts-ignore
