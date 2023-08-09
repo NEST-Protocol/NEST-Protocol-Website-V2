@@ -485,7 +485,7 @@ export default function Home() {
             </Text>
             <Link href={'switch'} isExternal>
               <Button minH={'24px'} fontSize={'10px'} lineHeight={'14px'} fontWeight={'700'}>
-                switch
+                NEST Migration
               </Button>
             </Link>
           </HStack>
