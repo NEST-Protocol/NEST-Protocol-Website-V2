@@ -150,9 +150,10 @@ export default function Home() {
                borderRadius={'12px'}>
           <HStack w={"full"} justifyContent={'space-between'}>
             <Text>
-              The ERC20 NEST 1.0 token will be deprecated. For more details, please refer to the official announcement
+              The ERC20 NEST 1.0 token will be deprecated. For more details, please refer to the official announcement:{' '}
+              <Link href={'migration'} color={'#EAAA00'}>nestprotocol.org/migration</Link>
             </Text>
-            <Link as={Link} href={'megrate'}>
+            <Link as={Link} href={'migration'}>
               <Button >
                 NEST Migration
               </Button>
