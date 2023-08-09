@@ -151,11 +151,11 @@ export default function Home() {
           <HStack w={"full"} justifyContent={'space-between'}>
             <Text>
               The ERC20 NEST 1.0 token will be deprecated. For more details, please refer to the official announcement:{' '}
-              <Link href={'migration'} color={'#EAAA00'}>nestprotocol.org/migration</Link>
+              <Link href={'nest-replacement'} color={'#EAAA00'}>nestprotocol.org/nest-replacement</Link>
             </Text>
-            <Link as={Link} href={'migration'}>
-              <Button >
-                NEST Migration
+            <Link as={Link} href={'nest-replacement'}>
+              <Button>
+                NEST Replacement
               </Button>
             </Link>
           </HStack>
@@ -484,9 +484,9 @@ export default function Home() {
             <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'}>
               The ERC20 NEST 1.0 token will be deprecated. For more details, please refer to the official announcement
             </Text>
-            <Link href={'megrate'} isExternal>
+            <Link href={'nest-replacement'} isExternal>
               <Button minH={'24px'} fontSize={'10px'} px={'12px'} lineHeight={'14px'} fontWeight={'700'}>
-                NEST Migration
+                NEST Replacement
               </Button>
             </Link>
           </HStack>
