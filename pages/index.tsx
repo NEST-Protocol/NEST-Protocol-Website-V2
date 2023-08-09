@@ -152,7 +152,7 @@ export default function Home() {
             <Text>
               The ERC20 NEST 1.0 token will be deprecated. For more details, please refer to the official announcement
             </Text>
-            <Link as={Link} href={'switch'}>
+            <Link as={Link} href={'megrate'}>
               <Button >
                 NEST Migration
               </Button>
@@ -483,7 +483,7 @@ export default function Home() {
             <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'}>
               The ERC20 NEST 1.0 token will be deprecated. For more details, please refer to the official announcement
             </Text>
-            <Link href={'switch'} isExternal>
+            <Link href={'megrate'} isExternal>
               <Button minH={'24px'} fontSize={'10px'} px={'12px'} lineHeight={'14px'} fontWeight={'700'}>
                 NEST Migration
               </Button>
