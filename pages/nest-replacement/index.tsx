@@ -336,7 +336,7 @@ const Switch = () => {
               </HStack>
             </Link>
             <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
-                  lineHeight={'22px'}>Each address is only eligible for a single swap. To save on your gas fees, kindly
+                  lineHeight={'22px'}>Each address is only eligible for a single replacement. To save on your gas fees, kindly
               authorize the entire NEST1.0 amount for the replacement in one go.</Text>
           </Stack>
           {
@@ -549,7 +549,7 @@ const Switch = () => {
               </Link>
             </HStack>
             <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
-                  lineHeight={'22px'}>Each address is only eligible for a single swap. To save on your gas fees, kindly
+                  lineHeight={'22px'}>Each address is only eligible for a single replacement. To save on your gas fees, kindly
               authorize the entire NEST1.0 amount for the replacement in one go.</Text>
           </Stack>
           {
