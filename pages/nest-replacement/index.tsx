@@ -1,4 +1,4 @@
-import {Button, HStack, Spacer, Stack, Text, useMediaQuery} from "@chakra-ui/react";
+import {Button, HStack, Link, Spacer, Stack, Text, useMediaQuery} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Head from "next/head";
 import Footer from "../../components/Footer";
@@ -319,11 +319,25 @@ const Switch = () => {
             </Stack>
           </HStack>
           <Stack textAlign={"center"} pt={'24px'} spacing={'16px'}>
-            <Stack spacing={0}>
-              <Text fontSize={'24px'} fontWeight={700} lineHeight={'32px'}>Replace your NEST 1.0 to NEST 2.0 at a ratio of 1:1</Text>
-            </Stack>
+            <Text fontSize={'24px'} fontWeight={700} lineHeight={'32px'}>Replace your NEST 1.0 to NEST 2.0 at a ratio of
+              1:1</Text>
+            <Link href={''} isExternal cursor={'pointer'}>
+              <HStack pt={'8px'} spacing={'8px'} background={'rgba(255, 255, 255, 0.80)'} py={'12px'} px={'20px'} w={'full'} justify={"center"}
+                      borderRadius={'12px'}>
+                <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'} color={'#EAAA00'}>Why should you replace
+                  your NEST 1.0 tokens?</Text>
+                <Stack w={'17px'} h={'16px'}>
+                  <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" clipRule="evenodd"
+                          d="M11.878 7.76435C12.0081 7.89452 12.0081 8.10557 11.878 8.23575L6.2211 13.8926C6.09093 14.0228 5.87987 14.0228 5.7497 13.8926L5.26443 13.4073C5.13425 13.2772 5.13425 13.0661 5.26443 12.9359L10.2003 8.00005L5.26443 3.06416C5.13425 2.93399 5.13425 2.72293 5.26443 2.59276L5.7497 2.10749C5.87987 1.97731 6.09093 1.97732 6.2211 2.10749L11.878 7.76435Z"
+                          fill="#EAAA00"/>
+                  </svg>
+                </Stack>
+              </HStack>
+            </Link>
             <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
-                  lineHeight={'22px'}>Each address is only eligible for a single swap. To save on your gas fees, kindly authorize the entire NEST1.0 amount for the replacement in one go.</Text>
+                  lineHeight={'22px'}>Each address is only eligible for a single swap. To save on your gas fees, kindly
+              authorize the entire NEST1.0 amount for the replacement in one go.</Text>
           </Stack>
           {
             isCheckLoading ? (
@@ -353,7 +367,8 @@ const Switch = () => {
                             </Stack>
                           </HStack>
                         ) : (
-                          <Stack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'} w={'full'}
+                          <Stack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'}
+                                 w={'full'}
                                  py={'24px'} gap={'12px'}>
                             <HStack>
                               <Stack h={'40px'} w={'40px'}>
@@ -364,10 +379,12 @@ const Switch = () => {
                                         fill="#2ECD3C"/>
                                 </svg>
                               </Stack>
-                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration successfully!</Text>
+                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration
+                                successfully!</Text>
                             </HStack>
                             <HStack pl={'40px'}>
-                              <Button onClick={withdrawNew} isDisabled={!withdrawNew} size={'sm'} minH={'36px'} fontSize={'12px'} lineHeight={'16px'}>
+                              <Button onClick={withdrawNew} isDisabled={!withdrawNew} size={'sm'} minH={'36px'}
+                                      fontSize={'12px'} lineHeight={'16px'}>
                                 {withdrawNewStatus == 'idle' && 'Withdraw NEST2.0'}
                                 {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && 'Withdrawing'}
                                 {waitWithdrawNewStatus === 'success' && 'Withdraw success'}
@@ -391,9 +408,12 @@ const Switch = () => {
                               </Stack>
                               <Stack>
                                 <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
-                                      lineHeight={'28px'}>Your token replacement application has been submitted. Please await the outcome.</Text>
+                                      lineHeight={'28px'}>Your token replacement application has been submitted. Please
+                                  await the outcome.</Text>
                                 <Text fontSize={'16px'} fontWeight={400}
-                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw NEST 2.0 tokens, if you find that you still do not have access to withdraw NEST 2.0, please contact us!</Text>
+                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw
+                                  NEST 2.0 tokens, if you find that you still do not have access to withdraw NEST 2.0,
+                                  please contact us!</Text>
                               </Stack>
                             </HStack>
                             <HStack spacing={'24px'}>
@@ -440,14 +460,16 @@ const Switch = () => {
                           <Spacer/>
                           {
                             allowanceData && allowanceData >= (balanceOfNEST?.value || 0) ? (
-                              <Button isDisabled={!switchOld} onClick={switchOld} size={'sm'} minH={'36px'} px={'12px'} fontSize={'12px'} lineHeight={'16px'}>
+                              <Button isDisabled={!switchOld} onClick={switchOld} size={'sm'} minH={'36px'} px={'12px'}
+                                      fontSize={'12px'} lineHeight={'16px'}>
                                 {switchOldStatus == 'idle' && 'Submit'}
                                 {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && 'Submitting'}
                                 {waitSwitchOldStatus === 'success' && 'Submit success'}
                                 {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && 'Submit error'}
                               </Button>
                             ) : (
-                              <Button onClick={approve} isDisabled={!approve} size={'sm'} minH={'36px'} fontSize={'12px'} lineHeight={'16px'}>
+                              <Button onClick={approve} isDisabled={!approve} size={'sm'} minH={'36px'}
+                                      fontSize={'12px'} lineHeight={'16px'}>
                                 {approveStatus == 'idle' && 'Approve'}
                                 {(approveStatus == 'loading' || waitApproveStatus === 'loading') && 'Approving'}
                                 {waitApproveStatus === 'success' && 'Approve success'}
@@ -508,9 +530,27 @@ const Switch = () => {
             </Stack>
           </HStack>
           <Stack textAlign={"center"} pt={'24px'} spacing={'16px'}>
-            <Text fontSize={'48px'} fontWeight={700} lineHeight={'60px'}>Replace your NEST 1.0 to NEST 2.0 at a ratio of 1:1</Text>
+            <Text fontSize={'48px'} fontWeight={700} lineHeight={'60px'}>Replace your NEST 1.0 to NEST 2.0 at a ratio of
+              1:1</Text>
+            <HStack w={'full'} justify={"center"}>
+              <Link href={''} isExternal cursor={'pointer'}>
+                <HStack pt={'8px'} spacing={'8px'} background={'rgba(255, 255, 255, 0.80)'} py={'16px'} px={'24px'}
+                        borderRadius={'12px'}>
+                  <Text fontSize={'20px'} fontWeight={400} lineHeight={'28px'} color={'#EAAA00'}>Why should you replace
+                    your NEST 1.0 tokens?</Text>
+                  <Stack w={'17px'} h={'16px'}>
+                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" clipRule="evenodd"
+                            d="M11.878 7.76435C12.0081 7.89452 12.0081 8.10557 11.878 8.23575L6.2211 13.8926C6.09093 14.0228 5.87987 14.0228 5.7497 13.8926L5.26443 13.4073C5.13425 13.2772 5.13425 13.0661 5.26443 12.9359L10.2003 8.00005L5.26443 3.06416C5.13425 2.93399 5.13425 2.72293 5.26443 2.59276L5.7497 2.10749C5.87987 1.97731 6.09093 1.97732 6.2211 2.10749L11.878 7.76435Z"
+                            fill="#EAAA00"/>
+                    </svg>
+                  </Stack>
+                </HStack>
+              </Link>
+            </HStack>
             <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
-                  lineHeight={'22px'}>Each address is only eligible for a single swap. To save on your gas fees, kindly authorize the entire NEST1.0 amount for the replacement in one go.</Text>
+                  lineHeight={'22px'}>Each address is only eligible for a single swap. To save on your gas fees, kindly
+              authorize the entire NEST1.0 amount for the replacement in one go.</Text>
           </Stack>
           {
             isCheckLoading ? (
@@ -554,7 +594,8 @@ const Switch = () => {
                                 </svg>
                               </Stack>
                               <Stack spacing={'8px'}>
-                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration successfully!</Text>
+                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration
+                                  successfully!</Text>
                               </Stack>
                               <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
                                 {withdrawNewStatus == 'idle' && 'Withdraw NEST2.0'}
@@ -580,9 +621,12 @@ const Switch = () => {
                               </Stack>
                               <Stack>
                                 <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
-                                      lineHeight={'28px'}>Your token replacement application has been submitted. Please await the outcome.</Text>
+                                      lineHeight={'28px'}>Your token replacement application has been submitted. Please
+                                  await the outcome.</Text>
                                 <Text fontSize={'16px'} fontWeight={400}
-                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw NEST 2.0 tokens,<br/>if you find that you still do not have access to withdraw NEST 2.0, please contact us!</Text>
+                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw
+                                  NEST 2.0 tokens,<br/>if you find that you still do not have access to withdraw NEST
+                                  2.0, please contact us!</Text>
                               </Stack>
                             </HStack>
                             <HStack spacing={'24px'}>
