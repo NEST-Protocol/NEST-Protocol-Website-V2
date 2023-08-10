@@ -363,7 +363,7 @@ const Switch = () => {
                             </Stack>
                             <Stack spacing={'8px'}>
                               <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>You have finished the NEST
-                                token migration, thanks for your support.</Text>
+                                token replacement, thanks for your support.</Text>
                             </Stack>
                           </HStack>
                         ) : (
@@ -379,8 +379,7 @@ const Switch = () => {
                                         fill="#2ECD3C"/>
                                 </svg>
                               </Stack>
-                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration
-                                successfully!</Text>
+                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Replaced successfully!</Text>
                             </HStack>
                             <HStack pl={'40px'}>
                               <Button onClick={withdrawNew} isDisabled={!withdrawNew} size={'sm'} minH={'36px'}
@@ -577,7 +576,7 @@ const Switch = () => {
                             </Stack>
                             <Stack spacing={'8px'}>
                               <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>You have finished the NEST
-                                token migration, thanks for your support.</Text>
+                                token replacement, thanks for your support.</Text>
                             </Stack>
                           </HStack>
                         ) : (
@@ -594,8 +593,7 @@ const Switch = () => {
                                 </svg>
                               </Stack>
                               <Stack spacing={'8px'}>
-                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Migration
-                                  successfully!</Text>
+                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Replaced successfully!</Text>
                               </Stack>
                               <Button onClick={withdrawNew} isDisabled={!withdrawNew}>
                                 {withdrawNewStatus == 'idle' && 'Withdraw NEST2.0'}
