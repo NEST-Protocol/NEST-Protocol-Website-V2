@@ -1,4 +1,15 @@
-import {Button, HStack, Link, Spacer, Stack, Text, useMediaQuery} from "@chakra-ui/react";
+import {
+  Button,
+  HStack,
+  Link,
+  Modal, ModalContent,
+  ModalOverlay,
+  Spacer,
+  Stack,
+  Text,
+  useDisclosure,
+  useMediaQuery
+} from "@chakra-ui/react";
 import Navigation from "../../components/Navigation";
 import Head from "next/head";
 import Footer from "../../components/Footer";
@@ -154,6 +165,7 @@ const Switch = () => {
   const [received, setReceived] = useState(false);
   const [receivedAmount, setReceivedAmount] = useState(0);
   const [sentAmount, setSentAmount] = useState(0);
+  const {isOpen, onOpen, onClose} = useDisclosure()
 
   /**
    block
@@ -291,6 +303,34 @@ const Switch = () => {
     }
   }, [checkData])
 
+  const addTokenToMetamask = async (address: string) => {
+    // add token to metamask
+    try {
+      // 'wasAdded' is a boolean. Like any RPC method, an error can be thrown.
+      // @ts-ignore
+      const wasAdded = await window?.ethereum.request({
+        method: 'wallet_watchAsset',
+        params: {
+          type: 'ERC20',
+          options: {
+            address: address, // The address of the token.
+            symbol: 'NEST', // A ticker symbol or shorthand, up to 5 characters.
+            decimals: 18, // The number of decimals in the token.
+            image: '', // A string URL of the token logo.
+          },
+        },
+      });
+
+      if (wasAdded) {
+        console.log('Thanks for your interest!');
+      } else {
+        console.log('Your loss!');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const SEO = (
     <Head>
       <title>{title}</title>
@@ -307,88 +347,72 @@ const Switch = () => {
       {SEO}
       <NavigationMobile/>
       <Stack align={"center"} w={'full'} px={'20px'}>
-        <Stack py={'60px'} w={'full'}>
-          <HStack justifyContent={"center"}>
-            <Stack w={'224px'} h={'72px'}>
-              <svg width="224" height="72" viewBox="0 0 224 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M184 72C201.673 72 216 57.6731 216 40C216 22.3269 201.673 8 184 8C166.327 8 152 22.3269 152 40C152 57.6731 166.327 72 184 72Z"
-                  fill="black"/>
-                <path
-                  d="M200 33.8754C200 34.9009 199.798 36.1314 199.596 37.5671L196.361 54.1796C196.361 54.5898 195.956 54.7949 195.754 54.7949H191.71C191.306 54.7949 190.901 54.3847 191.104 53.9745L194.339 37.5671C194.541 36.5416 194.541 35.7212 194.541 35.106C194.541 31.0041 192.317 28.7481 187.464 28.7481C181.601 28.7481 177.557 32.0296 176.344 38.5925L173.311 54.3847C173.311 54.7949 172.906 55 172.704 55H168.66C168.256 55 167.852 54.5898 168.054 54.1796L173.715 24.8513C173.715 24.4411 174.12 24.236 174.322 24.236H178.163C178.568 24.236 178.972 24.6462 178.77 25.0564L178.568 26.2869C178.366 26.9022 179.174 27.3124 179.579 26.9022C182.207 24.8513 185.442 24.0309 189.082 24.0309C195.956 23.6207 200 27.3124 200 33.8754Z"
-                  fill="white"/>
-                <g opacity="0.6">
-                  <path
-                    d="M32 72C49.6731 72 64 57.6731 64 40C64 22.3269 49.6731 8 32 8C14.3269 8 0 22.3269 0 40C0 57.6731 14.3269 72 32 72Z"
-                    fill="black"/>
-                  <path
-                    d="M48 33.8754C48 34.9009 47.7978 36.1314 47.5956 37.5671L44.3606 54.1796C44.3606 54.5898 43.9562 54.7949 43.754 54.7949H39.7102C39.3058 54.7949 38.9014 54.3847 39.1036 53.9745L42.3386 37.5671C42.5408 36.5416 42.5408 35.7212 42.5408 35.106C42.5408 31.0041 40.3167 28.7481 35.4641 28.7481C29.6006 28.7481 25.5568 32.0296 24.3436 38.5925L21.3108 54.3847C21.3108 54.7949 20.9064 55 20.7042 55H16.6604C16.256 55 15.8516 54.5898 16.0538 54.1796L21.7151 24.8513C21.7151 24.4411 22.1195 24.236 22.3217 24.236H26.1633C26.5677 24.236 26.9721 24.6462 26.7699 25.0564L26.5677 26.2869C26.3655 26.9022 27.1743 27.3124 27.5787 26.9022C30.2072 24.8513 33.4422 24.0309 37.0817 24.0309C43.9562 23.6207 48 27.3124 48 33.8754Z"
-                    fill="white"/>
-                </g>
-                <path d="M128 40L118 34.2265V45.7735L128 40ZM88 41H119V39H88V41Z" fill="#EAAA00"/>
-                <circle cx="212" cy="12" r="12" fill="#EB5D2A"/>
-                <path
-                  d="M203.732 16V14.74L206.972 11.68C207.228 11.448 207.416 11.24 207.536 11.056C207.656 10.872 207.736 10.704 207.776 10.552C207.824 10.4 207.848 10.26 207.848 10.132C207.848 9.796 207.732 9.54 207.5 9.364C207.276 9.18 206.944 9.088 206.504 9.088C206.152 9.088 205.824 9.156 205.52 9.292C205.224 9.428 204.972 9.64 204.764 9.928L203.348 9.016C203.668 8.536 204.116 8.156 204.692 7.876C205.268 7.596 205.932 7.456 206.684 7.456C207.308 7.456 207.852 7.56 208.316 7.768C208.788 7.968 209.152 8.252 209.408 8.62C209.672 8.988 209.804 9.428 209.804 9.94C209.804 10.212 209.768 10.484 209.696 10.756C209.632 11.02 209.496 11.3 209.288 11.596C209.088 11.892 208.792 12.224 208.4 12.592L205.712 15.124L205.34 14.416H210.08V16H203.732ZM212.103 16.096C211.783 16.096 211.507 15.988 211.275 15.772C211.051 15.548 210.939 15.264 210.939 14.92C210.939 14.576 211.051 14.3 211.275 14.092C211.507 13.876 211.783 13.768 212.103 13.768C212.431 13.768 212.707 13.876 212.931 14.092C213.155 14.3 213.267 14.576 213.267 14.92C213.267 15.264 213.155 15.548 212.931 15.772C212.707 15.988 212.431 16.096 212.103 16.096ZM217.588 16.144C216.9 16.144 216.284 15.976 215.74 15.64C215.196 15.296 214.768 14.8 214.456 14.152C214.144 13.504 213.988 12.72 213.988 11.8C213.988 10.88 214.144 10.096 214.456 9.448C214.768 8.8 215.196 8.308 215.74 7.972C216.284 7.628 216.9 7.456 217.588 7.456C218.284 7.456 218.9 7.628 219.436 7.972C219.98 8.308 220.408 8.8 220.72 9.448C221.032 10.096 221.188 10.88 221.188 11.8C221.188 12.72 221.032 13.504 220.72 14.152C220.408 14.8 219.98 15.296 219.436 15.64C218.9 15.976 218.284 16.144 217.588 16.144ZM217.588 14.5C217.916 14.5 218.2 14.408 218.44 14.224C218.688 14.04 218.88 13.748 219.016 13.348C219.16 12.948 219.232 12.432 219.232 11.8C219.232 11.168 219.16 10.652 219.016 10.252C218.88 9.852 218.688 9.56 218.44 9.376C218.2 9.192 217.916 9.1 217.588 9.1C217.268 9.1 216.984 9.192 216.736 9.376C216.496 9.56 216.304 9.852 216.16 10.252C216.024 10.652 215.956 11.168 215.956 11.8C215.956 12.432 216.024 12.948 216.16 13.348C216.304 13.748 216.496 14.04 216.736 14.224C216.984 14.408 217.268 14.5 217.588 14.5Z"
-                  fill="white"/>
-              </svg>
-            </Stack>
-          </HStack>
+        <Stack pt={'40px'} pb={'80px'} w={'full'} spacing={0}>
           <Stack textAlign={"center"} pt={'24px'} spacing={'16px'}>
             <Text fontSize={'24px'} fontWeight={700} lineHeight={'32px'}>Replace your NEST 1.0 to NEST 2.0 at a ratio of
               1:1</Text>
-            <Link href={''} isExternal cursor={'pointer'}>
-              <HStack pt={'8px'} spacing={'8px'} background={'rgba(255, 255, 255, 0.80)'} py={'12px'} px={'20px'}
-                      w={'full'} justify={"center"}
-                      borderRadius={'12px'}>
-                <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'} color={'#EAAA00'}>Why should you replace
-                  your NEST 1.0 tokens?</Text>
-                <Stack w={'17px'} h={'16px'}>
-                  <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" clipRule="evenodd"
-                          d="M11.878 7.76435C12.0081 7.89452 12.0081 8.10557 11.878 8.23575L6.2211 13.8926C6.09093 14.0228 5.87987 14.0228 5.7497 13.8926L5.26443 13.4073C5.13425 13.2772 5.13425 13.0661 5.26443 12.9359L10.2003 8.00005L5.26443 3.06416C5.13425 2.93399 5.13425 2.72293 5.26443 2.59276L5.7497 2.10749C5.87987 1.97731 6.09093 1.97732 6.2211 2.10749L11.878 7.76435Z"
-                          fill="#EAAA00"/>
-                  </svg>
-                </Stack>
-              </HStack>
-            </Link>
             <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
-                  lineHeight={'22px'}>Each address is only eligible for a single replacement. To save on your gas fees,
-              kindly
-              authorize the entire NEST1.0 amount for the replacement in one go.</Text>
+                  lineHeight={'22px'}>A single address can only submit a request for a replacement token once.</Text>
+            <HStack spacing={'4px'} justify={'center'}>
+              <Text color={'#EAAA00'}>Guild</Text>
+              <Stack w={'17px'} h={'16px'}>
+                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fillRule="evenodd" clipRule="evenodd"
+                        d="M11.878 7.76435C12.0081 7.89452 12.0081 8.10557 11.878 8.23575L6.2211 13.8926C6.09093 14.0228 5.87987 14.0228 5.7497 13.8926L5.26443 13.4073C5.13425 13.2772 5.13425 13.0661 5.26443 12.9359L10.2003 8.00005L5.26443 3.06416C5.13425 2.93399 5.13425 2.72293 5.26443 2.59276L5.7497 2.10749C5.87987 1.97731 6.09093 1.97732 6.2211 2.10749L11.878 7.76435Z"
+                        fill="#EAAA00"/>
+                </svg>
+              </Stack>
+            </HStack>
           </Stack>
           {
             isCheckLoading ? (
-              <Stack textAlign={"center"} pt={'40px'}>
+              <Stack textAlign={"center"}>
                 <Text>...</Text>
               </Stack>
             ) : (
-              <HStack justifyContent={"center"} pt={'40px'}>
+              <HStack justifyContent={"center"} py={'24px'} w={'full'}>
                 {
-                  address ? (
-                    sent ? (
-                      pass ? (
-                        received ? (
-                          <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'}
-                                  py={'24px'} w={'full'} gap={'24px'}>
-                            <Stack h={'40px'} w={'40px'}>
-                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                   xmlns="http://www.w3.org/2000/svg">
-                                <path fillRule="evenodd" clipRule="evenodd"
-                                      d="M32.9639 32.9639C29.6462 36.2816 25.0629 38.3337 20.0003 38.3337C14.9378 38.3337 10.3544 36.2816 7.0367 32.9639C3.71902 29.6462 1.66699 25.0629 1.66699 20.0003C1.66699 14.9378 3.71902 10.3544 7.0367 7.0367C10.3544 3.71902 14.9378 1.66699 20.0003 1.66699C25.0629 1.66699 29.6462 3.71902 32.9639 7.0367C36.2816 10.3544 38.3337 14.9378 38.3337 20.0003C38.3337 25.0629 36.2816 29.6462 32.9639 32.9639ZM29.5122 16.1788C30.163 15.528 30.163 14.4727 29.5122 13.8218C28.8613 13.1709 27.806 13.1709 27.1551 13.8218L18.3337 22.6433L14.5122 18.8218C13.8613 18.1709 12.806 18.1709 12.1551 18.8218C11.5043 19.4727 11.5043 20.528 12.1551 21.1788L17.1551 26.1788C17.806 26.8297 18.8613 26.8297 19.5122 26.1788L29.5122 16.1788Z"
-                                      fill="#2ECD3C"/>
-                              </svg>
-                            </Stack>
-                            <Stack spacing={'8px'}>
-                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>You have finished the NEST
-                                token replacement, thanks for your support.</Text>
-                            </Stack>
-                          </HStack>
-                        ) : (
-                          <Stack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'20px'}
-                                 w={'full'}
-                                 py={'24px'} gap={'12px'}>
-                            <HStack>
-                              <Stack h={'40px'} w={'40px'}>
+                  address && (
+                    block ? (
+                      <HStack w={'full'} px={'20px'} py={'24px'} borderRadius={'12px'}
+                              border={'1px solid #FF1B00'}
+                              background={'#FFD8CC'} spacing={'24px'}>
+                        <Stack w={'40px'} h={'40px'}>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                               fill="none">
+                            <path fillRule="evenodd" clipRule="evenodd"
+                                  d="M38.3327 20.0003C38.3327 30.1255 30.1246 38.3337 19.9993 38.3337C9.87412 38.3337 1.66602 30.1255 1.66602 20.0003C1.66602 9.8751 9.87412 1.66699 19.9993 1.66699C30.1246 1.66699 38.3327 9.8751 38.3327 20.0003ZM16.464 14.1079C15.8131 13.457 14.7578 13.457 14.1069 14.1079C13.4561 14.7587 13.4561 15.814 14.1069 16.4649L17.6423 20.0003L14.1067 23.5359C13.4558 24.1868 13.4558 25.2421 14.1067 25.893C14.7576 26.5438 15.8128 26.5438 16.4637 25.893L19.9994 22.3573L23.535 25.893C24.1859 26.5438 25.2412 26.5438 25.892 25.893C26.5429 25.2421 26.5429 24.1868 25.892 23.5359L22.3564 20.0003L25.8918 16.4649C26.5427 15.814 26.5427 14.7587 25.8918 14.1079C25.2409 13.457 24.1856 13.457 23.5348 14.1079L19.9994 17.6433L16.464 14.1079Z"
+                                  fill="#FF1B00"/>
+                          </svg>
+                        </Stack>
+                        <Stack textAlign={"start"}>
+                          <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={'700'} color={'#030308'}>Replacement
+                            application failed</Text>
+                          <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'} color={'#03030899'}>Contact
+                            us for more information</Text>
+                        </Stack>
+                        <Spacer/>
+                        {/*TODO*/}
+                        <HStack h={'48px'} spacing={'12px'} px={'24px'} borderRadius={'12px'} bgColor={'#EAAA00'}
+                                cursor={'pointer'}>
+                          <Stack h={'20px'} w={'20px'}>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                              <path fillRule="evenodd" clipRule="evenodd"
+                                    d="M9.99935 18.3337C14.6017 18.3337 18.3327 14.6027 18.3327 10.0003C18.3327 5.39795 14.6017 1.66699 9.99935 1.66699C5.39698 1.66699 1.66602 5.39795 1.66602 10.0003C1.66602 14.6027 5.39698 18.3337 9.99935 18.3337ZM14.5781 6.80976C14.6552 5.97754 13.7301 6.32022 13.7301 6.32022C13.0471 6.58882 12.3427 6.86179 11.6307 7.13771C9.42285 7.99324 7.14193 8.87712 5.19891 9.747C4.14535 10.1142 4.76207 10.4813 4.76207 10.4813L6.43235 10.9709C7.20323 11.1912 7.61438 10.9464 7.61438 10.9464L11.2119 8.62107C12.4967 7.78885 12.1884 8.47421 11.88 8.76794L9.18185 11.2156C8.77071 11.5583 8.97628 11.852 9.15616 11.9989C9.66594 12.4262 10.92 13.208 11.4675 13.5493C11.61 13.6382 11.7046 13.6971 11.7258 13.7123C11.8543 13.8102 12.5481 14.2508 13.0106 14.1529C13.4732 14.055 13.5246 13.492 13.5246 13.492L14.1413 9.64911C14.2338 8.98196 14.3399 8.34071 14.4246 7.82855C14.5047 7.34479 14.5656 6.97621 14.5781 6.80976Z"
+                                    fill="#333333"/>
+                            </svg>
+                          </Stack>
+                          <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'}>Contact us</Text>
+                        </HStack>
+                      </HStack>
+                    ) : (
+                      sent ? (
+                        pass ? (
+                          received ? (
+                            <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'}
+                                    px={'20px'} py={'24px'} w={'full'} gap={'16px'}>
+                              <Stack w={'40px'} h={'40px'}>
                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                   <path fillRule="evenodd" clipRule="evenodd"
@@ -396,25 +420,44 @@ const Switch = () => {
                                         fill="#2ECD3C"/>
                                 </svg>
                               </Stack>
-                              <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Replaced successfully!</Text>
+                              <Stack spacing={'8px'}>
+                                <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Successfully
+                                  claimed<br/>{receivedAmount.toLocaleString()} NEST2.0</Text>
+                              </Stack>
                             </HStack>
-                            <HStack pl={'40px'}>
-                              <Button onClick={withdrawNew} isDisabled={!withdrawNew} size={'sm'} minH={'36px'}
-                                      fontSize={'12px'} lineHeight={'16px'}>
-                                {withdrawNewStatus == 'idle' && 'Withdraw NEST2.0'}
-                                {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && 'Withdrawing'}
-                                {waitWithdrawNewStatus === 'success' && 'Withdraw success'}
-                                {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && 'Withdraw error'}
-                              </Button>
+                          ) : (
+                            <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} align={"start"}
+                                    px={'20px'} py={'24px'} w={'full'} gap={'16px'}>
+                              <Stack h={'58px'} w={'40px'} justify={"center"}>
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                  <path fillRule="evenodd" clipRule="evenodd"
+                                        d="M32.9639 32.9639C29.6462 36.2816 25.0629 38.3337 20.0003 38.3337C14.9378 38.3337 10.3544 36.2816 7.0367 32.9639C3.71902 29.6462 1.66699 25.0629 1.66699 20.0003C1.66699 14.9378 3.71902 10.3544 7.0367 7.0367C10.3544 3.71902 14.9378 1.66699 20.0003 1.66699C25.0629 1.66699 29.6462 3.71902 32.9639 7.0367C36.2816 10.3544 38.3337 14.9378 38.3337 20.0003C38.3337 25.0629 36.2816 29.6462 32.9639 32.9639ZM29.5122 16.1788C30.163 15.528 30.163 14.4727 29.5122 13.8218C28.8613 13.1709 27.806 13.1709 27.1551 13.8218L18.3337 22.6433L14.5122 18.8218C13.8613 18.1709 12.806 18.1709 12.1551 18.8218C11.5043 19.4727 11.5043 20.528 12.1551 21.1788L17.1551 26.1788C17.806 26.8297 18.8613 26.8297 19.5122 26.1788L29.5122 16.1788Z"
+                                        fill="#2ECD3C"/>
+                                </svg>
+                              </Stack>
+                              <Stack spacing={'8px'} align={"start"}>
+                                {/*Balance*/}
+                                <Text fontSize={'20px'} lineHeight={'28px'}
+                                      fontWeight={700}>{sentAmount.toLocaleString()} NEST 2.0</Text>
+                                <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={400}
+                                      color={'rgba(3, 3, 8, 0.60)'}>Available for Claim</Text>
+                                <Button onClick={withdrawNew} isDisabled={!withdrawNew} px={'12px'} minH={'36px'}
+                                        fontSize={'12px'} lineHeight={'16px'}>
+                                  {withdrawNewStatus == 'idle' && 'Claim NEST2.0'}
+                                  {(withdrawNewStatus == 'loading' || waitWithdrawNewStatus === 'loading') && 'Withdrawing'}
+                                  {waitWithdrawNewStatus === 'success' && 'Withdraw success'}
+                                  {(withdrawNewStatus == 'error' || waitWithdrawNewStatus === 'error') && 'Withdraw error'}
+                                </Button>
+                              </Stack>
                             </HStack>
-                          </Stack>
-                        )
-                      ) : (
-                        <Stack>
-                          <Stack px={'40px'} py={'24px'} bg={'rgba(234, 170, 0, 0.40)'} border={'1px solid #EAAA00'}
-                                 w={'full'} borderRadius={'12px'} spacing={'12px'}>
-                            <HStack spacing={'24px'}>
-                              <Stack h={'40px'} w={'40px'}>
+                          )
+                        ) : (
+                          <Stack px={'20px'} py={'24px'} bg={'rgba(234, 170, 0, 0.40)'}
+                                 border={'1px solid #EAAA00'} w={'full'} spacing={'12px'}
+                                 borderRadius={'12px'}>
+                            <HStack spacing={'16px'}>
+                              <Stack w={'40px'} h={'40px'}>
                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                   <path fillRule="evenodd" clipRule="evenodd"
@@ -422,25 +465,20 @@ const Switch = () => {
                                         fill="#EAAA00"/>
                                 </svg>
                               </Stack>
-                              <Stack>
-                                <Text color={'#030308'} fontSize={'20px'} fontWeight={700}
-                                      lineHeight={'28px'}>Your token replacement application has been submitted. Please
-                                  await the outcome.</Text>
-                                <Text fontSize={'16px'} fontWeight={400}
-                                      lineHeight={'22px'}>After one business day, you will be eligible to 1:1 withdraw
-                                  NEST 2.0 tokens, if you find that you still do not have access to withdraw NEST 2.0,
-                                  please contact us!</Text>
+                              <Stack align={"start"}>
+                                <Text color={'#030308'} fontSize={'20px'} fontWeight={700} textAlign={"start"}
+                                      lineHeight={'28px'}>Submit 12,555 NEST 1.0 application</Text>
+                                <Text fontSize={'16px'} fontWeight={400} maxW={'500px'} textAlign={"start"}
+                                      color={'rgba(3, 3, 8, 0.60)'}
+                                      lineHeight={'22px'}>Application will be reviewed within 1 business day and
+                                  your token can be replaced upon approval.</Text>
                               </Stack>
                             </HStack>
-                            <HStack spacing={'24px'}>
-                              <Stack h={'40px'} w={'40px'}>
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                </svg>
-                              </Stack>
-                              <Button px={'24px'} size={'sm'} minH={'36px'} fontSize={'12px'} lineHeight={'16px'}>
-                                <HStack spacing={'12px'}>
-                                  <Stack w={'20px'} h={'20px'}>
+                            <HStack>
+                              <Button px={'12px'} ml={'56px'} minH={'36px'} fontSize={'12px'} fontWeight={'700'}
+                                      lineHeight={'16px'}>
+                                <HStack spacing={'8px'}>
+                                  <Stack w={'14px'} h={'14px'}>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                       <path fillRule="evenodd" clipRule="evenodd"
@@ -453,12 +491,10 @@ const Switch = () => {
                               </Button>
                             </HStack>
                           </Stack>
-                        </Stack>
-                      )
-                    ) : (
-                      <Stack>
-                        <HStack bg={'rgba(255,255,255,0.8)'} px={'20px'} py={'24px'} borderRadius={'12px'} gap={'24px'}
-                                w={'full'}>
+                        )
+                      ) : (
+                        <HStack bg={'rgba(255,255,255,0.8)'} px={'20px'} py={'24px'} borderRadius={'12px'}
+                                w={'full'} gap={'16px'}>
                           <Stack h={'40px'} w={'40px'}>
                             <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -467,45 +503,159 @@ const Switch = () => {
                                     fill="#030308"/>
                             </svg>
                           </Stack>
-                          <Stack spacing={'8px'}>
+                          <Stack spacing={'8px'} minW={'150px'} textAlign={"start"}>
                             <Text fontSize={'20px'} fontWeight={700}
                                   lineHeight={'28px'}>{Number(balanceOfNEST?.formatted).toLocaleString('en-US', {
                               maximumFractionDigits: 2,
                             })} NEST</Text>
                             <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'}
-                                  color={'rgba(3,3,8,0.6)'}>Replacement Limit</Text>
+                                  color={'rgba(3,3,8,0.6)'}>NEST1.0 Balance</Text>
                           </Stack>
                           <Spacer/>
                           {
                             allowanceData && allowanceData >= (balanceOfNEST?.value || 0) ? (
-                              <Button isDisabled={!switchOld} onClick={switchOld} size={'sm'} minH={'36px'} px={'12px'}
-                                      fontSize={'12px'} lineHeight={'16px'}>
+                              <Button isDisabled={!switchOld} onClick={switchOld} px={'12px'} minH={'36px'}
+                                      fontSize={'12px'} borderRadius={'8px'} lineHeight={'16px'}>
                                 {switchOldStatus == 'idle' && 'Submit'}
                                 {(switchOldStatus == 'loading' || waitSwitchOldStatus === 'loading') && 'Submitting'}
                                 {waitSwitchOldStatus === 'success' && 'Submit success'}
                                 {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && 'Submit error'}
                               </Button>
                             ) : (
-                              <Button onClick={approve} isDisabled={!approve} size={'sm'} minH={'36px'}
-                                      fontSize={'12px'} lineHeight={'16px'}>
-                                {approveStatus == 'idle' && 'Approve'}
-                                {(approveStatus == 'loading' || waitApproveStatus === 'loading') && 'Approving'}
-                                {waitApproveStatus === 'success' && 'Approve success'}
-                                {(approveStatus == 'error' || waitApproveStatus === 'error') && 'Approve error'}
+                              <Button onClick={onOpen} variant={'solid'} px={'12px'} minH={'36px'} fontSize={'12px'}
+                                      lineHeight={'16px'} borderRadius={'8px'}
+                                      isDisabled={!approve || balanceOfNEST?.value === BigInt(0)}>
+                                Approve
                               </Button>
                             )
                           }
                         </HStack>
-                      </Stack>
+                      )
                     )
-                  ) : (
-                    <Button onClick={() => connect({
-                      chainId: 97,
-                    })}>
-                      Connect Wallet
-                    </Button>
                   )
                 }
+              </HStack>
+            )
+          }
+          <Stack p={'20px'} spacing={'12px'} align={"center"} borderRadius={'12px'} bgColor={'white'}>
+            <Stack w={'48px'} h={'48px'}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <g opacity="0.6">
+                  <path
+                    d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z"
+                    fill="black"/>
+                  <path
+                    d="M36 19.4065C36 20.1756 35.8484 21.0986 35.6967 22.1753L33.2704 34.6347C33.2704 34.9424 32.9671 35.0962 32.8155 35.0962H29.7826C29.4793 35.0962 29.176 34.7885 29.3277 34.4809L31.754 22.1753C31.9056 21.4062 31.9056 20.7909 31.9056 20.3295C31.9056 17.2531 30.2375 15.561 26.5981 15.561C22.2004 15.561 19.1676 18.0222 18.2577 22.9444L15.9831 34.7885C15.9831 35.0962 15.6798 35.25 15.5281 35.25H12.4953C12.192 35.25 11.8887 34.9424 12.0403 34.6347L16.2864 12.6385C16.2864 12.3308 16.5896 12.177 16.7413 12.177H19.6225C19.9258 12.177 20.2291 12.4846 20.0774 12.7923L19.9258 13.7152C19.7741 14.1767 20.3807 14.4843 20.684 14.1767C22.6554 12.6385 25.0817 12.0232 27.8113 12.0232C32.9671 11.7155 36 14.4843 36 19.4065Z"
+                    fill="white"/>
+                </g>
+              </svg>
+            </Stack>
+            <HStack px={'12px'} py={'8px'} spacing={'4px'} borderRadius={'8px'}
+                    border={'1px solid rgba(28, 28, 35, 0.08)'}>
+              <Stack w={'13px'} h={'12px'}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
+                  <path fillRule="evenodd" clipRule="evenodd"
+                        d="M6.51578 2C6.79192 2.00036 7.01549 2.22451 7.01512 2.50065L7.00597 9.50065C7.00561 9.7768 6.78146 10.0004 6.50532 10C6.22918 9.99964 6.00561 9.77549 6.00598 9.49935L6.01513 2.49935C6.01549 2.2232 6.23964 1.99964 6.51578 2Z"
+                        fill="#030308" fillOpacity="0.6"/>
+                  <path fillRule="evenodd" clipRule="evenodd"
+                        d="M2.5 6C2.5 5.72386 2.72386 5.5 3 5.5H10C10.2761 5.5 10.5 5.72386 10.5 6C10.5 6.27614 10.2761 6.5 10 6.5H3C2.72386 6.5 2.5 6.27614 2.5 6Z"
+                        fill="#030308" fillOpacity="0.6"/>
+                </svg>
+              </Stack>
+              <Text fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'} color={'#030308'}>Add NEST1.0 to
+                wallet</Text>
+            </HStack>
+            <HStack align={'end'}>
+              <Text color={'#03030899'} textAlign={'center'} fontSize={'12px'} fontWeight={'400'} lineHeight={'16px'}>
+                NEST1.0 (ETH)<br/>
+                0x04abeda201850ac0124161f037efd70c74ddc74c
+              </Text>
+              <Stack w={'12px'} h={'12px'} onClick={() => {
+                navigator.clipboard.writeText('0x04abeda201850ac0124161f037efd70c74ddc74c')
+              }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <g clipPath="url(#clip0_2170_12380)">
+                    <path fillRule="evenodd" clipRule="evenodd"
+                          d="M3.95312 1.75C3.84094 1.75 3.75 1.84094 3.75 1.95312V2.75H8.04688C8.71134 2.75 9.25 3.28866 9.25 3.95312V8.25H10.0469C10.1591 8.25 10.25 8.15906 10.25 8.04688V1.95312C10.25 1.84094 10.1591 1.75 10.0469 1.75H3.95312ZM9.25 9.25H10.0469C10.7113 9.25 11.25 8.71134 11.25 8.04688V1.95312C11.25 1.28866 10.7113 0.75 10.0469 0.75H3.95312C3.28866 0.75 2.75 1.28866 2.75 1.95312V2.75H1.95312C1.28866 2.75 0.75 3.28866 0.75 3.95312V10.0469C0.75 10.7113 1.28866 11.25 1.95312 11.25H8.04688C8.71134 11.25 9.25 10.7113 9.25 10.0469V9.25ZM1.95312 3.75C1.84094 3.75 1.75 3.84094 1.75 3.95312V10.0469C1.75 10.1591 1.84094 10.25 1.95312 10.25H8.04688C8.15906 10.25 8.25 10.1591 8.25 10.0469V3.95312C8.25 3.84094 8.15906 3.75 8.04688 3.75H1.95312Z"
+                          fill="#030308" fillOpacity="0.6"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_2170_12380">
+                      <rect width="12" height="12" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </Stack>
+            </HStack>
+          </Stack>
+          <Stack align={"center"}>
+            <Stack h={'24px'} w={'12px'}>
+              <svg width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 24L11.7735 14H0.226497L6 24ZM5 0L5 15H7L7 0L5 0Z" fill="#EAAA00"/>
+              </svg>
+            </Stack>
+          </Stack>
+          <Stack p={'20px'} spacing={'12px'} align={"center"} borderRadius={'12px'} bgColor={'white'}>
+            <Stack w={'48px'} h={'48px'}>
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M21.8182 47.9996C33.868 47.9996 43.6364 38.2313 43.6364 26.1815C43.6364 14.1316 33.868 4.36328 21.8182 4.36328C9.76833 4.36328 0 14.1316 0 26.1815C0 38.2313 9.76833 47.9996 21.8182 47.9996Z"
+                  fill="black"/>
+                <path
+                  d="M32.7274 22.0057C32.7274 22.7049 32.5895 23.5439 32.4516 24.5227L30.2459 35.8495C30.2459 36.1291 29.9702 36.269 29.8323 36.269H27.0752C26.7995 36.269 26.5238 35.9893 26.6616 35.7096L28.8673 24.5227C29.0052 23.8236 29.0052 23.2642 29.0052 22.8447C29.0052 20.048 27.4888 18.5098 24.1802 18.5098C20.1823 18.5098 17.4252 20.7472 16.598 25.2219L14.5301 35.9893C14.5301 36.269 14.2544 36.4088 14.1166 36.4088H11.3594C11.0837 36.4088 10.808 36.1291 10.9458 35.8495L14.8059 15.8529C14.8059 15.5732 15.0816 15.4334 15.2194 15.4334H17.8387C18.1144 15.4334 18.3902 15.7131 18.2523 15.9927L18.1144 16.8317C17.9766 17.2512 18.528 17.5309 18.8037 17.2513C20.5959 15.8529 22.8016 15.2935 25.283 15.2935C29.9702 15.0139 32.7274 17.5309 32.7274 22.0057Z"
+                  fill="white"/>
+                <circle cx="39.2722" cy="8.72727" r="8.72727" fill="#EB5D2A"/>
+                <path
+                  d="M37.752 13.001H32.7617V11.9512L34.5537 10.1396C35.0843 9.59603 35.431 9.22005 35.5938 9.01172C35.7565 8.80013 35.8737 8.60482 35.9453 8.42578C36.0169 8.24674 36.0527 8.0612 36.0527 7.86914C36.0527 7.58268 35.973 7.36947 35.8135 7.22949C35.6572 7.08952 35.4473 7.01953 35.1836 7.01953C34.9069 7.01953 34.6383 7.08301 34.3779 7.20996C34.1175 7.33691 33.8457 7.51758 33.5625 7.75195L32.7422 6.78027C33.0938 6.48079 33.3851 6.26921 33.6162 6.14551C33.8473 6.02181 34.0996 5.92741 34.373 5.8623C34.6465 5.79395 34.9525 5.75977 35.291 5.75977C35.737 5.75977 36.1309 5.84115 36.4727 6.00391C36.8145 6.16667 37.0798 6.39453 37.2686 6.6875C37.4574 6.98047 37.5518 7.31576 37.5518 7.69336C37.5518 8.02214 37.4932 8.33138 37.376 8.62109C37.262 8.90755 37.083 9.20215 36.8389 9.50488C36.598 9.80762 36.1715 10.2389 35.5596 10.7988L34.6416 11.6631V11.7314H37.752V13.001ZM38.6455 12.3027C38.6455 12.0293 38.7188 11.8226 38.8652 11.6826C39.0117 11.5426 39.2249 11.4727 39.5049 11.4727C39.7751 11.4727 39.9834 11.5443 40.1299 11.6875C40.2796 11.8307 40.3545 12.0358 40.3545 12.3027C40.3545 12.5599 40.2796 12.7633 40.1299 12.9131C39.9801 13.0596 39.7718 13.1328 39.5049 13.1328C39.2314 13.1328 39.0199 13.0612 38.8701 12.918C38.7204 12.7715 38.6455 12.5664 38.6455 12.3027ZM46.2773 9.43164C46.2773 10.6784 46.0723 11.6012 45.6621 12.2002C45.2552 12.7992 44.627 13.0986 43.7773 13.0986C42.9538 13.0986 42.332 12.7894 41.9121 12.1709C41.4954 11.5524 41.2871 10.6393 41.2871 9.43164C41.2871 8.17188 41.4906 7.24414 41.8975 6.64844C42.3044 6.04948 42.931 5.75 43.7773 5.75C44.6009 5.75 45.2227 6.0625 45.6426 6.6875C46.0658 7.3125 46.2773 8.22721 46.2773 9.43164ZM42.7861 9.43164C42.7861 10.3073 42.861 10.9355 43.0107 11.3164C43.1637 11.694 43.4193 11.8828 43.7773 11.8828C44.1289 11.8828 44.3828 11.6908 44.5391 11.3066C44.6953 10.9225 44.7734 10.2975 44.7734 9.43164C44.7734 8.55599 44.6937 7.92773 44.5342 7.54688C44.3779 7.16276 44.1257 6.9707 43.7773 6.9707C43.4225 6.9707 43.1686 7.16276 43.0156 7.54688C42.8626 7.92773 42.7861 8.55599 42.7861 9.43164Z"
+                  fill="white"/>
+              </svg>
+            </Stack>
+            <HStack px={'12px'} py={'8px'} spacing={'4px'} borderRadius={'8px'}
+                    border={'1px solid rgba(28, 28, 35, 0.08)'}>
+              <Stack w={'13px'} h={'12px'}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
+                  <path fillRule="evenodd" clipRule="evenodd"
+                        d="M6.51578 2C6.79192 2.00036 7.01549 2.22451 7.01512 2.50065L7.00597 9.50065C7.00561 9.7768 6.78146 10.0004 6.50532 10C6.22918 9.99964 6.00561 9.77549 6.00598 9.49935L6.01513 2.49935C6.01549 2.2232 6.23964 1.99964 6.51578 2Z"
+                        fill="#030308" fillOpacity="0.6"/>
+                  <path fillRule="evenodd" clipRule="evenodd"
+                        d="M2.5 6C2.5 5.72386 2.72386 5.5 3 5.5H10C10.2761 5.5 10.5 5.72386 10.5 6C10.5 6.27614 10.2761 6.5 10 6.5H3C2.72386 6.5 2.5 6.27614 2.5 6Z"
+                        fill="#030308" fillOpacity="0.6"/>
+                </svg>
+              </Stack>
+              <Text fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'} color={'#030308'}>Add NEST2.0 to
+                wallet</Text>
+            </HStack>
+            <HStack align={'end'}>
+              <Text color={'#030308'} textAlign={'center'} fontSize={'12px'} fontWeight={'700'} lineHeight={'16px'}>
+                NEST2.0 (ETH)<br/>
+                0xcd6926193308d3B371FdD6A6219067E550000000
+              </Text>
+              <Stack w={'12px'} h={'12px'} onClick={() => {
+                navigator.clipboard.writeText('0xcd6926193308d3B371FdD6A6219067E550000000')
+              }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <g clipPath="url(#clip0_2170_12380)">
+                    <path fillRule="evenodd" clipRule="evenodd"
+                          d="M3.95312 1.75C3.84094 1.75 3.75 1.84094 3.75 1.95312V2.75H8.04688C8.71134 2.75 9.25 3.28866 9.25 3.95312V8.25H10.0469C10.1591 8.25 10.25 8.15906 10.25 8.04688V1.95312C10.25 1.84094 10.1591 1.75 10.0469 1.75H3.95312ZM9.25 9.25H10.0469C10.7113 9.25 11.25 8.71134 11.25 8.04688V1.95312C11.25 1.28866 10.7113 0.75 10.0469 0.75H3.95312C3.28866 0.75 2.75 1.28866 2.75 1.95312V2.75H1.95312C1.28866 2.75 0.75 3.28866 0.75 3.95312V10.0469C0.75 10.7113 1.28866 11.25 1.95312 11.25H8.04688C8.71134 11.25 9.25 10.7113 9.25 10.0469V9.25ZM1.95312 3.75C1.84094 3.75 1.75 3.84094 1.75 3.95312V10.0469C1.75 10.1591 1.84094 10.25 1.95312 10.25H8.04688C8.15906 10.25 8.25 10.1591 8.25 10.0469V3.95312C8.25 3.84094 8.15906 3.75 8.04688 3.75H1.95312Z"
+                          fill="#030308" fillOpacity="0.6"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_2170_12380">
+                      <rect width="12" height="12" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </Stack>
+            </HStack>
+          </Stack>
+          {
+            !address && (
+              <HStack pt={'24px'} justify={"center"}>
+                <Button onClick={() => connect({
+                  chainId: 97,
+                })}>
+                  Connect Wallet
+                </Button>
               </HStack>
             )
           }
@@ -527,10 +677,10 @@ const Switch = () => {
               1:1</Text>
             <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'} mt={'24px'}
                   lineHeight={'22px'}>A single address can only submit a request for a replacement token once.</Text>
-            <HStack align={"center"} justify={"center"}>
-              <Stack>
-                <HStack spacing={'24px'} mt={'44px'} justifyContent={"center"}>
-                  <Stack p={'20px'} spacing={'20px'} bg={'rgba(255, 255, 255, 0.80)'} borderRadius={'12px'}
+            <HStack align={"center"} justify={"center"} w={'1200px'}>
+              <Stack w={'full'}>
+                <HStack w={'full'} spacing={'24px'} mt={'44px'} justifyContent={"center"}>
+                  <Stack w={'full'} p={'20px'} spacing={'20px'} bg={'rgba(255, 255, 255, 0.80)'} borderRadius={'12px'}
                          align={"center"}>
                     <Stack w={'80px'} h={'80px'}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
@@ -544,7 +694,9 @@ const Switch = () => {
                         </g>
                       </svg>
                     </Stack>
-                    <HStack py={'8px'} px={'12px'} borderRadius={'8px'} border={'1px solid rgba(28, 28, 35, 0.08)'}>
+                    <HStack py={'8px'} px={'12px'} borderRadius={'8px'} border={'1px solid rgba(28, 28, 35, 0.08)'}
+                            onClick={() => addTokenToMetamask('0x04abeda201850ac0124161f037efd70c74ddc74c')}
+                            cursor={'pointer'}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd"
                               d="M6.51578 2C6.79192 2.00036 7.01549 2.22451 7.01512 2.50065L7.00597 9.50065C7.00561 9.7768 6.78146 10.0004 6.50532 10C6.22918 9.99964 6.00561 9.77549 6.00598 9.49935L6.01513 2.49935C6.01549 2.2232 6.23964 1.99964 6.51578 2Z"
@@ -556,8 +708,19 @@ const Switch = () => {
                       <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} color={'#030308'}>Add NEST1.0 to
                         wallet</Text>
                     </HStack>
-                    <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.60)'}>NEST1.0
-                      (ETH): 0x04abeda201850ac0124161f037efd70c74ddc74c</Text>
+                    <HStack>
+                      <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.60)'}>NEST1.0
+                        (ETH): 0x04abeda201850ac0124161f037efd70c74ddc74c</Text>
+                      <Stack w={'15px'} h={'14px'} cursor={'pointer'} onClick={() => {
+                        navigator.clipboard.writeText('0x04abeda201850ac0124161f037efd70c74ddc74c')
+                      }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none">
+                          <path fillRule="evenodd" clipRule="evenodd"
+                                d="M5.11198 2.04167C4.9811 2.04167 4.875 2.14777 4.875 2.27865V3.20833H9.88802C10.6632 3.20833 11.2917 3.83677 11.2917 4.61198V9.625H12.2214C12.3522 9.625 12.4583 9.5189 12.4583 9.38802V2.27865C12.4583 2.14777 12.3522 2.04167 12.2214 2.04167H5.11198ZM11.2917 10.7917H12.2214C12.9966 10.7917 13.625 10.1632 13.625 9.38802V2.27865C13.625 1.50343 12.9966 0.875 12.2214 0.875H5.11198C4.33677 0.875 3.70833 1.50343 3.70833 2.27865V3.20833H2.77865C2.00343 3.20833 1.375 3.83677 1.375 4.61198V11.7214C1.375 12.4966 2.00343 13.125 2.77865 13.125H9.88802C10.6632 13.125 11.2917 12.4966 11.2917 11.7214V10.7917ZM2.77865 4.375C2.64777 4.375 2.54167 4.4811 2.54167 4.61198V11.7214C2.54167 11.8522 2.64777 11.9583 2.77865 11.9583H9.88802C10.0189 11.9583 10.125 11.8522 10.125 11.7214V4.61198C10.125 4.4811 10.0189 4.375 9.88802 4.375H2.77865Z"
+                                fill="#030308" fill-opacity="0.6"/>
+                        </svg>
+                      </Stack>
+                    </HStack>
                   </Stack>
                   <Stack width={'41px'} h={'12px'}>
                     <svg width="41" height="12" viewBox="0 0 41 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -565,7 +728,7 @@ const Switch = () => {
                             fill="#EAAA00"/>
                     </svg>
                   </Stack>
-                  <Stack p={'20px'} spacing={'20px'} bg={'rgba(255, 255, 255, 0.80)'} borderRadius={'12px'}
+                  <Stack w={'full'} p={'20px'} spacing={'20px'} bg={'rgba(255, 255, 255, 0.80)'} borderRadius={'12px'}
                          align={"center"}>
                     <Stack w={'80px'} h={'80px'}>
                       <svg width="89" height="88" viewBox="0 0 89 88" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -581,7 +744,9 @@ const Switch = () => {
                           fill="white"/>
                       </svg>
                     </Stack>
-                    <HStack py={'8px'} px={'12px'} borderRadius={'8px'} border={'1px solid rgba(28, 28, 35, 0.08)'}>
+                    <HStack py={'8px'} px={'12px'} borderRadius={'8px'} border={'1px solid rgba(28, 28, 35, 0.08)'}
+                            onClick={() => addTokenToMetamask('0xcd6926193308d3B371FdD6A6219067E550000000')}
+                            cursor={'pointer'}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd"
                               d="M6.51578 2C6.79192 2.00036 7.01549 2.22451 7.01512 2.50065L7.00597 9.50065C7.00561 9.7768 6.78146 10.0004 6.50532 10C6.22918 9.99964 6.00561 9.77549 6.00598 9.49935L6.01513 2.49935C6.01549 2.2232 6.23964 1.99964 6.51578 2Z"
@@ -590,11 +755,22 @@ const Switch = () => {
                               d="M2.5 6C2.5 5.72386 2.72386 5.5 3 5.5H10C10.2761 5.5 10.5 5.72386 10.5 6C10.5 6.27614 10.2761 6.5 10 6.5H3C2.72386 6.5 2.5 6.27614 2.5 6Z"
                               fill="#030308" fillOpacity="0.6"/>
                       </svg>
-                      <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} color={'#030308'}>Add NEST1.0 to
+                      <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} color={'#030308'}>Add NEST2.0 to
                         wallet</Text>
                     </HStack>
-                    <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'} color={'#030308'}>NEST2.0 (ETH):
-                      0xcd6926193308d3B371FdD6A6219067E550000000</Text>
+                    <HStack cursor={'pointer'}>
+                      <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'} color={'#030308'}>NEST2.0 (ETH):
+                        0xcd6926193308d3B371FdD6A6219067E550000000</Text>
+                      <Stack w={'15px'} h={'14px'} cursor={'pointer'} onClick={() => {
+                        navigator.clipboard.writeText('0xcd6926193308d3B371FdD6A6219067E550000000')
+                      }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none">
+                          <path fillRule="evenodd" clipRule="evenodd"
+                                d="M5.11198 2.04167C4.9811 2.04167 4.875 2.14777 4.875 2.27865V3.20833H9.88802C10.6632 3.20833 11.2917 3.83677 11.2917 4.61198V9.625H12.2214C12.3522 9.625 12.4583 9.5189 12.4583 9.38802V2.27865C12.4583 2.14777 12.3522 2.04167 12.2214 2.04167H5.11198ZM11.2917 10.7917H12.2214C12.9966 10.7917 13.625 10.1632 13.625 9.38802V2.27865C13.625 1.50343 12.9966 0.875 12.2214 0.875H5.11198C4.33677 0.875 3.70833 1.50343 3.70833 2.27865V3.20833H2.77865C2.00343 3.20833 1.375 3.83677 1.375 4.61198V11.7214C1.375 12.4966 2.00343 13.125 2.77865 13.125H9.88802C10.6632 13.125 11.2917 12.4966 11.2917 11.7214V10.7917ZM2.77865 4.375C2.64777 4.375 2.54167 4.4811 2.54167 4.61198V11.7214C2.54167 11.8522 2.64777 11.9583 2.77865 11.9583H9.88802C10.0189 11.9583 10.125 11.8522 10.125 11.7214V4.61198C10.125 4.4811 10.0189 4.375 9.88802 4.375H2.77865Z"
+                                fill="#030308" fill-opacity="0.6"/>
+                        </svg>
+                      </Stack>
+                    </HStack>
                   </Stack>
                 </HStack>
                 <Stack mt={'40px'}>
@@ -626,7 +802,8 @@ const Switch = () => {
                               </Stack>
                               <Spacer/>
                               {/*TODO*/}
-                              <HStack h={'48px'} spacing={'12px'} px={'24px'} borderRadius={'12px'} bgColor={'#EAAA00'} cursor={'pointer'}>
+                              <HStack h={'48px'} spacing={'12px'} px={'24px'} borderRadius={'12px'} bgColor={'#EAAA00'}
+                                      cursor={'pointer'}>
                                 <Stack h={'20px'} w={'20px'}>
                                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                        xmlns="http://www.w3.org/2000/svg">
@@ -753,12 +930,9 @@ const Switch = () => {
                                         {(switchOldStatus == 'error' || waitSwitchOldStatus === 'error') && 'Submit error'}
                                       </Button>
                                     ) : (
-                                      <Button onClick={() => approve?.()} variant={'solid'}
+                                      <Button onClick={onOpen} variant={'solid'}
                                               isDisabled={!approve || balanceOfNEST?.value === BigInt(0)}>
-                                        {approveStatus == 'idle' && 'Approve'}
-                                        {(approveStatus == 'loading' || waitApproveStatus === 'loading') && 'Approving'}
-                                        {waitApproveStatus === 'success' && 'Approve success'}
-                                        {(approveStatus == 'error' || waitApproveStatus === 'error') && 'Approve error'}
+                                        Approve
                                       </Button>
                                     )
                                   }
@@ -788,7 +962,43 @@ const Switch = () => {
   )
 
   return (
-    isMobile ? mobilePage : pcPage
+    <>
+      {
+        isMobile ? mobilePage : pcPage
+      }
+      <Modal isOpen={isOpen} onClose={onClose} isCentered closeOnOverlayClick>
+        <ModalOverlay/>
+        <ModalContent borderRadius={'12px'} w={'350px'}>
+          <Stack p={'20px'} spacing={'16px'} align={"center"}>
+            <Stack w={'48px'} h={'48px'} mt={'48px'}>
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="24" fill="#F0F1F5"/>
+                <path fillRule="evenodd" clipRule="evenodd"
+                      d="M29.5 24.5V26.0192V30C29.5 30.8284 30.1716 31.5 31 31.5C31.8284 31.5 32.5 30.8284 32.5 30V24.5H29.5ZM27.5 26.0192V24.5V22.5V16.5H16.5V29.5C16.5 30.6046 17.3954 31.5 18.5 31.5H27.8368C27.6208 31.0454 27.5 30.5368 27.5 30V26.0192ZM31 33.5H28H18.5C16.2909 33.5 14.5 31.7091 14.5 29.5V15.5C14.5 14.9477 14.9477 14.5 15.5 14.5H28.5C29.0523 14.5 29.5 14.9477 29.5 15.5V22.5H33.5C34.0523 22.5 34.5 22.9477 34.5 23.5V30C34.5 31.933 32.933 33.5 31 33.5ZM19 20.5C19 20.2239 19.2239 20 19.5 20H24.5C24.7761 20 25 20.2239 25 20.5V21.5C25 21.7761 24.7761 22 24.5 22H19.5C19.2239 22 19 21.7761 19 21.5V20.5ZM19.5 24C19.2239 24 19 24.2239 19 24.5V25.5C19 25.7761 19.2239 26 19.5 26H24.5C24.7761 26 25 25.7761 25 25.5V24.5C25 24.2239 24.7761 24 24.5 24H19.5Z"
+                      fill="#030308"/>
+              </svg>
+            </Stack>
+            <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'700'} color={'#030308'}>
+              Attention Please
+            </Text>
+            <Text fontSize={'12px'} lineHeight={'16px'} fontWeight={'400'} color={'#030308'} textAlign={"center"}>
+              A single address can only submit a token replacement application once. Make sure to approve all of the
+              NEST1.0 at once.
+            </Text>
+            <Button onClick={() => {
+              approve?.()
+              onClose()
+            }} variant={'solid'} w={'full'}
+                    isDisabled={!approve || balanceOfNEST?.value === BigInt(0)}>
+              {approveStatus == 'idle' && 'Approve'}
+              {(approveStatus == 'loading' || waitApproveStatus === 'loading') && 'Approving'}
+              {waitApproveStatus === 'success' && 'Approve success'}
+              {(approveStatus == 'error' || waitApproveStatus === 'error') && 'Approve error'}
+            </Button>
+          </Stack>
+        </ModalContent>
+      </Modal>
+    </>
   )
 }
 
