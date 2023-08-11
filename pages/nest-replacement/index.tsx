@@ -561,7 +561,7 @@ const Switch = () => {
                 {
                   address ? (
                     sent ? (
-                      pass ? (
+                      !pass ? (
                         received ? (
                           <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'40px'}
                                   py={'24px'}
@@ -635,7 +635,7 @@ const Switch = () => {
                               </Stack>
                               <Button px={'24px'}>
                                 <HStack spacing={'12px'}>
-                                  <Stack w={'40px'} h={'40px'}>
+                                  <Stack w={'20px'} h={'20px'}>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                       <path fillRule="evenodd" clipRule="evenodd"
