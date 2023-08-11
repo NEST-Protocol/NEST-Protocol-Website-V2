@@ -373,7 +373,7 @@ const Switch = () => {
               <HStack justifyContent={"center"} py={'24px'} w={'full'}>
                 {
                   address && (
-                    !block ? (
+                    block ? (
                       <Stack w={'full'} px={'20px'} py={'24px'} borderRadius={'12px'}
                               border={'1px solid #FF1B00'} spacing={'12px'}
                               background={'#FFD8CC'}>
