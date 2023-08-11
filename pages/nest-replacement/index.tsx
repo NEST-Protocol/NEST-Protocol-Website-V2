@@ -561,7 +561,7 @@ const Switch = () => {
                 {
                   address ? (
                     sent ? (
-                      !pass ? (
+                      pass ? (
                         received ? (
                           <HStack borderRadius={'12px'} bg={'#CFF5D0'} border={'1px solid #2ECD3C'} px={'40px'}
                                   py={'24px'}
