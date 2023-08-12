@@ -33,8 +33,10 @@ import {NEST_ADDRESS, NEST_SWITCH_ADDRESS} from "../../lib/address";
 import useSWR from "swr";
 import {MerkleTree} from "merkletreejs"
 import {keccak256} from "@ethersproject/keccak256"
+import {useToast} from '@chakra-ui/react'
 
 const Switch = () => {
+  const toast = useToast()
   const [isMobile] = useMediaQuery("(max-width: 992px)");
   const title = "NEST Protocol | NEST Replacement"
   const description = "NEST Protocol is the stochastic computer based on PVM, enables the generation and programming of stochastic assets."
@@ -376,8 +378,8 @@ const Switch = () => {
                   address && (
                     block ? (
                       <Stack w={'full'} px={'20px'} py={'24px'} borderRadius={'12px'}
-                              border={'1px solid #FF1B00'} spacing={'12px'}
-                              background={'#FFD8CC'}>
+                             border={'1px solid #FF1B00'} spacing={'12px'}
+                             background={'#FFD8CC'}>
                         <HStack spacing={'16px'}>
                           <Stack w={'40px'} h={'40px'}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
@@ -471,11 +473,12 @@ const Switch = () => {
                               </Stack>
                               <Stack align={"start"}>
                                 <Text color={'#030308'} fontSize={'20px'} fontWeight={700} textAlign={"start"}
-                                      lineHeight={'28px'}>Submit 12,555 NEST 1.0 application</Text>
+                                      lineHeight={'28px'}>You have submitted {sentAmount.toLocaleString()} NEST for
+                                  replacement!</Text>
                                 <Text fontSize={'16px'} fontWeight={400} maxW={'500px'} textAlign={"start"}
                                       color={'rgba(3, 3, 8, 0.60)'}
-                                      lineHeight={'22px'}>Application will be reviewed within 1 business day and
-                                  your token can be replaced upon approval.</Text>
+                                      lineHeight={'22px'}>Application will be reviewed within 1 business day and your
+                                  token can be replaced upon approval.</Text>
                               </Stack>
                             </HStack>
                             <HStack>
@@ -574,9 +577,16 @@ const Switch = () => {
                 NEST1.0 (ETH)<br/>
                 0x04abeda201850ac0124161f037efd70c74ddc74c
               </Text>
-              <Stack w={'12px'} h={'12px'} onClick={() => {
-                navigator.clipboard.writeText('0x04abeda201850ac0124161f037efd70c74ddc74c')
-              }}>
+              <Stack w={'12px'} h={'12px'} mb={'2px'}
+                     onClick={() => {
+                       navigator.clipboard.writeText('0x04abeda201850ac0124161f037efd70c74ddc74c')
+                       toast({
+                         title: 'Copy success!',
+                         status: 'success',
+                         duration: 3000,
+                         position: 'top-right',
+                       })
+                     }}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <g clipPath="url(#clip0_2170_12380)">
                     <path fillRule="evenodd" clipRule="evenodd"
@@ -634,8 +644,14 @@ const Switch = () => {
                 NEST2.0 (ETH)<br/>
                 0xcd6926193308d3B371FdD6A6219067E550000000
               </Text>
-              <Stack w={'12px'} h={'12px'} onClick={() => {
+              <Stack w={'12px'} h={'12px'} mb={'2px'} onClick={() => {
                 navigator.clipboard.writeText('0xcd6926193308d3B371FdD6A6219067E550000000')
+                toast({
+                  title: 'Copy success!',
+                  status: 'success',
+                  duration: 3000,
+                  position: 'top-right',
+                })
               }}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <g clipPath="url(#clip0_2170_12380)">
@@ -679,15 +695,19 @@ const Switch = () => {
           <Stack textAlign={"center"} pt={'24px'} spacing={0}>
             <Text fontSize={'48px'} fontWeight={700} lineHeight={'60px'}>Replace your NEST 1.0 to NEST 2.0 at a ratio of
               1:1</Text>
-            <HStack fontSize={'16px'} fontWeight={400} justifyContent={"center"} mt={'24px'} lineHeight={'22px'} spacing={'4px'}>
-              <Text color={'rgba(3,3,8, 0.6)'}>A single address can only submit a request for a replacement token once.</Text>
+            <HStack fontSize={'16px'} fontWeight={400} justifyContent={"center"} mt={'24px'} lineHeight={'22px'}
+                    spacing={'4px'}>
+              <Text color={'rgba(3,3,8, 0.6)'}>A single address can only submit a request for a replacement token
+                once.</Text>
               <Text color={'#EAAA00'} ml={'4px'}>
                 Guide
               </Text>
               {/*TODO*/}
               <Stack w={'16px'} h={'16px'}>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M11.378 7.76435C11.5081 7.89452 11.5081 8.10557 11.378 8.23575L5.7211 13.8926C5.59093 14.0228 5.37987 14.0228 5.2497 13.8926L4.76443 13.4073C4.63425 13.2772 4.63425 13.0661 4.76443 12.9359L9.70031 8.00005L4.76443 3.06416C4.63425 2.93399 4.63425 2.72293 4.76443 2.59276L5.2497 2.10749C5.37987 1.97731 5.59093 1.97732 5.7211 2.10749L11.378 7.76435Z" fill="#EAAA00"/>
+                  <path fillRule="evenodd" clipRule="evenodd"
+                        d="M11.378 7.76435C11.5081 7.89452 11.5081 8.10557 11.378 8.23575L5.7211 13.8926C5.59093 14.0228 5.37987 14.0228 5.2497 13.8926L4.76443 13.4073C4.63425 13.2772 4.63425 13.0661 4.76443 12.9359L9.70031 8.00005L4.76443 3.06416C4.63425 2.93399 4.63425 2.72293 4.76443 2.59276L5.2497 2.10749C5.37987 1.97731 5.59093 1.97732 5.7211 2.10749L11.378 7.76435Z"
+                        fill="#EAAA00"/>
                 </svg>
               </Stack>
             </HStack>
@@ -727,6 +747,12 @@ const Switch = () => {
                         (ETH): 0x04abeda201850ac0124161f037efd70c74ddc74c</Text>
                       <Stack w={'15px'} h={'14px'} cursor={'pointer'} onClick={() => {
                         navigator.clipboard.writeText('0x04abeda201850ac0124161f037efd70c74ddc74c')
+                        toast({
+                          title: 'Copy success!',
+                          status: 'success',
+                          duration: 3000,
+                          position: 'top-right',
+                        })
                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none">
                           <path fillRule="evenodd" clipRule="evenodd"
@@ -777,6 +803,12 @@ const Switch = () => {
                         0xcd6926193308d3B371FdD6A6219067E550000000</Text>
                       <Stack w={'15px'} h={'14px'} cursor={'pointer'} onClick={() => {
                         navigator.clipboard.writeText('0xcd6926193308d3B371FdD6A6219067E550000000')
+                        toast({
+                          title: 'Copy success!',
+                          status: 'success',
+                          duration: 3000,
+                          position: 'top-right',
+                        })
                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none">
                           <path fillRule="evenodd" clipRule="evenodd"
@@ -893,7 +925,8 @@ const Switch = () => {
                                     </Stack>
                                     <Stack align={"start"}>
                                       <Text color={'#030308'} fontSize={'20px'} fontWeight={700} textAlign={"start"}
-                                            lineHeight={'28px'}>Submit 12,555 NEST 1.0 application</Text>
+                                            lineHeight={'28px'}>You have submitted {sentAmount.toLocaleString()} NEST
+                                        for replacement!</Text>
                                       <Text fontSize={'16px'} fontWeight={400} maxW={'500px'} textAlign={"start"}
                                             color={'rgba(3, 3, 8, 0.60)'}
                                             lineHeight={'22px'}>Application will be reviewed within 1 business day and
