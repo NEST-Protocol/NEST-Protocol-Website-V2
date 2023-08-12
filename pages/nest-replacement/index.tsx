@@ -203,6 +203,12 @@ const Switch = () => {
   }, [address, chain?.id])
 
   useEffect(() => {
+    if (sentAmount === 0) {
+      setSentAmount(Number(balanceOfNEST?.formatted))
+    }
+  }, [address, chain?.id, balanceOfNEST, sentAmount])
+
+  useEffect(() => {
     if (switchOldStatus == 'error' || switchOldStatus === 'success') {
       setTimeout(() => {
         switchOldReset()
