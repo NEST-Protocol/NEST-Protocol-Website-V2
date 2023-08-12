@@ -168,14 +168,6 @@ const Switch = () => {
   const [sentAmount, setSentAmount] = useState<number>(0);
   const {isOpen, onOpen, onClose} = useDisclosure()
 
-  /**
-   block
-   pass
-   received
-   receivedAmount
-   sent
-   sentAmount
-   */
   const {
     data: nodesData,
   } = useSWR(chain?.id ? `https://api.nestfi.net/api/users/pass/list?chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()), {
