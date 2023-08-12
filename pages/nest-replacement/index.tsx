@@ -165,7 +165,7 @@ const Switch = () => {
   const [pass, setPass] = useState(false);
   const [received, setReceived] = useState(false);
   const [receivedAmount, setReceivedAmount] = useState(0);
-  const [sentAmount, setSentAmount] = useState(0);
+  const [sentAmount, setSentAmount] = useState<number>(0);
   const {isOpen, onOpen, onClose} = useDisclosure()
 
   /**
@@ -203,8 +203,8 @@ const Switch = () => {
   }, [address, chain?.id])
 
   useEffect(() => {
-    if (sentAmount === 0) {
-      setSentAmount(Number(balanceOfNEST?.formatted))
+    if (!sentAmount && balanceOfNEST && balanceOfNEST?.value > 0) {
+      setSentAmount(Number(balanceOfNEST?.formatted.replace(',', '')))
     }
   }, [address, chain?.id, balanceOfNEST, sentAmount])
 
@@ -451,7 +451,7 @@ const Switch = () => {
                               <Stack spacing={'8px'} align={"start"}>
                                 {/*Balance*/}
                                 <Text fontSize={'20px'} lineHeight={'28px'}
-                                      fontWeight={700}>{sentAmount.toLocaleString()} NEST 2.0</Text>
+                                      fontWeight={700}>{sentAmount?.toLocaleString()} NEST 2.0</Text>
                                 <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={400}
                                       color={'rgba(3, 3, 8, 0.60)'}>Available for Claim</Text>
                                 <Button onClick={withdrawNew} isDisabled={!withdrawNew} px={'12px'} minH={'36px'}
@@ -479,7 +479,7 @@ const Switch = () => {
                               </Stack>
                               <Stack align={"start"}>
                                 <Text color={'#030308'} fontSize={'20px'} fontWeight={700} textAlign={"start"}
-                                      lineHeight={'28px'}>You have submitted {sentAmount.toLocaleString()} NEST for
+                                      lineHeight={'28px'}>You have submitted {sentAmount?.toLocaleString()} NEST for
                                   replacement!</Text>
                                 <Text fontSize={'16px'} fontWeight={400} maxW={'500px'} textAlign={"start"}
                                       color={'rgba(3, 3, 8, 0.60)'}
@@ -922,7 +922,7 @@ const Switch = () => {
                                       <Stack spacing={'8px'} align={"start"}>
                                         {/*Balance*/}
                                         <Text fontSize={'20px'} lineHeight={'28px'}
-                                              fontWeight={700}>{sentAmount.toLocaleString()} NEST 2.0</Text>
+                                              fontWeight={700}>{sentAmount?.toLocaleString()} NEST 2.0</Text>
                                         <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={400}
                                               color={'rgba(3, 3, 8, 0.60)'}>Available for Claim</Text>
                                       </Stack>
@@ -949,7 +949,7 @@ const Switch = () => {
                                     </Stack>
                                     <Stack align={"start"}>
                                       <Text color={'#030308'} fontSize={'20px'} fontWeight={700} textAlign={"start"}
-                                            lineHeight={'28px'}>You have submitted {sentAmount.toLocaleString()} NEST
+                                            lineHeight={'28px'}>You have submitted {sentAmount?.toLocaleString()} NEST
                                         for replacement!</Text>
                                       <Text fontSize={'16px'} fontWeight={400} maxW={'500px'} textAlign={"start"}
                                             color={'rgba(3, 3, 8, 0.60)'}
