@@ -350,8 +350,10 @@ const Switch = () => {
           <Stack textAlign={"center"} pt={'24px'} spacing={'16px'}>
             <Text fontSize={'24px'} fontWeight={700} lineHeight={'32px'}>Replace your NEST 1.0 to NEST 2.0 at a ratio of
               1:1</Text>
-            <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
-                  lineHeight={'22px'}>A single address can only submit a request for a replacement token once.</Text>
+            <HStack>
+              <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
+                    lineHeight={'22px'}>A single address can only submit a request for a replacement token once.</Text>
+            </HStack>
             <HStack spacing={'4px'} justify={'center'}>
               <Text color={'#EAAA00'}>Guild</Text>
               <Stack w={'17px'} h={'16px'}>
@@ -677,8 +679,18 @@ const Switch = () => {
           <Stack textAlign={"center"} pt={'24px'} spacing={0}>
             <Text fontSize={'48px'} fontWeight={700} lineHeight={'60px'}>Replace your NEST 1.0 to NEST 2.0 at a ratio of
               1:1</Text>
-            <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'} mt={'24px'}
-                  lineHeight={'22px'}>A single address can only submit a request for a replacement token once.</Text>
+            <HStack fontSize={'16px'} fontWeight={400} justifyContent={"center"} mt={'24px'} lineHeight={'22px'} spacing={'4px'}>
+              <Text color={'rgba(3,3,8, 0.6)'}>A single address can only submit a request for a replacement token once.</Text>
+              <Text color={'#EAAA00'} ml={'4px'}>
+                Guide
+              </Text>
+              {/*TODO*/}
+              <Stack w={'16px'} h={'16px'}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M11.378 7.76435C11.5081 7.89452 11.5081 8.10557 11.378 8.23575L5.7211 13.8926C5.59093 14.0228 5.37987 14.0228 5.2497 13.8926L4.76443 13.4073C4.63425 13.2772 4.63425 13.0661 4.76443 12.9359L9.70031 8.00005L4.76443 3.06416C4.63425 2.93399 4.63425 2.72293 4.76443 2.59276L5.2497 2.10749C5.37987 1.97731 5.59093 1.97732 5.7211 2.10749L11.378 7.76435Z" fill="#EAAA00"/>
+                </svg>
+              </Stack>
+            </HStack>
             <HStack align={"center"} justify={"center"} w={'1200px'}>
               <Stack w={'full'}>
                 <HStack w={'full'} spacing={'24px'} mt={'44px'} justifyContent={"center"}>
@@ -760,7 +772,7 @@ const Switch = () => {
                       <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} color={'#030308'}>Add NEST2.0 to
                         wallet</Text>
                     </HStack>
-                    <HStack cursor={'pointer'}>
+                    <HStack>
                       <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'} color={'#030308'}>NEST2.0 (ETH):
                         0xcd6926193308d3B371FdD6A6219067E550000000</Text>
                       <Stack w={'15px'} h={'14px'} cursor={'pointer'} onClick={() => {
