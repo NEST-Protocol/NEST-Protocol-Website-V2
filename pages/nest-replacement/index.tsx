@@ -304,7 +304,7 @@ const Switch = () => {
     }
   }, [checkData])
 
-  const addTokenToMetamask = async (address: string) => {
+  const addTokenToMetamask = async (address: string, filename: string) => {
     // add token to metamask
     try {
       // 'wasAdded' is a boolean. Like any RPC method, an error can be thrown.
@@ -317,7 +317,7 @@ const Switch = () => {
             address: address, // The address of the token.
             symbol: 'NEST', // A ticker symbol or shorthand, up to 5 characters.
             decimals: 18, // The number of decimals in the token.
-            image: '', // A string URL of the token logo.
+            image: `https://bafybeidwmzhy6njm66meh5g5tyuva3sl6yaz7ncjfquv4or7xfctjj3ylq.ipfs.nftstorage.link/${filename}.svg`,
           },
         },
       });
@@ -558,6 +558,7 @@ const Switch = () => {
               </svg>
             </Stack>
             <HStack px={'12px'} py={'8px'} spacing={'4px'} borderRadius={'8px'}
+                    onClick={() => addTokenToMetamask('0x04abeda201850ac0124161f037efd70c74ddc74c', 'old')}
                     border={'1px solid rgba(28, 28, 35, 0.08)'}>
               <Stack w={'13px'} h={'12px'}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
@@ -629,6 +630,7 @@ const Switch = () => {
               </svg>
             </Stack>
             <HStack px={'12px'} py={'8px'} spacing={'4px'} borderRadius={'8px'}
+                    onClick={() => addTokenToMetamask('0xcd6926193308d3B371FdD6A6219067E550000000', 'n')}
                     border={'1px solid rgba(28, 28, 35, 0.08)'}>
               <Stack w={'13px'} h={'12px'}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
@@ -737,7 +739,7 @@ const Switch = () => {
                       </svg>
                     </Stack>
                     <HStack py={'8px'} px={'12px'} borderRadius={'8px'} border={'1px solid rgba(28, 28, 35, 0.08)'}
-                            onClick={() => addTokenToMetamask('0x04abeda201850ac0124161f037efd70c74ddc74c')}
+                            onClick={() => addTokenToMetamask('0x04abeda201850ac0124161f037efd70c74ddc74c', 'old')}
                             cursor={'pointer'}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd"
@@ -797,7 +799,7 @@ const Switch = () => {
                       </svg>
                     </Stack>
                     <HStack py={'8px'} px={'12px'} borderRadius={'8px'} border={'1px solid rgba(28, 28, 35, 0.08)'}
-                            onClick={() => addTokenToMetamask('0xcd6926193308d3B371FdD6A6219067E550000000')}
+                            onClick={() => addTokenToMetamask('0xcd6926193308d3B371FdD6A6219067E550000000', 'n')}
                             cursor={'pointer'}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd"
