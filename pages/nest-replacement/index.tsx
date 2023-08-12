@@ -581,10 +581,14 @@ const Switch = () => {
                      onClick={() => {
                        navigator.clipboard.writeText('0x04abeda201850ac0124161f037efd70c74ddc74c')
                        toast({
-                         title: 'Copy success!',
-                         status: 'success',
                          duration: 3000,
-                         position: 'top-right',
+                         position: 'top',
+                         render: () => (
+                           <Stack color='#171A1F' w={'120px'} px={'12px'} py={'8px'} bg='white' fontSize={'14px'} lineHeight={'20px'}
+                                  fontWeight={'700'} borderRadius={'6px'}>
+                             <Text>Copy success!</Text>
+                           </Stack>
+                         ),
                        })
                      }}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -647,10 +651,14 @@ const Switch = () => {
               <Stack w={'12px'} h={'12px'} mb={'2px'} onClick={() => {
                 navigator.clipboard.writeText('0xcd6926193308d3B371FdD6A6219067E550000000')
                 toast({
-                  title: 'Copy success!',
-                  status: 'success',
                   duration: 3000,
-                  position: 'top-right',
+                  position: 'top',
+                  render: () => (
+                    <Stack color='#171A1F'  w={'120px'}  px={'12px'} py={'8px'} bg='white' fontSize={'14px'} lineHeight={'20px'}
+                           fontWeight={'700'} borderRadius={'6px'}>
+                      <Text>Copy success!</Text>
+                    </Stack>
+                  ),
                 })
               }}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -748,10 +756,14 @@ const Switch = () => {
                       <Stack w={'15px'} h={'14px'} cursor={'pointer'} onClick={() => {
                         navigator.clipboard.writeText('0x04abeda201850ac0124161f037efd70c74ddc74c')
                         toast({
-                          title: 'Copy success!',
-                          status: 'success',
                           duration: 3000,
-                          position: 'top-right',
+                          position: 'top',
+                          render: () => (
+                            <Stack color='#171A1F'  w={'120px'} px={'12px'} py={'8px'} bg='white' fontSize={'14px'} lineHeight={'20px'}
+                                   fontWeight={'700'} borderRadius={'6px'}>
+                              <Text>Copy success!</Text>
+                            </Stack>
+                          ),
                         })
                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none">
@@ -804,10 +816,14 @@ const Switch = () => {
                       <Stack w={'15px'} h={'14px'} cursor={'pointer'} onClick={() => {
                         navigator.clipboard.writeText('0xcd6926193308d3B371FdD6A6219067E550000000')
                         toast({
-                          title: 'Copy success!',
-                          status: 'success',
                           duration: 3000,
-                          position: 'top-right',
+                          position: 'top',
+                          render: () => (
+                            <Stack color='#171A1F'  w={'120px'} px={'12px'} py={'8px'} bg='white' fontSize={'14px'} lineHeight={'20px'}
+                                   fontWeight={'700'} borderRadius={'6px'}>
+                              <Text>Copy success!</Text>
+                            </Stack>
+                          ),
                         })
                       }}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none">
