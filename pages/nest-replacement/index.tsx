@@ -1018,13 +1018,28 @@ const Switch = () => {
         <Button onClick={() => setBlock(!block)}>
           {block ? '' : 'un'}block
         </Button>
-        <Button onClick={() => setSent(!sent)}>
+        <Button onClick={() => {
+          setBlock(false)
+          setSent(!sent)
+          setPass(false)
+          setReceived(false)
+        }}>
           {sent ? '' : 'un'}sent
         </Button>
-        <Button onClick={() => setPass(!pass)}>
+        <Button onClick={() => {
+          setBlock(false)
+          setSent(true)
+          setPass(!pass)
+          setReceived(false)
+        }}>
           {pass ? '' : 'un'}pass
         </Button>
-        <Button onClick={() => setReceived(!received)}>
+        <Button onClick={() => {
+          setBlock(false)
+          setSent(true)
+          setPass(true)
+          setReceived(!received)
+        }}>
           {received ? '' : 'un'}received
         </Button>
       </HStack>
