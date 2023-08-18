@@ -153,7 +153,7 @@ const Switch = () => {
     if (!address) {
       try {
         connect({
-          chainId: 97,
+          chainId: mainnet.id,
         })
       } catch (e) {
         console.log(e)
@@ -680,7 +680,7 @@ const Switch = () => {
             !address && (
               <HStack pt={'24px'} justify={"center"}>
                 <Button onClick={() => connect({
-                  chainId: 97,
+                  chainId: mainnet.id,
                 })}>
                   Connect Wallet
                 </Button>
@@ -1002,7 +1002,7 @@ const Switch = () => {
                               )
                             ) : (
                               <Button onClick={() => connect({
-                                chainId: 97,
+                                chainId: mainnet.id,
                               })}>
                                 Connect Wallet
                               </Button>
