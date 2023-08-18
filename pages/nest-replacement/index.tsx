@@ -579,7 +579,7 @@ const Switch = () => {
             <HStack align={'end'}>
               <Text color={'#03030899'} textAlign={'center'} fontSize={'12px'} fontWeight={'400'} lineHeight={'16px'}>
                 NEST1.0 (ETH)<br/>
-                ${NEST_ADDRESS[chain?.id || mainnet.id]}
+                {NEST_ADDRESS[chain?.id || mainnet.id]}
               </Text>
               <Stack w={'12px'} h={'12px'} mb={'2px'}
                      onClick={() => {
@@ -652,7 +652,7 @@ const Switch = () => {
             <HStack align={'end'}>
               <Text color={'#030308'} textAlign={'center'} fontSize={'12px'} fontWeight={'700'} lineHeight={'16px'}>
                 NEST2.0 (ETH)<br/>
-                ${NEW_NEST_ADDRESS[chain?.id || mainnet.id]}
+                {NEW_NEST_ADDRESS[chain?.id || mainnet.id]}
               </Text>
               <Stack w={'12px'} h={'12px'} mb={'2px'} onClick={() => {
                 navigator.clipboard.writeText(NEW_NEST_ADDRESS[chain?.id || mainnet.id])
@@ -759,7 +759,7 @@ const Switch = () => {
                     </HStack>
                     <HStack>
                       <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.60)'}>NEST1.0
-                        (ETH): ${NEST_ADDRESS[chain?.id || mainnet.id]}</Text>
+                        (ETH): {NEST_ADDRESS[chain?.id || mainnet.id]}</Text>
                       <Stack w={'15px'} h={'14px'} cursor={'pointer'} onClick={() => {
                         navigator.clipboard.writeText(NEST_ADDRESS[chain?.id || mainnet.id])
                         toast({
@@ -820,7 +820,7 @@ const Switch = () => {
                     </HStack>
                     <HStack>
                       <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'} color={'#030308'}>NEST2.0 (ETH):
-                        ${NEW_NEST_ADDRESS[chain?.id || mainnet.id]}</Text>
+                        {NEW_NEST_ADDRESS[chain?.id || mainnet.id]}</Text>
                       <Stack w={'15px'} h={'14px'} cursor={'pointer'} onClick={() => {
                         navigator.clipboard.writeText(NEW_NEST_ADDRESS[chain?.id || mainnet.id])
                         toast({
