@@ -24,7 +24,6 @@ import {
   useWaitForTransaction
 } from "wagmi";
 import {InjectedConnector} from 'wagmi/connectors/injected'
-import {bscTestnet} from "@wagmi/chains";
 import {useEffect, useState} from "react";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
@@ -43,7 +42,7 @@ const Switch = () => {
   const {connect, connectors} = useConnect({
     // @ts-ignore
     connector: new InjectedConnector({
-      chains: [bscTestnet],
+      chains: [mainnet],
       options: {
         shimDisconnect: true,
       }
@@ -61,7 +60,7 @@ const Switch = () => {
   // need refetchBalance when chain.id changed
   const {data: balanceOfNEST, refetch: refetchBalance} = useBalance({
     address: address,
-    token: NEST_ADDRESS[chain?.id ?? bscTestnet.id],
+    token: NEST_ADDRESS[chain?.id ?? mainnet.id],
     cacheTime: 1_000,
     watch: true,
     enabled: !!address
@@ -69,11 +68,11 @@ const Switch = () => {
   // need allowanceRefetch when address and chain.id changed
   const {data: allowanceData, refetch: allowanceRefetch} = useContractRead({
     abi: erc20ABI,
-    address: NEST_ADDRESS[chain?.id ?? bscTestnet.id],
+    address: NEST_ADDRESS[chain?.id ?? mainnet.id],
     functionName: 'allowance',
     args: [
       address!,
-      NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
+      NEST_SWITCH_ADDRESS[chain?.id ?? mainnet.id],
     ],
     cacheTime: 1_000,
     watch: true,
@@ -81,11 +80,11 @@ const Switch = () => {
   })
   // need refetchApprovePrepare when chain.id changed, balanceOfNEST changed
   const {config: approvePrepareConfig, refetch: refetchApprovePrepare,} = usePrepareContractWrite({
-    address: NEST_ADDRESS[chain?.id ?? bscTestnet.id],
+    address: NEST_ADDRESS[chain?.id ?? mainnet.id],
     abi: erc20ABI,
     functionName: 'approve',
     args: [
-      NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
+      NEST_SWITCH_ADDRESS[chain?.id ?? mainnet.id],
       balanceOfNEST?.value || BigInt(10000000000000000)
     ],
     enabled: !!address && !!balanceOfNEST?.value
@@ -106,7 +105,7 @@ const Switch = () => {
     status: switchOldPrepareStatus,
     refetch: refetchSwitchOldPrepare
   } = usePrepareContractWrite({
-    address: NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
+    address: NEST_SWITCH_ADDRESS[chain?.id ?? mainnet.id],
     abi: NEST_SWITCH_ABI,
     functionName: 'switchOld',
     args: [
@@ -130,7 +129,7 @@ const Switch = () => {
     refetch: refetchWithdrawNewPrepare,
     status: withdrawNewStatusPrepare
   } = usePrepareContractWrite({
-    address: NEST_SWITCH_ADDRESS[chain?.id ?? bscTestnet.id],
+    address: NEST_SWITCH_ADDRESS[chain?.id ?? mainnet.id],
     abi: NEST_SWITCH_ABI,
     functionName: 'withdrawNew',
     args: [
