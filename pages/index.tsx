@@ -6,7 +6,8 @@ import {
   Button,
   chakra,
   Box,
-  Link, useMediaQuery,
+  Link,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
@@ -144,6 +145,22 @@ export default function Home() {
     <Stack bgSize={'cover'} bgImage={"image/Home/Home_bg.jpg"} bgPosition={"center"}>
       {SEO}
       <Navigation/>
+      <Stack align={"center"} w={'full'} px={'40px'}>
+        <Stack maxW={'1600px'} w={'full'} bg={'rgba(255, 255, 255, 0.8)'} h={'80px'} justify={"center"} px={'40px'}
+               borderRadius={'12px'}>
+          <HStack w={"full"} justifyContent={'space-between'}>
+            <Text>
+              Replace the NEST token contract on the Ethereum network with NEST2.0{' '}
+              <Link href={'nest-replacement'} color={'#EAAA00'}>nestprotocol.org/nest-replacement</Link>
+            </Text>
+            <Link as={Link} href={'nest-replacement'}>
+              <Button>
+                NEST Replacement
+              </Button>
+            </Link>
+          </HStack>
+        </Stack>
+      </Stack>
       <Stack w={'100%'} h={'100%'} spacing={0} pb={'120px'} align={"center"}>
         <Stack pt={'260px'} pb={'200px'} w={'full'} maxW={'1600px'}>
           <Stack spacing={'16px'}>
@@ -188,7 +205,9 @@ export default function Home() {
           <Stack direction={'row'} spacing={['20px', '20px', '20px', '80px']} maxW={'1600px'}>
             <Stack w={'100%'} justify={"center"} px={['20px', '20px', '20px', '40px']}>
               <Text fontSize={'32px'} lineHeight={'44px'} fontWeight={'700'}>Get Started</Text>
-              <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply traders with unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
+              <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.6)'}>NEST
+                Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply traders with
+                unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
             </Stack>
             <Stack align={'center'} pr={'40px'} w={'100%'}>
               <Stack w={['400px', '400px', '400px', '100%']} h={'full'} borderRadius={'12px'} overflow={'hidden'}>
@@ -231,7 +250,7 @@ export default function Home() {
                           <HStack pt={'8px'}>
                             <Link href={item.link} isExternal>
                               <Button minH={'48px'}
-                                fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
+                                      fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
                               >{item.button}</Button>
                             </Link>
                           </HStack>
@@ -246,7 +265,7 @@ export default function Home() {
                           <HStack pt={'8px'}>
                             <Link href={item.link} isExternal>
                               <Button minH={'48px'}
-                                fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
+                                      fontSize={'16px'} fontWeight={'700'} lineHeight={'22px'}
                               >{item.button}</Button>
                             </Link>
                           </HStack>
@@ -459,6 +478,21 @@ export default function Home() {
     <Stack h={'100%'} spacing={0} bgImage={'/image/Home/01-Phone-bg.jpg'} bgPosition={"center"} bgSize={'cover'}>
       {SEO}
       <NavigationMobile/>
+      <Stack align={"center"} w={'full'} pt={'10px'}>
+        <Stack maxW={'full'} w={'full'} bg={'rgba(255, 255, 255, 0.8)'} justify={"center"} p={'20px'}>
+          <HStack w={"full"} justifyContent={'space-between'}>
+            <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'}>
+              Replace the NEST token contract on the Ethereum network with NEST2.0{' '}
+              <Link href={'nest-replacement'} color={'#EAAA00'}>nestprotocol.org/nest-replacement</Link>
+            </Text>
+            <Link href={'nest-replacement'} isExternal>
+              <Button minH={'24px'} fontSize={'10px'} px={'12px'} lineHeight={'14px'} fontWeight={'700'}>
+                NEST Replacement
+              </Button>
+            </Link>
+          </HStack>
+        </Stack>
+      </Stack>
       <Stack textAlign={"center"} p={'72px 20px 20px 20px'} spacing={'16px'}>
         <Text fontSize={'25px'} fontWeight={'bold'}>NEST PROTOCOL<br/>A Decentralized Martingale Network</Text>
         <Text fontSize={'12.5px'} fontWeight={'400'}>Trading with smart contract. No market makers. No LPs.</Text>
@@ -491,7 +525,9 @@ export default function Home() {
              borderRadius={'40px'}>
         <Text fontSize={'24px'} fontWeight={'700'} lineHeight={'32px'} textAlign={"center"}>Get Started</Text>
         <Text fontSize={'14px'} fontWeight={'400'} lineHeight={'20px'} px={'20px'} textAlign={'center'}
-              color={'rgba(3, 3, 8, 0.6)'}>NEST Protocol&apos;s martingale trading paradigm combines blockchain characteristics to supply traders with unlimited liquidity through risk sharing. The actual implementation is listed below.</Text>
+              color={'rgba(3, 3, 8, 0.6)'}>NEST Protocol&apos;s martingale trading paradigm combines blockchain
+          characteristics to supply traders with unlimited liquidity through risk sharing. The actual implementation is
+          listed below.</Text>
         <Stack w={'full'} px={'20px'}>
           <Stack borderRadius={'12px'} overflow={'hidden'}>
             <Plyr source={{
@@ -543,7 +579,7 @@ export default function Home() {
                 <HStack key={index} position={'relative'} spacing={0}>
                   <Box w={'1px'} h={'100%'} bg={'rgba(28, 28, 35, 0.08)'} position={'absolute'} left={'15px'}
                        opacity={index === developmentPath.length - 1 ? 0 : 1}/>
-                  <HStack textAlign={"start"} spacing={'16px'} align={'start'} >
+                  <HStack textAlign={"start"} spacing={'16px'} align={'start'}>
                     <chakra.img src={'/image/Home/01-icon-03.png'} h={'20px'} w={'30px'} alt={''}/>
                     <Stack pb={'32px'}>
                       <Text fontSize={'16px'} lineHeight={'22px'} fontWeight={'bold'}>{item.title}</Text>
@@ -692,11 +728,7 @@ export default function Home() {
     </Stack>
   )
 
-  if (isMobile) {
-    return mobilePage
-  } else {
-    return (
-      pcPage
-    )
-  }
+  return (
+    isMobile ? mobilePage : pcPage
+  )
 }
