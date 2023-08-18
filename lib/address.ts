@@ -7,6 +7,7 @@ export const NEST_ADDRESS: { [p: number]: Address } = {
 }
 
 export const NEST_SWITCH_ADDRESS: { [p: number]: Address } = {
+  [mainnet.id]: "0xa5014706ed91a30f9bcc0dd777ed82d7eeca8a29",
   [bscTestnet.id]: "0xB64825a6bA80d65886b5123f5170ddffc935D9DE",
 }
 
