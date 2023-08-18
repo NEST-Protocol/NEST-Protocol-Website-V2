@@ -354,7 +354,8 @@ const Switch = () => {
                     lineHeight={'22px'}>A single address can only submit a request for a replacement token once.</Text>
             </HStack>
             <HStack spacing={'4px'} justify={'center'}>
-              <Link href={'https://www.nestprotocol.org/blogs/Guide-of-NEST-2.0-token-replacement-on-Ethereum'} isExternal color={'#EAAA00'}>Guide</Link>
+              <Link href={'https://www.nestprotocol.org/blogs/Guide-of-NEST-2.0-token-replacement-on-Ethereum'}
+                    isExternal color={'#EAAA00'}>Guide</Link>
               <Stack w={'17px'} h={'16px'}>
                 <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd"
@@ -394,7 +395,9 @@ const Switch = () => {
                           </Stack>
                         </HStack>
                         <HStack ml={'56px'}>
-                          <Button minH={'36px'} px={'12px'}>
+                          <Button minH={'36px'} px={'12px'} onClick={() => {
+                            window.location.href = 'https://t.me/nest_chat'
+                          }}>
                             <HStack>
                               <Stack h={'14px'} w={'14px'}>
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -480,7 +483,10 @@ const Switch = () => {
                             </HStack>
                             <HStack>
                               <Button px={'12px'} ml={'56px'} minH={'36px'} fontSize={'12px'} fontWeight={'700'}
-                                      lineHeight={'16px'}>
+                                      lineHeight={'16px'}
+                                      onClick={() => {
+                                        window.location.href = 'https://t.me/nest_chat'
+                                      }}>
                                 <HStack spacing={'8px'}>
                                   <Stack w={'14px'} h={'14px'}>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -582,7 +588,8 @@ const Switch = () => {
                          duration: 3000,
                          position: 'top',
                          render: () => (
-                           <Stack color='#171A1F' w={'120px'} px={'12px'} py={'8px'} bg='white' fontSize={'14px'} lineHeight={'20px'}
+                           <Stack color='#171A1F' w={'120px'} px={'12px'} py={'8px'} bg='white' fontSize={'14px'}
+                                  lineHeight={'20px'}
                                   fontWeight={'700'} borderRadius={'6px'}>
                              <Text>Copy success!</Text>
                            </Stack>
@@ -653,7 +660,8 @@ const Switch = () => {
                   duration: 3000,
                   position: 'top',
                   render: () => (
-                    <Stack color='#171A1F'  w={'120px'}  px={'12px'} py={'8px'} bg='white' fontSize={'14px'} lineHeight={'20px'}
+                    <Stack color='#171A1F' w={'120px'} px={'12px'} py={'8px'} bg='white' fontSize={'14px'}
+                           lineHeight={'20px'}
                            fontWeight={'700'} borderRadius={'6px'}>
                       <Text>Copy success!</Text>
                     </Stack>
@@ -706,7 +714,8 @@ const Switch = () => {
                     spacing={'4px'}>
               <Text color={'rgba(3,3,8, 0.6)'}>A single address can only submit a request for a replacement token
                 once.</Text>
-              <Link href={'https://www.nestprotocol.org/blogs/Guide-of-NEST-2.0-token-replacement-on-Ethereum'} isExternal color={'#EAAA00'} ml={'4px'}>
+              <Link href={'https://www.nestprotocol.org/blogs/Guide-of-NEST-2.0-token-replacement-on-Ethereum'}
+                    isExternal color={'#EAAA00'} ml={'4px'}>
                 Guide
               </Link>
               <Stack w={'16px'} h={'16px'}>
@@ -757,7 +766,8 @@ const Switch = () => {
                           duration: 3000,
                           position: 'top',
                           render: () => (
-                            <Stack color='#171A1F'  w={'120px'} px={'12px'} py={'8px'} bg='white' fontSize={'14px'} lineHeight={'20px'}
+                            <Stack color='#171A1F' w={'120px'} px={'12px'} py={'8px'} bg='white' fontSize={'14px'}
+                                   lineHeight={'20px'}
                                    fontWeight={'700'} borderRadius={'6px'}>
                               <Text>Copy success!</Text>
                             </Stack>
@@ -817,7 +827,8 @@ const Switch = () => {
                           duration: 3000,
                           position: 'top',
                           render: () => (
-                            <Stack color='#171A1F'  w={'120px'} px={'12px'} py={'8px'} bg='white' fontSize={'14px'} lineHeight={'20px'}
+                            <Stack color='#171A1F' w={'120px'} px={'12px'} py={'8px'} bg='white' fontSize={'14px'}
+                                   lineHeight={'20px'}
                                    fontWeight={'700'} borderRadius={'6px'}>
                               <Text>Copy success!</Text>
                             </Stack>
@@ -861,9 +872,12 @@ const Switch = () => {
                                   us for more information</Text>
                               </Stack>
                               <Spacer/>
-                              {/*TODO*/}
                               <HStack h={'48px'} spacing={'12px'} px={'24px'} borderRadius={'12px'} bgColor={'#EAAA00'}
-                                      cursor={'pointer'}>
+                                      cursor={'pointer'}
+                                      onClick={() => {
+                                        window.location.href = 'https://t.me/nest_chat'
+                                      }}
+                              >
                                 <Stack h={'20px'} w={'20px'}>
                                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                        xmlns="http://www.w3.org/2000/svg">
@@ -947,7 +961,9 @@ const Switch = () => {
                                         your token can be replaced upon approval.</Text>
                                     </Stack>
                                     <Spacer/>
-                                    <Button px={'24px'}>
+                                    <Button px={'24px'} onClick={() => {
+                                      window.location.href = 'https://t.me/nest_chat'
+                                    }}>
                                       <HStack spacing={'12px'}>
                                         <Stack w={'20px'} h={'20px'}>
                                           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
