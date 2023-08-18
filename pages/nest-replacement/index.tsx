@@ -5,7 +5,7 @@ import {
   ModalOverlay,
   Spacer,
   Stack,
-  Text,
+  Text, Link,
   useDisclosure,
   useMediaQuery
 } from "@chakra-ui/react";
@@ -355,7 +355,7 @@ const Switch = () => {
                     lineHeight={'22px'}>A single address can only submit a request for a replacement token once.</Text>
             </HStack>
             <HStack spacing={'4px'} justify={'center'}>
-              <Text color={'#EAAA00'}>Guild</Text>
+              <Link href={'https://www.nestprotocol.org/blogs/Guide-of-NEST-2.0-token-replacement-on-Ethereum'} isExternal color={'#EAAA00'}>Guide</Link>
               <Stack w={'17px'} h={'16px'}>
                 <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd"
@@ -707,10 +707,9 @@ const Switch = () => {
                     spacing={'4px'}>
               <Text color={'rgba(3,3,8, 0.6)'}>A single address can only submit a request for a replacement token
                 once.</Text>
-              <Text color={'#EAAA00'} ml={'4px'}>
+              <Link href={'https://www.nestprotocol.org/blogs/Guide-of-NEST-2.0-token-replacement-on-Ethereum'} isExternal color={'#EAAA00'} ml={'4px'}>
                 Guide
-              </Text>
-              {/*TODO*/}
+              </Link>
               <Stack w={'16px'} h={'16px'}>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd"
