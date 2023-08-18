@@ -1029,36 +1029,6 @@ const Switch = () => {
       {
         isMobile ? mobilePage : pcPage
       }
-      {/*TODO*/}
-      <HStack position={'fixed'} bottom={0} left={0} bgColor={'white'} w={'full'}>
-        <Button onClick={() => setBlock(!block)}>
-          {block ? '' : 'un'}block
-        </Button>
-        <Button onClick={() => {
-          setBlock(false)
-          setSent(!sent)
-          setPass(false)
-          setReceived(false)
-        }}>
-          {sent ? '' : 'un'}sent
-        </Button>
-        <Button onClick={() => {
-          setBlock(false)
-          setSent(true)
-          setPass(!pass)
-          setReceived(false)
-        }}>
-          {pass ? '' : 'un'}pass
-        </Button>
-        <Button onClick={() => {
-          setBlock(false)
-          setSent(true)
-          setPass(true)
-          setReceived(!received)
-        }}>
-          {received ? '' : 'un'}received
-        </Button>
-      </HStack>
       <Modal isOpen={isOpen} onClose={onClose} isCentered closeOnOverlayClick>
         <ModalOverlay/>
         <ModalContent borderRadius={'12px'} w={'350px'}>
