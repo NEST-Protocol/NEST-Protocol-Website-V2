@@ -135,7 +135,7 @@ const Switch = () => {
     args: [
       proof
     ],
-    enabled: !!address && proof.length > 0 && checkData?.received !== 'true'
+    enabled: !!address && checkData?.received !== 'true'
   })
   const {
     data: withdrawNewData,
