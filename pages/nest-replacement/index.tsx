@@ -13,7 +13,7 @@ import Navigation from "../../components/Navigation";
 import Head from "next/head";
 import Footer from "../../components/Footer";
 import {
-  erc20ABI,
+  erc20ABI, mainnet,
   useAccount,
   useBalance,
   useConnect,
@@ -29,7 +29,7 @@ import {useEffect, useState} from "react";
 import NavigationMobile from "../../components/NavigationMobile";
 import FooterMobile from "../../components/FooterMobile";
 import {NEST_SWITCH_ABI} from "../../lib/abi";
-import {NEST_ADDRESS, NEST_SWITCH_ADDRESS} from "../../lib/address";
+import {NEST_ADDRESS, NEST_SWITCH_ADDRESS, NEW_NEST_ADDRESS} from "../../lib/address";
 import useSWR from "swr";
 import {MerkleTree} from "merkletreejs"
 import {keccak256} from "@ethersproject/keccak256"
@@ -556,7 +556,7 @@ const Switch = () => {
               </svg>
             </Stack>
             <HStack px={'12px'} py={'8px'} spacing={'4px'} borderRadius={'8px'}
-                    onClick={() => addTokenToMetamask('0x04abeda201850ac0124161f037efd70c74ddc74c', 'old')}
+                    onClick={() => addTokenToMetamask(NEST_ADDRESS[chain?.id || mainnet.id], 'old')}
                     border={'1px solid rgba(28, 28, 35, 0.08)'}>
               <Stack w={'13px'} h={'12px'}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
@@ -574,11 +574,11 @@ const Switch = () => {
             <HStack align={'end'}>
               <Text color={'#03030899'} textAlign={'center'} fontSize={'12px'} fontWeight={'400'} lineHeight={'16px'}>
                 NEST1.0 (ETH)<br/>
-                0x04abeda201850ac0124161f037efd70c74ddc74c
+                ${NEST_ADDRESS[chain?.id || mainnet.id]}
               </Text>
               <Stack w={'12px'} h={'12px'} mb={'2px'}
                      onClick={() => {
-                       navigator.clipboard.writeText('0x04abeda201850ac0124161f037efd70c74ddc74c')
+                       navigator.clipboard.writeText(NEST_ADDRESS[chain?.id || mainnet.id])
                        toast({
                          duration: 3000,
                          position: 'top',
@@ -628,7 +628,7 @@ const Switch = () => {
               </svg>
             </Stack>
             <HStack px={'12px'} py={'8px'} spacing={'4px'} borderRadius={'8px'}
-                    onClick={() => addTokenToMetamask('0xcd6926193308d3B371FdD6A6219067E550000000', 'n')}
+                    onClick={() => addTokenToMetamask(NEW_NEST_ADDRESS[chain?.id || mainnet.id], 'n')}
                     border={'1px solid rgba(28, 28, 35, 0.08)'}>
               <Stack w={'13px'} h={'12px'}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
@@ -646,10 +646,10 @@ const Switch = () => {
             <HStack align={'end'}>
               <Text color={'#030308'} textAlign={'center'} fontSize={'12px'} fontWeight={'700'} lineHeight={'16px'}>
                 NEST2.0 (ETH)<br/>
-                0xcd6926193308d3B371FdD6A6219067E550000000
+                ${NEW_NEST_ADDRESS[chain?.id || mainnet.id]}
               </Text>
               <Stack w={'12px'} h={'12px'} mb={'2px'} onClick={() => {
-                navigator.clipboard.writeText('0xcd6926193308d3B371FdD6A6219067E550000000')
+                navigator.clipboard.writeText(NEW_NEST_ADDRESS[chain?.id || mainnet.id])
                 toast({
                   duration: 3000,
                   position: 'top',
@@ -737,7 +737,7 @@ const Switch = () => {
                       </svg>
                     </Stack>
                     <HStack py={'8px'} px={'12px'} borderRadius={'8px'} border={'1px solid rgba(28, 28, 35, 0.08)'}
-                            onClick={() => addTokenToMetamask('0x04abeda201850ac0124161f037efd70c74ddc74c', 'old')}
+                            onClick={() => addTokenToMetamask(NEST_ADDRESS[chain?.id || mainnet.id], 'old')}
                             cursor={'pointer'}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd"
@@ -752,9 +752,9 @@ const Switch = () => {
                     </HStack>
                     <HStack>
                       <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'400'} color={'rgba(3, 3, 8, 0.60)'}>NEST1.0
-                        (ETH): 0x04abeda201850ac0124161f037efd70c74ddc74c</Text>
+                        (ETH): ${NEST_ADDRESS[chain?.id || mainnet.id]}</Text>
                       <Stack w={'15px'} h={'14px'} cursor={'pointer'} onClick={() => {
-                        navigator.clipboard.writeText('0x04abeda201850ac0124161f037efd70c74ddc74c')
+                        navigator.clipboard.writeText(NEST_ADDRESS[chain?.id || mainnet.id])
                         toast({
                           duration: 3000,
                           position: 'top',
@@ -797,7 +797,7 @@ const Switch = () => {
                       </svg>
                     </Stack>
                     <HStack py={'8px'} px={'12px'} borderRadius={'8px'} border={'1px solid rgba(28, 28, 35, 0.08)'}
-                            onClick={() => addTokenToMetamask('0xcd6926193308d3B371FdD6A6219067E550000000', 'n')}
+                            onClick={() => addTokenToMetamask(NEW_NEST_ADDRESS[chain?.id || mainnet.id], 'n')}
                             cursor={'pointer'}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd"
@@ -812,9 +812,9 @@ const Switch = () => {
                     </HStack>
                     <HStack>
                       <Text fontSize={'14px'} lineHeight={'20px'} fontWeight={'700'} color={'#030308'}>NEST2.0 (ETH):
-                        0xcd6926193308d3B371FdD6A6219067E550000000</Text>
+                        ${NEW_NEST_ADDRESS[chain?.id || mainnet.id]}</Text>
                       <Stack w={'15px'} h={'14px'} cursor={'pointer'} onClick={() => {
-                        navigator.clipboard.writeText('0xcd6926193308d3B371FdD6A6219067E550000000')
+                        navigator.clipboard.writeText(NEW_NEST_ADDRESS[chain?.id || mainnet.id])
                         toast({
                           duration: 3000,
                           position: 'top',
