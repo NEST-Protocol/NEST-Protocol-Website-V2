@@ -280,18 +280,20 @@ const Switch = () => {
   }, [withdrawNewStatus, waitWithdrawNewStatus])
 
   useEffect(() => {
-    if (checkData) {
+    if (address && checkData) {
       setSent(JSON.parse(checkData.sent))
-      setPass(JSON.parse(checkData.pass))
       setReceived(JSON.parse(checkData.received))
       setBlock(JSON.parse(checkData.block))
       setReceivedAmount(JSON.parse(checkData.receivedAmount))
       setSentAmount(JSON.parse(checkData.sentAmount))
-      if (checkData.proof) {
-        setProof(checkData.proof)
+      if (!JSON.parse(checkData.received)) {
+        const can = nodesData.map((i: string) => i.toLowerCase()).includes(address.toLowerCase())
+        setPass(JSON.parse(checkData.pass) && can)
+      } else {
+        setPass(JSON.parse(checkData.pass))
       }
     }
-  }, [checkData])
+  }, [checkData, nodesData, address])
 
   const addTokenToMetamask = async (address: string, filename: string) => {
     // add token to metamask
