@@ -204,7 +204,6 @@ const Switch = () => {
   useEffect(() => {
     if (switchOldStatus == 'error' || switchOldStatus === 'success') {
       setTimeout(() => {
-        mutateData()
         switchOldReset()
       }, 3_000)
     }
@@ -252,7 +251,6 @@ const Switch = () => {
   useEffect(() => {
     if (switchOldStatus === 'error' || waitApproveStatus === 'success') {
       setTimeout(() => {
-        mutateData()
         refetchSwitchOldPrepare()
       }, 1_000)
     }
@@ -275,7 +273,6 @@ const Switch = () => {
   useEffect(() => {
     if (switchOldStatus === 'success' || waitSwitchOldStatus === 'success') {
       setSent(true)
-      mutateData()
     }
   }, [switchOldStatus, waitSwitchOldStatus])
 
@@ -283,7 +280,6 @@ const Switch = () => {
     if (withdrawNewStatus === 'success' || waitWithdrawNewStatus === 'success') {
       setReceived(true)
       setReceivedAmount(sentAmount)
-      mutateData()
     }
   }, [withdrawNewStatus, waitWithdrawNewStatus])
 
