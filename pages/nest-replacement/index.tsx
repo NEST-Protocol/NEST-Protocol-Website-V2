@@ -163,7 +163,6 @@ const Switch = () => {
   const [sent, setSent] = useState(false);
   const [pass, setPass] = useState(false);
   const [received, setReceived] = useState(false);
-  const [receivedAmount, setReceivedAmount] = useState(0);
   const [sentAmount, setSentAmount] = useState<number>(0);
   const {isOpen, onOpen, onClose} = useDisclosure()
 
@@ -187,7 +186,6 @@ const Switch = () => {
     setPass(false)
     setBlock(false)
     setReceived(false)
-    setReceivedAmount(0)
     setSentAmount(0)
     refetchBalance()
     allowanceRefetch()
@@ -278,7 +276,6 @@ const Switch = () => {
   useEffect(() => {
     if (withdrawNewStatus === 'success' || waitWithdrawNewStatus === 'success') {
       setReceived(true)
-      setReceivedAmount(sentAmount)
     }
   }, [withdrawNewStatus, waitWithdrawNewStatus])
 
@@ -287,7 +284,6 @@ const Switch = () => {
       setSent(JSON.parse(checkData.sent))
       setReceived(JSON.parse(checkData.received))
       setBlock(JSON.parse(checkData.block))
-      setReceivedAmount(JSON.parse(checkData.receivedAmount))
       setSentAmount(JSON.parse(checkData.sentAmount))
       if (!JSON.parse(checkData.received)) {
         const can = nodesData.map((i: string) => i.toLowerCase()).includes(address.toLowerCase())
@@ -425,7 +421,7 @@ const Switch = () => {
                               </Stack>
                               <Stack spacing={'8px'}>
                                 <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Successfully
-                                  claimed<br/>{receivedAmount.toLocaleString()} NEST2.0</Text>
+                                  claimed<br/>{sentAmount.toLocaleString()} NEST2.0</Text>
                               </Stack>
                             </HStack>
                           ) : (
@@ -905,7 +901,7 @@ const Switch = () => {
                                       </Stack>
                                       <Stack spacing={'8px'}>
                                         <Text fontSize={'20px'} lineHeight={'28px'} fontWeight={700}>Successfully
-                                          claimed {receivedAmount.toLocaleString()} NEST2.0</Text>
+                                          claimed {sentAmount.toLocaleString()} NEST2.0</Text>
                                       </Stack>
                                     </HStack>
                                   ) : (
