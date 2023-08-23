@@ -169,6 +169,7 @@ const Switch = () => {
 
   const {
     data: nodesData,
+    mutate: mutateData
   } = useSWR(chain?.id ? `https://api.nestfi.net/api/users/pass/list?chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()), {
     refreshInterval: 10_000,
   })
@@ -176,6 +177,7 @@ const Switch = () => {
   useEffect(() => {
     if (pass && proof.length > 0 && checkData?.received !== 'true' && withdrawNewStatusPrepare === 'error') {
       setTimeout(() => {
+        mutateData()
         refetchWithdrawNewPrepare()
       }, 3_000)
     }
@@ -202,6 +204,7 @@ const Switch = () => {
   useEffect(() => {
     if (switchOldStatus == 'error' || switchOldStatus === 'success') {
       setTimeout(() => {
+        mutateData()
         switchOldReset()
       }, 3_000)
     }
@@ -214,6 +217,7 @@ const Switch = () => {
   useEffect(() => {
     if (approveStatus === 'success') {
       allowanceRefetch();
+      mutateData()
     }
   }, [approveStatus])
 
@@ -248,6 +252,7 @@ const Switch = () => {
   useEffect(() => {
     if (switchOldStatus === 'error' || waitApproveStatus === 'success') {
       setTimeout(() => {
+        mutateData()
         refetchSwitchOldPrepare()
       }, 1_000)
     }
@@ -270,6 +275,7 @@ const Switch = () => {
   useEffect(() => {
     if (switchOldStatus === 'success' || waitSwitchOldStatus === 'success') {
       setSent(true)
+      mutateData()
     }
   }, [switchOldStatus, waitSwitchOldStatus])
 
@@ -277,6 +283,7 @@ const Switch = () => {
     if (withdrawNewStatus === 'success' || waitWithdrawNewStatus === 'success') {
       setReceived(true)
       setReceivedAmount(sentAmount)
+      mutateData()
     }
   }, [withdrawNewStatus, waitWithdrawNewStatus])
 
