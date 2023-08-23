@@ -276,6 +276,7 @@ const Switch = () => {
   useEffect(() => {
     if (withdrawNewStatus === 'success' || waitWithdrawNewStatus === 'success') {
       setReceived(true)
+      setReceivedAmount(sentAmount)
     }
   }, [withdrawNewStatus, waitWithdrawNewStatus])
 
