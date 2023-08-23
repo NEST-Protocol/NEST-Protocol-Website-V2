@@ -177,7 +177,6 @@ const Switch = () => {
   useEffect(() => {
     if (pass && proof.length > 0 && checkData?.received !== 'true' && withdrawNewStatusPrepare === 'error') {
       setTimeout(() => {
-        mutateData()
         refetchWithdrawNewPrepare()
       }, 3_000)
     }
@@ -193,6 +192,7 @@ const Switch = () => {
     refetchBalance()
     allowanceRefetch()
     mutateInfo()
+    mutateData()
   }, [address, chain?.id])
 
   useEffect(() => {
@@ -216,7 +216,6 @@ const Switch = () => {
   useEffect(() => {
     if (approveStatus === 'success') {
       allowanceRefetch();
-      mutateData()
     }
   }, [approveStatus])
 
