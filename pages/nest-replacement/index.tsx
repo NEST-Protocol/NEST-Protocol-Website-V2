@@ -508,9 +508,7 @@ const Switch = () => {
                           </Stack>
                           <Stack spacing={'8px'} minW={'150px'} textAlign={"start"}>
                             <Text fontSize={'20px'} fontWeight={700}
-                                  lineHeight={'28px'}>{Number(balanceOfNEST?.formatted).toLocaleString('en-US', {
-                              maximumFractionDigits: 2,
-                            })} NEST</Text>
+                                  lineHeight={'28px'}>{balanceOfNEST?.formatted} NEST</Text>
                             <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'}
                                   color={'rgba(3,3,8,0.6)'}>NEST1.0 Balance</Text>
                           </Stack>
@@ -984,9 +982,7 @@ const Switch = () => {
                                   </Stack>
                                   <Stack spacing={'8px'} minW={'150px'} textAlign={"start"}>
                                     <Text fontSize={'20px'} fontWeight={700}
-                                          lineHeight={'28px'}>{Number(balanceOfNEST?.formatted).toLocaleString('en-US', {
-                                      maximumFractionDigits: 2,
-                                    })} NEST</Text>
+                                          lineHeight={'28px'}>{balanceOfNEST?.formatted} NEST</Text>
                                     <Text fontSize={'16px'} fontWeight={400} lineHeight={'22px'}
                                           color={'rgba(3,3,8,0.6)'}>NEST1.0 Balance</Text>
                                   </Stack>
