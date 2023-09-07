@@ -184,7 +184,7 @@ const Switch = () => {
   useEffect(() => {
     setSent(false)
     setPass(false)
-    setBlock(false)
+    // setBlock(false)
     setReceived(false)
     setSentAmount(0)
     refetchBalance()
@@ -283,7 +283,7 @@ const Switch = () => {
     if (address && checkData) {
       setSent(JSON.parse(checkData.sent))
       setReceived(JSON.parse(checkData.received))
-      setBlock(JSON.parse(checkData.block))
+      // setBlock(JSON.parse(checkData.block))
       setSentAmount(JSON.parse(checkData.sentAmount))
       if (!JSON.parse(checkData.received)) {
         const can = nodesData.map((i: string) => i.toLowerCase()).includes(address.toLowerCase())
