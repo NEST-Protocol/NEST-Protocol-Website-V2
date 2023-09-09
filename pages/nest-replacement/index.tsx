@@ -470,7 +470,7 @@ const Switch = () => {
                                   replacement!</Text>
                                 <Text fontSize={'16px'} fontWeight={400} maxW={'500px'} textAlign={"start"}
                                       color={'rgba(3, 3, 8, 0.60)'}
-                                      lineHeight={'22px'}>Application will be reviewed within 1 business day and your
+                                      lineHeight={'22px'}>Application will be reviewed within 7 business days and your
                                   token can be replaced upon approval.</Text>
                               </Stack>
                             </HStack>
@@ -948,7 +948,7 @@ const Switch = () => {
                                         for replacement!</Text>
                                       <Text fontSize={'16px'} fontWeight={400} maxW={'500px'} textAlign={"start"}
                                             color={'rgba(3, 3, 8, 0.60)'}
-                                            lineHeight={'22px'}>Application will be reviewed within 1 business day and
+                                            lineHeight={'22px'}>Application will be reviewed within 7 business days and
                                         your token can be replaced upon approval.</Text>
                                     </Stack>
                                     <Spacer/>
