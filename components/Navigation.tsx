@@ -39,7 +39,7 @@ export default function Navigation() {
              justifyContent={"space-between"} w={'full'}
              align={"center"}>
         <Stack direction={'row'} spacing={['20px', '20px', '20px', '50px']}>
-          <Link href={'/'}>
+          <Link href={'/'} prefetch>
             <chakra.img
               cursor={"pointer"}
               src={"/logo.svg"}
@@ -67,12 +67,12 @@ export default function Navigation() {
                   fill="currentColor" fillOpacity="0.8"/>
               </svg>
             </HStack>
-            <Link href={'/craft/'}>
+            <Link href={'/craft/'} prefetch>
               <chakra.a _hover={{color: '#EAAA00'}} cursor={"pointer"}
                         color={router.pathname === '/craft' ? '#EAAA00' : '#030308'}>NEST Craft
               </chakra.a>
             </Link>
-            <Link href={'/oracle/'}>
+            <Link href={'/oracle/'} prefetch>
               <chakra.a _hover={{color: '#EAAA00'}} cursor={"pointer"}
                         color={router.pathname === '/oracle' ? '#EAAA00' : '#030308'}>NEST Oracle
               </chakra.a>
@@ -90,7 +90,7 @@ export default function Navigation() {
                   fill="currentColor" fillOpacity="0.8"/>
               </svg>
             </HStack>
-            <Link href={'/docs/'}>
+            <Link href={'/docs/'} prefetch>
               <chakra.a _hover={{color: '#EAAA00'}} color={router.pathname.startsWith('/docs') ? '#EAAA00' : '#030308'}
                         cursor={"pointer"}>Doc
               </chakra.a>
@@ -104,12 +104,12 @@ export default function Navigation() {
               <PopoverContent px={'44px'} bg={"white"} py={'26px'} w={'240px'} borderRadius={'20px'} border={""}
                               opacity={0.8}>
                 <PopoverArrow/>
-                <Link href={'/blogs/'}>
+                <Link href={'/blogs/'} prefetch>
                   <chakra.a _hover={{color: '#EAAA00'}} cursor={"pointer"}
                             color={router.pathname === '/blogs' ? '#EAAA00' : '#030308'}>News
                   </chakra.a>
                 </Link>
-                <Link href={'/about/roundtable/'}>
+                <Link href={'/about/roundtable/'} prefetch>
                   <chakra.a _hover={{color: '#EAAA00'}} cursor={"pointer"}
                             color={router.pathname === '/about/roundtable' ? '#EAAA00' : '#030308'}>NEST Roundtable
                   </chakra.a>
@@ -125,12 +125,12 @@ export default function Navigation() {
               <PopoverContent px={'44px'} bg={"white"} py={'26px'} w={'240px'} borderRadius={'20px'} border={""}
                               opacity={0.8}>
                 <PopoverArrow/>
-                <Link href={'/about/team/'}>
+                <Link href={'/about/team/'} prefetch>
                   <chakra.a _hover={{color: '#EAAA00'}} cursor={"pointer"}
                             color={router.pathname === '/about/team' ? '#EAAA00' : '#030308'}>Team
                   </chakra.a>
                 </Link>
-                <Link href={'/about/partnership/'}>
+                <Link href={'/about/partnership/'} prefetch>
                   <chakra.a _hover={{color: '#EAAA00'}} cursor={"pointer"}
                             color={router.pathname === '/about/partnership' ? '#EAAA00' : '#030308'}>Partnership
                   </chakra.a>
