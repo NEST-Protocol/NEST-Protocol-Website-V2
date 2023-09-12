@@ -837,7 +837,7 @@ const Switch = () => {
                 </HStack>
                 <Stack w={'full'} bgColor={'white'} mt={'20px'} p={'20px'}>
                   <Text fontSize={'16px'} fontWeight={700} lineHeight={'22px'} color={'rgba(3, 3, 8, 0.60)'}>
-                    The following behaviors will be banned：
+                    The following behaviors will be banned:
                   </Text>
                   <Text fontSize={'14px'} fontWeight={400} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.60)'}>
                     1. Purchased NEST 1.0 (ERC20) on DEXs such as Uniswap, 1inch etc. after August 17th(UTC+8).<br/>
