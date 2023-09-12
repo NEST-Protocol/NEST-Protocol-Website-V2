@@ -674,6 +674,15 @@ const Switch = () => {
               </Stack>
             </HStack>
           </Stack>
+          <Stack w={'full'} bgColor={'white'} mt={'20px'} p={'20px'} borderRadius={'12px'} alignItems={"center"} textAlign={"center"}>
+            <Text fontSize={'14px'} fontWeight={700} lineHeight={'20px'} color={'rgba(3, 3, 8)'}>
+              The following behaviors will be banned：
+            </Text>
+            <Text fontSize={'12px'} fontWeight={400} lineHeight={'16px'} color={'rgba(3, 3, 8, 0.60)'}>
+              1. Purchased NEST 1.0 (ERC20) on DEXs such as Uniswap, 1inch etc. after August 17th(UTC+8).<br/>
+              2. Your address is associated with the hacker&apos;s or using the exchanges related to the hacker&apos;s address after August 17th(UTC+8).
+            </Text>
+          </Stack>
           {
             !address && (
               <HStack pt={'24px'} justify={"center"}>
@@ -835,8 +844,8 @@ const Switch = () => {
                     </HStack>
                   </Stack>
                 </HStack>
-                <Stack w={'full'} bgColor={'white'} mt={'20px'} p={'20px'}>
-                  <Text fontSize={'16px'} fontWeight={700} lineHeight={'22px'} color={'rgba(3, 3, 8, 0.60)'}>
+                <Stack w={'full'} bgColor={'white'} mt={'20px'} p={'20px'} borderRadius={'12px'}>
+                  <Text fontSize={'16px'} fontWeight={700} lineHeight={'22px'} color={'rgba(3, 3, 8)'}>
                     The following behaviors will be banned:
                   </Text>
                   <Text fontSize={'14px'} fontWeight={400} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.60)'}>
