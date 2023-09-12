@@ -342,7 +342,7 @@ const Switch = () => {
           <Stack textAlign={"center"} pt={'24px'} spacing={'16px'}>
             <Text fontSize={'24px'} fontWeight={700} lineHeight={'32px'}>Replace your NEST 1.0 to NEST 2.0 at a ratio of
               1:1</Text>
-            <HStack>
+            <HStack justifyContent={"center"}>
               <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
                     lineHeight={'22px'}>A single address can only submit a request for a replacement token once.</Text>
             </HStack>
@@ -835,6 +835,15 @@ const Switch = () => {
                     </HStack>
                   </Stack>
                 </HStack>
+                <Stack w={'full'} bgColor={'white'} mt={'20px'} p={'20px'}>
+                  <Text fontSize={'16px'} fontWeight={700} lineHeight={'22px'} color={'rgba(3, 3, 8, 0.60)'}>
+                    The following behaviors will be banned：
+                  </Text>
+                  <Text fontSize={'14px'} fontWeight={400} lineHeight={'20px'} color={'rgba(3, 3, 8, 0.60)'}>
+                    1. Purchased NEST 1.0 (ERC20) on DEXs such as Uniswap, 1inch etc. after August 17th(UTC+8).<br/>
+                    2. Your address is associated with the hacker&apos;s or using the exchanges related to the hacker&apos;s address after August 17th(UTC+8).
+                  </Text>
+                </Stack>
                 <Stack mt={'40px'}>
                   {
                     isCheckLoading ? (
