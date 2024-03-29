@@ -169,7 +169,7 @@ const Switch = () => {
   const {
     data: nodesData,
     mutate: mutateData
-  } = useSWR(chain?.id ? `https://api.nestfi.net/api/users/pass/list?chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()), {
+  } = useSWR(chain?.id ? `https://me.nestfi.net/api/users/pass/list?chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()), {
     refreshInterval: 10_000,
   })
 
