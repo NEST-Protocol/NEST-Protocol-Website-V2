@@ -54,7 +54,7 @@ const Switch = () => {
     data: checkData,
     isLoading: isCheckLoading,
     mutate: mutateInfo,
-  } = useSWR(address ? `https://api.nestfi.net/api/users/switch/info?address=${address}&chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()).then(res => res.value), {
+  } = useSWR(address ? `https://me.nestfi.net/api/users/switch/info?address=${address}&chainId=${chain?.id}` : undefined, (url: string) => fetch(url).then(res => res.json()).then(res => res.value), {
     refreshInterval: 2_000,
   })
   // need refetchBalance when chain.id changed
