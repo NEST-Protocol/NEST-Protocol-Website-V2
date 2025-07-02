@@ -148,17 +148,17 @@ const Switch = () => {
     cacheTime: 3_000,
   })
 
-  useEffect(() => {
-    if (!address) {
-      try {
-        connect({
-          chainId: mainnet.id,
-        })
-      } catch (e) {
-        console.log(e)
-      }
-    }
-  }, [address])
+  // useEffect(() => {
+  //   if (!address) {
+  //     try {
+  //       connect({
+  //         chainId: mainnet.id,
+  //       })
+  //     } catch (e) {
+  //       console.log(e)
+  //     }
+  //   }
+  // }, [address])
   const [block, setBlock] = useState(false);
   const [sent, setSent] = useState(false);
   const [pass, setPass] = useState(false);
@@ -689,11 +689,11 @@ We will review your request and follow up with the next steps upon approval.</Te
           {
             !address && (
               <HStack pt={'24px'} justify={"center"}>
-                <Button onClick={() => connect({
+{/*                 <Button onClick={() => connect({
                   chainId: mainnet.id,
                 })}>
                   Connect Wallet
-                </Button>
+                </Button> */}
               </HStack>
             )
           }
@@ -1029,11 +1029,11 @@ We will review your request and follow up with the next steps upon approval.</Te
                                 </HStack>
                               )
                             ) : (
-                              <Button onClick={() => connect({
-                                chainId: mainnet.id,
-                              })}>
-                                Connect Wallet
-                              </Button>
+                              // <Button onClick={() => connect({
+                              //   chainId: mainnet.id,
+                              // })}>
+                              //   Connect Wallet
+                              // </Button>
                             )
                           )
                         }
