@@ -346,7 +346,7 @@ const Switch = () => {
               <Text fontSize={'16px'} fontWeight={400} color={'rgba(3,3,8, 0.6)'}
                     lineHeight={'22px'}>A single address can only submit a request for a replacement token once.</Text>
             </HStack>
-            <HStack spacing={'4px'} justify={'center'}>
+{/*             <HStack spacing={'4px'} justify={'center'}>
               <Link href={'https://www.nestprotocol.org/blogs/Guide-of-NEST-2.0-token-replacement-on-Ethereum'}
                     isExternal color={'#EAAA00'}>Guide</Link>
               <Stack w={'17px'} h={'16px'}>
@@ -356,7 +356,7 @@ const Switch = () => {
                         fill="#EAAA00"/>
                 </svg>
               </Stack>
-            </HStack>
+            </HStack> */}
           </Stack>
           {
             isCheckLoading ? (
