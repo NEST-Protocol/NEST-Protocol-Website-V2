@@ -713,13 +713,11 @@ We will review your request and follow up with the next steps upon approval.</Te
           <Stack textAlign={"center"} pt={'24px'} spacing={0}>
             <Text fontSize={'48px'} fontWeight={700} lineHeight={'60px'}>Replace your NEST 1.0 to NEST 2.0 at a ratio of
               1:1</Text>
-            <Stack fontSize={'16px'} fontWeight={400} justifyContent={"center"} mt={'24px'} lineHeight={'22px'}
+            <HStack fontSize={'16px'} fontWeight={400} justifyContent={"center"} mt={'24px'} lineHeight={'22px'}
                     spacing={'4px'}>
               <Text color={'rgba(3,3,8, 0.6)'}>A single address can only submit a request for a replacement token
                 once.</Text>
-              <Text color={'rgba(3,3,8, 0.6)'}>To request an exchange, please send an email to hello@nestprotocol.org.
-In your message, kindly include your wallet address and the amount you wish to exchange.
-We will review your request and follow up with the next steps upon approval.</Text>
+              
 {/*               <Link href={'https://www.nestprotocol.org/blogs/Guide-of-NEST-2.0-token-replacement-on-Ethereum'}
                     isExternal color={'#EAAA00'} ml={'4px'}>
                 Guide
@@ -732,6 +730,9 @@ We will review your request and follow up with the next steps upon approval.</Te
                 </svg>
               </Stack> */}
             </HStack>
+  <Text color={'rgba(3,3,8, 0.6)'}>To request an exchange, please send an email to hello@nestprotocol.org.
+In your message, kindly include your wallet address and the amount you wish to exchange.
+We will review your request and follow up with the next steps upon approval.</Text>
             <HStack align={"center"} justify={"center"} w={'1200px'}>
               <Stack w={'full'}>
                 <HStack w={'full'} spacing={'24px'} mt={'44px'} justifyContent={"center"}>
