@@ -713,17 +713,17 @@ const Switch = () => {
                     spacing={'4px'}>
               <Text color={'rgba(3,3,8, 0.6)'}>A single address can only submit a request for a replacement token
                 once.</Text>
-              <Link href={'https://www.nestprotocol.org/blogs/Guide-of-NEST-2.0-token-replacement-on-Ethereum'}
+{/*               <Link href={'https://www.nestprotocol.org/blogs/Guide-of-NEST-2.0-token-replacement-on-Ethereum'}
                     isExternal color={'#EAAA00'} ml={'4px'}>
                 Guide
-              </Link>
-              <Stack w={'16px'} h={'16px'}>
+              </Link> */}
+{/*               <Stack w={'16px'} h={'16px'}>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd"
                         d="M11.378 7.76435C11.5081 7.89452 11.5081 8.10557 11.378 8.23575L5.7211 13.8926C5.59093 14.0228 5.37987 14.0228 5.2497 13.8926L4.76443 13.4073C4.63425 13.2772 4.63425 13.0661 4.76443 12.9359L9.70031 8.00005L4.76443 3.06416C4.63425 2.93399 4.63425 2.72293 4.76443 2.59276L5.2497 2.10749C5.37987 1.97731 5.59093 1.97732 5.7211 2.10749L11.378 7.76435Z"
                         fill="#EAAA00"/>
                 </svg>
-              </Stack>
+              </Stack> */}
             </HStack>
             <HStack align={"center"} justify={"center"} w={'1200px'}>
               <Stack w={'full'}>
