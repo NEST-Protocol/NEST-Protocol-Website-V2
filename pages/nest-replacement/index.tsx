@@ -690,6 +690,7 @@ We will review your request and follow up with the next steps upon approval.</Te
           {
             !address && (
               <HStack pt={'24px'} justify={"center"}>
+                <></>
 {/*                 <Button onClick={() => connect({
                   chainId: mainnet.id,
                 })}>
@@ -1031,6 +1032,7 @@ We will review your request and follow up with the next steps upon approval.</Te
                                 </HStack>
                               )
                             ) : (
+                              <></>
                               // <Button onClick={() => connect({
                               //   chainId: mainnet.id,
                               // })}>
