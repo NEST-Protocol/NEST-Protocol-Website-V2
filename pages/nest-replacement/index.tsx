@@ -732,9 +732,12 @@ We will review your request and follow up with the next steps upon approval.</Te
                 </svg>
               </Stack> */}
             </HStack>
-  <Text color={'rgba(3,3,8, 0.6)'}>To request an exchange, please send an email to hello@nestprotocol.org.
-In your message, kindly include your wallet address and the amount you wish to exchange.
-We will review your request and follow up with the next steps upon approval.</Text>
+  <Text style={{ color: 'rgba(3,3,8, 0.6)' }}>
+  To request an exchange, please send an email to
+  <Text style={{ fontWeight: 'bold' }}> hello@nestprotocol.org</Text>.
+</Text>
+ <Text color={'rgba(3,3,8, 0.6)'}>In your message, kindly include your wallet address and the amount you wish to exchange.</Text>
+<Text color={'rgba(3,3,8, 0.6)'}>We will review your request and follow up with the next steps upon approval.</Text>
             <HStack align={"center"} justify={"center"} w={'1200px'}>
               <Stack w={'full'}>
                 <HStack w={'full'} spacing={'24px'} mt={'44px'} justifyContent={"center"}>
